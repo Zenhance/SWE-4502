@@ -1,3 +1,20 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using WeatherAPP.Factory;
+using WeatherAPP.Commands;
 
-Console.WriteLine("Hello, World!");
+class Program
+{
+    public static void Main(string[] args)
+    {
+        CommandFactory commandFactory = new CommandFactory();
+        ICommand command = commandFactory.GetCommand(args);
+
+        try
+        {
+            command.Execute();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
+}
