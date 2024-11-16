@@ -1,4 +1,6 @@
-﻿namespace WeatherAPP.ApiAdapters.WeatherAPIs;
+﻿using WeatherAPP.Model;
+
+namespace WeatherAPP.ApiAdapters.WeatherAPIs;
 
 public class WeatherStackAPIAdapter : IWeatherAdapter
 {
@@ -13,7 +15,7 @@ public class WeatherStackAPIAdapter : IWeatherAdapter
         _url = _url + city;
     }
     
-    public string GetWeather()
+    private string FetchWeather()
     {
         try
         {
@@ -27,5 +29,11 @@ public class WeatherStackAPIAdapter : IWeatherAdapter
             Console.WriteLine("Error Fetching Weather from Weather Stack" + exception.Message);
             throw;
         }
+    }
+    
+    public Wether GetWeather()
+    {
+        string response = FetchWeather();
+        
     }
 }
