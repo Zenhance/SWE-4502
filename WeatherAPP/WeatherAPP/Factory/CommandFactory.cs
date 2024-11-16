@@ -29,6 +29,14 @@ public class CommandFactory
                     {
                         return new GetCityCommand();
                     }
+                    else if (args[1] == "country")
+                    {
+                        return new GetCountryCommand();
+                    }
+                    else if (args[1] == "exact")
+                    {
+                        return new GetExactLocationCommand();
+                    }
                 }
             }
         }

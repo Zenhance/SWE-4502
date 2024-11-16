@@ -1,21 +1,27 @@
 ﻿using System.Text.Json;
 using WeatherAPP.Model;
 
-namespace WeatherAPP.Service;
-
-public class FetchLocationFromStringService
+namespace WeatherAPP.Service
 {
-    public Location Execute(string jsonContent)
+    public class FetchLocationFromStringService
     {
-        try
+        public Location Execute(string jsonContent)
         {
-            Location location = JsonSerializer.Deserialize<Location>(jsonContent);
-            return location;
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine(exception);
-            throw;
+            try
+            {
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+
+                Location location = JsonSerializer.Deserialize<Location>(jsonContent, options);
+                return location;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine($"Error deserializing location data: {exception.Message}");
+                return null;
+            }
         }
     }
 }

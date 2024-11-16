@@ -9,12 +9,10 @@ namespace WeatherAPP.Proxy;
 
 public class LocationProxy
 {
-    private string _locationFilePath;
     private Location _location;
     
     public LocationProxy(string ip)
     {
-        _locationFilePath = WEnvironment.GetLocationFilePath();
         new StructureCheckOrCreate().Execute();
         FetchLocation(ip);
     }
