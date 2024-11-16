@@ -1,4 +1,6 @@
-﻿namespace WeatherAPP.ApiAdepters;
+﻿using System.Net;
+
+namespace WeatherAPP.ApiAdepters;
 
 public class IPAPIAdepter
 {
@@ -6,6 +8,18 @@ public class IPAPIAdepter
     {
         string url = "https://api.ipify.org";
 
-        return "";
+        try
+        {
+            using (WebClient client = new WebClient())
+            {
+                string ip = client.DownloadString(url);
+                return ip;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error Fetching IP : " + ex.Message);
+            throw;
+        }
     }
 }
