@@ -32,6 +32,7 @@ public class LocationProxy
             LocationApiAdapter locationApiAdapter = new LocationApiAdapter();
             string locationString = locationApiAdapter.GetLocation(ip);
             _location = new FetchLocationFromStringService().Execute(locationString);
+            new SaveLocationToFileService().Execute(locationString);
         }
     }
     
