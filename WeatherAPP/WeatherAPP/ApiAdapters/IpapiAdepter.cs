@@ -1,18 +1,16 @@
-﻿using System.Net;
+﻿namespace WeatherAPP.ApiAdapters;
 
-namespace WeatherAPP.ApiAdepters;
-
-public class IPAPIAdepter
+public class IpapiAdapter
 {
-    public string GETIP()
+    public string Getip()
     {
         string url = "https://api.ipify.org";
 
         try
         {
-            using (WebClient client = new WebClient())
+            using (HttpClient client = new HttpClient())
             {
-                string ip = client.DownloadString(url);
+                string ip = client.GetStringAsync(url).Result;
                 return ip;
             }
         }
