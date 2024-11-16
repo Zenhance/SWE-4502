@@ -1,6 +1,6 @@
-﻿namespace WeatherAPP;
+﻿namespace WeatherAPP.Environment;
 
-public static class Environment
+public static class WEnvironment
 {
     public static string GetRootDirPath()
     {

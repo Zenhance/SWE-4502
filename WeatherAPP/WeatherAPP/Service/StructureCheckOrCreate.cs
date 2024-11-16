@@ -1,10 +1,19 @@
-﻿namespace WeatherAPP.Service;
+﻿using WeatherAPP.Environment;
 
-public class StructureCheckOrCreate : IService
+namespace WeatherAPP.Service;
+
+public class StructureCheckOrCreate
 {
-    private readonly string _root = ".weatheH";
-    private readonly string _location = ".weatheH/locations.json";
-    private readonly string _weather = ".weatheH/weather.json";
+    private readonly string _root;
+    private readonly string _location;
+    private readonly string _weather;
+    
+    public StructureCheckOrCreate()
+    {
+        _root = WEnvironment.GetRootDirPath();
+        _location = WEnvironment.GetLocationFilePath();
+        _weather = WEnvironment.GetWeatherFilePath();
+    }
     
     public void Execute()
     {
