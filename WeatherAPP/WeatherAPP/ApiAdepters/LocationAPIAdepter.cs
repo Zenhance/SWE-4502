@@ -1,4 +1,4 @@
-﻿namespace WeatherAPP.API;
+﻿namespace WeatherAPP.ApiAdepters;
 
 public class LocationAPIAdepter
 {
