@@ -17,7 +17,7 @@ public class WeatherProxy
         _location = new LocationProxy(_Ip).GetLocation();
     }
     
-    private Wether FetchWeather()
+    public Wether GethWeather()
     {
         if (new IsWeatherAvailableService().Execute(_location))
         {
@@ -27,9 +27,10 @@ public class WeatherProxy
         else
         {
             IWeatherAdapter weatherAdapter = new WetherFactory().GetWeatherAdapter(_location);
-            
+            Wether weather = weatherAdapter.GetWeather();
+            new SaveWetherToFileService().Execute(weather);
+            return weather;
         }
-        
     }
     
 }

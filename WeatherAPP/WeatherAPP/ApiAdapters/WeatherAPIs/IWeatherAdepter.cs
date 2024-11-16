@@ -1,6 +1,8 @@
-﻿namespace WeatherAPP.ApiAdapters.WeatherAPIs;
+﻿using WeatherAPP.Model;
+
+namespace WeatherAPP.ApiAdapters.WeatherAPIs;
 
 public interface IWeatherAdapter
 {
-    public string GetWeather();
+    public Wether GetWeather();
 }

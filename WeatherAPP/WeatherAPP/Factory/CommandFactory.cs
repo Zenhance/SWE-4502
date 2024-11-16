@@ -19,6 +19,10 @@ public class CommandFactory
                 {
                     return new IpCommand();
                 }
+                else if(args[0] == "weather")
+                {
+                    return new WetherCommand();
+                }
             }
 
             if (args.Length == 2)

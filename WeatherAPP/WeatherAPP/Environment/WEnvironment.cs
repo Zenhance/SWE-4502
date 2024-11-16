@@ -4,16 +4,16 @@ public static class WEnvironment
 {
     public static string GetRootDirPath()
     {
-        return ".weatherH";
+        return ".rakin";
     }
 
     public static string GetLocationFilePath()
     {
-        return ".weatherH/locations.json";
+        return GetRootDirPath() + "/locations.json";
     }
     
     public static string GetWeatherFilePath()
     {
-        return ".weatherH/weather.json";
+        return GetRootDirPath() + "/weather.json";
     }
 }
