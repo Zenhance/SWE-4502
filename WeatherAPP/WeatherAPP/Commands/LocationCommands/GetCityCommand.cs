@@ -8,8 +8,20 @@ public class GetCityCommand : ICommand
 {
     public void Execute()
     {
-        string ip = new IpapiAdapter().Getip();
-        Location location = new LocationProxy(ip).GetLocation();
-        Console.WriteLine("Your Current City is : " + location.City);
+        try
+        {
+            string ip = new IpapiAdapter().Getip();
+            Location location = new LocationProxy(ip).GetLocation();
+            if(location.City == null)
+            {
+                throw new Exception();
+            }
+            Console.WriteLine("Your Current City is : " + location.City);
+        }
+        catch
+        {
+            Console.WriteLine("City is not available right now");
+        }
+        
     }
 }

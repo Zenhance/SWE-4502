@@ -9,11 +9,11 @@ public static class WEnvironment
 
     public static string GetLocationFilePath()
     {
-        return ".weatheH/locations.json";
+        return ".weatherH/locations.json";
     }
     
     public static string GetWeatherFilePath()
     {
-        return ".weatheH/weather.json";
+        return ".weatherH/weather.json";
     }
 }
