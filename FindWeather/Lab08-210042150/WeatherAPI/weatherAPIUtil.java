@@ -32,5 +32,10 @@ public class weatherAPIUtil {
         int startIndex = response.indexOf(startKey);
         if (startIndex == -1) return "N/A";
         startIndex += startKey.length();
+
+        int endIndex = response.indexOf(endKey, startIndex);
+        if (endIndex == -1) return "N/A";
+
+        return response.substring(startIndex, endIndex);
     }
 }
