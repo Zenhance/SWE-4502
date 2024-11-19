@@ -22,4 +22,14 @@ public class LocationService implements ILocationService {
         System.out.println("Detected location by IP: Lat: " + latitude + ", Lon: " + longitude);
     }
 
+    @Override
+    public String getCity() throws IOException {
+        String ip = weatherAPIUtil.getResponse("https://api.ipify.org");
+        String locationResponse = weatherAPIUtil.getResponse(
+                "http://api.ipstack.com/" + ip + "?access_key=" + IPSTACK_API_KEY
+        );
+
+
+    }
+
 }
