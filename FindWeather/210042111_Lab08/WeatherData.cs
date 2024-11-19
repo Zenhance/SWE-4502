@@ -7,4 +7,10 @@
         public double WeatherTemperature { get; set; }
         public string LocationInformation { get; set; }
     }
+    public WeatherData(string CityName, string WeatherCondition, double WeatherTemperature)
+    {
+        this.CityName = CityName;
+        this.WeatherCondition = WeatherCondition;
+        this.WeatherTemperature = WeatherTemperature;
+    }
 }
