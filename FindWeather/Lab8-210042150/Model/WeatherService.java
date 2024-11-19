@@ -15,6 +15,7 @@ public class WeatherService implements IWeatherService {
         String weatherResponse = weatherAPIUtil.getResponse(
                 "http://api.weatherstack.com/current?access_key=" + WEATHERSTACK_API_KEY + "&query=" + city
         );
+        displayWeatherData(city, weatherResponse);
     }
 
     @Override
@@ -24,6 +25,7 @@ public class WeatherService implements IWeatherService {
         String weatherResponse = weatherAPIUtil.getResponse(
                 "http://api.weatherstack.com/current?access_key=" + WEATHERSTACK_API_KEY + "&query=" + latitude + "," + longitude
         );
+        displayWeatherData(city, weatherResponse);
     }
 
     private void displayWeatherData(String city, String weatherResponse) {
