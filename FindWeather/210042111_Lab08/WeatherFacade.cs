@@ -22,4 +22,7 @@ namespace _210042111_Lab08
             string city;
             Console.WriteLine("Enter the city name:");
             city = Console.ReadLine();
+            string city;
+            Console.WriteLine("Enter the city name:");
+            city = Console.ReadLine();
         }
