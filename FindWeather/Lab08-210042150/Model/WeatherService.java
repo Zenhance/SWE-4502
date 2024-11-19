@@ -17,15 +17,14 @@ public class WeatherService implements IWeatherService {
                 "http://api.weatherstack.com/current?access_key=" + WEATHERSTACK_API_KEY + "&query=" + city
         );
 
-        @Override
-        public void getWeatherByLocation(String latitude, String longitude, String city) throws IOException {
-            System.out.println("Getting weather data for location: " + city);
+    }
+    @Override
+    public void getWeatherByLocation(String latitude, String longitude, String city) throws IOException {
+        System.out.println("Getting weather data for location: " + city);
 
-            String weatherResponse = weatherAPIUtil.getResponse(
-                    "http://api.weatherstack.com/current?access_key=" + WEATHERSTACK_API_KEY + "&query=" + latitude + "," + longitude
-            );
-
-        }
+        String weatherResponse = weatherAPIUtil.getResponse(
+                "http://api.weatherstack.com/current?access_key=" + WEATHERSTACK_API_KEY + "&query=" + latitude + "," + longitude
+        );
 
     }
 }
