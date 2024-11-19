@@ -38,4 +38,13 @@ namespace _210042111_Lab08
             {
                 selectedService = proxyOpenWeather; // default
             }
+            try
+            {
+                WeatherData weatherData = await selectedService.GetWeather(city);
+                Console.WriteLine($"Weather in {city}: {weatherData.WeatherCondition}, {weatherData.WeatherTemperature}°C");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
