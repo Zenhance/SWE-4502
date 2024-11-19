@@ -1,6 +1,13 @@
-﻿namespace _210042111_Lab08
+﻿using lab08_210042111;
+
+namespace _210042111_Lab08
 {
-    internal class WeatherFacade
+    public class WeatherFacade
     {
+        IWeatherService openWeatherMapAdapter;
+        IWeatherService weatherStackAdapter;
+        WeatherServiceProxy proxyWeatherStack;
+        WeatherServiceProxy proxyOpenWeather;
+
     }
 }
