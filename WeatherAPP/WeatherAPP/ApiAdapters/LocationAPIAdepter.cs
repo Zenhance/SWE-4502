@@ -14,6 +14,7 @@ public class LocationApiAdapter
             using (HttpClient client = new HttpClient())
             {
                 string response = client.GetStringAsync(url).Result;
+                Console.WriteLine("Fetching Location from IPAPI");
                 return response;
             }
         }

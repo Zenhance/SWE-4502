@@ -46,6 +46,8 @@ namespace WeatherAPP.ApiAdapters.WeatherAPIs
                 JsonElement locationElement = jsonDocument.RootElement.GetProperty("location");
                 JsonElement currentElement = jsonDocument.RootElement.GetProperty("current");
 
+                Console.WriteLine("Fetching Weather from Weather Stack API");
+                
                 return new Wether
                 {
                     Time = DateTime.Parse(locationElement.GetProperty("localtime").GetString()),

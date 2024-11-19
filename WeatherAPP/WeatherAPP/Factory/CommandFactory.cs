@@ -42,6 +42,10 @@ public class CommandFactory
                         return new GetExactLocationCommand();
                     }
                 }
+                else if (args[0] == "weather")
+                {
+                    return new CityWeatherCommand(args[1]);
+                }
             }
         }
 

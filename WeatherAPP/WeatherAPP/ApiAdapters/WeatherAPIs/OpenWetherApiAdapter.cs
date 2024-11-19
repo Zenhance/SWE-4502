@@ -50,6 +50,9 @@ namespace WeatherAPP.ApiAdapters.WeatherAPIs
                 var weatherElement = jsonDocument.RootElement.GetProperty("weather")[0];
                 var coordElement = jsonDocument.RootElement.GetProperty("coord");
 
+                Console.WriteLine("Fetching Weather from Open Weather API");
+                
+                
                 return new Wether
                 {
                     Time = DateTimeOffset.FromUnixTimeSeconds(jsonDocument.RootElement.GetProperty("dt").GetInt64()).DateTime,
