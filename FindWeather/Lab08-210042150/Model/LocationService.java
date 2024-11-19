@@ -34,4 +34,13 @@ public class LocationService implements ILocationService {
         return city != null && !city.equals("null") ? city : "Unknown City";
     }
 
+    @Override
+    public String getLatitude() {
+        return latitude;
+    }
+
+    @Override
+    public String getLongitude() {
+        return longitude;
+    }
 }
