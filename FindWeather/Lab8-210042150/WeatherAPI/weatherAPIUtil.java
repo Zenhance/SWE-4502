@@ -19,6 +19,12 @@ public class weatherAPIUtil {
 
         Scanner scanner = new Scanner(url.openStream());
         StringBuilder response = new StringBuilder();
+        while (scanner.hasNext()) {
+            response.append(scanner.nextLine());
+        }
+        scanner.close();
+
+        return response.toString();
 
     }
 }
