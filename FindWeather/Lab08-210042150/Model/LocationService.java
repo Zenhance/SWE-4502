@@ -29,7 +29,9 @@ public class LocationService implements ILocationService {
                 "http://api.ipstack.com/" + ip + "?access_key=" + IPSTACK_API_KEY
         );
 
-
+        String city = weatherAPIUtil.extractValue(locationResponse, "\"city\":\"", "\"");
+        System.out.println("Detected city: " + city);
+        return city != null && !city.equals("null") ? city : "Unknown City";
     }
 
 }
