@@ -26,4 +26,11 @@ public class weatherAPIUtil {
 
         return response.toString();
     }
+
+    public static String extractValue(String response, String startKey, String endKey)
+    {
+        int startIndex = response.indexOf(startKey);
+        if (startIndex == -1) return "N/A";
+        startIndex += startKey.length();
+    }
 }
