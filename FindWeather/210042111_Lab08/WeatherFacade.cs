@@ -10,5 +10,9 @@ namespace _210042111_Lab08
         WeatherServiceProxy proxyOpenWeather;
         public WeatherFacade()
         {
+            openWeatherMapAdapter = new OpenWeatherMapAdapter();
+            weatherStackAdapter = new WeatherStackAdapters();
+            proxyOpenWeather = new WeatherServiceProxy(openWeatherMapAdapter);
+            proxyWeatherStack = new WeatherServiceProxy(weatherStackAdapter);
         }
 }
