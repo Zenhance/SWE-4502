@@ -50,5 +50,17 @@ namespace _210042111_Lab08
         }
         public async Task<WeatherData> GetWeatherByCityAsync(string city, string model)
         {
+            if (model == "openWeatherMap")
+            {
+                return await openWeatherMapAdapter.GetWeather(city);
+            }
+            else if (model == "weatherStack")
+            {
+                return await weatherStackAdapter.GetWeather(city);
+            }
+            else
+            {
+                return await openWeatherMapAdapter.GetWeather(city);
+            }
         }
 }
