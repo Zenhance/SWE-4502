@@ -19,6 +19,11 @@ public class WeatherConsoleApp {
             System.out.println("Select location method: 1. By IP, 2. By City, 3. Exit");
             int choice = scanner.nextInt();
             scanner.nextLine();
+
+            if (choice == 1) {
+                locationService.getLocationByIP();
+                weatherService.getWeatherByLocation(locationService.getLatitude(), locationService.getLongitude(), "Location");
+            }
         }
     }
 }
