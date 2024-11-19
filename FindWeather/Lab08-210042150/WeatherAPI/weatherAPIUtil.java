@@ -11,6 +11,10 @@ public class weatherAPIUtil {
         conn.setRequestMethod("GET");
         conn.connect();
 
+        int responseCode = conn.getResponseCode();
+        if (responseCode != 200) {
+            throw new IOException("HTTP response code: " + responseCode);
+        }
 
     }
 }
