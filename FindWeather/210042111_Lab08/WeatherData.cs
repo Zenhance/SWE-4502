@@ -1,6 +1,10 @@
 ﻿namespace _210042111_Lab08
 {
-    internal class WeatherData
+    public class WeatherData
     {
+        public string CityName { get; set; }
+        public string WeatherCondition { get; set; }
+        public double WeatherTemperature { get; set; }
+        public string LocationInformation { get; set; }
     }
 }
