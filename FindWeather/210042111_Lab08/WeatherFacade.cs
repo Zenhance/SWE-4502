@@ -8,6 +8,7 @@ namespace _210042111_Lab08
         IWeatherService weatherStackAdapter;
         WeatherServiceProxy proxyWeatherStack;
         WeatherServiceProxy proxyOpenWeather;
-
-    }
+        public WeatherFacade()
+        {
+        }
 }
