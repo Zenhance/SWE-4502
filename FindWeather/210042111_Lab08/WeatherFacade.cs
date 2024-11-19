@@ -63,4 +63,5 @@ namespace _210042111_Lab08
                 return await openWeatherMapAdapter.GetWeather(city);
             }
         }
-}
+    }
+}}
