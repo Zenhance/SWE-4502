@@ -16,5 +16,7 @@ namespace _210042111_Lab08
         }
         public async Task<WeatherData> GetWeather(string cityName)
         {
+            string key = cityName.ToLower();
+            DateTime now = DateTime.Now;
         }
 }
