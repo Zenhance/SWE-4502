@@ -18,5 +18,18 @@ namespace _210042111_Lab08
         {
             string key = cityName.ToLower();
             DateTime now = DateTime.Now;
+            if (cache.TryGetValue(key, out WeatherCache cachedData))
+            {
+                if ((now - cachedData.Timestamp) < CacheDuration)
+                {
+                    Console.WriteLine("Returning cached data.");
+                    return cachedData.WeatherData;
+                }
+
+                if ((now - cachedData.Timestamp) < RateLimitDuration)
+                {
+                    throw new Exception("Rate limit exceeded. Please try again later.");
+                }
+            }
         }
 }
