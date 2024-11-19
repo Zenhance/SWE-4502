@@ -1,4 +1,5 @@
 ﻿using lab08_210042111;
+using System.Threading.Tasks;
 
 namespace _210042111_Lab08
 {
@@ -15,4 +16,6 @@ namespace _210042111_Lab08
             proxyOpenWeather = new WeatherServiceProxy(openWeatherMapAdapter);
             proxyWeatherStack = new WeatherServiceProxy(weatherStackAdapter);
         }
-}
+        public async Task Start()
+        {
+        }
