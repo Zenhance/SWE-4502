@@ -1,5 +1,7 @@
-﻿namespace _210042111_Lab08
-{internal class WeatherService
-    {
+﻿using System;
+namespace _210042111_Lab08
+{public class WeatherService
+    { WeatherFacade weatherFacade = new WeatherFacade();
+        bool exit = false;
     }
 }
