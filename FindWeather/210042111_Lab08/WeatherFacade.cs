@@ -23,9 +23,9 @@ namespace _210042111_Lab08
             string city;
             Console.WriteLine("Enter the city name:");
             city = Console.ReadLine();
-            string city;
-            Console.WriteLine("Enter the city name:");
-            city = Console.ReadLine();
+            Console.WriteLine("Select weather provider: 1. OpenWeatherMap, 2. WeatherStack");
+            string model = Console.ReadLine();
+            IWeatherService selectedService;
             if (model == "1")
             {
                 selectedService = proxyOpenWeather;
