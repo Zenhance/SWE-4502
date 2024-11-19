@@ -13,5 +13,11 @@ public class WeatherConsoleApp {
         Scanner scanner = new Scanner(System.in);
         ILocationService locationService = new LocationService();
         IWeatherService weatherService = new WeatherService();
+
+        while (true) {
+            System.out.println("Select location method: 1. By IP, 2. By City, 3. Exit");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+        }
     }
 }
