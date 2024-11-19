@@ -23,6 +23,10 @@ public class WeatherConsoleApp {
             if (choice == 1) {
                 locationService.getLocationByIP();
                 weatherService.getWeatherByLocation(locationService.getLatitude(), locationService.getLongitude(), "Location");
+            } else if (choice == 2) {
+                System.out.println("Enter city name:");
+                String city = scanner.nextLine();
+                weatherService.getWeatherByCity(city);
             }
         }
     }
