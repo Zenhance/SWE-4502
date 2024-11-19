@@ -48,3 +48,7 @@ namespace _210042111_Lab08
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
+        public async Task<WeatherData> GetWeatherByCityAsync(string city, string model)
+        {
+        }
+}
