@@ -26,4 +26,10 @@ public class WeatherService implements IWeatherService {
         );
     }
 
+    private void displayWeatherData(String city, String weatherResponse) {
+        String temperature = weatherAPIUtil.extractValue(weatherResponse, "\"temperature\":", ",");
+        String weatherDescription = weatherAPIUtil.extractValue(weatherResponse, "\"weather_descriptions\":[\"", "\"]");
+        System.out.println("Weather in " + city + ": " + temperature + "°C, " + weatherDescription);
+    }
+
 }
