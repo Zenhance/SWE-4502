@@ -33,6 +33,7 @@ namespace _210042111_Lab08
             }
             Console.WriteLine("Fetching new data.");
             WeatherData weatherData = await weatherService.GetWeather(cityName);
-            cache[key] = new WeatherCache(weatherData, now);
+            cache[key] = new WeatherCache(weatherData, now); 
+            return weatherData;
         }
 }
