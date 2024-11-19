@@ -31,5 +31,8 @@ namespace _210042111_Lab08
                     throw new Exception("Rate limit exceeded. Please try again later.");
                 }
             }
+            Console.WriteLine("Fetching new data.");
+            WeatherData weatherData = await weatherService.GetWeather(cityName);
+            cache[key] = new WeatherCache(weatherData, now);
         }
 }
