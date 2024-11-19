@@ -27,7 +27,13 @@ public class WeatherConsoleApp {
                 System.out.println("Enter city name:");
                 String city = scanner.nextLine();
                 weatherService.getWeatherByCity(city);
+            } else if (choice == 3) {
+                System.out.println("Exiting...");
+                break;
+            } else {
+                System.out.println("Invalid choice. Please try again.");
             }
         }
+        scanner.close();
     }
 }
