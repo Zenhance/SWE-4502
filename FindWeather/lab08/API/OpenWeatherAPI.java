@@ -27,6 +27,11 @@ public class OpenWeatherAPI {
             while ((line = reader.readLine()) != null) {
                 response.append(line);
             }
+            reader.close();
+
+            JSONObject jsonObject = new JSONObject(response.toString());
+
+            double temperature = jsonObject.getJSONObject("main").getDouble("temp");
 
 
 
