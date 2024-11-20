@@ -47,7 +47,7 @@ public class OpenWeatherProvider implements IWeatherProvider {
                 String locationInformation = jsonResponse.get("name").toString(); // Location name
 
             
-                weatherData = new WeatherData(String.valueOf(temperature), conditions, locationInformation, "OpenWeather");
+                weatherData = new WeatherData(temperature, conditions, locationInformation, "OpenWeather");
                 
                 return weatherData;
             } else {
