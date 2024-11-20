@@ -1,5 +1,6 @@
 package APIs;
 
+import concreteClasses.WeatherData;
 import netscape.javascript.JSObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -44,7 +45,6 @@ public class WeatherStackAPI {
                     .build();
             HttpResponse<String> response =
                     client.send(request, HttpResponse.BodyHandlers.ofString());
-//            System.out.println(response.body());
             JSONObject jsonObject = new JSONObject(response.body());
             allInfo = new JSONObject(response.body());
         } catch (IOException e) {
@@ -54,7 +54,11 @@ public class WeatherStackAPI {
     }
 
 
-    public void printWeatherDescription(){
-        System.out.println(allInfo);
+    public WeatherData parseInfotoWeatherData(){
+        try{
+            if(allInfo == null){
+                throw new Exception("Info not fetched yet");
+            }
+        }
     }
 }
