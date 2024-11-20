@@ -1,8 +1,8 @@
-import LocationAPI.GeoLocation;
+import API.GeoLocation;
 import Model.Location;
 import Model.Weather;
-import WeatherService.IWeatherService;
-import WeatherService.RealWeatherService;
+import Service.IWeatherService;
+import Service.RealWeatherService;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -68,4 +68,13 @@ public class main {
             Weather weather = weatherService.getWeather(location);
             if (weather != null) {
                 weather.DisplayWeather();
+            } else {
+                System.out.println("Weather data could not be retrieved.");
+            }
+        } else {
+            System.out.println("Invalid location data.");
+        }
+        System.out.println("________________________________________________________");
+    }
+}
 
