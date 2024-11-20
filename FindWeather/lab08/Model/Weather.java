@@ -8,4 +8,9 @@ public class Weather {
 
     public Weather(double temperature, String weather_condition, Location location, String WeatherAPI_name) {
         this.temperature = temperature;
+        this.weather_condition = weather_condition;
+        this.location = location;
+        this.WeatherAPI_name = WeatherAPI_name;
+    }
+
 }
