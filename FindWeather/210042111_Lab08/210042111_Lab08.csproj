@@ -57,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WeatherFacade.cs" />
     <Compile Include="WeatherService.cs" />
+    <Compile Include="WeatherStackAdapters.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
