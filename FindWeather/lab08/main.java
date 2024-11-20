@@ -57,5 +57,10 @@ public class main {
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         }
+        scanner.close();
+    }
+
+    private static void displayWeather(IWeatherService weatherService, Location location) throws IOException {
+        if (location != null) {
 
 
