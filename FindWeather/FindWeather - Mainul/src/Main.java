@@ -10,7 +10,6 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         WeatherStackAPI wtapi = new WeatherStackAPI();
         wtapi.fetchAPI("Gazipur");
-        System.out.println(wtapi.WeatherDescription());
-        System.out.println(wtapi.getTemparature());
+        wtapi.printWeatherDescription();
     }
 }

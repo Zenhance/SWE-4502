@@ -47,8 +47,6 @@ public class WeatherStackAPI {
 //            System.out.println(response.body());
             JSONObject jsonObject = new JSONObject(response.body());
             allInfo = new JSONObject(response.body());
-            JSONObject locationJson = jsonObject.getJSONObject("location");
-//            System.out.println(locationJson);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -56,14 +54,7 @@ public class WeatherStackAPI {
     }
 
 
-    public double getTemparature(){
-        JSONObject current=allInfo.getJSONObject("current");
-        double temp=current.getDouble("temperature");
-        return temp;
-    }
-    public String WeatherDescription(){
-        JSONArray weather_descriptions=allInfo.getJSONObject("current").getJSONArray("weather_descriptions");
-        String weatherCondition=weather_descriptions.getString(0);
-        return weatherCondition;
+    public void printWeatherDescription(){
+        System.out.println(allInfo);
     }
 }
