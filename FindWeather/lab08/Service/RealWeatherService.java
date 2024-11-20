@@ -24,5 +24,8 @@ public class RealWeatherService implements IWeatherService {
 
     private final IWeatherAdapter weatherStackAdapter;
     private final IWeatherAdapter openWeatherAdapter;
-
+    public RealWeatherService() {
+        this.weatherStackAdapter = new WeatherStackAdapter();
+        this.openWeatherAdapter = new OpenWeatherAdapter();
+    }
 }
