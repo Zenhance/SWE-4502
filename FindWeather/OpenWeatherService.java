@@ -17,9 +17,16 @@ public class OpenWeatherService implements WeatherService {
             throw new IOException("Unable to determine location from IP.");
         }
 
-
         return getWeather(location.getLatitude(), location.getLongitude(), location.getCity());
     }
+
+    @Override
+    public WeatherData getWeatherByCity(String city) throws IOException {
+        String endpoint = String.format("%s?q=%s&units=metric&appid=%s", BASE_URL, city, API_KEY);
+        return fetchWeatherData(endpoint, city);
+    }
+
+
 
 
 }
