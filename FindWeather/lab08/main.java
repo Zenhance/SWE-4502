@@ -24,4 +24,7 @@ public class main {
         while (true) {
             System.out.println("Select an option:");
             System.out.println("1. Choose Weather Service");
+            System.out.println("2. Get Weather by City");
+            System.out.println("3. Exit");
+            int choice = scanner.nextInt()
 
