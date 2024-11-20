@@ -38,5 +38,7 @@ public class main {
                     scanner.nextLine();
 
                     if (apiChoice == 1) {System.out.println("Select Weather API: 1. WeatherStack, 2. OpenWeather");
-
+                        RealWeatherService.useWeatherStack = true;
+                        System.out.println("WeatherStack selected as the API.");
+                    } else if (apiChoice == 2) {
 
