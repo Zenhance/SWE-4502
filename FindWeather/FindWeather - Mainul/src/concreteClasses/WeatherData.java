@@ -16,4 +16,30 @@ public class WeatherData {
         this.weatherCondition = weatherCondition;
         this.dataSource = dataSource;
     }
+    public String getCityName(){
+        return  cityName;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
+    public String getWeatherCondition(){
+        return weatherCondition;
+    }
+    public String getDataSource(){
+        return dataSource;
+    }
+    public String getWeatherDetails(){
+        return "Weather in " + cityName + " (" + latitude + ", " + longitude + "): " +
+                temperature + "°C, " + weatherCondition + " (Source: " + dataSource + ")";
+
+    }
 }
