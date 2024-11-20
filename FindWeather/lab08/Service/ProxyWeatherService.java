@@ -33,7 +33,10 @@ public class ProxyWeatherService {
         cacheTimestamps.put(key, LocalDateTime.now());
         return weather;
     }
-    private boolean isCacheExpired(String key) {
+    private boolean isCacheExpired(String key) {LocalDateTime lastFetchedTime = cacheTimestamps.get(key);
+        if (lastFetchedTime == null) {
+            return true;
+        }
 
 
     }
