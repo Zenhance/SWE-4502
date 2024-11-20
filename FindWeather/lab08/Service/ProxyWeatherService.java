@@ -13,4 +13,8 @@ public class ProxyWeatherService {
     private final ConcurrentHashMap<String, Weather> cache;
     private final ConcurrentHashMap<String, LocalDateTime> cacheTimestamps;
 
+    public ProxyWeatherService() {
+
+    }
+
 }
