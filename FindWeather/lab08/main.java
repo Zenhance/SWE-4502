@@ -65,4 +65,7 @@ public class main {
             System.out.println("Location Info: City: " + location.getCity() +
                     ", Latitude: " + location.getLatitude() +
                     ", Longitude: " + location.getLongitude());
+            Weather weather = weatherService.getWeather(location);
+            if (weather != null) {
+                weather.DisplayWeather();
 
