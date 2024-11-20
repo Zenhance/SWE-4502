@@ -32,4 +32,7 @@ public class main {
             if (choice == 3) {
                 break;
             }
+            switch (choice) {
+                case 1 -> {
+                    System.out.println("Select Weather API: 1. WeatherStack, 2. OpenWeather");
 
