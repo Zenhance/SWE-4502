@@ -14,5 +14,6 @@ namespace _210042111_Lab08
             JObject json = JObject.Parse(response);
             string weatherCondition = json["current"]["weather_descriptions"][0].ToString();
             double temperature = (double)json["current"]["temperature"];
+            return new WeatherData(cityName, weatherCondition, temperature);
         }
 }
