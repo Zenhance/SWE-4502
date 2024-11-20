@@ -5,6 +5,17 @@ import java.util.HashMap;
 import Models.WeatherData;
 
 public class WeatherCache {
+    private static WeatherCache instance;
+
+    private WeatherCache(){}
+
+    public static WeatherCache getInstance() {
+        if (instance == null) {
+            instance = new WeatherCache();
+        }
+        return instance;
+    }
+
     private static final long CACHE_DURATION = 10 * 60; // 600 seconds
     private final HashMap<String, CacheEntry> cache = new HashMap<>();
 
@@ -35,5 +46,7 @@ public class WeatherCache {
         return null;
     }
 
-    
+    public boolean isInCache(String location) {
+        return retrieve(location) != null;
+    }
 }
