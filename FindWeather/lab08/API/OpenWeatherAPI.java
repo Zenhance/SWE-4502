@@ -23,7 +23,10 @@ public class OpenWeatherAPI {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder response = new StringBuilder();
-
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
 
 
 
