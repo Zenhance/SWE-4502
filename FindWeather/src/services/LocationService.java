@@ -29,8 +29,14 @@ public class LocationService implements ILocationService {
                 .uri(URI.create(IPIFY_URL))
                 .build();
 
-        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        return CompletableFuture.completedFuture(response.body());
+        try {
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            return CompletableFuture.completedFuture(response.body());
+        } catch (Exception e) {
+            CompletableFuture<String> future = new CompletableFuture<>();
+            future.completeExceptionally(e);
+            return future;
+        }
     }
 
     // {"status":"success","country":"Bangladesh","countryCode":"BD","region":"C","regionName":"Dhaka
