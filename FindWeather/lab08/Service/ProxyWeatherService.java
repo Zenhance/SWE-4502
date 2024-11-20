@@ -8,7 +8,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ProxyWeatherService {
+public class ProxyWeatherService implements IWeatherService {
     private final RealWeatherService realWeatherService;
     private final ConcurrentHashMap<String, Weather> cache;
     private final ConcurrentHashMap<String, LocalDateTime> cacheTimestamps;
@@ -37,10 +37,13 @@ public class ProxyWeatherService {
         if (lastFetchedTime == null) {
             return true;
         }
+        Duration duration = Duration.between(lastFetchedTime, LocalDateTime.now());
+        return duration.toMinutes() > 0.5;
+    }
 
 
     }
-    }
+
 
 
 }
