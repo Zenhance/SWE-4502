@@ -10,5 +10,7 @@ public class GeoLocation {
         conn.setRequestMethod("GET");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        StringBuilder response = new StringBuilder();
 
+        String line;
 }
