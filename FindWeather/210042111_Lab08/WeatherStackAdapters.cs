@@ -18,4 +18,8 @@ namespace _210042111_Lab08
         }
         private async Task<string> SendGetRequestAsync(string apiUrl)
         {
+            using (WebClient client = new WebClient())
+            {
+                return await client.DownloadStringTaskAsync(new Uri(apiUrl));
+            }
         }
