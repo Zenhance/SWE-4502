@@ -2,11 +2,11 @@ package Adapter;
 
 import Model.Location;
 import Model.Weather;
-import WeatherAPI.WeatherStackAPI;
+import API.WeatherStackAPI;
 
 import java.io.IOException;
 
-import WeatherAPI.WeatherStackAPI;
+import API.WeatherStackAPI;
 
 import java.io.IOException;
 public class WeatherStackAdapter  implements IWeatherAdapter{
