@@ -57,8 +57,11 @@ public class WeatherStackAPI {
     public WeatherData parseInfotoWeatherData(){
         try{
             if(allInfo == null){
-                throw new Exception("Info not fetched yet");
+                throw new RuntimeException("Info not fetched yet");
             }
+        }
+        catch (Exception e){
+            System.out.printf(e.getMessage());
         }
     }
 }
