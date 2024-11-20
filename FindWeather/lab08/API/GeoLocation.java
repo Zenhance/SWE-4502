@@ -13,4 +13,8 @@ public class GeoLocation {
         StringBuilder response = new StringBuilder();
 
         String line;
+        while ((line = reader.readLine()) != null) {
+            response.append(line);
+        }
+        reader.close();
 }
