@@ -18,4 +18,7 @@ import java.util.Scanner;
 
 
 public class main {
+    public static void main(String[] args) throws IOException, JSONException {
+        Scanner scanner = new Scanner(System.in);
+        RealWeatherService weatherService = new RealWeatherService();
 }
