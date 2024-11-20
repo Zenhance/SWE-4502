@@ -17,5 +17,10 @@ public class OpenWeatherAdapter {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder(URI.create(url)).build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            JsonObject json = JsonParser.parseString(response.body()).getAsJsonObject();
 
-    }
+            String temp = json.get("main").getAsJsonObject().get("temp").getAsString();
+            String condition = json.get("weather").getAsJsonArray().get(0).getAsJsonObject().get("description").getAsString();
+
+
+        }
