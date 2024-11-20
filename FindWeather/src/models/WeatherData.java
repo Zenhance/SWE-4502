@@ -14,4 +14,16 @@ public class WeatherData {
         this.source = source;
         this.timestamp = System.currentTimeMillis();
     }
+
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public String getConditions() {
+        return conditions;
+    }
+
+    public String getLocation() {
+        return location;
+    }
 }
