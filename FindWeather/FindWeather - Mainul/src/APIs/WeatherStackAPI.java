@@ -59,6 +59,9 @@ public class WeatherStackAPI {
             if(allInfo == null){
                 throw new RuntimeException("Info not fetched yet");
             }
+            JSONObject location = allInfo.getJSONObject("location");
+            JSONObject current = allInfo.getJSONObject("current");
+            
         }
         catch (Exception e){
             System.out.printf(e.getMessage());
