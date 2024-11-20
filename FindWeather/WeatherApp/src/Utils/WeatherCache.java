@@ -21,4 +21,19 @@ public class WeatherCache {
     public void store(String location, WeatherData data) {
         cache.put(location, new CacheEntry(data, Instant.now()));
     }
+
+    public WeatherData retrieve(String location) {
+        if (cache.containsKey(location)) {
+            CacheEntry entry = cache.get(location);
+            if (Instant.now().getEpochSecond() - entry.timestamp.getEpochSecond() < CACHE_DURATION) {
+                return entry.data;
+            } else {
+                // remove if time exceeded => expired
+                cache.remove(location);
+            }
+        }
+        return null;
+    }
+
+    
 }
