@@ -21,5 +21,9 @@ public class GeoLocation {
         JSONObject location = jsonObject.getJSONObject("location");
 
         double latitude = location.getDouble("lat");
+        double longitude = location.getDouble("lon");
+
+        return new Location(city, latitude, longitude);
+    }
 
 }
