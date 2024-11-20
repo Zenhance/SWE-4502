@@ -1,5 +1,6 @@
 package APIs;
 
+import concreteClasses.StringManager;
 import concreteClasses.WeatherData;
 import netscape.javascript.JSObject;
 import org.json.JSONArray;
@@ -16,6 +17,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
+import static java.net.http.HttpClient.newHttpClient;
+
 public class WeatherStackAPI {
     private String api_key;
     private String base_url;
@@ -25,21 +28,19 @@ public class WeatherStackAPI {
         api_key = "4c31a3c95ae754203e58d51a39643e4b";
         base_url = "http://api.weatherstack.com/current";
     }
+    public WeatherData getWeatherData(String  location){
+        StringManager stringManager = new StringManager();
+        fetchAPI(stringManager.fillSpaceWithSymbol(location));
+        return parseInfotoWeatherData();
 
-    public void fetchAPI(String location) throws IOException, InterruptedException {
-        String ChangedLocation = "";
-        for (char ch : location.toCharArray()) {
-            if (ch != ' ') {
-                ChangedLocation += ch;
-            } else {
-                ChangedLocation += "%20";
-            }
-        }
-        String url = base_url + "?access_key=" + api_key + "&query=" + ChangedLocation;
+    }
+    private void fetchAPI(String location)  {
+
+        String url = base_url + "?access_key=" + api_key + "&query=" + location;
         try {
 
 
-            HttpClient client = HttpClient.newHttpClient();
+            HttpClient client = newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
                     .build();
@@ -47,14 +48,14 @@ public class WeatherStackAPI {
                     client.send(request, HttpResponse.BodyHandlers.ofString());
             JSONObject jsonObject = new JSONObject(response.body());
             allInfo = new JSONObject(response.body());
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             System.out.println(e.getMessage());
         }
 
     }
 
 
-    public WeatherData parseInfotoWeatherData(){
+    private WeatherData parseInfotoWeatherData(){
         try{
             if(allInfo == null){
                 throw new RuntimeException("Info not fetched yet");
@@ -65,11 +66,16 @@ public class WeatherStackAPI {
             String cityName = location.getString("name");
             String weatherCondition = location.getString("weather_descriptions");
             String dataSource = location.getString("WeatherStack");
-            double latitude = location
+            double latitude = location.getDouble("lat");
+            double longitude = location.getDouble("lon");
+            double temp = location.getDouble("temperature");
+
+            return new WeatherData(cityName,latitude,longitude,temp,weatherCondition,dataSource);
 
         }
         catch (Exception e){
             System.out.printf(e.getMessage());
         }
+        return null;
     }
 }
