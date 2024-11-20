@@ -28,4 +28,10 @@ public class RealWeatherService implements IWeatherService {
         this.weatherStackAdapter = new WeatherStackAdapter();
         this.openWeatherAdapter = new OpenWeatherAdapter();
     }
-}
+    @Override
+    public Weather getWeather(Location location) throws IOException {
+        if (lastApiCallTime != null && Duration.between(lastApiCallTime, LocalDateTime.now()).getSeconds() < 30) {
+            useWeatherStack = !useWeatherStack;
+        }
+
+    }
