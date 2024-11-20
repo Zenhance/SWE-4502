@@ -32,4 +32,9 @@ public class OpenWeatherAPI {
 
         JSONObject jsonObject = new JSONObject(response.toString());
 
+        double temperature = jsonObject.getJSONObject("main").getDouble("temp");
+        String weatherCondition = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
+
+        return new Weather(temperature, weatherCondition, location, "OpenWeather");
     }
+}
