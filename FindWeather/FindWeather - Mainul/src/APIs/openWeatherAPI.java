@@ -11,6 +11,6 @@ class openWeatherAPI {
         base_url = "https://api.openweathermap.org/data/2.5/weather";
     }
     private void fetchData(String location){
-
+        String url = base_url + "?access_key=" + api_key + "&query=" + location;
     }
 }
