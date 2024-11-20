@@ -27,6 +27,12 @@ public class LocationService implements ILocationService {
 
     }
 
+    // {"status":"success","country":"Bangladesh","countryCode":"BD","region":"C","regionName":"Dhaka
+    // Division","city":"Dhaka","zip":"1000","lat":23.7272,"lon":90.4093,"timezone":"Asia/Dhaka","isp":"Axiata
+    // (Bangladesh) Limited","org":"Robi Axiata Limited","as":"AS24432 TM
+    // International Bangladesh Ltd.Internet service
+    // Provider,Gulshan-1,Dhaka-1212","query":"202.134.10.135"}
+
     private LocationData parseLocationData(String jsonBody) {
 
     }
