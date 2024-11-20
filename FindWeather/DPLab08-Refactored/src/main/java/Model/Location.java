@@ -17,4 +17,13 @@ public class Location {
         return city;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+
 }
