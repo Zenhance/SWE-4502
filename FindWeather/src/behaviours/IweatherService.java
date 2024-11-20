@@ -5,5 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import models.WeatherData;
 
 public interface IweatherService {
-    CompletableFuture<WeatherData> getWeatherData() throws Exception;
+    CompletableFuture<WeatherData> getWeatherDataByIP() throws Exception;
+
+    CompletableFuture<WeatherData> getWeatherDataByCity() throws Exception;
 }
