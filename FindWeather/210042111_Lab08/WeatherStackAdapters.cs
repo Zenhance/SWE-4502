@@ -4,9 +4,9 @@ using System.Net;
 using System.Threading.Tasks;
 namespace _210042111_Lab08
 {
-    public class WeatherStackAdapters:IWeatherService
+    public class WeatherStackAdapters : IWeatherService
     {
-        string ApiKey = "309d469af3c87de70e7d58bfa498d1e9"; 
+        string ApiKey = "309d469af3c87de70e7d58bfa498d1e9";
         public async Task<WeatherData> GetWeather(string cityName)
         {
             string apiUrl = $"http://api.weatherstack.com/current?access_key={ApiKey}&query={cityName}";
@@ -23,3 +23,5 @@ namespace _210042111_Lab08
                 return await client.DownloadStringTaskAsync(new Uri(apiUrl));
             }
         }
+    }
+}
