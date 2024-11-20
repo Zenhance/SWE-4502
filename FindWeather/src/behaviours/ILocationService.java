@@ -2,6 +2,8 @@ package behaviours;
 
 import java.util.concurrent.CompletableFuture;
 
+import models.LocationData;
+
 public interface ILocationService {
-    CompletableFuture<String> getLocationData() throws Exception;
+    CompletableFuture<LocationData> getLocationData() throws Exception;
 }
