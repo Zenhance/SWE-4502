@@ -26,4 +26,16 @@ public class WeatherData {
     public String getLocation() {
         return location;
     }
+
+    public String getSource() {
+        return source;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void updateSource(String value) {
+        this.source = value;
+    }
 }
