@@ -24,5 +24,8 @@ public class WeatherStackAPI {
             response.append(line);
         }
         reader.close();
+        JSONObject jsonObject = new JSONObject(response.toString());
+        double temperature = jsonObject.getJSONObject("current").getDouble("temperature");
+        String weatherCondition = jsonObject.getJSONObject("current").getJSONArray("weather_descriptions").getString(0);
 
 }
