@@ -1,8 +1,5 @@
-﻿using lab08_210042111;
-using System;
-using System.Reflection;
+﻿using System;
 using System.Threading.Tasks;
-
 namespace _210042111_Lab08
 {
     public class WeatherFacade
