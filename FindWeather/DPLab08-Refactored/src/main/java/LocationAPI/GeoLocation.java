@@ -1,4 +1,6 @@
 package LocationAPI;
+import org.json.simple.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,6 +13,7 @@ public class GeoLocation {
 
     String urlString = GET_URL + WEATHERSTACK_API_KEY + "&query=" + city;
     URL url = new URL(urlString);
+    
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
 
@@ -22,7 +25,13 @@ public class GeoLocation {
         response.append(line);
     }   reader.close();
 
+    JSONObject jsonObject = new JSONObject(response.toString());
+    JSONObject location = jsonObject.getJSONObject("location");
 
+    double latitude = location.getDouble("lat");
+    double longitude = location.getDouble("lon");
 
-
+    return new Location(city, latitude, longitude);
 }
+
+
