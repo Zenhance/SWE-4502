@@ -61,7 +61,9 @@ public class WeatherStackAPI {
             }
             JSONObject location = allInfo.getJSONObject("location");
             JSONObject current = allInfo.getJSONObject("current");
+
             
+
         }
         catch (Exception e){
             System.out.printf(e.getMessage());
