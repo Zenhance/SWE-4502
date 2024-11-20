@@ -41,4 +41,8 @@ public class main {
                         RealWeatherService.useWeatherStack = true;
                         System.out.println("WeatherStack selected as the API.");
                     } else if (apiChoice == 2) {
+                        RealWeatherService.useWeatherStack = false;
+                        System.out.println("OpenWeather selected as the API.");
+                    } else {
+                    }
 
