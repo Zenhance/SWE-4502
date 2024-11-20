@@ -20,7 +20,12 @@ public class LocationService implements ILocationService {
 
     @Override
     public CompletableFuture<LocationData> getLocationData() {
-
+        return getIPFromDevice().thenCompose(ip -> {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .GET()
+                    .uri(URI.create(GEOLOCATION_URL + ip))
+                    .build();
+        });
     }
 
     private CompletableFuture<String> getIPFromDevice() {
