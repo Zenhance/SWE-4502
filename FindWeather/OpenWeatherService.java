@@ -26,6 +26,11 @@ public class OpenWeatherService implements WeatherService {
         return fetchWeatherData(endpoint, city);
     }
 
+    private WeatherData getWeather(double latitude, double longitude, String city) throws IOException {
+        String endpoint = String.format("%s?lat=%f&lon=%f&units=metric&appid=%s", BASE_URL, latitude, longitude, API_KEY);
+        return fetchWeatherData(endpoint, city);
+    }
+
 
 
 
