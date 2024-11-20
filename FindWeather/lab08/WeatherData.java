@@ -10,4 +10,7 @@ public class WeatherData {
     }
 
     @Override
+    public String toString() {
+        return "Source: " + source + ", Temperature: " + temperature + "°C, Condition: " + condition;
+    }
 }
