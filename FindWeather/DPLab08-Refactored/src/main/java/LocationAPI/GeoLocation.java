@@ -13,7 +13,7 @@ public class GeoLocation {
 
     String urlString = GET_URL + WEATHERSTACK_API_KEY + "&query=" + city;
     URL url = new URL(urlString);
-    
+
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
 
