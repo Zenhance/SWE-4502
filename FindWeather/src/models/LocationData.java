@@ -12,4 +12,12 @@ public class LocationData {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+
+    public String getCoutnry() {
+        return country;
+    }
+
+    public String getCity() {
+        return city;
+    }
 }
