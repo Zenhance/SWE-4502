@@ -14,6 +14,9 @@ public class ProxyWeatherService {
     private final ConcurrentHashMap<String, LocalDateTime> cacheTimestamps;
 
     public ProxyWeatherService() {
+        this.realWeatherService = new RealWeatherService();
+        this.cache = new ConcurrentHashMap<>();
+        this.cacheTimestamps = new ConcurrentHashMap<>();
 
     }
 
