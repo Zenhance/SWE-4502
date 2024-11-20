@@ -1,4 +1,10 @@
 package adapters;
 
-public class WeatherStackAdapter {
+import interfaces.Iweatherprovider;
+
+public class WeatherStackAdapter implements Iweatherprovider {
+    @Override
+    public String weather() {
+        return "";
+    }
 }
