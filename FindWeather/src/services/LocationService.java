@@ -1,9 +1,6 @@
 package services;
 
-import java.net.URI;
 import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
 
 import behaviours.ILocationService;
@@ -34,6 +31,11 @@ public class LocationService implements ILocationService {
     // Provider,Gulshan-1,Dhaka-1212","query":"202.134.10.135"}
 
     private LocationData parseLocationData(String jsonBody) {
+        String country = jsonBody.split(",")[1].split(":")[1].replace("\"", "");
+        String city = jsonBody.split(",")[5].split(":")[1].replace("\"", "");
+        String lat = jsonBody.split(",")[7].split(":")[1].replace("\"", "");
+        String lon = jsonBody.split(",")[8].split(":")[1].replace("\"", "");
 
+        return new LocationData(country, city, lat, lon);
     }
 }
