@@ -13,5 +13,8 @@ public class WeatherStackAPI {
 
     public static Weather Get_Weather(Location location) throws IOException, JSONException {
         String urlString = "http://api.weatherstack.com/current?access_key=" + WeatherStack_API_KEY + "&query=" + location.getCity();
+        URL url = new URL(urlString);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
 
 }
