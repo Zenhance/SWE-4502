@@ -31,5 +31,13 @@ public class ProxyWeatherService {
         Weather weather = realWeatherService.getWeather(location);
         cache.put(key, weather);
         cacheTimestamps.put(key, LocalDateTime.now());
+        return weather;
+    }
+    private boolean isCacheExpired(String key) {
+
+
+    }
+    }
+
 
 }
