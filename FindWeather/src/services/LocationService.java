@@ -1,6 +1,8 @@
 package services;
 
+import java.net.URI;
 import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
 import java.util.concurrent.CompletableFuture;
 
 import behaviours.ILocationService;
@@ -20,8 +22,11 @@ public class LocationService implements ILocationService {
 
     }
 
-    private CompletableFuture<String> getIP() {
-
+    private CompletableFuture<String> getIPFromDevice() {
+        HttpRequest request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create(IPIFY_URL))
+                .build();
     }
 
     // {"status":"success","country":"Bangladesh","countryCode":"BD","region":"C","regionName":"Dhaka
