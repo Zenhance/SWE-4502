@@ -44,5 +44,11 @@ public class main {
                         RealWeatherService.useWeatherStack = false;
                         System.out.println("OpenWeather selected as the API.");
                     } else {
+
+                        System.out.println("Invalid choice. Using default API.");
                     }
+                }
+                case 2 -> {
+                    System.out.print("Enter city name: ");
+                    String city = scanner.nextLine();
 
