@@ -21,6 +21,13 @@ public class OpenWeatherAdapter {
 
             String temp = json.get("main").getAsJsonObject().get("temp").getAsString();
             String condition = json.get("weather").getAsJsonArray().get(0).getAsJsonObject().get("description").getAsString();
+            return new WeatherData(temp, condition, "OpenWeather");
+        } catch (Exception e) {
+            System.out.println("OpenWeather error: " + e.getMessage());
+            return null;
+        }
+    }
+}
 
 
         }
