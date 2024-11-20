@@ -1,4 +1,0 @@
-package Adapter
-
-class WeatherStackAdapter {
-}
