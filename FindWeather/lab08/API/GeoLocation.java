@@ -6,5 +6,9 @@ public class GeoLocation {
     public static Location get_Location_by_city(String city) throws IOException, JSONException {
         String urlString = GET_URL + WEATHERSTACK_API_KEY + "&query=" + city;
         URL url = new URL(urlString);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
 }
