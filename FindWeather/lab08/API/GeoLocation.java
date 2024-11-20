@@ -17,4 +17,9 @@ public class GeoLocation {
             response.append(line);
         }
         reader.close();
+        JSONObject jsonObject = new JSONObject(response.toString());
+        JSONObject location = jsonObject.getJSONObject("location");
+
+        double latitude = location.getDouble("lat");
+
 }
