@@ -34,5 +34,9 @@ public class main {
             }
             switch (choice) {
                 case 1 -> {
-                    System.out.println("Select Weather API: 1. WeatherStack, 2. OpenWeather");
+                    int apiChoice = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (apiChoice == 1) {System.out.println("Select Weather API: 1. WeatherStack, 2. OpenWeather");
+
 
