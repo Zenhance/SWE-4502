@@ -12,5 +12,10 @@ public class Weather {
         this.location = location;
         this.WeatherAPI_name = WeatherAPI_name;
     }
+    public void DisplayWeather() {
+        System.out.println("Weather in " + location.getCity() + " from " + WeatherAPI_name + ": "
+                + temperature + "°C, " + weather_condition);
+    }
+
 
 }
