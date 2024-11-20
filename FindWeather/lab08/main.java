@@ -26,5 +26,10 @@ public class main {
             System.out.println("1. Choose Weather Service");
             System.out.println("2. Get Weather by City");
             System.out.println("3. Exit");
-            int choice = scanner.nextInt()
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            if (choice == 3) {
+                break;
+            }
 
