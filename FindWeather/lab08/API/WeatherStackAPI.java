@@ -20,5 +20,9 @@ public class WeatherStackAPI {
         StringBuilder response = new StringBuilder();
 
         String line;
+        while ((line = reader.readLine()) != null) {
+            response.append(line);
+        }
+        reader.close();
 
 }
