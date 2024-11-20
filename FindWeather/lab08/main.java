@@ -62,5 +62,7 @@ public class main {
 
     private static void displayWeather(IWeatherService weatherService, Location location) throws IOException {
         if (location != null) {
-
+            System.out.println("Location Info: City: " + location.getCity() +
+                    ", Latitude: " + location.getLatitude() +
+                    ", Longitude: " + location.getLongitude());
 
