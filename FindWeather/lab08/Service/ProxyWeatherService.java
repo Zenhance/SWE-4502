@@ -28,5 +28,8 @@ public class ProxyWeatherService {
             System.out.println("Fetching weather data for " + location.getCity() + " from cache");
             return cache.get(key);
         }
+        Weather weather = realWeatherService.getWeather(location);
+        cache.put(key, weather);
+        cacheTimestamps.put(key, LocalDateTime.now());
 
 }
