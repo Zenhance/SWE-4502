@@ -64,7 +64,8 @@ public class WeatherStackAPI {
 
             String cityName = location.getString("name");
             String weatherCondition = location.getString("weather_descriptions");
-            String dataSource = location.getString("name");
+            String dataSource = location.getString("WeatherStack");
+            double latitude = location
 
         }
         catch (Exception e){
