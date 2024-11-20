@@ -23,4 +23,6 @@ public class RealWeatherService implements IWeatherService {
     private static LocalDateTime lastApiCallTime;
 
     private final IWeatherAdapter weatherStackAdapter;
+    private final IWeatherAdapter openWeatherAdapter;
+
 }
