@@ -25,6 +25,16 @@ public class LocationService implements ILocationService {
                     .GET()
                     .uri(URI.create(GEOLOCATION_URL + ip))
                     .build();
+
+            CompletableFuture<LocationData> future = new CompletableFuture<>();
+            try {
+                HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+                future.complete(parseLocationData(response.body()));
+            } catch (Exception e) {
+                future.completeExceptionally(e);
+            }
+
+            return future;
         });
     }
 
