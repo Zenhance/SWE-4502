@@ -1,5 +1,5 @@
 
-package WeatherService;
+package Service;
 
 import Adapter.IWeatherAdapter;
 import Adapter.OpenWeatherAdapter;
