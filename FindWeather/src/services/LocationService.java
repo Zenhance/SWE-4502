@@ -11,6 +11,10 @@ public class LocationService implements ILocationService {
     private final String GEOLOCATION_URL = "http://ip-api.com/json/";
     private HttpClient httpClient;
 
+    public LocationService() {
+        this.httpClient = HttpClient.newHttpClient();
+    }
+
     @Override
     public CompletableFuture<LocationData> getLocationData() {
 
