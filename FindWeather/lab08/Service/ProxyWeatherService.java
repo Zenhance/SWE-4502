@@ -20,4 +20,13 @@ public class ProxyWeatherService {
 
     }
 
+    @Override
+    public Weather getWeather(Location location) throws IOException {
+        String key = location.getCity().toLowerCase();
+
+        if (cache.containsKey(key) && !isCacheExpired(key)) {
+            System.out.println("Fetching weather data for " + location.getCity() + " from cache");
+            return cache.get(key);
+        }
+
 }
