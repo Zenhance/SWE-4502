@@ -24,22 +24,14 @@ public class WeatherStackAPI {
     private String base_url;
     private JSONObject allInfo;
 
-    public WeatherStackAPI() {
-        api_key = "4c31a3c95ae754203e58d51a39643e4b";
+    public WeatherStackAPI(String _api_key) {
+        api_key = _api_key;
         base_url = "http://api.weatherstack.com/current";
     }
-    public WeatherData getWeatherData(String  location){
-        StringManager stringManager = new StringManager();
-        fetchAPI(stringManager.fillSpaceWithSymbol(location));
-        return parseInfotoWeatherData();
-
-    }
-    private void fetchAPI(String location)  {
+    public JSONObject fetchAPI(String location)  {
 
         String url = base_url + "?access_key=" + api_key + "&query=" + location;
         try {
-
-
             HttpClient client = newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
@@ -54,27 +46,5 @@ public class WeatherStackAPI {
     }
 
 
-    private WeatherData parseInfotoWeatherData(){
-        try{
-            if(allInfo == null){
-                throw new RuntimeException("Info not fetched yet");
-            }
-            JSONObject location = allInfo.getJSONObject("location");
-            JSONObject current = allInfo.getJSONObject("current");
 
-            String cityName = location.getString("name");
-            String weatherCondition = location.getString("weather_descriptions");
-            String dataSource = location.getString("WeatherStack");
-            double latitude = location.getDouble("lat");
-            double longitude = location.getDouble("lon");
-            double temp = location.getDouble("temperature");
-
-            return new WeatherData(cityName,latitude,longitude,temp,weatherCondition,dataSource);
-
-        }
-        catch (Exception e){
-            System.out.printf(e.getMessage());
-        }
-        return null;
-    }
 }
