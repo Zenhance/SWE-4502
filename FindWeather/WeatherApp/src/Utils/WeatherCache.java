@@ -17,4 +17,8 @@ public class WeatherCache {
             this.timestamp = timestamp;
         }
     }
+
+    public void store(String location, WeatherData data) {
+        cache.put(location, new CacheEntry(data, Instant.now()));
+    }
 }
