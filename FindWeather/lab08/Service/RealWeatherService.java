@@ -19,3 +19,8 @@ import java.time.LocalDateTime;
 
 
 public class RealWeatherService implements IWeatherService {
+    public static boolean useWeatherStack = true;
+    private static LocalDateTime lastApiCallTime;
+
+    private final IWeatherAdapter weatherStackAdapter;
+}
