@@ -16,4 +16,6 @@ namespace _210042111_Lab08
             double temperature = (double)json["current"]["temperature"];
             return new WeatherData(cityName, weatherCondition, temperature);
         }
-}
+        private async Task<string> SendGetRequestAsync(string apiUrl)
+        {
+        }
