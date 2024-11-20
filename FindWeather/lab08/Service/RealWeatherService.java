@@ -33,5 +33,14 @@ public class RealWeatherService implements IWeatherService {
         if (lastApiCallTime != null && Duration.between(lastApiCallTime, LocalDateTime.now()).getSeconds() < 30) {
             useWeatherStack = !useWeatherStack;
         }
+        lastApiCallTime = LocalDateTime.now();
+
+        try {
+            if (useWeatherStack) {
+                return weatherStackAdapter.getWeather(location);
+            } else {
+                return openWeatherAdapter.getWeather(location);
+            }
+
 
     }
