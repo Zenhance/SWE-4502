@@ -62,7 +62,9 @@ public class WeatherStackAPI {
             JSONObject location = allInfo.getJSONObject("location");
             JSONObject current = allInfo.getJSONObject("current");
 
-            
+            String cityName = location.getString("name");
+            String weatherCondition = location.getString("weather_descriptions");
+            String cityName = location.getString("name");
 
         }
         catch (Exception e){
