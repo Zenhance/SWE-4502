@@ -5,7 +5,11 @@ import Model.Weather;
 import WeatherAPI.WeatherStackAPI;
 
 import java.io.IOException;
-public class WeatherStackAdapter {
+
+import WeatherAPI.WeatherStackAPI;
+
+import java.io.IOException;
+public class WeatherStackAdapter  implements IWeatherAdapter{
     @Override
     public Weather getWeather(Location location) throws IOException {
         try {
