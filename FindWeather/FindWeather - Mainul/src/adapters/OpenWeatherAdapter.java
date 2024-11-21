@@ -29,10 +29,10 @@ public class OpenWeatherAdapter implements IweatherInfoProvider {
             JSONObject main = allInfo.getJSONObject("main");
             JSONArray weatherArray = allInfo.getJSONArray("weather");
             JSONObject weather = weatherArray.getJSONObject(0); // First element in the array
-            
-            String cityName = allInfo.getString("name");
 
-            String cityName = location.getString("name");
+            String cityName = allInfo.getString("name");
+            String weatherCondition = weather.getString("description");
+            String dataSource = "OpenWeatherMap"; // Updated data source
             String weatherCondition = current.getString("weather_descriptions");
             String dataSource = "OpenWeatherMap";
             double latitude = location.getDouble("lat");
