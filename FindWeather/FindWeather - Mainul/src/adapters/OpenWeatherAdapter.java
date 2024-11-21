@@ -4,6 +4,7 @@ import APIs.openWeatherAPI;
 import concreteClasses.utility.StringManager;
 import concreteClasses.WeatherData;
 import interfaces.IweatherInfoProvider;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class OpenWeatherAdapter implements IweatherInfoProvider {
@@ -24,9 +25,11 @@ public class OpenWeatherAdapter implements IweatherInfoProvider {
             if(allInfo == null){
                 throw new RuntimeException("Info not fetched yet");
             }
-            JSONObject location = allInfo.getJSONObject("location");
-            JSONObject current = allInfo.getJSONObject("current");
+            JSONObject coord = allInfo.getJSONObject("coord");
+            JSONObject main = allInfo.getJSONObject("main");
+            JSONArray weatherArray = allInfo.getJSONArray("weather");
 
+            
             String cityName = location.getString("name");
             String weatherCondition = current.getString("weather_descriptions");
             String dataSource = "OpenWeatherMap";
