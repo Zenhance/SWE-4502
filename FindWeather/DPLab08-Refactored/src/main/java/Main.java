@@ -42,7 +42,13 @@ public class Main {
                     System.out.println("Invalid choice. Using default API.");
                 }
             }
-           
+            case 2 -> {
+                System.out.print("Enter city name: ");
+                String city = scanner.nextLine();
+                Location location = GeoLocation.get_Location_by_city(city);
+                displayWeather(weatherService, location);
+            }
+            default -> System.out.println("Invalid choice. Please try again.");
         }
     }
 
