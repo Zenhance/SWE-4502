@@ -26,8 +26,8 @@ namespace FindWeather.Model
             await Console.Out.WriteLineAsync(uri);
             try
             {
-                var response = await _httpClient.GetAsync(uri);
-                //await Console.Out.WriteLineAsync(response.Content.);
+                    var response = await _httpClient.GetAsync(uri);
+                //await Console.Out.WriteLineAsync(await response);
             }
             catch (Exception e) {
                 await Console.Out.WriteLineAsync(e.Message);

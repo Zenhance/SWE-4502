@@ -11,7 +11,7 @@ namespace FindWeather
     {
         LocationService _locationService = new LocationService();
       
-        public async void Launch()
+        public void Launch()
         {
             while (true)
             {
@@ -25,7 +25,7 @@ namespace FindWeather
                     {
                         case 1:
                             // by ip
-                            await _locationService.FindLocationByIp();
+                            _locationService.FindLocationByIp();
                             break;
                         case 2:
                             // by city
