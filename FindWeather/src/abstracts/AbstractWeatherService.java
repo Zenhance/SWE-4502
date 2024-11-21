@@ -45,6 +45,9 @@ public abstract class AbstractWeatherService implements IweatherService {
 
     @Override
     public CompletableFuture<WeatherData> getWeatherDataByCity() throws Exception {
+        // TODO: Implement this method
+
+        return null;
     }
 
     protected abstract String buildRequestUrl(LocationData locationData);
