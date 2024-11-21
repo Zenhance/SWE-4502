@@ -1,6 +1,7 @@
 package interfaces;
 
-public interface Iweatherprovider {
-    String weather();
-
+public interface IweatherInfoProvider {
+//    void printTemparature();
+//    void printWeatherCondition();
+//    void printLocationInfo();
 }

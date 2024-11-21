@@ -3,18 +3,14 @@ package adapters;
 import APIs.WeatherStackAPI;
 import concreteClasses.StringManager;
 import concreteClasses.WeatherData;
-import interfaces.Iweatherprovider;
+import interfaces.IweatherInfoProvider;
 import org.json.JSONObject;
 
-public class WeatherStackAdapter implements Iweatherprovider {
+public class WeatherStackAdapter implements IweatherInfoProvider {
     private JSONObject allInfo;
     private WeatherStackAPI api;
     public  WeatherStackAdapter(){
         api = new WeatherStackAPI("4c31a3c95ae754203e58d51a39643e4b");
-    }
-    @Override
-    public String weather() {
-        return "";
     }
 
     public WeatherData getWeatherData(String  location){

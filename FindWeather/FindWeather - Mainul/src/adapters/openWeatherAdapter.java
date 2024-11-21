@@ -1,21 +1,16 @@
 package adapters;
 
-import APIs.WeatherStackAPI;
 import APIs.openWeatherAPI;
 import concreteClasses.StringManager;
 import concreteClasses.WeatherData;
-import interfaces.Iweatherprovider;
+import interfaces.IweatherInfoProvider;
 import org.json.JSONObject;
 
-public class openWeatherAdapter implements Iweatherprovider {
+public class openWeatherAdapter implements IweatherInfoProvider {
     openWeatherAPI api;
     private JSONObject allInfo;
     public openWeatherAdapter(){
         api = new openWeatherAPI("e3dfd49f7917fe082f153b64f7ab41b9");
-    }
-    @Override
-    public String weather() {
-        return "";
     }
 
     public WeatherData getWeatherData(String  location){
