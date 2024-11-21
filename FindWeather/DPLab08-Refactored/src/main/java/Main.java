@@ -55,3 +55,22 @@ public class Main {
         scanner.close();
 }
 
+
+
+private static void displayWeather(IWeatherService weatherService, Location location) throws IOException {
+    if (location != null) {
+        System.out.println("Location Info: City: " + location.getCity() +
+                ", Latitude: " + location.getLatitude() +
+                ", Longitude: " + location.getLongitude());
+        Weather weather = weatherService.getWeather(location);
+        if (weather != null) {
+            weather.DisplayWeather();
+        } else {
+            System.out.println("Weather data could not be retrieved.");
+        }
+    } else {
+        System.out.println("Invalid location data.");
+    }
+    System.out.println("________________________________________________________");
+}
+
