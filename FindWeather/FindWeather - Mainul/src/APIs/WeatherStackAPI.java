@@ -42,6 +42,7 @@ public class WeatherStackAPI {
         } catch (IOException | InterruptedException e) {
             System.out.println(e.getMessage());
         }
+        return null;
 
     }
 
