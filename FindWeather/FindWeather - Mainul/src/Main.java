@@ -10,6 +10,6 @@ import java.net.http.HttpResponse;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         TimeManager tm = new TimeManager();
-        System.out.println(tm.isTimeWithinLast10Minutes("03:36 PM"));
+        System.out.println(tm.isTimeWithinLast10Minutes("05:15 PM"));
     }
 }
