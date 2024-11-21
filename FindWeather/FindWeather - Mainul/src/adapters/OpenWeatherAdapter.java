@@ -19,7 +19,7 @@ public class OpenWeatherAdapter implements IweatherInfoProvider {
         return parseInfotoWeatherData();
 
     }
-    private WeatherData parseInfotoWeatherData(){
+    public WeatherData parseInfotoWeatherData(){
         try{
             if(allInfo == null){
                 throw new RuntimeException("Info not fetched yet");
