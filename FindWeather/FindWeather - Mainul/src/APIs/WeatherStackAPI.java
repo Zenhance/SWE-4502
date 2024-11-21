@@ -22,6 +22,7 @@ public class WeatherStackAPI {
     public JSONObject fetchAPI(String location)  {
 
         String url = base_url + "?access_key=" + api_key + "&query=" + location;
+        System.out.println(url);
         try {
             HttpClient client = newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
