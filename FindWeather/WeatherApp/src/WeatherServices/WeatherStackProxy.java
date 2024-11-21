@@ -10,8 +10,19 @@ public class WeatherStackProxy implements IWeatherProvider{
     
     @Override
     public WeatherData getWeatherData(String location) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getWeatherData'");
+        WeatherData cachedData = weatherCache.retrieve(location);
+        if (cachedData != null) {
+            System.out.println("Data retrieved from cache for location: " + location);
+            return cachedData;
+        }
+
+        
+        WeatherData weatherData = provider.getWeatherData(location);
+        if (weatherData != null) {
+            weatherCache.store(location, weatherData);
+            System.out.println("Data fetched from OpenWeather API for location: " + location);
+        }
+        return weatherData;
     }
     
     
