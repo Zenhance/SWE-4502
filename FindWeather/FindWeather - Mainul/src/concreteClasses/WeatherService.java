@@ -23,4 +23,8 @@ public class WeatherService {
         return timeManager.isTimeWithinLast10Minutes(cache.get(location).getTime());
     }
 
+    public void printWeatherData(String location){
+        if(cache.) // check if my cache dictionary contains location as a key y
+            //
+    }
 }
