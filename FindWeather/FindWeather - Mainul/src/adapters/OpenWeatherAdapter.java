@@ -37,7 +37,7 @@ public class OpenWeatherAdapter implements IweatherInfoProvider {
             double longitude = coord.getDouble("lon");
             double temp = main.getDouble("temp"); // Temperature in Kelvin
 
-            return new WeatherData(cityName,latitude,longitude,temp,weatherCondition,dataSource);
+            return new WeatherData(cityName,latitude,longitude,temp-273.15,weatherCondition,dataSource);
 
         }
         catch (Exception e){

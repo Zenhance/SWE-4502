@@ -15,5 +15,10 @@ public class Main {
         openWeatherAPI api = new openWeatherAPI("e3dfd49f7917fe082f153b64f7ab41b9");
         JSONObject obj = api.fetchData("Dhaka");
         System.out.println(obj);
+
+
+        WeatherStackAPI api2 = new WeatherStackAPI("4c31a3c95ae754203e58d51a39643e4b");
+        obj = api.fetchData("Dhaka");
+        System.out.println(obj);
     }
 }
