@@ -31,6 +31,7 @@ public class WeatherStackAPI {
             HttpResponse<String> response =
                     client.send(request, HttpResponse.BodyHandlers.ofString());
             allInfo = new JSONObject(response.body());
+            return allInfo;
         } catch (IOException | InterruptedException e) {
             System.out.println(e.getMessage());
         }
