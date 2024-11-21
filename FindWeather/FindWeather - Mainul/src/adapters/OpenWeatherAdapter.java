@@ -6,10 +6,10 @@ import concreteClasses.WeatherData;
 import interfaces.IweatherInfoProvider;
 import org.json.JSONObject;
 
-public class openWeatherAdapter implements IweatherInfoProvider {
+public class OpenWeatherAdapter implements IweatherInfoProvider {
     openWeatherAPI api;
     private JSONObject allInfo;
-    public openWeatherAdapter(){
+    public OpenWeatherAdapter(){
         api = new openWeatherAPI("e3dfd49f7917fe082f153b64f7ab41b9");
     }
 
