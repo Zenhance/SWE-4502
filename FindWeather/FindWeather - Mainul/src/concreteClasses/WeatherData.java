@@ -40,9 +40,4 @@ public class WeatherData {
         return dataSource;
     }
 
-    public String getWeatherDetails(){
-        return "Weather in " + cityName + " (" + latitude + ", " + longitude + "): " +
-                temperature + "°C, " + weatherCondition + " (Source: " + dataSource + ")";
-
-    }
 }

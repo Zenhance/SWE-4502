@@ -18,6 +18,6 @@ public class WeatherService {
         openWeather = new OpenWeatherAdapter();
         cache = new Hashtable<>();
     }
-
+    
 
 }

@@ -29,7 +29,7 @@ public class WeatherStackAdapter implements IweatherInfoProvider {
 
             String cityName = location.getString("name");
             String weatherCondition = location.getString("weather_descriptions");
-            String dataSource = location.getString("WeatherStack");
+            String dataSource = "WeatherStack";
             double latitude = location.getDouble("lat");
             double longitude = location.getDouble("lon");
             double temp = location.getDouble("temperature");
