@@ -1,5 +1,7 @@
 package concreteClasses;
 
+import org.json.JSONObject;
+
 public class WeatherData {
     private String cityName;
     private double latitude;
@@ -37,7 +39,7 @@ public class WeatherData {
     public String getDataSource(){
         return dataSource;
     }
-    
+
     public String getWeatherDetails(){
         return "Weather in " + cityName + " (" + latitude + ", " + longitude + "): " +
                 temperature + "°C, " + weatherCondition + " (Source: " + dataSource + ")";
