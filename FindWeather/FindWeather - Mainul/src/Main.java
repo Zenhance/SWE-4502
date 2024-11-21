@@ -18,7 +18,7 @@ public class Main {
 
 
         WeatherStackAPI api2 = new WeatherStackAPI("4c31a3c95ae754203e58d51a39643e4b");
-        obj = api.fetchData("Dhaka");
+        obj = api2.fetchAPI("Dhaka");
         System.out.println(obj);
     }
 }
