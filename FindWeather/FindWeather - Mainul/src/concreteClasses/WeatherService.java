@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class WeatherService {
     private WeatherStackAdapter weatherStack;
     private OpenWeatherAdapter openWeather;
-    private Dictionary<String, WeatherData> cache = new HashMap<>();
+    private Dictionary<String, WeatherData> cache = new Hashtable<>();
 
 
     public WeatherService(){
