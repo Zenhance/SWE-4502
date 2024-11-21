@@ -1,4 +1,4 @@
-package concreteClasses;
+package concreteClasses.utility;
 
 public class StringManager {
     public String fillSpaceWithSymbol(String location){
