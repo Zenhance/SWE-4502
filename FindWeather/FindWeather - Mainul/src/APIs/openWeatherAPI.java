@@ -20,6 +20,7 @@ public class openWeatherAPI {
     }
     public JSONObject fetchData(String location){
         String url = base_url + "?q=" + location + "&appid=" + api_key;
+        System.out.println(url);
         try {
             HttpClient client = newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
