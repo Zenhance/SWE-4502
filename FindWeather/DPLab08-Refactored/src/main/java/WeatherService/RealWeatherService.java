@@ -21,4 +21,26 @@ public class RealWeatherService {
         this.weatherStackAdapter = new WeatherStackAdapter();
         this.openWeatherAdapter = new OpenWeatherAdapter();
     }
+
+    @Override
+    public Weather getWeather(Location location) throws IOException {
+        if (lastApiCallTime != null && Duration.between(lastApiCallTime, LocalDateTime.now()).getSeconds() < 30) {
+            useWeatherStack = !useWeatherStack;
+        }
+
+        lastApiCallTime = LocalDateTime.now();
+
+        try {
+            if (useWeatherStack) {
+                return weatherStackAdapter.getWeather(location);
+            } else {
+                return openWeatherAdapter.getWeather(location);
+            }
+        } catch (org.json.JSONException e) {
+            e.printStackTrace(); // Handle the exception (log or rethrow)
+            return null; // Or return a default value if needed
+        }
+    }
 }
+
+
