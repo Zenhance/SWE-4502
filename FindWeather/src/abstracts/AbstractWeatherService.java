@@ -6,12 +6,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
 
-import behaviours.IweatherService;
+import behaviours.IWeatherService;
 import models.LocationData;
 import models.WeatherData;
 import services.LocationService;
 
-public abstract class AbstractWeatherService implements IweatherService {
+public abstract class AbstractWeatherService implements IWeatherService {
     protected final String API_Key;
     protected LocationService locationService;
     protected HttpClient httpClient;
