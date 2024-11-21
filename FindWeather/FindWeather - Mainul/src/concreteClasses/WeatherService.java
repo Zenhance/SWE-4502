@@ -1,5 +1,22 @@
 package concreteClasses;
 
+import APIs.WeatherStackAPI;
+import adapters.OpenWeatherAdapter;
+import adapters.WeatherStackAdapter;
+
+import java.util.Dictionary;
+import java.util.HashMap;
+
 public class WeatherService {
-    private 
+    private WeatherStackAdapter weatherStack;
+    private OpenWeatherAdapter openWeather;
+    private Dictionary<String , WeatherData> cache = new HashMap<>();
+
+    public WeatherService(){
+        weatherStack = new WeatherStackAdapter();
+        openWeather = new OpenWeatherAdapter();
+
+    }
+
+
 }
