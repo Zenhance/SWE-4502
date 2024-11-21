@@ -33,12 +33,9 @@ public class OpenWeatherAdapter implements IweatherInfoProvider {
             String cityName = allInfo.getString("name");
             String weatherCondition = weather.getString("description");
             String dataSource = "OpenWeatherMap"; // Updated data source
-
-            String weatherCondition = current.getString("weather_descriptions");
-            String dataSource = "OpenWeatherMap";
-            double latitude = location.getDouble("lat");
-            double longitude = location.getDouble("lon");
-            double temp = current.getDouble("temperature");
+            double latitude = coord.getDouble("lat");
+            double longitude = coord.getDouble("lon");
+            double temp = main.getDouble("temp"); // Temperature in Kelvin
 
             return new WeatherData(cityName,latitude,longitude,temp,weatherCondition,dataSource);
 
