@@ -4,6 +4,7 @@ import java.util.*;
 import APIs.WeatherStackAPI;
 import adapters.OpenWeatherAdapter;
 import adapters.WeatherStackAdapter;
+import concreteClasses.utility.TimeManager;
 
 import java.util.HashMap;
 
@@ -18,6 +19,9 @@ public class WeatherService {
         openWeather = new OpenWeatherAdapter();
         cache = new Hashtable<>();
     }
-    private is
+    private boolean isCacheExpired(String location){
+        TimeManager timeManager = new TimeManager();
+        return timeManager.isTimeWithinLast10Minutes(cache.get(location).getTime());
+    }
 
 }

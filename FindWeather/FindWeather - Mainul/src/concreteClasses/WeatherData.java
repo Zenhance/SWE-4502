@@ -9,6 +9,7 @@ public class WeatherData {
     private double temperature;
     private String weatherCondition;
     private String dataSource;
+    private String fetchedTime;
 
     public WeatherData(String cityName, double lattitude, double longitude, double temperature, String weatherCondition, String dataSource){
         this.cityName = cityName;
@@ -21,7 +22,9 @@ public class WeatherData {
     public String getCityName(){
         return  cityName;
     }
-
+    public String getTime(){
+        return fetchedTime;
+    }
     public double getLatitude() {
         return latitude;
     }
