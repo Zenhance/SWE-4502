@@ -21,6 +21,17 @@ namespace FindWeather_v112
                         var weatherByIP = await facade.GetWeatherByIP();
                         Console.WriteLine($"Weather in {weatherByIP.City} from {weatherByIP.Source}: {weatherByIP.Temperature}°C, {weatherByIP.Condition}");
                         break;
+                    case 2: // By City (OpenWeatherMap)
+                        Console.Write("City name: ");
+                        string city = Console.ReadLine();
+                        if (string.IsNullOrWhiteSpace(city))
+                        {
+                        }
+                        else
+                        {
+                           
+                        }
+                        break;
                     case 3: // Exit
                         Console.WriteLine("Exiting...");
                         break;
