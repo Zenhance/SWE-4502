@@ -15,13 +15,17 @@ namespace FindWeather_v112
             int choice = int.Parse(Console.ReadLine());
             try
             {
-                switch(choice)
+                switch (choice)
                 {
                     case 1: // By IP (WeatherStack)
                         var weatherByIP = await facade.GetWeatherByIP();
                         Console.WriteLine($"Weather in {weatherByIP.City} from {weatherByIP.Source}: {weatherByIP.Temperature}°C, {weatherByIP.Condition}");
                         break;
+                    case 3: // Exit
+                        Console.WriteLine("Exiting...");
+                        break;
                 }
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
