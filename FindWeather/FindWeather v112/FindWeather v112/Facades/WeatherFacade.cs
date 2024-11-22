@@ -38,7 +38,12 @@ namespace FindWeather_v112
         }
         public async Task<WeatherData> GetWeatherByCity(string city)
         {
-            
+            if (cachedLocation.HasValue)
+            {
+                var location = cachedLocation.Value;
+                Console.WriteLine($"Using cached location for latitude: {location.Latitude}, longitude: {location.Longitude}");
+                return await openWeatherProxy.GetWeatherAsync(location.Latitude, location.Longitude);
+            }
         }
 
 
