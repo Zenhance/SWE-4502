@@ -24,6 +24,9 @@ namespace FindWeather_v112
                     case 3: // Exit
                         Console.WriteLine("Exiting...");
                         break;
+                    default:
+                        Console.WriteLine("Ware there any more choices?Are you dumb?");
+                        break;
                 }
             }
             catch (Exception ex)
