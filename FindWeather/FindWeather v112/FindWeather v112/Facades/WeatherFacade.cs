@@ -36,5 +36,11 @@ namespace FindWeather_v112
             cachedLocation = (latitude, longitude);
             return (latitude, longitude);
         }
+        public async Task<WeatherData> GetWeatherByCity(string city)
+        {
+            
+        }
+
+
     }
 }
