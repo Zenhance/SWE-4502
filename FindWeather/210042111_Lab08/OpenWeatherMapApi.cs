@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Net;
-using System;
 using System.Threading.Tasks;
+using System;
 
 namespace _210042111_Lab08
 {
@@ -20,6 +20,7 @@ namespace _210042111_Lab08
             string apiUrl = $"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={ApiKey}&units=metric";
             return await FetchWeatherData(apiUrl);
         }
+
         private async Task<WeatherData> FetchWeatherData(string apiUrl)
         {
             string response = await SendGetRequestAsync(apiUrl);
@@ -37,7 +38,6 @@ namespace _210042111_Lab08
             {
                 return await client.DownloadStringTaskAsync(new Uri(apiUrl));
             }
-        }
         }
     }
 }
