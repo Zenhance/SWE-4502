@@ -74,12 +74,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\OpenWeatherAdapter.cs" />
+    <Compile Include="Adapters\WeatherStackAdapter.cs" />
     <Compile Include="APIs\OpenWeatherAPI.cs" />
     <Compile Include="APIs\WeatherStackAPI.cs" />
     <Compile Include="Interfaces\IWeatherProvider.cs" />
     <Compile Include="Models\WeatherData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxies\WeatherProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
