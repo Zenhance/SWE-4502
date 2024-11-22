@@ -13,6 +13,14 @@ namespace FindWeather_v112
             var facade = new WeatherFacade();
             Console.WriteLine("Select location method: 1. By IP, 2. By City, 3. Exit");
             int choice = int.Parse(Console.ReadLine());
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }
