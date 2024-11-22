@@ -26,6 +26,8 @@ namespace FindWeather_v112
                         string city = Console.ReadLine();
                         if (string.IsNullOrWhiteSpace(city))
                         {
+                            var weatherUsingIPLocation = await facade.GetWeatherByCity(null);
+                            Console.WriteLine($"Weather in {weatherUsingIPLocation.City} from {weatherUsingIPLocation.Source}: {weatherUsingIPLocation.Temperature}°C, {weatherUsingIPLocation.Condition}");
                         }
                         else
                         {
