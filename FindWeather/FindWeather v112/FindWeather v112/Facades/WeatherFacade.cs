@@ -46,7 +46,9 @@ namespace FindWeather_v112
             }
             return await openWeatherProxy.GetWeatherByCityAsync(city);
         }
-
-
+        public async Task<WeatherData> GetWeatherByIP()
+        {
+            
+        }
     }
 }
