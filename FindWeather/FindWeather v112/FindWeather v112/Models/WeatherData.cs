@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FindWeather_v112.Models
+namespace FindWeather_v112
 {
     internal class WeatherData
     {
