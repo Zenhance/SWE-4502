@@ -18,6 +18,19 @@ public class OpenWeatherAPI {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 
-           
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+            reader.close();
+
+            JSONObject jsonObject = new JSONObject(response.toString());
+
+            double temperature = jsonObject.getJSONObject("main").getDouble("temp");
+            String weatherCondition = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
+
+            return new Weather(temperature, weatherCondition, location, "OpenWeather");
         }
     }
