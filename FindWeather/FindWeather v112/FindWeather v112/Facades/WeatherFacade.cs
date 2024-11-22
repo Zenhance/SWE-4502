@@ -48,7 +48,9 @@ namespace FindWeather_v112
         }
         public async Task<WeatherData> GetWeatherByIP()
         {
-            
+            var location = await GetLocation();
+            cachedLocation = location;
+            return await weatherStackProxy.GetWeatherAsync(location.Latitude, location.Longitude);
         }
     }
 }
