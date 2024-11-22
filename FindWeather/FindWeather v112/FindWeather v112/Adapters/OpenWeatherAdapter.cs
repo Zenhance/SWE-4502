@@ -26,6 +26,13 @@ namespace FindWeather_v112
         {
             var response = await baseClient.FetchWeatherDataByCity(city);
             var json = JsonDocument.Parse(response);
+            return new WeatherData//same ase the previous one!
+            {
+                City = json.RootElement.GetProperty("name").GetString(),
+                Temperature = json.RootElement.GetProperty("main").GetProperty("temp").GetDouble(),
+                Condition = json.RootElement.GetProperty("weather")[0].GetProperty("description").GetString(),
+                Source = "OpenWeatherMap"
+            };
         }
 
     }
