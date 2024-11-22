@@ -17,7 +17,12 @@ namespace FindWeather_v112
         }
         public async Task<WeatherData> GetWeatherAsync(double latitude, double longitude)
         {
-            string key = $"{latitude},{longitude}";            
+            string key = $"{latitude},{longitude}";
+            if (cache.ContainsKey(key) && (DateTime.Now - cache[key].Item2).TotalMinutes < 10)//cache
+            {
+                return cache[key].Item1;
+            }
         }
+
     }
 }
