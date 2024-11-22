@@ -1,3 +1,4 @@
+import APIs.IPStackAPI;
 import APIs.WeatherStackAPI;
 import APIs.openWeatherAPI;
 import adapters.OpenWeatherAdapter;
@@ -20,5 +21,8 @@ public class Main {
         WeatherStackAPI api2 = new WeatherStackAPI("4c31a3c95ae754203e58d51a39643e4b");
         obj = api2.fetchAPI("Dhaka");
         System.out.println(obj);
+
+        IPStackAPI api3 = new IPStackAPI("355dbc2e06a2a5956bc522f5a7d1ca21");
+        System.out.println(api3.fetchData("103.106.243.130"));
     }
 }

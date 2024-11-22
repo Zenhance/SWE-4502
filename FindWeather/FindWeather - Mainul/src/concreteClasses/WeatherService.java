@@ -24,7 +24,13 @@ public class WeatherService {
     }
 
     public void printWeatherData(String location){
-        if(cache.) // check if my cache dictionary contains location as a key y
+        WeatherData weatherData = cache.get(location);
+        if(weatherData != null && !isCacheExpired(location))  {
+            weatherData.printWeatherData();
+        }
+        else{
+            
+        }
             //
     }
 }

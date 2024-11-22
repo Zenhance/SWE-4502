@@ -43,4 +43,14 @@ public class WeatherData {
         return dataSource;
     }
 
+    public void printWeatherData(){
+        System.out.println("City Name: \t" + cityName +
+            "\nLatitude: \t" + latitude+
+                "\nLongitude: \t" + longitude+
+                "Temperature: \t" + temperature+
+                "Weather: \t" + weatherCondition +
+                "Data Source: \t" + dataSource
+        );
+    }
+
 }
