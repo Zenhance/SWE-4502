@@ -1,13 +1,13 @@
 package models;
 
-public class WeatherData 
+public class Weather 
 {
     public Double temperature;
     public String conditions;
     public String locationInfo;
     public String source;
 
-    public WeatherData(Double temperature, String conditions, String locationInfo, String source)
+    public Weather(Double temperature, String conditions, String locationInfo, String source)
     {
         this.temperature = temperature;
         this.conditions = conditions;
