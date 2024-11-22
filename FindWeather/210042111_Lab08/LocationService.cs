@@ -1,33 +1,32 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace _210042111_Lab08
 {
     public class LocationService
     {
-        private const string IpApiUrl = "http://ip-api.com/json/";
+        const string IpGeolocationApiUrl = "https://api.ipgeolocation.io/ipgeo";
+        const string ApiKey = "d4c075512e4f4ce1bfc3152da99ae268"; 
 
         public async Task<(double Latitude, double Longitude)> GetLocationFromIpAsync()
         {
-            string response = await SendGetRequestAsync(IpApiUrl);
+            string apiUrl = $"{IpGeolocationApiUrl}?apiKey={ApiKey}";
+            string response = await SendGetRequestAsync(apiUrl);
             JObject json = JObject.Parse(response);
 
-            if (json["status"]?.ToString() == "success")
+            if (json["latitude"] != null && json["longitude"] != null)
             {
-                double latitude = (double)json["lat"];
-                double longitude = (double)json["lon"];
+                double latitude = double.Parse(json["latitude"].ToString());
+                double longitude = double.Parse(json["longitude"].ToString());
                 return (latitude, longitude);
             }
 
             throw new Exception("Unable to retrieve location information from IP.");
         }
 
-        private async Task<string> SendGetRequestAsync(string apiUrl)
+        public async Task<string> SendGetRequestAsync(string apiUrl)
         {
             using (WebClient client = new WebClient())
             {

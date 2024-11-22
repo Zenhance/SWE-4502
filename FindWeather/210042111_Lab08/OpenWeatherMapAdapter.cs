@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 namespace _210042111_Lab08
 {
-    public class OpenWeatherMapAdapter: IWeatherService
+    public class OpenWeatherMapAdapter : IWeatherService
     {
         private readonly OpenWeatherMapApi weatherApi;
         private readonly LocationService locationService;

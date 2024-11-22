@@ -20,7 +20,7 @@ namespace _210042111_Lab08
 
         public async Task Start()
         {
-            Console.WriteLine("Select weather provider: 1. OpenWeatherMap (Auto-detect location), 2. WeatherStack");
+            Console.WriteLine("Select weather provider: 1. OpenWeatherMap, 2. WeatherStack");
             string model = Console.ReadLine();
             IWeatherService selectedService;
 
