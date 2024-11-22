@@ -26,6 +26,10 @@ namespace FindWeather_v112
             {
                 throw new Exception("Rate limit reached. Please wait.");
             }
+            var data = await provider.GetWeatherAsync(latitude, longitude);
+            cache[key] = (data, DateTime.Now);
+            lastRequestTime = DateTime.Now;
+            return data;
         }
 
     }
