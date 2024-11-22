@@ -15,5 +15,9 @@ namespace FindWeather_v112
         {
             this.provider = provider;
         }
+        public async Task<WeatherData> GetWeatherAsync(double latitude, double longitude)
+        {
+            string key = $"{latitude},{longitude}";            
+        }
     }
 }
