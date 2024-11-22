@@ -31,6 +31,12 @@ namespace FindWeather_v112
             lastRequestTime = DateTime.Now;
             return data;
         }
-
+        public async Task<WeatherData> GetWeatherByCityAsync(string city)
+        {
+            if (cache.ContainsKey(city) && (DateTime.Now - cache[city].Item2).TotalMinutes < 10)//cache
+            {
+                return cache[city].Item1;
+            }
+        }
     }
 }
