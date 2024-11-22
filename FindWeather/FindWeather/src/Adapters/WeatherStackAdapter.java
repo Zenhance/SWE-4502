@@ -10,7 +10,14 @@ public class WeatherStackAdapter implements WeatherProvider {
     @Override
     public WeatherData getWeather(String city, double latitude, double longitude) {
 
-        return null;
+        try{
+            String url = String.format(
+                    "http://api.weatherstack.com/current?access_key=%s&query=%s",
+                    API_Key, city);
+
+            String response=
+        }
+
 
     }
 
