@@ -31,6 +31,10 @@ namespace FindWeather_v112
             string url = $"http://api.ipstack.com/{ip}?access_key=de9240a0520081a9ce9e78214ec3e707";
             var response = await new HttpClient().GetStringAsync(url);
             var json = JsonDocument.Parse(response);
+            double latitude = json.RootElement.GetProperty("latitude").GetDouble();
+            double longitude = json.RootElement.GetProperty("longitude").GetDouble();
+            cachedLocation = (latitude, longitude);
+            return (latitude, longitude);
         }
     }
 }
