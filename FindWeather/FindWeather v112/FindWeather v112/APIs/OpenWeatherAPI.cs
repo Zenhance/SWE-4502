@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FindWeather_v112.APIs
+namespace FindWeather_v112
 {
     internal class OpenWeatherAPI
     {
