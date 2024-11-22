@@ -29,6 +29,8 @@ namespace FindWeather_v112
             }
             string ip = await new HttpClient().GetStringAsync("https://api.ipify.org");
             string url = $"http://api.ipstack.com/{ip}?access_key=de9240a0520081a9ce9e78214ec3e707";
+            var response = await new HttpClient().GetStringAsync(url);
+            var json = JsonDocument.Parse(response);
         }
     }
 }
