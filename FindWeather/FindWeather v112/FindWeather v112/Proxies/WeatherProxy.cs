@@ -37,6 +37,10 @@ namespace FindWeather_v112
             {
                 return cache[city].Item1;
             }
+            if ((DateTime.Now - lastRequestTime).TotalSeconds < 30)//rate limiter
+            {
+                throw new Exception("Rate limit reached. Please wait.");
+            }
         }
     }
 }
