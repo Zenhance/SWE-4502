@@ -17,7 +17,21 @@ public class GeoLocation {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
 
-        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        StringBuilder response = new StringBuilder();
+
+        String line;
+        while ((line = reader.readLine()) != null) {
+            response.append(line);
+        }
+        reader.close();
+        JSONObject jsonObject = new JSONObject(response.toString());
+        JSONObject location = jsonObject.getJSONObject("location");
+
+        double latitude = location.getDouble("lat");
+        double longitude = location.getDouble("lon");
+
+        return new Location(city, latitude, longitude);
     }
 
 }
