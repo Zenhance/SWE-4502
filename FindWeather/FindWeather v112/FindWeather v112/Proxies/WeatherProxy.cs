@@ -9,6 +9,8 @@ namespace FindWeather_v112
     internal class WeatherProxy:IWeatherProvider
     {
         public IWeatherProvider provider;
+        public Dictionary<string, (WeatherData, DateTime)> cache = new Dictionary<string, (WeatherData, DateTime)>();
+        public DateTime lastRequestTime = DateTime.MinValue;
 
     }
 }
