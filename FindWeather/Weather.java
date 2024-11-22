@@ -10,7 +10,7 @@ public class Weather {
         this.location = location;
         this.WeatherAPI_name = WeatherAPI_name;
     }
-    public void getWeather() {
+    public void printWeather() {
         System.out.println("Weather in " + location.getCity() + " from " + WeatherAPI_name + ": "
                 + temperature +  + weather_condition);
     }
