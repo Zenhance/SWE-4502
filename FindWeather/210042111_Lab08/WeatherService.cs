@@ -15,10 +15,10 @@ namespace _210042111_Lab08
         {
             while (!exit)
             {
-                Console.WriteLine("1. Check weather by city");
+                Console.WriteLine("1. Check weather");
                 Console.WriteLine("2. Exit");
 
-                Console.Write("Enter your choice: ");
+             
 
                 string choice = Console.ReadLine();
 

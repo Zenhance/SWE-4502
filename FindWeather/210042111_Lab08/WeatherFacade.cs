@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 namespace _210042111_Lab08
 {
     public class WeatherFacade
@@ -8,6 +9,7 @@ namespace _210042111_Lab08
         IWeatherService weatherStackAdapter;
         WeatherServiceProxy proxyWeatherStack;
         WeatherServiceProxy proxyOpenWeather;
+
         public WeatherFacade()
         {
             openWeatherMapAdapter = new OpenWeatherMapAdapter();
@@ -15,14 +17,13 @@ namespace _210042111_Lab08
             proxyOpenWeather = new WeatherServiceProxy(openWeatherMapAdapter);
             proxyWeatherStack = new WeatherServiceProxy(weatherStackAdapter);
         }
+
         public async Task Start()
         {
-            string city;
-            Console.WriteLine("Enter the city name:");
-            city = Console.ReadLine();
-            Console.WriteLine("Select weather provider: 1. OpenWeatherMap, 2. WeatherStack");
+            Console.WriteLine("Select weather provider: 1. OpenWeatherMap (Auto-detect location), 2. WeatherStack");
             string model = Console.ReadLine();
             IWeatherService selectedService;
+
             if (model == "1")
             {
                 selectedService = proxyOpenWeather;
@@ -35,29 +36,24 @@ namespace _210042111_Lab08
             {
                 selectedService = proxyOpenWeather; // default
             }
+
             try
             {
+                string city = null;
+
+                
+                if (model == "2")
+                {
+                    Console.WriteLine("Enter the city name:");
+                    city = Console.ReadLine();
+                }
+
                 WeatherData weatherData = await selectedService.GetWeather(city);
-                Console.WriteLine($"Weather in {city}: {weatherData.WeatherCondition}, {weatherData.WeatherTemperature}°C");
+                Console.WriteLine($"Weather: {weatherData.WeatherCondition}, {weatherData.WeatherTemperature}°C at {weatherData.CityName}");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
-            }
-        }
-        public async Task<WeatherData> GetWeatherByCityAsync(string city, string model)
-        {
-            if (model == "openWeatherMap")
-            {
-                return await openWeatherMapAdapter.GetWeather(city);
-            }
-            else if (model == "weatherStack")
-            {
-                return await weatherStackAdapter.GetWeather(city);
-            }
-            else
-            {
-                return await openWeatherMapAdapter.GetWeather(city);
             }
         }
     }
