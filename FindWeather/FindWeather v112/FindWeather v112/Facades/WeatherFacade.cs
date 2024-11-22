@@ -27,7 +27,8 @@ namespace FindWeather_v112
                 Console.WriteLine("Using cached location.");
                 return cachedLocation.Value;
             }
-            
+            string ip = await new HttpClient().GetStringAsync("https://api.ipify.org");
+            string url = $"http://api.ipstack.com/{ip}?access_key=de9240a0520081a9ce9e78214ec3e707";
         }
     }
 }
