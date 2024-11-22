@@ -10,9 +10,10 @@ namespace FindWeather_v112
     internal class OpenWeatherAdapter:IWeatherProvider
     {
         public OpenWeatherAPI baseClient = new OpenWeatherAPI();
-        public async Task<WeatherData> GetWeather(double latitude, double longitude)
+        public async Task<WeatherData> GetWeatherAsync(double latitude, double longitude)
         {
-            
+            var response = await baseClient.FetchWeatherDataByCoordinates(latitude, longitude);
+            var json = JsonDocument.Parse(response);
         }
 
     }
