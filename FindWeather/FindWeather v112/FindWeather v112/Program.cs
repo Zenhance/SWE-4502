@@ -8,7 +8,7 @@ namespace FindWeather_v112
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
         }
     }
