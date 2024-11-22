@@ -22,6 +22,11 @@ namespace FindWeather_v112
                 Source = "OpenWeatherMap"
             };
         }
+        public async Task<WeatherData> GetWeatherByCityAsync(string city)
+        {
+            var response = await baseClient.FetchWeatherDataByCity(city);
+            var json = JsonDocument.Parse(response);
+        }
 
     }
 }
