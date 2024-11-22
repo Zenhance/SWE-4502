@@ -8,5 +8,8 @@ namespace FindWeather_v112
 {
     internal class WeatherFacade
     {
+        public WeatherProxy weatherStackProxy;
+        public WeatherProxy openWeatherProxy;
+        public (double Latitude, double Longitude)? cachedLocation = null;
     }
 }
