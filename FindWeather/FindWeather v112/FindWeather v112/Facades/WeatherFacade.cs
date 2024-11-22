@@ -44,6 +44,7 @@ namespace FindWeather_v112
                 Console.WriteLine($"Using cached location for latitude: {location.Latitude}, longitude: {location.Longitude}");
                 return await openWeatherProxy.GetWeatherAsync(location.Latitude, location.Longitude);
             }
+            return await openWeatherProxy.GetWeatherByCityAsync(city);
         }
 
 
