@@ -47,6 +47,7 @@ namespace FindWeather_v112
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+            Console.ReadKey();
         }
     }
 }
