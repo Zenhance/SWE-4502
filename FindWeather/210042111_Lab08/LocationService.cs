@@ -15,17 +15,10 @@ namespace _210042111_Lab08
             string apiUrl = $"{IpGeolocationApiUrl}?apiKey={ApiKey}";
             string response = await SendGetRequestAsync(apiUrl);
             JObject json = JObject.Parse(response);
-
-            if (json["latitude"] != null && json["longitude"] != null)
-            {
                 double latitude = double.Parse(json["latitude"].ToString());
                 double longitude = double.Parse(json["longitude"].ToString());
-                return (latitude, longitude);
-            }
-
-            throw new Exception("Unable to retrieve location information from IP.");
+                return (latitude, longitude);          
         }
-
         public async Task<string> SendGetRequestAsync(string apiUrl)
         {
             using (WebClient client = new WebClient())
