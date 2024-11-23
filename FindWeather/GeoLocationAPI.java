@@ -25,3 +25,7 @@ public class GeoLocationAPI {
             HttpRequest httpRequest = HttpRequest.newBuilder()
                     .uri(URI.create(fullUrl))
                     .build();
+
+                    HttpResponse<String> httpResponse =
+                    httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            return new JSONObject(httpResponse.body());
