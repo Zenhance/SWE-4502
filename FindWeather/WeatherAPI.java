@@ -12,3 +12,8 @@ public class WeatherAPI {
     private String apiKey;
     private String endpointUrl;
     private JSONObject apiResponse;
+
+    public WeatherAPI(String key) {
+        apiKey = key;
+        endpointUrl = "https://api.openweathermap.org/data/2.5/weather";
+    }
