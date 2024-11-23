@@ -13,3 +13,10 @@ public class OpenWeatherAdapter implements IweatherInfoProvider {
     public OpenWeatherAdapter(){
         api = new openWeatherAPI("e3dfd49f7917fe082f153b64f7ab41b9");
     }
+    public WeatherData getWeatherData(String  location){
+        StringManager stringManager = new StringManager();
+        allInfo = api.fetchData(stringManager.fillSpaceWithSymbol(location));
+        return parseInfotoWeatherData();
+
+    }
+    
