@@ -25,3 +25,6 @@ public class WeatherStackAdapter implements IweatherInfoProvider {
             if(allInfo == null){
                 throw new RuntimeException("Info not fetched yet");
             }
+
+            JSONObject location = allInfo.getJSONObject("location");
+            JSONObject current = allInfo.getJSONObject("current");
