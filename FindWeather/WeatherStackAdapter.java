@@ -19,3 +19,9 @@ public class WeatherStackAdapter implements IweatherInfoProvider {
         return parseInfotoWeatherData();
 
     }
+
+    private WeatherData parseInfotoWeatherData(){
+        try{
+            if(allInfo == null){
+                throw new RuntimeException("Info not fetched yet");
+            }
