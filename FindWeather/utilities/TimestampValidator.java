@@ -10,3 +10,7 @@ public class TimestampValidator {
         LocalDateTime parsedTime = LocalDateTime.parse(timestamp, dateFormatter);
         LocalDateTime currentTime = LocalDateTime.now();
         Duration timeDifference = Duration.between(parsedTime, currentTime);
+
+        return !parsedTime.isAfter(currentTime) && timeDifference.toMinutes() <= 10;
+    }
+}
