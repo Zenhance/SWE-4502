@@ -12,3 +12,10 @@ public class WeatherStackAdapter implements IweatherInfoProvider {
     public  WeatherStackAdapter(){
         api = new WeatherStackAPI("4c31a3c95ae754203e58d51a39643e4b");
     }
+
+    public WeatherData getWeatherData(String  location){
+        StringManager stringManager = new StringManager();
+        api.fetchAPI(stringManager.fillSpaceWithSymbol(location));
+        return parseInfotoWeatherData();
+
+    }
