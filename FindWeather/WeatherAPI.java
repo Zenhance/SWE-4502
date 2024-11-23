@@ -30,3 +30,9 @@ public class WeatherAPI {
                     client.send(request, HttpResponse.BodyHandlers.ofString());
             apiResponse = new JSONObject(response.body());
             return apiResponse;
+        } catch (IOException | InterruptedException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
+}
