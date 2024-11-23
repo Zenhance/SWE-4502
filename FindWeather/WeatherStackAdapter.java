@@ -37,3 +37,12 @@ public class WeatherStackAdapter implements IweatherInfoProvider {
             double temp = location.getDouble("temperature");
 
             return new 
+            WeatherData(cityName,latitude,longitude,temp,weatherCondition,dataSource);
+
+        }
+        catch (Exception e){
+            System.out.printf(e.getMessage());
+        }
+        return null;
+    }
+}
