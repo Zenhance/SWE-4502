@@ -1,0 +1,8 @@
+package adapters;
+
+import APIs.openWeatherAPI;
+import concreteClasses.utility.StringManager;
+import concreteClasses.WeatherData;
+import interfaces.IweatherInfoProvider;
+import org.json.JSONArray;
+import org.json.JSONObject;
