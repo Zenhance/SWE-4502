@@ -24,3 +24,7 @@ public class OpenWeatherAdapter implements IweatherInfoProvider {
             if(allInfo == null){
                 throw new RuntimeException("Info not fetched yet");
             }
+            JSONObject coord = allInfo.getJSONObject("coord");
+            JSONObject main = allInfo.getJSONObject("main");
+            JSONArray weatherArray = allInfo.getJSONArray("weather");
+            JSONObject weather = weatherArray.getJSONObject(0); // First element in the array
