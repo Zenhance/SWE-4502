@@ -29,3 +29,10 @@ public class GeoLocationAPI {
                     HttpResponse<String> httpResponse =
                     httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             return new JSONObject(httpResponse.body());
+
+        } catch (IOException | InterruptedException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
+}
