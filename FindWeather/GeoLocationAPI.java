@@ -19,3 +19,9 @@ public class GeoLocationAPI {
 
      public JSONObject retrieveData(String ipAddress) {
         String fullUrl = baseUrl + ipAddress + "?access_key=" + apiKey;
+
+        try {
+            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpRequest httpRequest = HttpRequest.newBuilder()
+                    .uri(URI.create(fullUrl))
+                    .build();
