@@ -28,3 +28,12 @@ public class WeatherStackAdapter implements IweatherInfoProvider {
 
             JSONObject location = allInfo.getJSONObject("location");
             JSONObject current = allInfo.getJSONObject("current");
+
+            String cityName = location.getString("name");
+            String weatherCondition = location.getString("weather_descriptions");
+            String dataSource = "WeatherStack";
+            double latitude = location.getDouble("lat");
+            double longitude = location.getDouble("lon");
+            double temp = location.getDouble("temperature");
+
+            return new 
