@@ -1,0 +1,4 @@
+package adapters;
+
+import APIs.IPStackAPI;
+import org.json.JSONObject;
