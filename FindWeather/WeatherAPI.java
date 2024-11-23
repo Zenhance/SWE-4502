@@ -20,3 +20,9 @@ public class WeatherAPI {
 
     public JSONObject getWeatherDetails(String cityName) {
         String requestUrl = endpointUrl + "?q=" + cityName + "&appid=" + apiKey;
+
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(requestUrl))
+                    .build();
