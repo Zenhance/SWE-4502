@@ -12,9 +12,10 @@ public class OpenWeatherAdapter implements WeatherProvider {
     @Override
     public WeatherData getWeather(String city, double latitude, double longitude) {
         try {
+            
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error in OpenWeatherAdapter.getWeather()");
             return null;
         }
     }
