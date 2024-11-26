@@ -59,13 +59,13 @@ public class LocationService {
         }
     }
 
-    private String fetchIP() throws IOException {
+    public String fetchIP() throws IOException {
         String response = fetchFromUrl(IPIFY_URL);
         JSONObject json = new JSONObject(response);
         return json.optString("ip");
     }
 
-    private String fetchFromUrl(String urlString) throws IOException {
+    public String fetchFromUrl(String urlString) throws IOException {
         HttpURLConnection conn = (HttpURLConnection) new URL(urlString).openConnection();
         conn.setRequestMethod("GET");
 
