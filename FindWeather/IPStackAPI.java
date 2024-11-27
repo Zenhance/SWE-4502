@@ -9,3 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 import static java.net.http.HttpClient.newHttpClient;
+
+public class IPStackAPI {
+    private String api_key;
+    private String base_url;
