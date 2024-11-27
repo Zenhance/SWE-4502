@@ -1,5 +1,6 @@
 package adapters;
 
+
 import APIs.WeatherStackAPI;
 import concreteClasses.utility.StringManager;
 import concreteClasses.WeatherData;
