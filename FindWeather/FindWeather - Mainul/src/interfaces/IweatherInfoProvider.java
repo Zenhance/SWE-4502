@@ -1,7 +1,7 @@
 package interfaces;
 
 public interface IweatherInfoProvider {
-//    void printTemparature();
+//    void getWeatherData();
 //    void printWeatherCondition();
 //    void printLocationInfo();
 }

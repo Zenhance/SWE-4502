@@ -11,13 +11,14 @@ public class WeatherData {
     private String dataSource;
     private String fetchedTime;
 
-    public WeatherData(String cityName, double lattitude, double longitude, double temperature, String weatherCondition, String dataSource){
+    public WeatherData(String cityName, double lattitude, double longitude, double temperature, String weatherCondition, String dataSource, String fetchedTime){
         this.cityName = cityName;
         this.latitude = lattitude;
         this. longitude = longitude;
         this.temperature = temperature;
         this.weatherCondition = weatherCondition;
         this.dataSource = dataSource;
+        this.fetchedTime= fetchedTime;
     }
     public String getCityName(){
         return  cityName;
@@ -47,9 +48,9 @@ public class WeatherData {
         System.out.println("City Name: \t" + cityName +
             "\nLatitude: \t" + latitude+
                 "\nLongitude: \t" + longitude+
-                "Temperature: \t" + temperature+
-                "Weather: \t" + weatherCondition +
-                "Data Source: \t" + dataSource
+                "\nTemperature: \t" + temperature+
+                "\nWeather: \t" + weatherCondition +
+                "\nData Source: \t" + dataSource
         );
     }
 

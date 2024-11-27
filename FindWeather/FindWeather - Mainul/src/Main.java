@@ -1,8 +1,13 @@
 import APIs.IPStackAPI;
+import APIs.IPgettingAPI;
 import APIs.WeatherStackAPI;
 import APIs.openWeatherAPI;
+import adapters.IPStackAPIAdapter;
 import adapters.OpenWeatherAdapter;
-import concreteClasses.utility.TimeManager;
+import adapters.WeatherStackAdapter;
+import concreteClasses.WeatherData;
+import concreteClasses.WeatherService;
+import concreteClasses.utility.Menu;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -10,19 +15,21 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.sql.Time;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        openWeatherAPI api = new openWeatherAPI("e3dfd49f7917fe082f153b64f7ab41b9");
-        JSONObject obj = api.fetchData("Dhaka");
-        System.out.println(obj);
+        Menu menu = new Menu();
+        menu.printMainMenu();
+        Scanner myObj = new Scanner(System.in);
+        int input = Integer.parseInt(myObj.nextLine());
+        if(input>0 && input<3){
 
+//            String cityName = menu.getcityName(input);
+            WeatherService weatherService = new WeatherService();
+            weatherService.printWeatherData("Dhaka");
+        }
 
-        WeatherStackAPI api2 = new WeatherStackAPI("4c31a3c95ae754203e58d51a39643e4b");
-        obj = api2.fetchAPI("Dhaka");
-        System.out.println(obj);
-
-        IPStackAPI api3 = new IPStackAPI("355dbc2e06a2a5956bc522f5a7d1ca21");
-        System.out.println(api3.fetchData("103.106.243.130"));
     }
 }

@@ -15,7 +15,7 @@ public class WeatherStackAdapter implements IweatherInfoProvider {
 
     public WeatherData getWeatherData(String  location){
         StringManager stringManager = new StringManager();
-        api.fetchAPI(stringManager.fillSpaceWithSymbol(location));
+        allInfo = api.fetchAPI(stringManager.fillSpaceWithSymbol(location));
         return parseInfotoWeatherData();
 
     }
@@ -28,13 +28,13 @@ public class WeatherStackAdapter implements IweatherInfoProvider {
             JSONObject current = allInfo.getJSONObject("current");
 
             String cityName = location.getString("name");
-            String weatherCondition = location.getString("weather_descriptions");
+            String weatherCondition = current.getJSONArray("weather_descriptions").getString(0);
             String dataSource = "WeatherStack";
             double latitude = location.getDouble("lat");
             double longitude = location.getDouble("lon");
-            double temp = location.getDouble("temperature");
-
-            return new WeatherData(cityName,latitude,longitude,temp,weatherCondition,dataSource);
+            double temp = current.getDouble("temperature");
+            String localtime = allInfo.getJSONObject("location").getString("localtime");
+            return new WeatherData(cityName,latitude,longitude,temp,weatherCondition,dataSource, localtime);
 
         }
         catch (Exception e){

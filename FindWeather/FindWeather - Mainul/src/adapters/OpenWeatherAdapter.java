@@ -7,6 +7,10 @@ import interfaces.IweatherInfoProvider;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
 public class OpenWeatherAdapter implements IweatherInfoProvider {
     openWeatherAPI api;
     private JSONObject allInfo;
@@ -36,8 +40,12 @@ public class OpenWeatherAdapter implements IweatherInfoProvider {
             double latitude = coord.getDouble("lat");
             double longitude = coord.getDouble("lon");
             double temp = main.getDouble("temp"); // Temperature in Kelvin
+            long dt = allInfo.getLong("dt");
 
-            return new WeatherData(cityName,latitude,longitude,temp-273.15,weatherCondition,dataSource);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").withZone(ZoneId.of("Asia/Dhaka"));
+
+            String fetchedTime = formatter.format(Instant.ofEpochSecond(dt));
+            return new WeatherData(cityName,latitude,longitude,temp-273.15,weatherCondition,dataSource, fetchedTime);
 
         }
         catch (Exception e){
