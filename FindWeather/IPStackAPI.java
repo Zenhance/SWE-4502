@@ -29,3 +29,9 @@ public class IPStackAPI {
             HttpResponse<String> response =
                     client.send(request, HttpResponse.BodyHandlers.ofString());
             return new JSONObject(response.body());
+        } catch (IOException | InterruptedException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+}
