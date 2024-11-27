@@ -36,7 +36,12 @@ public class WeatherProxy {
             }
         }
 
-        
+        if(rateLimit.containsKey("OpenWeather")&&rateLimit.get("OpenWeather").plusSeconds(30).isAfter(now)){
+            System.out.println("Rate limit reached for OpenWeather switching to WeatherStack...");
+            return null;
+        }
+
+
     }
 
 
