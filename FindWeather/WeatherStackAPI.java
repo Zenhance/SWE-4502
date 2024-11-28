@@ -19,3 +19,7 @@ public class WeatherStackAPI {
         api_key = _api_key;
         base_url = "http://api.weatherstack.com/current";
     }
+    public JSONObject fetchAPI(String location)  {
+
+        String url = base_url + "?access_key=" + api_key + "&query=" + location;
+//        System.out.println(url);
