@@ -26,3 +26,14 @@ private boolean isCacheExpired(String location){
     return timeManager.isTimeWithinLast10Minutes(cache.get(location).getTime());
 }
 
+public void printWeatherData(String location){
+    WeatherData weatherData = cache.get(location);
+    if(weatherData != null && !isCacheExpired(location))  {
+        weatherData.printWeatherData();
+    }
+    else{
+        
+    }
+        
+}
+}
