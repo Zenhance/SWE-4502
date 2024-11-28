@@ -23,3 +23,22 @@ public class WeatherStackAPI {
 
         String url = base_url + "?access_key=" + api_key + "&query=" + location;
 //        System.out.println(url);
+try {
+    HttpClient client = newHttpClient();
+    HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(url))
+            .build();
+    HttpResponse<String> response =
+            client.send(request, HttpResponse.BodyHandlers.ofString());
+    allInfo = new JSONObject(response.body());
+    return allInfo;
+} catch (IOException | InterruptedException e) {
+    System.out.println(e.getMessage());
+}
+return null;
+
+}
+
+
+
+}
