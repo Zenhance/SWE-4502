@@ -17,3 +17,30 @@ public class WeatherData {
         this.weatherCondition = weatherCondition;
         this.dataSource = dataSource;
     }
+
+    public String getCityName(){
+        return  cityName;
+    }
+    public String getTime(){
+        return fetchedTime;
+    }
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getTemperature() {
+        return temperature;
+    }
+    public String getWeatherCondition(){
+        return weatherCondition;
+    }
+    public String getDataSource(){
+        return dataSource;
+    }
+
+    
+
