@@ -19,3 +19,10 @@ public class WeatherService {
         openWeather = new OpenWeatherAdapter();
         cache = new Hashtable<>();
     }
+
+
+private boolean isCacheExpired(String location){
+    TimeManager timeManager = new TimeManager();
+    return timeManager.isTimeWithinLast10Minutes(cache.get(location).getTime());
+}
+
