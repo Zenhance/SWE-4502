@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class weatherAPI {
     public static String getResponse(String urlString)throws IOException{
         URL url=new URL(urlString);
-        HttpURLConnection connection=(HttpURLConnection).url.openConnecction();
+        HttpURLConnection connection=(HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.connect();
 
