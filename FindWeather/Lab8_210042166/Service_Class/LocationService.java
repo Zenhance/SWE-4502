@@ -3,8 +3,7 @@ package Lab8_210042166.Service_Class;
 import Lab8_210042166.Interface.ILocationService;
 
 import java.io.IOException;
-
-import import Lab8_210042166.API_Class.weatherAPI;
+ import Lab8_210042166.API_Class.weatherAPI;
 
 public class LocationService implements ILocationService {
     private static final String Ipstack_Key="7142a60d97e2ab19188ce0dfe70015b0";
@@ -34,6 +33,15 @@ public class LocationService implements ILocationService {
         String city = weatherAPI.getValue(locationResponse, "\"city\":\"", "\"");
         System.out.println("Detected city: " + city);
         return city != null && !city.equals("null") ? city : "Unknown City";
+    }
+
+    @Override
+    public String getLatitude() {
+        return latitude;
+    }
+    @Override
+    public String getLongitude() {
+        return longitude;
     }
 
 }
