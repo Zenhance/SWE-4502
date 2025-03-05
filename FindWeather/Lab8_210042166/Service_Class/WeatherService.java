@@ -3,7 +3,7 @@ package Lab8_210042166.Service_Class;
 import Lab8_210042166.Interface.IWeatherService;
 
 import java.io.IOException;
-import Lab8_210042166.API_Class.weatherAPI
+import Lab8_210042166.API_Class.weatherAPI;
 
 public class WeatherService implements IWeatherService {
 
@@ -16,6 +16,7 @@ public class WeatherService implements IWeatherService {
         String weatherResponse = weatherAPI.getResponse(
                 "http://api.weatherstack.com/current?access_key=" + weatherStack_Key + "&query=" + city
         );
+        displayWeatherData(city, weatherResponse);
 
     }
     public void getWeatherThroughLocation(String latitude, String longitude, String city)throws IOException{
@@ -23,8 +24,12 @@ public class WeatherService implements IWeatherService {
         String weatherResponse = weatherAPI.getResponse(
                 "http://api.weatherstack.com/current?access_key=" + weatherStack_Key + "&query=" + latitude + "," + longitude
         );
+        displayWeatherData(city, weatherResponse);
     }
 
+    private void displayWeatherData(String city, String weatherResponse) {
+        String temperature = weatherAPI.getValue(weatherResponse, "\"temperature\":", ",");
+        String weatherDescription = weatherAPI.getValue(weatherResponse, "\"weather_descriptions\":[\"", "\"]");
+    }
 
-
-}
+    }
