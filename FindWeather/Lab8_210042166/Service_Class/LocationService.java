@@ -15,6 +15,19 @@ public class LocationService implements ILocationService {
     @Override
     public void getLocationIP() throws IOException{
         String ip=weatherAPI.getResponse("https://api.ipify.org");
+        String locationResponse = weatherAPI.getResponse(
+                "https://ipstack.com/" + ip + "?access_key=" + Ipstack_Key
+        );
+
+        this.latitude = weatherAPI.getValue(locationResponse, "\"latitude\":", ",");
+        this.longitude = weatherAPI.getValue(locationResponse, "\"longitude\":", ",");
+        System.out.println("Detected location by IP: Lat: " + latitude + ", Lon: " + longitude);
 
     }
+
+    @Override
+    public String getCity()throws IOException{
+
+    }
+
 }
