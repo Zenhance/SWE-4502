@@ -11,6 +11,7 @@ public class WeatherService implements IWeatherService {
 
     @Override
     public void getWeatherThroughCity(String city) throws IOException {
+
         System.out.println("Weather data for city: " + city);
 
         String weatherResponse = weatherAPI.getResponse(
@@ -30,6 +31,10 @@ public class WeatherService implements IWeatherService {
     private void displayWeatherData(String city, String weatherResponse) {
         String temperature = weatherAPI.getValue(weatherResponse, "\"temperature\":", ",");
         String weatherDescription = weatherAPI.getValue(weatherResponse, "\"weather_descriptions\":[\"", "\"]");
+
+        System.out.println("City: " + city);
+        System.out.println("Temperature: " + temperature + "°C");
+        System.out.println("Weather: " + weatherDescription);
     }
 
     }

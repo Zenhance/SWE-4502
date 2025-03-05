@@ -3,7 +3,7 @@ package Lab8_210042166.Service_Class;
 import Lab8_210042166.Interface.ILocationService;
 
 import java.io.IOException;
- import Lab8_210042166.API_Class.weatherAPI;
+import Lab8_210042166.API_Class.weatherAPI;
 
 public class LocationService implements ILocationService {
     private static final String Ipstack_Key="7142a60d97e2ab19188ce0dfe70015b0";
@@ -15,7 +15,7 @@ public class LocationService implements ILocationService {
     public void getLocationIP() throws IOException{
         String ip=weatherAPI.getResponse("https://api.ipify.org");
         String locationResponse = weatherAPI.getResponse(
-                "https://ipstack.com/" + ip + "?access_key=" + Ipstack_Key
+                "http://api.ipstack.com/" + ip + "?access_key=" + Ipstack_Key
         );
 
         this.latitude = weatherAPI.getValue(locationResponse, "\"latitude\":", ",");
@@ -28,7 +28,7 @@ public class LocationService implements ILocationService {
     public String getCity()throws IOException{
         String ip = weatherAPI.getResponse("https://api.ipify.org");
         String locationResponse = weatherAPI.getResponse(
-                "https://ipstack.com/" + ip + "?access_key=" + Ipstack_Key
+                "http://api.ipstack.com/" + ip + "?access_key=" + Ipstack_Key
         );
         String city = weatherAPI.getValue(locationResponse, "\"city\":\"", "\"");
         System.out.println("Detected city: " + city);
