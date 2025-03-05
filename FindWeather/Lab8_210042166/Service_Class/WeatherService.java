@@ -18,5 +18,13 @@ public class WeatherService implements IWeatherService {
         );
 
     }
+    public void getWeatherThroughLocation(String latitude, String longitude, String city)throws IOException{
+        System.out.println("Weather data for the location...");
+        String weatherResponse = weatherAPI.getResponse(
+                "http://api.weatherstack.com/current?access_key=" + weatherStack_Key + "&query=" + latitude + "," + longitude
+        );
+    }
+
+
 
 }
