@@ -30,6 +30,11 @@ public class weatherAPI {
         int startIndex=response.indexOf(keyStart);
         if (startIndex == -1) return "N/A";
         startIndex =startIndex+ keyStart.length();
+
+        int endIndex=response.indexOf(keyEnd,startIndex);
+        if (endIndex == -1) return "N/A";
+
+        return response.substring(startIndex, endIndex);
     }
 
 }
