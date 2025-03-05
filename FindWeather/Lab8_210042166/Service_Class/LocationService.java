@@ -27,7 +27,13 @@ public class LocationService implements ILocationService {
 
     @Override
     public String getCity()throws IOException{
-
+        String ip = weatherAPI.getResponse("https://api.ipify.org");
+        String locationResponse = weatherAPI.getResponse(
+                "https://ipstack.com/" + ip + "?access_key=" + Ipstack_Key
+        );
+        String city = weatherAPI.getValue(locationResponse, "\"city\":\"", "\"");
+        System.out.println("Detected city: " + city);
+        return city != null && !city.equals("null") ? city : "Unknown City";
     }
 
 }
