@@ -10,6 +10,8 @@ public class weatherAPI {
         HttpURLConnection connection=(HttpURLConnection).url.openConnecction();
         connection.setRequestMethod("GET");
         connection.connect();
+
+        int response=connection.getResponseCode();
     }
 
 }
