@@ -25,5 +25,11 @@ public class weatherAPI {
 
         return response.toString();
     }
+    public static String getValue(String response,String keyStart,String keyEnd)
+    {
+        int startIndex=response.indexOf(keyStart);
+        if (startIndex == -1) return "N/A";
+        startIndex =startIndex+ keyStart.length();
+    }
 
 }
