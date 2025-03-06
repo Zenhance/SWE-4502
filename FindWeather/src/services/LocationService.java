@@ -85,11 +85,45 @@ public class LocationService implements ILocationService {
         
         try {
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-            future.complete(parseLocationData(response.body(), cityName));
+            future.complete(parseGeoLocationData(response.body(), cityName));
         } catch (Exception e) {
             future.completeExceptionally(e);
         }
         
         return future;
+    }
+
+    private LocationData parseGeoLocationData(String jsonBody, String cityName) {
+
+        if (jsonBody.equals("[]")) {
+            throw new RuntimeException("City not found: " + cityName);
+        }
+    
+        String name = findValue(jsonBody, "\"name\":\"", "\"");
+        String country = findValue(jsonBody, "\"country\":\"", "\"");
+        String lat = findValue(jsonBody, "\"lat\":", ",");
+        String lon = findValue(jsonBody, "\"lon\":", ",");
+        
+        if (lon.isEmpty()) {
+            lon = findValue(jsonBody, "\"lon\":", "}");
+        }
+        
+        if (name.isEmpty()) {
+            name = cityName;
+        }
+        
+        return new LocationData(country, name, lat, lon);
+    }
+
+    private String findValue(String json, String prefix, String suffix) {
+        
+        int start = json.indexOf(prefix);
+        if (start == -1) return "";
+        
+        start += prefix.length();
+        int end = json.indexOf(suffix, start);
+        if (end == -1) return "";
+        
+        return json.substring(start, end);
     }
 }
