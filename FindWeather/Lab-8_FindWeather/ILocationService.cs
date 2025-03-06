@@ -8,6 +8,7 @@ namespace Lab_8_FindWeather
 {
     public interface ILocationService
     {
-        Location GetLocation();
+        (string City, double Latitude, double Longitude) GetLocationByIp();
+        (string City, double Latitude, double Longitude) GetLocationByCity(string cityName);
     }
 }
