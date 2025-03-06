@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace FindWeather.Model
@@ -27,8 +28,10 @@ namespace FindWeather.Model
             await Console.Out.WriteLineAsync(uri);
             try
             {
-                var response = await _httpClient.GetAsync(uri);
-                await Console.Out.WriteLineAsync(await response.Content.ReadAsStringAsync());
+                var response = await _httpClient.GetAsync(uri).Result.Content.ReadAsStreamAsync();
+                Console.WriteLine(response);
+                var deserialized = JsonSerializer.Deserialize<Location>(response);
+                Console.WriteLine(JsonSerializer.Serialize(deserialized));
             }
             catch (Exception e)
             {
