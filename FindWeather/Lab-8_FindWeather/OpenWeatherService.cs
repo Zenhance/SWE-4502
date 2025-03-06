@@ -40,7 +40,7 @@ namespace Lab_8_FindWeather
             string condition = weatherJson.GetProperty("weather")[0].GetProperty("description").GetString();
             string cityName = weatherJson.GetProperty("name").GetString();
 
-            return new Weather(temperature, condition, new Location(cityName, 0, 0), "OpenWeather");
+            return new WeatherData(temperature, condition, new Location(cityName, 0, 0), "OpenWeather");
         }
     }
 }

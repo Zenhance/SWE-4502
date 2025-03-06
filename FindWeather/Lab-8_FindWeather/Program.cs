@@ -50,7 +50,7 @@ namespace Lab_8_FindWeather
             }
         }
 
-        static void DisplayWeather(WeatherData weatherData)
+        static void DisplayWeather(Weather weatherData)
         {
             Console.WriteLine($"Weather in {weatherData.Location} from {weatherData.DataSource}: {weatherData.Temperature}°C, {weatherData.Conditions}");
         }

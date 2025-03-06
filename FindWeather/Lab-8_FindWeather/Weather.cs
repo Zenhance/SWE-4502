@@ -7,46 +7,29 @@ using System.Threading.Tasks;
 namespace Lab_8_FindWeather
 {
     public class Weather
-    {
-        public double Temperature { get; set; }
-        public string Condition { get; set; }
-        public Location Location { get; set; }
-        public string Source { get; set; } // kottheke nibo tar jonno
-                                           // "WeatherStack" or "OpenWeather"
+    { 
+        public Location location;
+        public double Temperature { get; set; } 
+        public string Conditions { get; set; }
+        public string Location { get; set; }
+        public string Source { get; set; }
 
-
-        public Weather(double temperature, string condition, Location location, string source)
+        public Weather(double Temperature, string Conditions, string Location)
         {
-            Temperature = temperature;
-            Condition = condition;
-            Location = location;
-            Source = source;
+            this.Temperature = Temperature;
+            this.Conditions = Conditions;
+            this.Location = Location;
+            this.Source = Location;
         }
-
 
         public Weather(Location location)
         {
-            Location = location;
+            this.location = location;
         }
 
-        public double GetTemperature()
+        public void DisplayWeather()
         {
-            return Temperature;
-        }
-
-        public string GetCondition()
-        {
-            return Condition;
-        }
-
-        public string GetSource()
-        {
-            return Source;
-        }
-
-        public void ShowInfo()
-        {
-            Console.WriteLine($"Weather in {Location.GetCity()} from {Source}: {Temperature}°C, {Condition}");
+            Console.WriteLine("Weather in " + location.getCity() + " from " + Source + " " + Temperature + ", " + Conditions);
         }
     }
 }
