@@ -59,20 +59,6 @@ public class BankAccount {
         addTransaction(TransactionType.WITHDRAWAL, amount, "Withdrawal");
     }
 
-    public void transfer(BankAccount toAccount, double amount){
-        if (amount <= 0){
-            System.out.println("Invalid amount");
-            return;
-        }
-        if (amount > balance){
-            System.out.println("Insufficient funds");
-            return;
-        }
-        balance -= amount;
-        toAccount.deposit(amount);
-
-        addTransaction(TransactionType.WITHDRAWAL, amount, "Transfer to " + toAccount.getAccountNumber());
-    }
 
     public void addTransaction(TransactionType type, double amount, String reference){
         Transaction transaction = new Transaction(type, accountNumber, amount, reference);

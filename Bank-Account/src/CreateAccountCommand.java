@@ -19,7 +19,10 @@ public class CreateAccountCommand implements Command {
         BankAccount account = new BankAccount(accountNumber, customerName, initialDeposit);
         accounts.put(accountNumber, account);
 
-        System.out.println("Account created " + accountNumber + " " + customerName + " " + initialDeposit);
+        System.out.println("Account created successfully!");
+        System.out.println("ACCOUNT NUMBER: " + accountNumber + " (Please save this for future transactions)");
+        System.out.println("Customer: " + customerName);
+        System.out.println("Initial balance: " + initialDeposit);
     }
 
     private String generateUniqueAccountNumber() {
@@ -34,7 +37,7 @@ public class CreateAccountCommand implements Command {
             }
             accountNumber = sb.toString();
 
-           
+
         } while (accounts.containsKey(accountNumber));
 
         return accountNumber;

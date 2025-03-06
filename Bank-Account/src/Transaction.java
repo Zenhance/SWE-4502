@@ -1,16 +1,15 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Transaction {
     private String id;
     private TransactionType type;
-
     private String accountID;
     private double amount;
     private LocalDateTime timestamp;
-
     private String reference;
 
-public Transaction(TransactionType type, String accountID, double amount, String reference) {
+    public Transaction(TransactionType type, String accountID, double amount, String reference) {
         this.id = "T" + System.currentTimeMillis();
         this.type = type;
         this.accountID = accountID;
@@ -18,7 +17,6 @@ public Transaction(TransactionType type, String accountID, double amount, String
         this.timestamp = LocalDateTime.now();
         this.reference = reference;
     }
-
 
     public String getId() {
         return id;
@@ -44,10 +42,29 @@ public Transaction(TransactionType type, String accountID, double amount, String
         return reference;
     }
 
+    @Override
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedTimestamp = timestamp.format(formatter);
 
+        String amountDisplay = String.format("%.2f", amount);
+        if (type == TransactionType.DEPOSIT) {
+            amountDisplay = "+" + amountDisplay;
+        } else if (type == TransactionType.WITHDRAWAL) {
+            amountDisplay = "-" + amountDisplay;
+        }
 
-
-
-
-
+        return String.format("[%s] %s | ID: %s | Amount: $%s | Ref: %s | Account: %s",
+                formattedTimestamp,
+                type,
+                id,
+                amountDisplay,
+                reference,
+                accountID);
+    }
 }
+
+
+
+
+

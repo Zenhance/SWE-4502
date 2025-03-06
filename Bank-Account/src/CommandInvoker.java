@@ -18,6 +18,19 @@ public class CommandInvoker {
         return accounts;
     }
 
+    public void printTransactionHistory(String accountNumber) {
+        BankAccount account = accounts.get(accountNumber);
+        if (account != null) {
+            for (Transaction transaction : account.getTransactions()) {
+                System.out.println(transaction);
+            }
+        } else {
+            System.out.println("Account not found");
+        }
+    }
+
+
+
 
 
 }
