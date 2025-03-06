@@ -14,22 +14,6 @@ namespace FindWeather.Model
         [JsonPropertyName("longitude")]
         public double Longitude { get; set; }
         [JsonPropertyName("city")]
-        public string City { get; set; }
-
-        public Location()
-        {
-        }
-
-        public Location(string city)
-        {
-            City = city;
-        }
-
-        public Location(double latitude, double longitude, string city)
-        {
-            Latitude = latitude;
-            Longitude = longitude;
-            City = city;
-        }
+        public string? City { get; set; }
     }
 }
