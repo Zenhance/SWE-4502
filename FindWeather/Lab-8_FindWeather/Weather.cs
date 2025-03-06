@@ -11,15 +11,15 @@ namespace Lab_8_FindWeather
         public Location location;
         public double Temperature { get; set; } 
         public string Conditions { get; set; }
-        public string Location { get; set; }
+        public Location Location { get; set; }
         public string Source { get; set; }
 
-        public Weather(double Temperature, string Conditions, string Location)
+        public Weather(double Temperature, string Conditions, Location Location, string Source)
         {
             this.Temperature = Temperature;
             this.Conditions = Conditions;
             this.Location = Location;
-            this.Source = Location;
+            this.Source = Source;
         }
 
         public Weather(Location location)

@@ -28,9 +28,7 @@ namespace Lab_8_FindWeather
             // This line constructs the full URL for the API request by combining:
 
                 // The base URL(GET_URL).
-
                 // The API key(WEATHERSTACK_API_KEY).
-
                 // The city name(city) as a query parameter.
 
 
