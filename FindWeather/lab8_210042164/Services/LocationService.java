@@ -7,7 +7,7 @@ import javax.imageio.IIOException;
 import java.io.IOException;
 
 public class LocationService implements ILocationService {
-    private static final String IPSTACK_API_KEY = "defb538de968ec25de982feec7710fe8";
+    private static final String IPSTACK_API_KEY = "defb538de968ec25de982feec7710fe8"; //key from ipstack.com
     private String latitude;
     private String longitude;
 
