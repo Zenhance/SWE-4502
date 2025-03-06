@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adopters\OpenWeatherMapAdopter.cs" />
     <Compile Include="config\ApiKey.cs" />
     <Compile Include="interfaces\ILocationService.cs" />
     <Compile Include="interfaces\IWeatherProvider.cs" />
@@ -82,14 +83,12 @@
     <Compile Include="models\WeatherData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="services\LocationService.cs" />
+    <Compile Include="adopters\LocationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="services\weatherProviders\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

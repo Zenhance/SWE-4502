@@ -13,5 +13,15 @@ namespace FindWeatherMySolution.models
         public string Conditions { get; set; }
         public string Source { get; set; }
         public DateTime Timestamp { get; set; }
+
+        public void ShowDetails()
+        {
+            Console.WriteLine("Weather Data:");
+            Console.WriteLine($"Location: {Location?.City}");
+            Console.WriteLine($"Temperature: {Temperature}°C");
+            Console.WriteLine($"Conditions: {Conditions}");
+            Console.WriteLine($"Source: {Source}");
+            Console.WriteLine($"Timestamp: {Timestamp}");
+        }
     }
 }
