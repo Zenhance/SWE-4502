@@ -22,14 +22,16 @@ namespace FindWeather.Model
         public async Task<Location> FindLocationByIp()
         {
             var ip = FindIp().Result;
-            var uri = Utility.GetIpStackURL() + ip + "?access_key=" + Utility.GetIPStackApiKey();
+            Console.WriteLine(ip);
+            var uri = Utility.GetIpStackURL() + ip + "/?access_key=" + Utility.GetIPStackApiKey();
             await Console.Out.WriteLineAsync(uri);
             try
             {
                 var response = await _httpClient.GetAsync(uri);
                 await Console.Out.WriteLineAsync(await response.Content.ReadAsStringAsync());
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 await Console.Out.WriteLineAsync(e.Message);
             }
             return new Location("gg");
