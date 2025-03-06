@@ -19,6 +19,8 @@ public class CreateAccountCommand implements Command{
     public void execute() {
         BankAccount account = new BankAccount(accountNumber, customerName, initialDeposit);
         accounts.put(accountNumber, account);
+
+        System.out.println("Account created "+accountNumber+" "+customerName+" "+initialDeposit);
     }
 
 
