@@ -12,6 +12,8 @@ import models.LocationData;
 public class LocationService implements ILocationService {
     private final String IPIFY_URL = "https://api.ipify.org/";
     private final String GEOLOCATION_URL = "http://ip-api.com/json/";
+     private final String GEOCODING_URL = "http://api.openweathermap.org/geo/1.0/direct";
+    private final String API_KEY = "e3c9bf35e426c1789775f45994cc305c";
     private HttpClient httpClient;
 
     public LocationService() {
@@ -67,5 +69,27 @@ public class LocationService implements ILocationService {
         String lon = jsonBody.split(",")[8].split(":")[1].replace("\"", "");
 
         return new LocationData(country, city, lat, lon);
+    }
+
+
+    public CompletableFuture<LocationData> getLocationDataByCity(String cityName) {
+        String encodedCityName = java.net.URLEncoder.encode(cityName, java.nio.charset.StandardCharsets.UTF_8);
+        String requestUrl = GEOCODING_URL + "?q=" + encodedCityName + "&limit=1&appid=" + API_KEY;
+        
+        HttpRequest request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create(requestUrl))
+                .build();
+        
+        CompletableFuture<LocationData> future = new CompletableFuture<>();
+        
+        try {
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            future.complete(parseLocationData(response.body(), cityName));
+        } catch (Exception e) {
+            future.completeExceptionally(e);
+        }
+        
+        return future;
     }
 }

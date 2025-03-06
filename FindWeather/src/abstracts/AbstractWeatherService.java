@@ -45,9 +45,23 @@ public abstract class AbstractWeatherService implements IWeatherService {
 
     @Override
     public CompletableFuture<WeatherData> getWeatherDataByCity() throws Exception {
-        // TODO: Implement this method
+        CompletableFuture<LocationData> locationFuture = locationService.getLocationData();
+        LocationData locationData = locationFuture.get();
 
-        return null;
+        String requestUrl = buildRequestUrl(locationData);
+        HttpRequest request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create(requestUrl))
+                .build();
+
+        try {
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            return CompletableFuture.completedFuture(parseWeatherResponse(response.body()));
+        } catch (Exception e) {
+            CompletableFuture<WeatherData> future = new CompletableFuture<>();
+            future.completeExceptionally(e);
+            return future;
+        }
     }
 
     protected abstract String buildRequestUrl(LocationData locationData);
