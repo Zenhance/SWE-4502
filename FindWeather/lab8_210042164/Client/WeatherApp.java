@@ -47,7 +47,9 @@ public class WeatherApp {
                 case 4:
                     locationService.getCity();
                     break;
-
+                case 5:
+                    System.exit(0);
+                    break;
                 default:
                     System.out.println("Invalid choice");
             }

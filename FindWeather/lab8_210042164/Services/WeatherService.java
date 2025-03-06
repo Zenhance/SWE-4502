@@ -6,7 +6,7 @@ import lab8_210042164.interfaces.IWeatherService;
 import java.io.IOException;
 
 public class WeatherService implements IWeatherService {
-    private static final String WeatherStackApiKey = "498c9df3f684ab09c3a5bd832507110a";
+    private static final String WeatherStackApiKey = "498c9df3f684ab09c3a5bd832507110a";//key fromm weatherstack.com
     private void displayWeatherData(String city, String weatherResponse) {
         String temperature = WeatherApi.extractValue(weatherResponse, "\"temperature\":", ",");
         String weatherDescription = WeatherApi.extractValue(weatherResponse, "\"weather_descriptions\":[\"", "\"]");
