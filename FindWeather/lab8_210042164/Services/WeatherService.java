@@ -28,7 +28,7 @@ public class WeatherService implements IWeatherService {
     public void getWeatherByLocation(String latitude, String longitude, String city) throws IOException {
         System.out.println("Getting weather by location: " + latitude + ", " + longitude + ", " + city);
 
-        String weatherResonse = WeatherApi.getResponse(
+        String weatherResponse = WeatherApi.getResponse(
                 "http://api.weatherstack.com/current?access_key=" + WeatherStackApiKey + "&query=" + latitude + "," + longitude
         );
         displayWeatherData(city, weatherResponse);
