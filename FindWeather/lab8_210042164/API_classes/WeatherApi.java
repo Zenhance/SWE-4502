@@ -12,6 +12,7 @@ public class WeatherApi {
         connection.setRequestMethod("GET");
         connection.connect();
 
+
         int responseCode = connection.getResponseCode();
         if (responseCode != 200) {
             throw new RuntimeException("HttpResponseCode: " + responseCode);
@@ -23,7 +24,9 @@ public class WeatherApi {
         }
         scanner.close();
 
+
         return response.toString();
+
     }
     public static String extractValue(String response, String startKey, String endKey)
     {
