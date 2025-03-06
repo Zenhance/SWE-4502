@@ -29,7 +29,7 @@ namespace Lab_8_FindWeather
 
         public void DisplayWeather()
         {
-            Console.WriteLine("Weather in " + location.getCity() + " from " + Source + " " + Temperature + ", " + Conditions);
+            Console.WriteLine("Weather in " + location.GetCity() + " from " + Source + " " + Temperature + ", " + Conditions);
         }
     }
 }
