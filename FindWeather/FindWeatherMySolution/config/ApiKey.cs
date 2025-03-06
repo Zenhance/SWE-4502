@@ -8,8 +8,9 @@ namespace FindWeatherMySolution.config
 {
     public class ApiKey
     {
-        private string ipStackApiKey = "secret";
-        private string openWeatherMapApiKey = "secret";
+        private string ipStackApiKey = "s";
+        private string openWeatherMapApiKey = "s";
+        private string weatherStackApiKey = "s";
 
         public string GetIpStackApiKey()
         {
@@ -19,6 +20,11 @@ namespace FindWeatherMySolution.config
         public string GetOpenWeatherMapApiKey()
         {
             return openWeatherMapApiKey;
+        }
+
+        public string GetWeatherStackApiKey()
+        {
+            return weatherStackApiKey;
         }
     }
 }

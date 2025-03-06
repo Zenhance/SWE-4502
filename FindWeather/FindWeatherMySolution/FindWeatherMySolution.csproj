@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="adopters\OpenWeatherMapAdopter.cs" />
+    <Compile Include="adopters\WeatherStackAdopter.cs" />
     <Compile Include="config\ApiKey.cs" />
     <Compile Include="interfaces\ILocationService.cs" />
     <Compile Include="interfaces\IWeatherProvider.cs" />
