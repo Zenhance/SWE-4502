@@ -1,0 +1,25 @@
+An automated dynamic mosque display -
+
+View Widgets ->
+1. Current time 
+2. Waqt time tables
+3. Prayer time tables
+4. Current Waqt
+5. Next Prayer
+
+Settings Widgets ->
+1. Location
+2. TimeZone
+3. Prayer time Settings
+
+Inter-dependency ->
+
+1. Waqt time tables --->>> Location, Timezone
+2. Current time --->>> TimeZone
+3. Prayer time table --->>> Prayer time Settings
+4. Current waqt --->>> Current time, Waqt time tables
+5. Next prayer --->>> Current time, prayer times table
+
+We need a mediator among these components so that we can de-couple all these Inter-dependency. Both widgets can change each other
+
+ 
