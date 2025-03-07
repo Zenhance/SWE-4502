@@ -1,0 +1,3 @@
+public enum VEHICLETYPE {
+    CAR, BIKE, LUXURYCAR
+}
