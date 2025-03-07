@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_8_FindWeather
 {
-    public interface IWeatherService
+    internal class ProxyWeatherService
     {
-        Weather GetWeather(Location location);
     }
 }
