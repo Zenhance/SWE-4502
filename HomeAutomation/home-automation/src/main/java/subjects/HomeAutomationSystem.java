@@ -1,3 +1,11 @@
+package subjects;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import models.EnvironmentState;
+import observers.Observer;
+
 public class HomeAutomationSystem implements Subject {
     private List<Observer> observers;
     private EnvironmentState environmentState;
@@ -20,7 +28,7 @@ public class HomeAutomationSystem implements Subject {
     @Override
     public void notifyObservers() {
         for (Observer observer : observers) {
-            observer.update();
+            observer.update(environmentState);
         }
     }
 

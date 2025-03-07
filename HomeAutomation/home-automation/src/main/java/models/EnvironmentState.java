@@ -1,3 +1,5 @@
+package models;
+
 public class EnvironmentState {
     private boolean motionDetected;
     private double temperature;
