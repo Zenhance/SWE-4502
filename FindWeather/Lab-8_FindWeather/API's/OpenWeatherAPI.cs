@@ -19,16 +19,18 @@ namespace Lab_8_FindWeather
 
         public static Weather Get_Weather(Location location)
         {
-            string urlString = "http://api.openweathermap.org/data/2.5/weather?q=" + location.GetCity() + "&appid=" + OpenWeather_API_KEY + "&units=metric";
+            string urlString = "http://api.openweathermap.org/data/2.5/weather?q=" + location.City + "&appid=" + OpenWeather_API_KEY + "&units=m";
+
+
             // URL Construction:
 
             // This line constructs the full URL for the API request by combining:
 
 
-                // The base URL(http://api.openweathermap.org/data/2.5/weather).
-                // The city name(location.GetCity()) as a query parameter.
-                // The API key(OpenWeather_API_KEY).
-                // The units(metric for Celsius).
+            // The base URL(http://api.openweathermap.org/data/2.5/weather).
+            // The city name(location.GetCity()) as a query parameter.
+            // The API key(OpenWeather_API_KEY).
+            // The units(metric for Celsius).
 
 
             // HTTP request

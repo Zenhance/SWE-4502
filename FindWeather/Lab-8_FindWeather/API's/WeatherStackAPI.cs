@@ -19,7 +19,7 @@ namespace Lab_8_FindWeather
 
         public static Weather Get_Weather(Location location)
         {
-            string urlString = "http://api.weatherstack.com/current?access_key=" + location.GetCity() + "&appid=" + WeatherStack_API_KEY + "&units=metric";
+            string urlString = $"http://api.weatherstack.com/current?access_key={WeatherStack_API_KEY}&query={location.GetCity()}&units=m";
             // URL Construction:
 
             // This line constructs the full URL for the API request by combining:
@@ -45,11 +45,11 @@ namespace Lab_8_FindWeather
 
                 JsonNode jsonObject = JsonNode.Parse(responseText);         // Parse the JSON response
 
-                double temperature = jsonObject["main"]["temp"].GetValue<double>();
+                double temperature = jsonObject["current"]["temperature"].GetValue<double>();
                 // retrieves the temperature value from the main object in the JSON response.
 
 
-                string weatherCondition = jsonObject["weather"][0]["description"].GetValue<string>();
+                string weatherCondition = jsonObject["current"]["weather_descriptions"][0].GetValue<string>();
                 // retrieves the weather condition description from the weather array in the JSON response.
 
                 return new Weather(temperature, weatherCondition, location, "WeatherStack");

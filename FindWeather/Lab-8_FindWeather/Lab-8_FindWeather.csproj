@@ -78,14 +78,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GeoLocation.cs" />
-    <Compile Include="ILocationService.cs" />
     <Compile Include="IWeatherService.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="LocationService.cs" />
-    <Compile Include="OpenWeatherService.cs" />
+    <Compile Include="API%27s\OpenWeatherAPI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weather Service\ProxyWeatherService.cs" />
+    <Compile Include="Weather Service\RealWeatherService.cs" />
     <Compile Include="Weather.cs" />
+    <Compile Include="API%27s\WeatherStackAPI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
