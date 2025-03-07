@@ -1,0 +1,7 @@
+public class SmsNotificationService implements INotificationService {
+    @Override
+    public void sendNotification(String message) {
+        System.out.println("SMS Notification: " + message);
+    }
+}
+
