@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_8_FindWeather
 {
-    class Program
+    internal class WeatherStackAPI
     {
-        static async Task Main(string[] args)
-        {
-
-        }
     }
 }
