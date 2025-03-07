@@ -14,4 +14,8 @@ public class MotionDetector implements Observer {
             System.out.println("No motion detected.");
         }
     }
+
+    public boolean isMotionDetected() {
+        return motionDetected;
+    }
 }
