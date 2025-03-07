@@ -5,4 +5,10 @@ public class TestMain {
         Calculator calculator = new Calculator(10, 5);
         assert calculator.add() == 15;
     }
+
+    @Test
+    public void testSubtraction() {
+        Calculator calculator = new Calculator(10, 5);
+        assert calculator.subtract() == 5;
+    }
 }
