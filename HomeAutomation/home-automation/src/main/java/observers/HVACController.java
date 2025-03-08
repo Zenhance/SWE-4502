@@ -41,4 +41,8 @@ public class HVACController implements Observer {
     public void setTargetTemperature(double targetTemperature) {
         this.targetTemperature = targetTemperature;
     }
+
+    public double getTargetTemperature() {
+        return targetTemperature;
+    }
 }
