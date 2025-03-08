@@ -7,13 +7,15 @@ public class MotionDetector implements IObserver{
         if (motionDetected)
         {
             lastDetectedTime = System.currentTimeMillis();
-            System.out.println("Motion detected at: " + lastDetectedTime);
+            logMotion();
         }
-        else
-        {
+        else {
             System.out.println("Motion not detected.");
         }
     }
 
+    private void logMotion() {
+        System.out.println("Motion detected at: " + lastDetectedTime);
+    }
 
 }
