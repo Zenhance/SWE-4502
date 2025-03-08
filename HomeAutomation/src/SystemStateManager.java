@@ -12,6 +12,11 @@ public class SystemStateManager {
         observers.remove(IObserver);
     }
 
+    public void setState(SystemState state) {
+        this.state = state;
+        notifyObservers();
+    }
+
     private void notifyObservers() {
         for (IObserver observer : observers) {
             observer.update(state);
