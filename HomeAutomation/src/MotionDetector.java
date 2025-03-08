@@ -18,4 +18,8 @@ public class MotionDetector implements IObserver{
         System.out.println("Motion detected at: " + lastDetectedTime);
     }
 
+    public boolean isMotionDetected(){
+        return motionDetected;
+    }
+
 }
