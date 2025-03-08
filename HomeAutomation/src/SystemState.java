@@ -3,7 +3,7 @@ public class SystemState {
     public int lightLevel;
     public boolean roomOccupied;
     public int temperature;
-    public int energyUsage;
+    public double energyUsage;
     public String voiceCommand;
 
 }
