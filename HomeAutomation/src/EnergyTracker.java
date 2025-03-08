@@ -11,6 +11,7 @@ public class EnergyTracker implements IObserver{
     {
         double currentUsage = state.energyUsage;
         usageStatistics(currentUsage);
+        detectUnusualConsumption(currentUsage);
     }
 
     private void usageStatistics(double usage) {
@@ -18,6 +19,14 @@ public class EnergyTracker implements IObserver{
         totalUsage += usage;
         count++;
         averageUsage = totalUsage / count;
+    }
+
+    private void detectUnusualConsumption(double currentUsage) {
+        if (currentUsage > averageUsage * 2) {
+            System.out.println("Unusual high consumption detected.");
+        } else if (currentUsage < averageUsage / 2) {
+            System.out.println("Unusual low consumption detected.");
+        }
     }
 
 
