@@ -1,4 +1,6 @@
-package java.core;
+package core;
+
+import java.core.model.EventType;
 
 public class Event {
     private EventType type;

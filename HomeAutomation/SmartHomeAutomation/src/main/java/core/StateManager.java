@@ -1,11 +1,12 @@
-package java.core;
+package core;
 
+import java.core.model.EventType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.Measurement;
+import java.core.model.Measurement;
 
 public class StateManager {
     private Map<EventType, List<EventListener>> listeners = new HashMap<>();
