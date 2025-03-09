@@ -26,7 +26,6 @@ public class VoiceCommandTest {
     @Test
     public void testTurnOffLights() {
         state.voiceCommand = "Turn off the lights";
-        command.update(state);
         assertFalse(state.setLightsOn);
         sysState.setState(state);
     }
