@@ -18,9 +18,6 @@ public class StateManager {
         components.get(key).add(component);
 
 
-
-
-
     }
 
 
@@ -33,7 +30,25 @@ public class StateManager {
     }
 
 
-    
+    public void notifyComponents(String key, Object newValue){
+        if(components.containsKey(key)){
+            for(IComponent component: components.get(key)){
+                component.onStateChange(key, newValue);
+            }
+        }
+    }
+
+    public void updateState(String key, Object value){
+        state.updateState(key, value);
+        notifyComponents(key, value);
+    }
 
 
+    public Object getState(String key){
+        return state.getState(key);
+    }
+
+    public EvironmentalState getState() {
+        return state;
+    }
 }
