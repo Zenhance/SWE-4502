@@ -1,8 +1,8 @@
 package Lab_11_210042166.Issue_1.Unit_Test;
 
-import Lab_11_210042166.Issue_1.Interface.Component;
-import Lab_11_210042166.Issue_1.StateManager_Class.StateManager;
-import Lab_11_210042166.Issue_1.Storage_Class.EnvironmentState;
+import Lab_11_210042166.Project_Structure.Interface.Component;
+import Lab_11_210042166.Project_Structure.StateManager_Class.StateManager;
+import Lab_11_210042166.Project_Structure.Storage_Class.EnvironmentState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

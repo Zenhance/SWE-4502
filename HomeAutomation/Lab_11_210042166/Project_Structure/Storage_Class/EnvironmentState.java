@@ -14,6 +14,10 @@ public class EnvironmentState {
     public double getTemperature() {
         return temperature;
     }
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
+
     public boolean isMotionDetected(){
         return motionDetected;
     }
