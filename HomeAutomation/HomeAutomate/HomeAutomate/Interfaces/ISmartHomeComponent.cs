@@ -1,6 +1,8 @@
-﻿namespace HomeAutomate.Interfaces;
+﻿using HomeAutomate.Enum;
+
+namespace HomeAutomate.Interfaces;
 
 public interface ISmartHomeComponent
 {
-    void update();
+    void update(SENSOR sensor, float value);
 }
