@@ -20,32 +20,30 @@ public class Issue1Test {
         };
 
 
-
-
-
-
-
-
-
-
-    }
-
-
-
-
-
-
-
-
-    }
-
-
-
     @Test
-    public void testObserver() {
+    public void testRegisterComponent() {
 
-        IComponent component = new
+        stateManager.registerComponent("key", component);
+
+        stateManager.updateState("key", "value");
+
+        assertEquals("key", component.getLastUpdatedKey());
+        assertEquals("value", component.getLastUpdatedValue());
+
 
 
     }
-}
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+

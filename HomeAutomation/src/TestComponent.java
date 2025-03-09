@@ -8,4 +8,12 @@ public class TestComponent implements IComponent {
         lastUpdatedKey = key;
         lastUpdatedValue = newValue;
     }
+
+    public String getLastUpdatedKey() {
+        return lastUpdatedKey;
+    }
+
+    public Object getLastUpdatedValue() {
+        return lastUpdatedValue;
+    }
 }
