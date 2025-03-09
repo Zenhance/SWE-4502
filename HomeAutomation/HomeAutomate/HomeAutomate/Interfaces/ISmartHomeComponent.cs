@@ -2,5 +2,5 @@
 
 public interface ISmartHomeComponent
 {
-    void initialize();
+    void update();
 }
