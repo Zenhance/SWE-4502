@@ -5,5 +5,6 @@ public class SystemState {
     public int temperature;
     public double energyUsage;
     public String voiceCommand;
+    public boolean setLightsOn;
 
 }
