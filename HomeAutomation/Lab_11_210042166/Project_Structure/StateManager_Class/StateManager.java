@@ -1,7 +1,7 @@
-package Lab_11_210042166.Issue_1.StateManager_Class;
+package Lab_11_210042166.Project_Structure.StateManager_Class;
 
-import Lab_11_210042166.Issue_1.Interface.Component;
-import Lab_11_210042166.Issue_1.Storage_Class.EnvironmentState;
+import Lab_11_210042166.Project_Structure.Interface.Component;
+import Lab_11_210042166.Project_Structure.Storage_Class.EnvironmentState;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package Lab_11_210042166.Issue_1.Storage_Class;
+package Lab_11_210042166.Project_Structure.Storage_Class;
 
 public class EnvironmentState {
     private double temperature;
