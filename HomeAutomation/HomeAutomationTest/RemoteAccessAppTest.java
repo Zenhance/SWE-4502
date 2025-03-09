@@ -45,4 +45,19 @@ public class RemoteAccessAppTest {
         String notificationMessage = remoteAccessApp.generateNotification("Lights turned on remotely");
         assertEquals("NOTIFICATION: Lights turned on remotely", notificationMessage);
     }
+
+
+    @Test
+    public void testRemoteControlForLightOn(){
+        String result = remoteAccessApp.remoteControl("turn on the lights");
+        assertEquals("NOTIFICATION: Lights turned ON remotely.", result);
+        assertTrue(sysStateManager.state.setLightsOn);
+    }
+
+    @Test
+    public void testRemoteControlForLightOff(){
+        String result = remoteAccessApp.remoteControl("turn off the lights");
+        assertEquals("NOTIFICATION: Lights turned OFF remotely.", result);
+        assertFalse(sysStateManager.state.setLightsOn);
+    }
 }
