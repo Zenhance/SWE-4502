@@ -10,4 +10,14 @@ public class EnvironmentState {
         this.motionDetected=motionDetected;
         this.lightLevel=lightLevel;
     }
+
+    public double getTemperature() {
+        return temperature;
+    }
+    public boolean isMotionDetected(){
+        return motionDetected;
+    }
+    public int getLightLevel(){
+        return lightLevel;
+    }
 }
