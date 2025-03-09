@@ -5,11 +5,14 @@ import org.junit.jupiter.api.Test;
 public class VoiceCommandTest {
     public SystemState state;
     public VoiceCommandFollower command;
+    public SystemStateManager sysState;
 
     @BeforeEach
     public void setup() {
         state = new SystemState();
         command = new VoiceCommandFollower();
+        sysState = new SystemStateManager();
+        sysState.registerObserver(command);
     }
 
     @Test
@@ -17,6 +20,7 @@ public class VoiceCommandTest {
         state.voiceCommand = "Turn on the lights";
         command.update(state);
         assertTrue(state.setLightsOn);
+        sysState.setState(state);
     }
 
     @Test
@@ -24,23 +28,25 @@ public class VoiceCommandTest {
         state.voiceCommand = "Turn off the lights";
         command.update(state);
         assertFalse(state.setLightsOn);
+        sysState.setState(state);
     }
 
 
     @Test
     public void testCommandHistory() {
         state.voiceCommand = "Turn on the lights";
-        command.update(state);
+        sysState.setState(state);
         state.voiceCommand = "Turn off the lights";
-        command.update(state);
+        sysState.setState(state);
 
         assertEquals(2, command.commandHistory.size());
+
     }
 
     @Test
     public void testUnrecognizedCommand() {
         state.voiceCommand = "Open the windows";
-        command.update(state);
+        sysState.setState(state);
         assertFalse(state.setLightsOn);
 
     }

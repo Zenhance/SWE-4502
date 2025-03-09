@@ -5,18 +5,21 @@ import org.junit.jupiter.api.Test;
 public class TemperatureControllerTest {
     private TemperatureController controller;
     private SystemState state;
+    public SystemStateManager sysState;
 
     @BeforeEach
     public void setup() {
         controller = new TemperatureController();
         state = new SystemState();
         controller.setTargetTemperature(22);
+        sysState = new SystemStateManager();
+        sysState.registerObserver(controller);
     }
 
     @Test
     public void testHeatingActivationWhenTemperatureFallsBelowThreshold() {
         state.temperature = 17;
-        controller.update(state);
+        sysState.setState(state);
 
         assertTrue(controller.isHeating);
         assertFalse(controller.isCooling);
@@ -25,7 +28,7 @@ public class TemperatureControllerTest {
     @Test
     public void testCoolingActivationWhenTemperatureRisesAboveThreshold() {
         state.temperature = 27;
-        controller.update(state);
+        sysState.setState(state);
 
         assertFalse(controller.isHeating);
         assertTrue(controller.isCooling);
@@ -34,7 +37,7 @@ public class TemperatureControllerTest {
     @Test
     public void testHVACSystemIdleWhenTemperatureIsWithinHysteresisRange() {
         state.temperature = 22;
-        controller.update(state);
+        sysState.setState(state);
 
         assertFalse(controller.isHeating);
         assertFalse(controller.isCooling);
@@ -43,7 +46,7 @@ public class TemperatureControllerTest {
     @Test
     public void testHeatingDeactivationWhenTemperatureFallsWithinRange() {
         state.temperature = 20;
-        controller.update(state);
+        sysState.setState(state);
 
         assertFalse(controller.isHeating);
         assertFalse(controller.isCooling);
@@ -52,7 +55,7 @@ public class TemperatureControllerTest {
     @Test
     public void testCoolingDeactivationWhenTemperatureRisesWithinRange() {
         state.temperature = 24;
-        controller.update(state);
+        sysState.setState(state);
 
         assertFalse(controller.isHeating);
         assertFalse(controller.isCooling);
