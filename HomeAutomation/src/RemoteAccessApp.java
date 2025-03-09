@@ -1,10 +1,12 @@
 public class RemoteAccessApp implements IObserver {
     private SystemState state;
+    private SystemStateManager sysState;
 
     public RemoteAccessApp(SystemStateManager systemStateManager)
     {
-        systemStateManager.registerObserver(this);
-        this.state = systemStateManager.state;
+        this.sysState = systemStateManager;
+        sysState.registerObserver(this);
+        this.state = sysState.state;
     }
 
     public void update(SystemState state) {
@@ -23,5 +25,24 @@ public class RemoteAccessApp implements IObserver {
 
     public String generateNotification(String message) {
         return "NOTIFICATION: " + message;
+    }
+
+    public String remoteControl(String command) {
+        if (command.toLowerCase().contains("turn on the lights"))
+        {
+            state.setLightsOn = true;
+            sysState.setState(state);
+            return generateNotification("Lights turned ON remotely.");
+        }
+        else if (command.toLowerCase().contains("turn off the lights"))
+        {
+            state.setLightsOn = false;
+            sysState.setState(state);
+            return generateNotification("Lights turned OFF remotely.");
+        }
+        else{
+            return "ERROR: Unrecognized command!";
+        }
+
     }
 }
