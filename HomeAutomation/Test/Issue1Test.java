@@ -34,6 +34,30 @@ public class Issue1Test {
 
     }
 
+    @Test
+    public void testRemoveComponent() {
+
+        stateManager.registerComponent("key", component);
+
+        stateManager.removeComponent("key", component);
+
+
+        assertEquals(null, component.getLastUpdatedKey());
+        assertEquals(null, component.getLastUpdatedValue());
+
+    }
+
+    @Test
+    public void testUpdateState() {
+
+        stateManager.registerComponent("key", component);
+
+        stateManager.updateState("key", "value");
+
+        assertEquals("key", component.getLastUpdatedKey());
+        assertEquals("value", component.getLastUpdatedValue());
+
+    }
 
 
 
