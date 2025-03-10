@@ -26,7 +26,7 @@ public class ExecutorFactory
         }
 
         string commandType = parts[0].ToLower();
-        Command parsedCommand = new Command(parts[0], value);
+        Command parsedCommand = new Command(value);
 
         switch (commandType)
         {
