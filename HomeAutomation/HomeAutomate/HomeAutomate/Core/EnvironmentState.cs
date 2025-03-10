@@ -10,6 +10,7 @@ public class EnvironmentState
     private float _ambientLightLevel;
     private float _temperature;
     private float _energyConsumption;
+    private string _lastVoiceCommand;
     
     private readonly List<ISmartHomeComponent> _components;
     
@@ -20,6 +21,7 @@ public class EnvironmentState
         _ambientLightLevel = 0;
         _temperature = 0;
         _energyConsumption = 0;
+        _lastVoiceCommand = "";
     }
     
     public void AddComponent(ISmartHomeComponent component)
@@ -63,6 +65,16 @@ public class EnvironmentState
         }
     }
     
+    
+    public void SetLastVoiceCommand(Command command)
+    {
+        _lastVoiceCommand = command.getCommand();
+        foreach(ISmartHomeComponent component in _components)
+        {
+            component.update(SENSOR.SOUND, command);
+        }
+    }
+    
     public float GetMotionLevel()
     {
         return _motionLevel;
@@ -81,5 +93,10 @@ public class EnvironmentState
     public float GetEnergyConsumption()
     {
         return _energyConsumption;
+    }
+    
+    public string GetLastVoiceCommand()
+    {
+        return _lastVoiceCommand;
     }
 }
