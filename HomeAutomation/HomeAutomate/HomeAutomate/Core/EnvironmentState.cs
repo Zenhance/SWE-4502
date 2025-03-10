@@ -66,7 +66,7 @@ public class EnvironmentState
     }
     
     
-    public void SetLastVoiceCommand(Command command)
+    public void SetVoiceCommand(Command command)
     {
         _lastVoiceCommand = command.getCommand();
         foreach(ISmartHomeComponent component in _components)
