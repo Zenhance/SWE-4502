@@ -1,7 +1,6 @@
 using HomeAutomate.Core;
 using HomeAutomate.Models;
 using HomeAutomate.Components;
-using HomeAutomate.Executor;
 using HomeAutomate.Enum;
 
 namespace HomeAutomationTest;
@@ -14,29 +13,29 @@ public class MotionTest
     }
 
     [Test]
-    public void setMotionLevelSuspiciousTest()
+    public void SetMotionLevelSuspiciousTest()
     {
         MotionDetector motionDetector = new MotionDetector(0.5f);
         EnvironmentState environmentState = new EnvironmentState();
         environmentState.addComponent(motionDetector);
         environmentState.setMotionLevel(new Command(0.6f));
         MOTIONBEHAVIOR motionBehavior = motionDetector.overall();
-        Assert.AreEqual(motionBehavior, MOTIONBEHAVIOR.SUSPICIOUSBEHAVIOR);
+        Assert.That(motionBehavior, Is.EqualTo(MOTIONBEHAVIOR.SUSPICIOUSBEHAVIOR));
     }
     
     [Test]
-    public void setMotionLevelNormalTest()
+    public void SetMotionLevelNormalTest()
     {
         MotionDetector motionDetector = new MotionDetector(0.5f);
         EnvironmentState environmentState = new EnvironmentState();
         environmentState.addComponent(motionDetector);
         environmentState.setMotionLevel(new Command(0.4f));
         MOTIONBEHAVIOR motionBehavior = motionDetector.overall();
-        Assert.AreEqual(motionBehavior, MOTIONBEHAVIOR.NORMALBEHAVIOR);
+        Assert.That(motionBehavior, Is.EqualTo(MOTIONBEHAVIOR.NORMALBEHAVIOR));
     }
     
     [Test]
-    public void setMotionLevelMultipleSuspiciousTest()
+    public void SetMotionLevelMultipleSuspiciousTest()
     {
         MotionDetector motionDetector = new MotionDetector(0.5f);
         EnvironmentState environmentState = new EnvironmentState();
@@ -45,11 +44,11 @@ public class MotionTest
         environmentState.setMotionLevel(new Command(0.6f));
         environmentState.setMotionLevel(new Command(0.4f));
         MOTIONBEHAVIOR motionBehavior = motionDetector.overall();
-        Assert.AreEqual(motionBehavior, MOTIONBEHAVIOR.SUSPICIOUSBEHAVIOR);
+        Assert.That(motionBehavior, Is.EqualTo(MOTIONBEHAVIOR.SUSPICIOUSBEHAVIOR));
     }
     
     [Test]
-    public void setMotionLevelMultipleNormalTest()
+    public void SetMotionLevelMultipleNormalTest()
     {
         MotionDetector motionDetector = new MotionDetector(0.5f);
         EnvironmentState environmentState = new EnvironmentState();
@@ -59,11 +58,11 @@ public class MotionTest
         environmentState.setMotionLevel(new Command(0.6f));
         
         MOTIONBEHAVIOR motionBehavior = motionDetector.overall();
-        Assert.AreEqual(motionBehavior, MOTIONBEHAVIOR.NORMALBEHAVIOR);
+        Assert.That(motionBehavior, Is.EqualTo(MOTIONBEHAVIOR.NORMALBEHAVIOR));
     }
 
     [Test]
-    public void setMotionLevelSuspiciousCountTest()
+    public void SetMotionLevelSuspiciousCountTest()
     {
         MotionDetector motionDetector = new MotionDetector(0.5f);
         EnvironmentState environmentState = new EnvironmentState();
@@ -73,12 +72,12 @@ public class MotionTest
         environmentState.setMotionLevel(new Command(0.6f));
         
         int suspiciousCount = motionDetector.suspiciousCount();
-        Assert.That(2, Is.EqualTo(suspiciousCount));
+        Assert.That(suspiciousCount, Is.EqualTo(2));
     }
     
     
     [Test]
-    public void setMotionLevelNormalCountTest()
+    public void SetMotionLevelNormalCountTest()
     {
         MotionDetector motionDetector = new MotionDetector(0.5f);
         EnvironmentState environmentState = new EnvironmentState();
@@ -89,7 +88,7 @@ public class MotionTest
         environmentState.setMotionLevel(new Command(0.3f));
         
         int normalCount = motionDetector.normalCount();
-        Assert.That(3, Is.EqualTo(normalCount));
+        Assert.That(normalCount, Is.EqualTo(3));
     }
     
     
