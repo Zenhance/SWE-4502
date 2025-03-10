@@ -1,0 +1,6 @@
+﻿namespace HomeAutomate.Enum;
+
+public enum COMMANDS
+{
+    LIGHT_READING, LIGHT_PARTY, LIGHT_MOVIE, LIGHT_NIGHT, LIGHT_DAYLIGHT
+}
