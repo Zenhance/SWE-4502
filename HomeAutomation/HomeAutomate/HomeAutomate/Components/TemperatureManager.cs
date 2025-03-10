@@ -23,4 +23,14 @@ public class TemperatureManager : ISmartHomeComponent
             _temperature = TemperatureFactory.GetTemperature(value);
         }
     }
+    
+    public TEMPSTATE GetCurrentState()
+    {
+        return _state;
+    }
+    
+    public int GetCurrentTemperatureGoal()
+    {
+        return _temperature;
+    }
 }
