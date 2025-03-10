@@ -1,5 +1,7 @@
 ﻿using HomeAutomate.Core;
 using HomeAutomate.Enum;
+using HomeAutomate.Executor;
+using HomeAutomate.Factory;
 using HomeAutomate.Interfaces;
 using HomeAutomate.Models;
 
@@ -16,10 +18,10 @@ public class VoiceCommandManager : ISmartHomeComponent
     
     public void update(SENSOR sensor, Command command)
     {
-        string commandString = command.getCommand();
         if (sensor == SENSOR.SOUND)
         {
-            
+            StateChangeExecutor sce = ExecutorFactory.getExecutor(command, _environment);
+            sce.execute();
         }
     }
 }
