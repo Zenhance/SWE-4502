@@ -3,7 +3,7 @@ using HomeAutomate.Interfaces;
 
 namespace HomeAutomate.Core;
 
-public class Environment
+public class EnvironmentState
 {
     private float _motionLevel;
     private float _amnbientLightLevel;
@@ -12,7 +12,7 @@ public class Environment
     
     private List<ISmartHomeComponent> _components;
     
-    public Environment()
+    public EnvironmentState()
     {
         _components = new List<ISmartHomeComponent>();
         _motionLevel = 0;
