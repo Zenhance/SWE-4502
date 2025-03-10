@@ -99,4 +99,9 @@ public class EnvironmentState
     {
         return _lastVoiceCommand;
     }
+    
+    public List<ISmartHomeComponent> GetComponents()
+    {
+        return _components;
+    }
 }
