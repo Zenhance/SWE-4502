@@ -24,4 +24,9 @@ public class VoiceCommandManager : ISmartHomeComponent
             sce.execute();
         }
     }
+    
+    public EnvironmentState getEnvironment()
+    {
+        return _environment;
+    }
 }
