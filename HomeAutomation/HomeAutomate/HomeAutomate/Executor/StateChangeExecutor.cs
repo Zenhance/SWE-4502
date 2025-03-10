@@ -17,4 +17,9 @@ public abstract class StateChangeExecutor
     public StateChangeExecutor() { }
     
     public abstract void execute();
+    
+    public Command getCommand()
+    {
+        return _command;
+    }
 }
