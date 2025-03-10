@@ -15,8 +15,9 @@ public class MotionDetector : ISmartHomeComponent
         _motionData = new List<MotionData>();
     }
     
-    public void update(SENSOR sensor, float value)
+    public void update(SENSOR sensor, Command command)
     {
+        float value = command.getValue();
         if (sensor == SENSOR.MOTION)
         {
             if(value > _threshold)
