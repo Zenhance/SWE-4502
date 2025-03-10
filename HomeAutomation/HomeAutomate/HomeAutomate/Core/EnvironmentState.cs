@@ -1,5 +1,6 @@
 ﻿using HomeAutomate.Enum;
 using HomeAutomate.Interfaces;
+using HomeAutomate.Models;
 
 namespace HomeAutomate.Core;
 
@@ -31,7 +32,7 @@ public class EnvironmentState
         _motionLevel = level;
         foreach(ISmartHomeComponent component in _components)
         {
-            component.update(SENSOR.MOTION, level);
+            component.update(SENSOR.MOTION, new Command(level));
         }
     }
     
@@ -40,7 +41,7 @@ public class EnvironmentState
         _amnbientLightLevel = level;
         foreach(ISmartHomeComponent component in _components)
         {
-            component.update(SENSOR.LIGHT, level);
+            component.update(SENSOR.LIGHT, new Command(level));
         }
     }
     
@@ -49,7 +50,7 @@ public class EnvironmentState
         _temperature = temperature;
         foreach(ISmartHomeComponent component in _components)
         {
-            component.update(SENSOR.TEMPERATURE, temperature);
+            component.update(SENSOR.TEMPERATURE, new Command(temperature));
         }
     }
     
@@ -58,7 +59,7 @@ public class EnvironmentState
         _energyConsumption = consumption;
         foreach(ISmartHomeComponent component in _components)
         {
-            component.update(SENSOR.ENERGY, consumption);
+            component.update(SENSOR.ENERGY, new Command(consumption));
         }
     }
 }
