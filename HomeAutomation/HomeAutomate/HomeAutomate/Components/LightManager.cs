@@ -30,4 +30,14 @@ public class LightManager : ISmartHomeComponent
         }
         
     }
+    
+    public LIGHTMODE getCurrentMode()
+    {
+        return _currentMode;
+    }
+    
+    public float getCurrentLightLevel()
+    {
+        return _currentLightLevel;
+    }
 }
