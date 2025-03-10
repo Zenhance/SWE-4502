@@ -13,6 +13,6 @@ public class AmbientLightLevelStateChangeExecutor : StateChangeExecutor
     
     public override void execute()
     {
-        _environment.setAmbientLightLevel(_command);
+        _environment.SetAmbientLightLevel(_command);
     }
 }

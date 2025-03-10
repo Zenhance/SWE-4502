@@ -13,6 +13,6 @@ public class TemperatureStateChangeExecutor : StateChangeExecutor
     
     public override void execute()
     {
-        _environment.setTemperature(_command);
+        _environment.SetTemperature(_command);
     }
 }
