@@ -15,8 +15,9 @@ public class EnergyConsumptionManager : ISmartHomeComponent
         _threshold = threshold;
     }
     
-    public void update(SENSOR sensor, float value)
+    public void update(SENSOR sensor, Command command)
     {
+        float value = command.getValue();
         if (sensor == SENSOR.ENERGY)
         {
             _consumptionData.Add(new PowerConsumptionData(value));
