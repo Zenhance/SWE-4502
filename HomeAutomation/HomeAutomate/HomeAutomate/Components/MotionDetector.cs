@@ -29,4 +29,54 @@ public class MotionDetector : ISmartHomeComponent
             }
         }
     }
+    
+    public List<MotionData> getMotionData()
+    {
+        return _motionData;
+    }
+    
+    public MotionData getLatestMotionData()
+    {
+        return _motionData.Last();
+    }
+    
+    public void clearMotionData()
+    {
+        _motionData.Clear();
+    }
+    
+    public void setThreshold(float threshold)
+    {
+        _threshold = threshold;
+    }
+    
+    public MotionData motionDataAt(int index)
+    {
+        return _motionData[index];
+    }
+    
+    public int suspiciousCount()
+    {
+        return _motionData.Count(motionData => motionData.getMotionBehavior() == MOTIONBEHAVIOR.SUSPICIOUSBEHAVIOR);
+    }
+    
+    public int normalCount()
+    {
+        return _motionData.Count(motionData => motionData.getMotionBehavior() == MOTIONBEHAVIOR.NORMALBEHAVIOR);
+    }
+
+    public MOTIONBEHAVIOR overall()
+    {
+        int suspiciousCount = this.suspiciousCount();
+        int normalCount = this.normalCount();
+        
+        if(suspiciousCount > normalCount)
+        {
+            return MOTIONBEHAVIOR.SUSPICIOUSBEHAVIOR;
+        }
+        else
+        {
+            return MOTIONBEHAVIOR.NORMALBEHAVIOR;
+        }
+    }
 }
