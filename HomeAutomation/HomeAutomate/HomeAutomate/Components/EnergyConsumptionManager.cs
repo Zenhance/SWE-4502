@@ -49,5 +49,10 @@ public class EnergyConsumptionManager : ISmartHomeComponent
     {
         return _threshold;
     }
+    
+    public PowerConsumptionData getLatestData()
+    {
+        return _consumptionData[_consumptionData.Count - 1];
+    }
 }
     
