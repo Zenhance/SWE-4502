@@ -13,6 +13,6 @@ public class EnergyConsumptionStateChangeExecutor : StateChangeExecutor
     
     public override void execute()
     {
-        _environment.setEnergyConsumption(_command);
+        _environment.SetEnergyConsumption(_command);
     }
 }

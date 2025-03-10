@@ -13,7 +13,7 @@ public class MotionLevelStateChangeExecutor : StateChangeExecutor
 
     public override void execute()
     {
-        _environment.setMotionLevel(_command);
+        _environment.SetMotionLevel(_command);
     }
     
 }
