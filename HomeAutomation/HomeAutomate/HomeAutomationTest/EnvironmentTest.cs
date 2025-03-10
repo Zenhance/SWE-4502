@@ -224,4 +224,37 @@ public class EnvironmentTest
         Assert.That(_environment.GetLastVoiceCommand(), Is.EqualTo("energy value 127 kWh"));
         Assert.That(_energyManager.getConsumptionPattern(), Is.EqualTo(CONSUMPTIONPATTERN.USUAL));
     }
+    
+    
+    [Test]
+    public void SetVoiceCommandOnTemperatureTest()
+    {
+        Command command = new Command("temperature value 5 degrees");
+        _environment.SetVoiceCommand(command);
+        
+        Assert.That(_environment.GetLastVoiceCommand(), Is.EqualTo("temperature value 5 degrees"));
+        Assert.That(_temperatureManager.GetCurrentState(), Is.EqualTo(TEMPSTATE.HEATING));
+    }
+    
+    
+    [Test]
+    public void SetVoiceCommandOnMotionTest()
+    {
+        Command command = new Command("motion value 0.6 level");
+        _environment.SetVoiceCommand(command);
+        
+        Assert.That(_environment.GetLastVoiceCommand(), Is.EqualTo("motion value 0.6 level"));
+        Assert.That(_motionDetector.overall(), Is.EqualTo(MOTIONBEHAVIOR.SUSPICIOUSBEHAVIOR));
+    }
+    
+    
+    [Test]
+    public void SetVoiceCommandOnLightTest()
+    {
+        Command command = new Command("light value 0.6 level");
+        _environment.SetVoiceCommand(command);
+        
+        Assert.That(_environment.GetLastVoiceCommand(), Is.EqualTo("light value 0.6 level"));
+        Assert.That(_lightManager.getCurrentMode(), Is.EqualTo(LIGHTMODE.PARTY));
+    }
 }
