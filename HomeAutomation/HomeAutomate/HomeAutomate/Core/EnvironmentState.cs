@@ -27,39 +27,39 @@ public class EnvironmentState
         _components.Add(component);
     }
     
-    public void setMotionLevel(float level)
+    public void setMotionLevel(Command command)
     {
-        _motionLevel = level;
+        _motionLevel = command.getValue();
         foreach(ISmartHomeComponent component in _components)
         {
-            component.update(SENSOR.MOTION, new Command(level));
+            component.update(SENSOR.MOTION, command);
         }
     }
     
-    public void setAmbientLightLevel(float level)
+    public void setAmbientLightLevel(Command command)
     {
-        _amnbientLightLevel = level;
+        _amnbientLightLevel = command.getValue();
         foreach(ISmartHomeComponent component in _components)
         {
-            component.update(SENSOR.LIGHT, new Command(level));
+            component.update(SENSOR.LIGHT, command);
         }
     }
     
-    public void setTemperature(float temperature)
+    public void setTemperature(Command command)
     {
-        _temperature = temperature;
+        _temperature = command.getValue();
         foreach(ISmartHomeComponent component in _components)
         {
-            component.update(SENSOR.TEMPERATURE, new Command(temperature));
+            component.update(SENSOR.TEMPERATURE, command);
         }
     }
     
-    public void setEnergyConsumption(float consumption)
+    public void setEnergyConsumption(Command command)
     {
-        _energyConsumption = consumption;
+        _energyConsumption = command.getValue();
         foreach(ISmartHomeComponent component in _components)
         {
-            component.update(SENSOR.ENERGY, new Command(consumption));
+            component.update(SENSOR.ENERGY, command);
         }
     }
 }
