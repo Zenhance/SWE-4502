@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation", "HomeAutomation\HomeAutomation.csproj", "{2BA4DADB-3771-40E4-ACC0-1A0C78DA2549}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomationTests", "HomeAutomationTests\HomeAutomationTests.csproj", "{020F3DC1-28AE-492E-9EA3-F596F5BBA802}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BA4DADB-3771-40E4-ACC0-1A0C78DA2549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BA4DADB-3771-40E4-ACC0-1A0C78DA2549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BA4DADB-3771-40E4-ACC0-1A0C78DA2549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BA4DADB-3771-40E4-ACC0-1A0C78DA2549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{020F3DC1-28AE-492E-9EA3-F596F5BBA802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{020F3DC1-28AE-492E-9EA3-F596F5BBA802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{020F3DC1-28AE-492E-9EA3-F596F5BBA802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{020F3DC1-28AE-492E-9EA3-F596F5BBA802}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26BCFBC8-CF34-4561-9A4D-C600D2B7CF67}
+	EndGlobalSection
+EndGlobal
