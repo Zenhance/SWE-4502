@@ -43,5 +43,10 @@ public class EnergyConsumptionManager : ISmartHomeComponent
     {
         return _consumptionData;
     }
+    
+    public float getThreshold()
+    {
+        return _threshold;
+    }
 }
     
