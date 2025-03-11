@@ -8,7 +8,7 @@ namespace HomeAutomation
 {
     public class MotionDetector:IObserver
     {
-        public void Notify(Environment env)
+        public void Notify(HomeEnvironment env)
         {
             if (env.isMotionDetected)
             {

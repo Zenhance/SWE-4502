@@ -8,7 +8,7 @@ namespace HomeAutomation
 {
     public class TemperatureDetection:IObserver
     {
-        public void Notify(Environment env)
+        public void Notify(HomeEnvironment env)
         {
             Console.WriteLine($"Current Temperature is: {env.Temperature}");
         }

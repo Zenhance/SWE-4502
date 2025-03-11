@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation
 {
-    public class Environment
+    public class HomeEnvironment
     {
         public List<IObserver> subscribers = new List<IObserver> ();
         public bool isMotionDetected { get; set; }
