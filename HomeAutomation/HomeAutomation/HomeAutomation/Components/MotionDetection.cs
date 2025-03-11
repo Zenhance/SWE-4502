@@ -23,6 +23,7 @@ namespace HomeAutomation.Components
             else if (!state.MotionDetected && motionDetected) 
             {
                 motionDetected = false;
+                LogInActivity();
             }
         }
 
@@ -31,6 +32,14 @@ namespace HomeAutomation.Components
             Console.WriteLine( $"Motion detected at {DateTimeOffset.FromUnixTimeMilliseconds(lastDetectedTime)}");
         }
 
-        
+        private void LogInActivity()
+        {
+            Console.WriteLine($"Motion Stopped");
+        }
+
+        public bool IsMotionDetected()
+        {
+            return motionDetected;
+        }
     }
 }
