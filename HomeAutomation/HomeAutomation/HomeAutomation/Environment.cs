@@ -25,5 +25,16 @@ namespace HomeAutomation
         {
             subscribers.Remove(subscriber);
         }
+
+        public void UpdateHomeEnvironment(bool detected,double temp)
+        {
+            detected = isMotionDetected;
+            Temperature = temp;
+
+            foreach (var subscriber in subscribers)
+            {
+                subscriber.Notify(this);
+            }
+        }
     }
 }
