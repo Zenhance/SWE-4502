@@ -26,7 +26,7 @@ public class MotionDetector implements Component {
     private void detectMotion(boolean motionDetected) {
         if (motionDetected) {
             LocalDateTime timestamp = LocalDateTime.now();
-            String location = "Living Room"; // Placeholder, can be dynamic
+            String location = "Living Room";
 
             MotionEvent event = new MotionEvent(timestamp, location);
             motionLog.add(event);
@@ -38,7 +38,7 @@ public class MotionDetector implements Component {
 
     private void analyzeMotionPatterns() {
         int motionCount = motionLog.size();
-        if (motionCount > 5) { // Example threshold for suspicious activity
+        if (motionCount > 5) {
             System.out.println("⚠ Suspicious activity detected! Frequent motion events recorded.");
         } else {
             System.out.println("✔ Normal motion activity.");
