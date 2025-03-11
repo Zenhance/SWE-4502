@@ -8,6 +8,6 @@ namespace HomeAutomation
 {
     public interface IObserver
     {
-        void Update();
+        void Notify();
     }
 }
