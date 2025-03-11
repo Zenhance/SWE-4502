@@ -9,11 +9,18 @@ namespace HomeAutomation.Components
 {
     public class MotionDetection : IObserver
     {
-
+        private bool motionDetected;
         public List<bool> MotionLog { get; set; } = new List<bool>();
         public void Update(CentralState state)
         {
-            MotionLog.Add(state.MotionDetected);
+            bool newMotionDetected = state.MotionDetected;
+
+
+            if(newMotionDetected && !motionDetected )
+            {
+                motionDetected = true;
+                
+            }
         }
     }
 }
