@@ -13,5 +13,17 @@ namespace HomeAutomation
         public bool isMotionDetected { get; set; }
         public double Temperature { get; set; }
 
+        public void Subscribe(IObserver subscriber)
+        {
+            if(!subscribers.Contains(subscriber))
+            {
+                subscribers.Add(subscriber);
+            }
+        }
+
+        public void Unsubscribe(IObserver subscriber)
+        {
+            subscribers.Remove(subscriber);
+        }
     }
 }
