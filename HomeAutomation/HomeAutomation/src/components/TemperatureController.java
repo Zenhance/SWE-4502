@@ -20,6 +20,6 @@ public class TemperatureController implements core.Sensor
         }
     }
 
-    // Add a new method to the TemperatureController class
+
 
 }

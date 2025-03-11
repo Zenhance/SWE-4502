@@ -18,13 +18,18 @@ public class MotionDetector implements Sensor
         }
     }
 
-    private void logActivity(String motionData)
+    public void setSuspiciousActivityThreshold(int threshold)
     {
-        motionLog.add(motionData);
-        System.out.println("Motion detected! Logged: " + motionData);
+        suspiciousActivityThreshold = threshold;
     }
 
-    private void analyzePattern()
+    public void logActivity(String motionData)
+    {
+        motionLog.add(motionData);
+        //System.out.println("Motion detected! Logged: " + motionData);
+    }
+
+    public void analyzePattern()
     {
         if (motionLog.size() > suspiciousActivityThreshold) {
             System.out.println("Suspicious activity detected! Alerting security.");

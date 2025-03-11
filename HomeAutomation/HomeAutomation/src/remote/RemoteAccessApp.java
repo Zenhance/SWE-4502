@@ -9,8 +9,8 @@ public class RemoteAccessApp
 
         MotionDetector motionDetector = new MotionDetector();
         LightManager lightManager = new LightManager();
-        TemperatureController temperatureController = new TemperatureController();
         EnergyTracker energyTracker = new EnergyTracker();
+        TemperatureController temperatureController = new TemperatureController();
         VoiceCommandProcessor voiceCommandProcessor = new VoiceCommandProcessor();
 
         stateManager.registerSensor(motionDetector);
