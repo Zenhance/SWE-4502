@@ -21,5 +21,13 @@ namespace HomeAutomation.Core_Model
         {
             _observers.Remove(observer);
         }
+
+        public void NotifyObservers()
+        {
+            foreach (var observer in _observers)
+            {
+                observer.Update(centralState);
+            }
+        }
     }
 }
