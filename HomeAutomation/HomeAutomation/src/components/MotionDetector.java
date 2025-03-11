@@ -32,6 +32,12 @@ public class MotionDetector implements Sensor
         
     }
 
+    //Tracks location and time of detected movements
+    public void trackMovement(String location, String time)
+    {
+        System.out.println("Movement detected at " + location + " at " + time);
+    }
+
 
 
 }

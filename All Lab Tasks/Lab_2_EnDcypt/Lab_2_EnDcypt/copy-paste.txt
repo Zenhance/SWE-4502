@@ -1,4 +1,0 @@
-C:\Users\Hp\OneDrive\Desktop\Files\5th semester\Design Pattern\LAB\Lab_2_EnDcypt\Lab_2_EnDcypt\sample.txt
-
-
-C:\Users\Hp\OneDrive\Desktop\Files\5th semester\Design Pattern\LAB\Lab_2_EnDcypt\Lab_2_EnDcypt\encrypted.txt
