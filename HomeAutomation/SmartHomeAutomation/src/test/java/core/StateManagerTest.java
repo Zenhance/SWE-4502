@@ -1,11 +1,11 @@
 package core;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
 
-import java.core.model.EventType;
-import java.core.model.Measurement;
-import java.core.model.Measurement.Units;
+import core.model.EventType;
+import org.junit.jupiter.api.Test;
+import core.model.Measurement;
+import core.model.Measurement.Units;
 import core.testutils.MockEventListener;
 
 public class StateManagerTest {

@@ -1,4 +1,4 @@
-package java.core.model;
+package core.model;
 
 
 public class Measurement {

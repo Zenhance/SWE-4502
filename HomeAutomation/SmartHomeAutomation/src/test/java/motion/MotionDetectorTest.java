@@ -1,7 +1,7 @@
 package motion;
 
 import core.StateManager;
-import java.core.model.Measurement;
+import core.model.Measurement;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,12 +40,12 @@ public class MotionDetectorTest {
         MotionDetector motionDetector = new MotionDetector(stateManager, activityLog);
 
         Measurement measurement = new Measurement(1, Measurement.Units.COUNT);
-        stateManager.setState(java.core.model.EventType.MOTION, measurement);
+        stateManager.setState(core.model.EventType.MOTION, measurement);
 
         assertTrue(motionDetector.isMotionDetected(), "Motion should be detected after event");
 
         measurement = new Measurement(0, Measurement.Units.COUNT);
-        stateManager.setState(java.core.model.EventType.MOTION, measurement);
+        stateManager.setState(core.model.EventType.MOTION, measurement);
 
         assertFalse(motionDetector.isMotionDetected(), "Motion should not be detected after event");
     }

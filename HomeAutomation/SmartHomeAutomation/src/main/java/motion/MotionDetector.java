@@ -2,9 +2,9 @@ package motion;
 
 import core.Event;
 import core.EventListener;
-import java.core.model.EventType;
+import core.model.EventType;
 import core.StateManager;
-import java.core.model.Measurement;
+import core.model.Measurement;
 
 public class MotionDetector implements EventListener {
     private StateManager stateManager;
