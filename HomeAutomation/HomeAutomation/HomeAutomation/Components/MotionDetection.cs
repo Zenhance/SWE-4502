@@ -18,12 +18,19 @@ namespace HomeAutomation.Components
             {
                 motionDetected = true;
                 lastDetectedTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-                
+                LogMotion();
             }
             else if (!state.MotionDetected && motionDetected) 
             {
                 motionDetected = false;
             }
         }
+
+        private void LogMotion()
+        {
+            Console.WriteLine( $"Motion detected at {DateTimeOffset.FromUnixTimeMilliseconds(lastDetectedTime)}");
+        }
+
+        
     }
 }
