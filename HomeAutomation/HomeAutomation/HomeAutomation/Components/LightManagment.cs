@@ -44,5 +44,15 @@ namespace HomeAutomation.Components
             }
             Console.WriteLine($"Light Level: {LightLevel} Change Light Level: {ChangeLightLevel} Scene: {Scene}");
         }
+
+        public int GetChangedLightLevel()
+        {
+            return ChangeLightLevel;
+        }
+
+        public String GetScene()
+        {
+            return Scene;
+        }
     }
 }
