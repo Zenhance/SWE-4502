@@ -1,3 +1,7 @@
+
+
+import Components.RemoteApp;
+import Core.EnvironmentState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,12 +20,17 @@ class RemoteAppTest {
     @Test
     void testRemoteAppReceivesUpdates() {
         envState.setState("MOTION", true);
-        assertTrue(true); // Placeholder: Verify notification is sent
+        assertTrue(remoteApp.receivedNotification(), "RemoteApp should receive notification for motion detection.");
     }
 
     @Test
     void testRemoteAppReceivesPowerUsageUpdates() {
-        envState.setState("POWER_USAGE", 5.0);
-        assertTrue(true); // Placeholder: Verify notification is sent
+        envState.setState("POWER_USAGE", 6.0);
+        assertTrue(remoteApp.receivedNotification(), "RemoteApp should receive notification for power usage change.");
+    }
+
+    @Test
+    void testRemoteAppIgnoresUnrelatedUpdates() {
+        assertFalse(remoteApp.receivedNotification(), "RemoteApp should not receive notifications when no updates occur.");
     }
 }

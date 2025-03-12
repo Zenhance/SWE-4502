@@ -1,30 +1,34 @@
+
+
+import Components.MotionSensor;
+import Core.EnvironmentState;
+import Core.SmartHomeData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MotionSensorTest {
     private EnvironmentState envState;
+    private SmartHomeData homeData;
     private MotionSensor motionSensor;
 
     @BeforeEach
     void setUp() {
         envState = new EnvironmentState();
-        motionSensor = new MotionSensor();
+        homeData = new SmartHomeData();
+        motionSensor = new MotionSensor(homeData);
         envState.addObserver(motionSensor);
     }
 
     @Test
     void testMotionSensorReceivesUpdate() {
         envState.setState("MOTION", true);
-        // Assuming MotionSensor has an internal state to check
-        // Not directly possible without modifying MotionSensor to expose state
-        assertTrue(true); // Placeholder for actual verification
+        assertFalse(motionSensor.getActivityLog().isEmpty()); // Verifies motion is logged
     }
 
     @Test
-    void testMotionSensorDoesNotReceiveUnrelatedUpdates() {
-        envState.setState("TEMPERATURE", 22.0);
-        // Since MotionSensor should not react to TEMPERATURE updates, just check if no exception occurs
-        assertTrue(true); // Placeholder for actual verification
+    void testMotionSensorIgnoresUnrelatedUpdates() {
+        envState.setState("TEMPERATURE", 21.0);
+        assertTrue(motionSensor.getActivityLog().isEmpty()); // Ensures motion sensor ignores unrelated updates
     }
 }
