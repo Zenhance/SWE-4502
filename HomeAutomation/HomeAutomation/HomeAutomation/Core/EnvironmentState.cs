@@ -24,17 +24,35 @@ public class EnvironmentState
         lastVoiceCommand = "";
     }
     
-    public void addComponent(ISmartHomeComponent component)
+    public void AddComponent(ISmartHomeComponent component)
     {
         components.Add(component);
     }
     
-    public void setMotionLevel(Command command)
+    public void SetMotionLevel(Command command)
     {
         motionLevel = command.getValue();
         foreach (ISmartHomeComponent component in components)
         {
             component.update(SENSOR.MOTION, command);
+        }
+    }
+    
+    public void SetTemperature(Command command)
+    {
+        temperature = command.getValue();
+        foreach (ISmartHomeComponent component in components)
+        {
+            component.update(SENSOR.TEMPERATURE, command);
+        }
+    }
+    
+    public void SetAmbientLightLevel(Command command)
+    {
+        ambientLightLevel = command.getValue();
+        foreach (ISmartHomeComponent component in components)
+        {
+            component.update(SENSOR.LIGHT, command);
         }
     }
 
