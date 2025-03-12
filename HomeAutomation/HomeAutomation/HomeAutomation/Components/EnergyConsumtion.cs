@@ -7,7 +7,18 @@ using HomeAutomation.Core_Model;
 
 namespace HomeAutomation.Components
 {
-    class EnergyConsumtion
+    public class EnergyConsumtion:IObserver
     {
+        public void Update(CentralState state)
+        {
+            if (state.RoomOccupied)
+            {
+                Console.WriteLine("Energy Consumption: 1000W");
+            }
+            else
+            {
+                Console.WriteLine("Energy Consumption: 0W");
+            }
+        }
     }
 }
