@@ -31,6 +31,13 @@ public class EnvironmentState {
     public double getPowerUsage() {
         return powerUsage;
     }
+    public void setLightsOn(boolean lightsOn) {
+        if (lightsOn) {
+            this.lightLevel = 100;
+        } else {
+            this.lightLevel = 0;
+        }
+    }
 
     public void setPowerUsage(double powerUsage) {
         this.powerUsage = powerUsage;

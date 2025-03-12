@@ -7,24 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StateManager {
-    private final List<Component> components=new ArrayList<>();
+    private final List<Component> components = new ArrayList<>();
     private EnvironmentState currentState;
 
-    public void registerComponent(Component component){
+    public void registerComponent(Component component) {
         components.add(component);
     }
 
-    public void unregisterComponent(Component component){
+    public void unregisterComponent(Component component) {
         components.remove(component);
     }
-    private void notifyComponents(){
-        for(Component component:components){
+
+    private void notifyComponents() {
+        for (Component component : components) {
             component.update(currentState);
         }
     }
-    public void updateState(EnvironmentState newState){
-        this.currentState=newState;
+
+    public void updateState(EnvironmentState newState) {
+        this.currentState = newState;
         notifyComponents();
     }
 
+    public EnvironmentState getCurrentState() {
+        return currentState;
+    }
 }
