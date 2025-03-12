@@ -5,6 +5,12 @@ namespace HomeAutomationTests
 {
     public class IssueLightManagementUnitTest
     {
+        private readonly StringWriter stringWriter;
+        public IssueLightManagementUnitTest()
+        {
+            stringWriter = new StringWriter();
+        }
+        
         [Fact]
         public void ShouldTurnOnLightsIfRoomIsTaken()
         {
@@ -28,7 +34,6 @@ namespace HomeAutomationTests
             var state = new LightState(true, 12);
 
             
-            var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
 
             // Act
