@@ -18,4 +18,32 @@ public class RemoteAccessManager:ISmartHomeComponent
     {
         
     }
+    
+    public float getTemperature()
+    {
+        return environmentState.GetTemperature();
+    }
+    
+    public float getLightLevel()
+    {
+        return environmentState.GetAmbientLightLevel();
+    }
+    
+    public float getMotionLevel()
+    {
+        return environmentState.GetMotionLevel();
+    }
+    
+    public float getEnergyConsumption()
+    {
+        return environmentState.GetEnergyConsumption();
+    }
+
+    public void setVoiceCommand(Command command)
+    {
+        environmentState.SetVoiceCommand(command);
+    }
+    
+    
+    
 }
