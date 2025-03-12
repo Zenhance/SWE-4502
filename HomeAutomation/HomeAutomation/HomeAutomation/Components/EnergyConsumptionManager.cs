@@ -18,6 +18,10 @@ public class EnergyConsumptionManager: ISmartHomeComponent
     
     public void update(SENSOR sensor, Command command)
     {
-        
+        float value = command.getValue();
+        if (sensor == SENSOR.ENERGY)
+        {
+            powerConsumptionData.Add(new PowerConsumptionData(value));
+        }
     }
 }
