@@ -15,11 +15,23 @@ public class LightManagerTest {
     @Test
     void testLightsOnWhenDark() {
         lightManager.setOccupancy(true);
-        lightManager.setLightLevel(40);
+        lightManager.setLightLevel(40); // 50 er mathaaaaaaaaa(kom) thaakai lagbeee
         assertTrue(lightManager.isLightsOn());
     }
 
+    @Test
+    void testLightsOffWhenBright() {
+        lightManager.setOccupancy(true);
+        lightManager.setLightLevel(60);
+        assertFalse(lightManager.isLightsOn());
+    }
 
+    @Test
+    void testLightsOffWhenNotOccupied() {
+        lightManager.setOccupancy(false);
+        lightManager.setLightLevel(40);
+        assertFalse(lightManager.isLightsOn());
+    }
 
     @Test
     void testReadingSceneTurnsOnLights() {
