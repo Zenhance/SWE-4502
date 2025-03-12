@@ -2,6 +2,10 @@ import models.WeatherData;
 import services.WeatherServiceProxy;
 import java.util.Scanner;
 
+// I actually forked your repository and created a branch there at first and commited every 3 lines because I wasn't given collaborator access
+// there at first. This is the link: https://github.com/nazifatasneem13/SWE-4502/tree/nazifa-14
+// That's why I pushed the whole task in 1 commit on this repo after getting access.
+
 public class App {
     public static void main(String[] args) {
         WeatherServiceProxy weatherService = new WeatherServiceProxy();
