@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation
 {
-    internal class EnvironmentalState
+    public class EnvironmentalState
     {
+        public double Temperature { get; set; }
+        public double AmbientLight { get; set; }
+        public bool MotionDetected { get; set; }
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation
 {
-    internal class IComponent
+    public interface IComponent
     {
+        void OnStateChanged(EnvironmentalState state);
     }
 }

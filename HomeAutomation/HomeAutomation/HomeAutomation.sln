@@ -5,7 +5,10 @@ VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation", "HomeAutomation.csproj", "{F1CE5C99-FF27-42B8-A4D3-D1A005A060F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomationTest", "..\HomeAutomationTest\HomeAutomationTest.csproj", "{AD0EF68E-064C-49D9-AA5E-40C38F7CD4B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeAutomationTest", "..\HomeAutomationTest\HomeAutomationTest.csproj", "{AD0EF68E-064C-49D9-AA5E-40C38F7CD4B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F1CE5C99-FF27-42B8-A4D3-D1A005A060F5} = {F1CE5C99-FF27-42B8-A4D3-D1A005A060F5}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
