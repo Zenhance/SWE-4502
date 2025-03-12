@@ -56,5 +56,24 @@ public class EnvironmentState
         }
     }
     
+    public void SetEnergyConsumption(Command command)
+    {
+        _energyConsumption = command.getValue();
+        foreach(ISmartHomeComponent component in _components)
+        {
+            component.update(SENSOR.ENERGY, command);
+        }
+    }
+    
+    
+    public void SetVoiceCommand(Command command)
+    {
+        _lastVoiceCommand = command.getCommand();
+        foreach(ISmartHomeComponent component in _components)
+        {
+            component.update(SENSOR.SOUND, command);
+        }
+    }
+    
     
 }

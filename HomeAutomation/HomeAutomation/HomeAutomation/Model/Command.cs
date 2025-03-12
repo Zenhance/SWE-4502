@@ -23,7 +23,7 @@ public class Command
         _value = value;
     }
     
-    public string GetCommand()
+    public string getCommand()
     {
         return _command;
     }
