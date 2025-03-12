@@ -51,7 +51,10 @@
     <Compile Include="HomeEnvironment.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="ITemp.cs" />
+    <Compile Include="IVoice.cs" />
     <Compile Include="Light.cs" />
+    <Compile Include="LightOff.cs" />
+    <Compile Include="LightOn.cs" />
     <Compile Include="LightState.cs" />
     <Compile Include="MotionDetector.cs" />
     <Compile Include="MotionEnergy.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="RoomLightControl.cs" />
     <Compile Include="RoomOccupancy.cs" />
     <Compile Include="TemperatureControl.cs" />
+    <Compile Include="VoiceCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
