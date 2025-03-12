@@ -8,6 +8,7 @@ namespace HomeAutomation
 {
   
     public class StateChangeNotifier
+
     {
         private static readonly StateChangeNotifier _instance = new StateChangeNotifier();
         private List<IStateChangeListener> _listeners = new List<IStateChangeListener>();
@@ -26,6 +27,8 @@ namespace HomeAutomation
             foreach (var listener in _listeners)
             {
                 listener.OnStateChange(state);
+
+                //
             }
         }
     }
