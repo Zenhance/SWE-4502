@@ -39,4 +39,40 @@ class TemperatureObserverTest {
         assertTrue(observer.isCooling);
     }
 
+    // Test Case 3: Heating Deactivation When Temperature Falls Within Range
+    @Test
+    void testHeatingDeactivationWhenTemperatureFallsWithinRange() {
+        // Create temperature control system and observer
+        TemperatureControlSystem tempSystem = new TemperatureControlSystem();
+        TemperatureObserver observer = new TemperatureObserver();
+
+        // Register observer
+        tempSystem.registerObserver(observer);
+
+        // Simulate temperature falling to 20°C, within range for deactivation of heating
+        tempSystem.changeTemperature(20, "Living Room");
+
+        // Assert that neither heating nor cooling is activated
+        assertFalse(observer.isHeating);
+        assertFalse(observer.isCooling);
+    }
+
+    // Test Case 4: Cooling Deactivation When Temperature Rises Within Range
+    @Test
+    void testCoolingDeactivationWhenTemperatureRisesWithinRange() {
+        // Create temperature control system and observer
+        TemperatureControlSystem tempSystem = new TemperatureControlSystem();
+        TemperatureObserver observer = new TemperatureObserver();
+
+        // Register observer
+        tempSystem.registerObserver(observer);
+
+        // Simulate temperature rising to 24°C, within range for deactivation of cooling
+        tempSystem.changeTemperature(24, "Bedroom");
+
+        // Assert that neither heating nor cooling is activated
+        assertFalse(observer.isHeating);
+        assertFalse(observer.isCooling);
+    }
+
 }
