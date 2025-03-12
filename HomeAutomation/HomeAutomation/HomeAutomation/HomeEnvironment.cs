@@ -13,6 +13,8 @@ namespace HomeAutomation
         public bool isMotionDetected { get; set; }
         public double Temperature { get; set; }
 
+        public string Location { get; set; }
+
         public void Subscribe(IObserver subscriber)
         {
             if(!subscribers.Contains(subscriber))
@@ -26,10 +28,11 @@ namespace HomeAutomation
             subscribers.Remove(subscriber);
         }
 
-        public void UpdateHomeEnvironment(bool detected,double temp)
+        public void UpdateHomeEnvironment(bool detected,double temp, string location)
         {
             detected = isMotionDetected;
             Temperature = temp;
+            Location = location;
 
             foreach (var subscriber in subscribers)
             {
