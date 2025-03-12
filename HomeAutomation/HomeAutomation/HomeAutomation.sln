@@ -1,9 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34728.123
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation", "HomeAutomation.csproj", "{642A3DCB-ED1D-4286-AC5E-8C973824496D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation", "HomeAutomation\HomeAutomation.csproj", "{5F3D9082-A8E7-4B1F-8F6F-759055825077}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomationTest", "HomeAutomationTest\HomeAutomationTest.csproj", "{98EA7AB1-32B4-4188-879B-7E22169B04BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{642A3DCB-ED1D-4286-AC5E-8C973824496D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{642A3DCB-ED1D-4286-AC5E-8C973824496D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{642A3DCB-ED1D-4286-AC5E-8C973824496D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{642A3DCB-ED1D-4286-AC5E-8C973824496D}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FD2C383B-64E9-49B8-B061-D0E0334A5511}
+		{5F3D9082-A8E7-4B1F-8F6F-759055825077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F3D9082-A8E7-4B1F-8F6F-759055825077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F3D9082-A8E7-4B1F-8F6F-759055825077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F3D9082-A8E7-4B1F-8F6F-759055825077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98EA7AB1-32B4-4188-879B-7E22169B04BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98EA7AB1-32B4-4188-879B-7E22169B04BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98EA7AB1-32B4-4188-879B-7E22169B04BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98EA7AB1-32B4-4188-879B-7E22169B04BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
