@@ -23,4 +23,14 @@ public class Command
         this.value = value;
     }
     
+    public string getCommand()
+    {
+        return command;
+    }
+    
+    public float getValue()
+    {
+        return value;
+    }
+    
 }
