@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HomeState implements Subject {
+public class HomeState implements ISubject {
     private Map<String, Object> currentStates;
     private List<IObserver> observers;
     private List<StateChange> history;
