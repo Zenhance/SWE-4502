@@ -28,7 +28,7 @@ public class Command
         return _command;
     }
     
-    public float GetValue()
+    public float getValue()
     {
         return _value;
     }

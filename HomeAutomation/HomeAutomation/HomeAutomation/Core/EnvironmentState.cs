@@ -31,10 +31,28 @@ public class EnvironmentState
     
     public void SetMotionLevel(Command command)
     {
-        _motionLevel = command.GetValue();
+        _motionLevel = command.getValue();
         foreach(ISmartHomeComponent component in _components)
         {
             component.update(SENSOR.MOTION, command);
+        }
+    }
+    
+    public void SetAmbientLightLevel(Command command)
+    {
+        _ambientLightLevel = command.getValue();
+        foreach(ISmartHomeComponent component in _components)
+        {
+            component.update(SENSOR.LIGHT, command);
+        }
+    }
+    
+    public void SetTemperature(Command command)
+    {
+        _temperature = command.getValue();
+        foreach(ISmartHomeComponent component in _components)
+        {
+            component.update(SENSOR.TEMPERATURE, command);
         }
     }
     
