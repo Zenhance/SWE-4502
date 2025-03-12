@@ -4,7 +4,7 @@ public class MotionAnalyzer {
 
     private static final long SUSPICIOUS_HOURS_START = 23; // 11 PM
     private static final long SUSPICIOUS_HOURS_END = 5;    // 5 AM
-    
+
 
 
 
