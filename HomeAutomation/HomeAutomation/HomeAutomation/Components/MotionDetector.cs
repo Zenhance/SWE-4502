@@ -30,4 +30,24 @@ public class MotionDetector : ISmartHomeComponent
             }
         }
     }
+    
+    public List<MotionData> getMotionData()
+    {
+        return _motionData;
+    }
+    
+    public MotionData getLatestMotionData()
+    {
+        return _motionData.Last();
+    }
+    
+    public void clearMotionData()
+    {
+        _motionData.Clear();
+    }
+    
+    public void setThreshold(float threshold)
+    {
+        _threshold = threshold;
+    }
 }
