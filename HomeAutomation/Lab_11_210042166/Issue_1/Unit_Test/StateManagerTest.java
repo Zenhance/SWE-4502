@@ -21,7 +21,7 @@ public class StateManagerTest {
 
     @Test
     void testStateUpdateNotifiesComponents() {
-        EnvironmentState testState = new EnvironmentState(25.0, true, 70);
+        EnvironmentState testState = new EnvironmentState(25.0, true, 70,500.0);
         stateManager.updateState(testState);
 
         verify(mockComponent, times(1)).update(testState);
@@ -31,7 +31,7 @@ public class StateManagerTest {
     void testUnregisterComponentStopsReceivingUpdates() {
         stateManager.unregisterComponent(mockComponent);
 
-        EnvironmentState testState = new EnvironmentState(30.0, false, 50);
+        EnvironmentState testState = new EnvironmentState(30.0, false, 50,500.0);
         stateManager.updateState(testState);
 
         verify(mockComponent, never()).update(testState);

@@ -4,11 +4,15 @@ public class EnvironmentState {
     private double temperature;
     private boolean motionDetected;
     private int lightLevel;
+    private double powerUsage;
 
-    public EnvironmentState(double temperature, boolean motionDetected, int lightLevel){
+
+    public EnvironmentState(double temperature, boolean motionDetected, int lightLevel,double powerUsage){
         this.temperature=temperature;
         this.motionDetected=motionDetected;
         this.lightLevel=lightLevel;
+        this.powerUsage = powerUsage;
+
     }
 
     public double getTemperature() {
@@ -23,5 +27,12 @@ public class EnvironmentState {
     }
     public int getLightLevel(){
         return lightLevel;
+    }
+    public double getPowerUsage() {
+        return powerUsage;
+    }
+
+    public void setPowerUsage(double powerUsage) {
+        this.powerUsage = powerUsage;
     }
 }
