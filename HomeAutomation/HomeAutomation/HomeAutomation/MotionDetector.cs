@@ -8,11 +8,15 @@ namespace HomeAutomation
 {
     public class MotionDetector:IObserver
     {
+
+        public List<string> detectionLogs = new List<string>();
         public void Notify(HomeEnvironment env)
         {
             if (env.isMotionDetected)
             {
-                Console.WriteLine("Motion Detected!");
+                var LogDetected = $"Motion detected at {DateTime.Now} in {env.Location}";
+                detectionLogs.Add(LogDetected);
+                Console.WriteLine(LogDetected);
             }
             else
             {
