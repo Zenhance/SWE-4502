@@ -1,4 +1,4 @@
-using HomeAutomation;
+using HomeAutomation.Core;
 using Moq;
 using Xunit;
 

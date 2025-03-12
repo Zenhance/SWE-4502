@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeAutomation
+namespace HomeAutomation.Core
 {
     public class EnvironmentalState
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HomeAutomation
+namespace HomeAutomation.Core
 {
     public class StateManager
     {

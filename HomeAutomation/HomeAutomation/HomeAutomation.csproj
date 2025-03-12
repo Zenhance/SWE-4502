@@ -46,11 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnvironmentalState.cs" />
-    <Compile Include="IComponent.cs" />
+    <Compile Include="Core\EnvironmentalState.cs" />
+    <Compile Include="Core\IComponent.cs" />
+    <Compile Include="Components\MotionDetector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StateManager.cs" />
+    <Compile Include="Core\StateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
