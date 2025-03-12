@@ -75,5 +75,35 @@ public class EnvironmentState
         }
     }
     
+    public float GetMotionLevel()
+    {
+        return _motionLevel;
+    }
+    
+    public float GetAmbientLightLevel()
+    {
+        return _ambientLightLevel;
+    }
+    
+    public float GetTemperature()
+    {
+        return _temperature;
+    }
+    
+    public float GetEnergyConsumption()
+    {
+        return _energyConsumption;
+    }
+    
+    public string GetLastVoiceCommand()
+    {
+        return _lastVoiceCommand;
+    }
+    
+    public List<ISmartHomeComponent> GetComponents()
+    {
+        return _components;
+    }
+    
     
 }
