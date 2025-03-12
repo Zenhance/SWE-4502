@@ -11,7 +11,7 @@ namespace MyHomeAutomation
         private List<IObserver> observers;
         private Dictionary<string, string> state;
 
-        CoreSystem() 
+        public CoreSystem() 
         {
             observers = new List<IObserver>();
             state = new Dictionary<string, string>();
@@ -44,7 +44,7 @@ namespace MyHomeAutomation
         public string GetState(string key)
         {
             if(state.ContainsKey(key)) return state[key];
-            return null;
+            throw new Exception("Key not found!");
         }
     }
 }
