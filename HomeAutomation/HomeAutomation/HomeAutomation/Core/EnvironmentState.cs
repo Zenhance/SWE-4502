@@ -1,4 +1,6 @@
-﻿using HomeAutomation.Interface;
+﻿using HomeAutomation.Enum;
+using HomeAutomation.Interface;
+using HomeAutomation.Model;
 
 namespace HomeAutomation.Core;
 
@@ -20,6 +22,20 @@ public class EnvironmentState
         _temperature = 0;
         _energyConsumption = 0;
         _lastVoiceCommand = "";
+    }
+    
+    public void AddComponent(ISmartHomeComponent component)
+    {
+        _components.Add(component);
+    }
+    
+    public void SetMotionLevel(Command command)
+    {
+        _motionLevel = command.GetValue();
+        foreach(ISmartHomeComponent component in _components)
+        {
+            component.update(SENSOR.MOTION, command);
+        }
     }
     
     
