@@ -8,6 +8,7 @@ public class LightManager implements IObserver {
         this.homeState = homeState;
         this.room = room;
         this.lightsOn = false;
+        this.isOccupied = false;
         homeState.registerObserver(this);
     }
 
@@ -15,21 +16,14 @@ public class LightManager implements IObserver {
     public void update(String stateName, Object value) {
         if (stateName.equals("light-" + room) && value instanceof Integer) {
             int lightLevel = (Integer) value;
-            if (lightLevel < 63) {
-
-                //mathhaaaa amar mathhaaaaa 63
-                lightsOn = true;
-            } else {
-                lightsOn = false;
-            }
-            updateLights();
+            updateLights(lightLevel);
         }
         if (stateName.equals("occupied-" + room) && value instanceof Boolean) {
-            boolean occupied = (Boolean) value;
-            if (!occupied) {
-                lightsOn = false;
+            isOccupied = (Boolean) value;
+            Object lightLevel = homeState.getState("light-" + room);
+            if (lightLevel != null) {
+                updateLights((Integer) lightLevel);
             }
-            updateLights();
         }
     }
 
@@ -42,16 +36,14 @@ public class LightManager implements IObserver {
     }
 
     public void setScene(String scene) {
-        if (scene.equals("reading")) {
-            lightsOn = true;
-        } else if (scene.equals("movie")) {
+        if (scene.equals("reading") || scene.equals("movie")) {
             lightsOn = true;
         }
-        updateLights();
+        updateLightsState();
     }
 
     private void updateLights(int lightLevel) {
-
+        // tomarr mathaaa amar mathhaaaaaa dhuurr
         if (isOccupied && lightLevel < 50) {
             lightsOn = true;
         } else {
