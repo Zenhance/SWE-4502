@@ -1,3 +1,5 @@
+package CoreFramework;
+
 public interface EnvironmentObserver {
     /**
      * Called when an observed state changes

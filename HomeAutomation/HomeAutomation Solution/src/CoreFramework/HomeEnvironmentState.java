@@ -1,3 +1,5 @@
+package CoreFramework;
+
 import java.util.*;
 
 /**
@@ -47,7 +49,6 @@ public class HomeEnvironmentState {
             {
                 observer.onEnvironmentChange(key,value);
             }
-
         }
     }
 
