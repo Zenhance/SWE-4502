@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-interface Observer {
-    void update(String state, Object value);
-}
+
 
 public class EnvironmentState {
     private List<Observer> observers = new ArrayList<>();
