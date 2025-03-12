@@ -1,3 +1,8 @@
+import Issue1.StateManager;
+import Issue2.AlarmEvent;
+import Issue2.AlarmListener;
+import Issue2.MotionDetector;
+import Issue2.MotionEvent;
 import org.junit.Before;
 import org.junit.Test;
 

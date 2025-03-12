@@ -1,3 +1,5 @@
+package Issue1;
+
 public class TestComponent implements IComponent {
 
     private String lastUpdatedKey;

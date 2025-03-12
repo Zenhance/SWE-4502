@@ -1,3 +1,5 @@
+package Issue2;
+
 public class NightTimeAnalysisStrategy implements AnalysisStrategy {
     @Override
     public boolean isMotionSuspicious(MotionEvent event) {

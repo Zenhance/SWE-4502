@@ -1,3 +1,4 @@
+package Issue2;
 
 public class MotionEvent {
     private final boolean detected;

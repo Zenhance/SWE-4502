@@ -1,4 +1,4 @@
-import java.util.Date;
+package Issue2;
 
 public class MotionAnalyzer {
 

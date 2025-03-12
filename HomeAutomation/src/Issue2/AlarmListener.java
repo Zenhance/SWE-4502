@@ -1,3 +1,7 @@
+package Issue2;
+
+import Issue1.IComponent;
+
 public class AlarmListener implements IComponent {
     private AlarmEvent lastAlarm;
 

@@ -1,3 +1,8 @@
+package Issue2;
+
+import Issue1.IComponent;
+import Issue1.StateManager;
+
 public class MotionDetector implements IComponent {
     private boolean motionDetected = false;
     private String location = "";

@@ -1,3 +1,5 @@
+import Issue1.StateManager;
+import Issue1.TestComponent;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,3 +1,5 @@
+package Issue2;
+
 public class AlarmEvent {
     private final String message;
     private final long timestamp;
