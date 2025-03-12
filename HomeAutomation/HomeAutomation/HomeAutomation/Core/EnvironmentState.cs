@@ -1,4 +1,6 @@
-﻿using HomeAutomation.Interface;
+﻿using HomeAutomation.ENUM;
+using HomeAutomation.Interface;
+using HomeAutomation.Models;
 
 namespace HomeAutomation.Core;
 
@@ -20,6 +22,20 @@ public class EnvironmentState
         ambientLightLevel = 0;
         energyConsumption = 0;
         lastVoiceCommand = "";
+    }
+    
+    public void addComponent(ISmartHomeComponent component)
+    {
+        components.Add(component);
+    }
+    
+    public void setMotionLevel(Command command)
+    {
+        motionLevel = command.getValue();
+        foreach (ISmartHomeComponent component in components)
+        {
+            component.update(SENSOR.MOTION, command);
+        }
     }
 
 }
