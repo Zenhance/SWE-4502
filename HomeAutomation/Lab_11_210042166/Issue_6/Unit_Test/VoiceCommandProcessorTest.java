@@ -29,14 +29,14 @@ public class VoiceCommandProcessorTest {
     }
 
     @Test
-    void testTurnOnLightsCommand() {
+    void testTurnOnLightCommand() {
         voiceCommandProcessor.processCommand("turn on lights");
 
         assertEquals(100, stateManager.getCurrentState().getLightLevel(), "Lights should be ON after the 'turn on lights' command.");
     }
 
     @Test
-    void testTurnOffLightsCommand() {
+    void testTurnOffLightCommand() {
         voiceCommandProcessor.processCommand("turn off lights");
 
         assertEquals(0, stateManager.getCurrentState().getLightLevel(), "Lights should be OFF after the 'turn off lights' command.");
