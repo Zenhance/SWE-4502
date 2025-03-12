@@ -18,10 +18,14 @@ namespace HomeAutomation.Components
             {
                 LastCommand = state.VoiceCommand;
                 CommandHistory.Add(state.VoiceCommand);
-                Console.WriteLine($"Voice Command Received: {state.VoiceCommand}");
+                ExecuteCommand(state.VoiceCommand);
             }
         }
 
-
+        private void ExecuteCommand(string command)
+        {
+            Console.WriteLine($"Executing Voice Command: {command}");
+            // Add logic to handle specific commands, e.g., "Turn on the lights"
+        }
     }
 }
