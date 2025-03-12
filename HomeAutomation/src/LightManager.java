@@ -2,6 +2,7 @@ public class LightManager implements IObserver {
     private HomeState homeState;
     private String room;
     private boolean lightsOn;
+    private boolean isOccupied;
 
     public LightManager(HomeState homeState, String room) {
         this.homeState = homeState;
@@ -49,7 +50,17 @@ public class LightManager implements IObserver {
         updateLights();
     }
 
-    private void updateLights() {
+    private void updateLights(int lightLevel) {
+
+        if (isOccupied && lightLevel < 50) {
+            lightsOn = true;
+        } else {
+            lightsOn = false;
+        }
+        updateLightsState();
+    }
+
+    private void updateLightsState() {
         homeState.setState("lights-" + room, lightsOn);
     }
 
