@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation
 {
-    // Core/EnvironmentState.cs
+    
     public class EnvironmentState
     {
         
@@ -14,6 +14,7 @@ namespace HomeAutomation
 
       
         public void PrintState()
+
         {
             Console.WriteLine("Environment State:");
             foreach (var key in State.Keys)
