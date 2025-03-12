@@ -9,16 +9,25 @@ namespace HomeAutomation.Components
 {
     public class EnergyConsumtion:IObserver
     {
+        public List<double> UsageHistory { get; set; } = new List<double>();
+        public double TotalUsage { get; set; } = 0;
+        public int Count { get; set; } = 0;
+        public double AverageUsage { get; set; } = 0;
+
+
         public void Update(CentralState state)
         {
-            if (state.RoomOccupied)
-            {
-                Console.WriteLine("Energy Consumption: 1000W");
-            }
-            else
-            {
-                Console.WriteLine("Energy Consumption: 0W");
-            }
+           double currentEnergyUsage = state.EnergyUsage;
+            TrackUsagesStatistics(currentEnergyUsage);
+        }
+
+        public void TrackUsagesStatistics (double usage)
+        {
+            UsageHistory.Add(usage);
+            TotalUsage += usage;
+            Count++;
+            AverageUsage = TotalUsage/Count;
+
         }
     }
 }
