@@ -1,6 +1,6 @@
 public class LightController implements Observer
 {
-    private int lightLevel;
+    int lightLevel;
 
     @Override
     public void update(EnvironmentState state)
