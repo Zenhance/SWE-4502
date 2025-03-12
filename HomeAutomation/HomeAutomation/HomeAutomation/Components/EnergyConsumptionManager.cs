@@ -24,4 +24,32 @@ public class EnergyConsumptionManager: ISmartHomeComponent
             powerConsumptionData.Add(new PowerConsumptionData(value));
         }
     }
+
+    public CONSUMPTIONPATTERN getPattern()
+    {
+        foreach (PowerConsumptionData pcd in powerConsumptionData)
+        {
+            if (pcd.getConsumption() > threshold)
+            {
+                return CONSUMPTIONPATTERN.UNUSUAL;
+            }
+        }
+        
+        return CONSUMPTIONPATTERN.USUAL;
+    }
+    
+    public List<PowerConsumptionData> GetPowerConsumptionData()
+    {
+        return powerConsumptionData;
+    }
+    
+    public float getThreshold()
+    {
+        return threshold;
+    }
+
+    public PowerConsumptionData getLastData()
+    {
+        return powerConsumptionData[powerConsumptionData.Count - 1];
+    }
 }
