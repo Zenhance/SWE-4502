@@ -44,6 +44,24 @@ public class RemoteAccessManager:ISmartHomeComponent
         environmentState.SetVoiceCommand(command);
     }
     
+    public void setTemperature(Command command)
+    {
+        environmentState.SetTemperature(command);
+    }
     
+    public void setAmbientLightLevel(Command command)
+    {
+        environmentState.SetAmbientLightLevel(command);
+    }
+    
+    public void setMotionLevel(Command command)
+    {
+        environmentState.SetMotionLevel(command);
+    }
+    
+    public void setEnergyConsumption(Command command)
+    {
+        environmentState.SetEnergyConsumption(command);
+    }
     
 }
