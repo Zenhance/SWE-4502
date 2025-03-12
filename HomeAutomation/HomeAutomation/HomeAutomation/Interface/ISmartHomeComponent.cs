@@ -3,7 +3,7 @@ using HomeAutomation.Models;
 
 namespace HomeAutomation.Interface;
 
-public class ISmartHomeComponent
+public interface ISmartHomeComponent
 {
     void update(SENSOR sensor, Command command);
 }
