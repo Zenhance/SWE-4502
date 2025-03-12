@@ -73,5 +73,37 @@ public class EnvironmentState
             component.update(SENSOR.VOICE, command);
         }
     }
+    
+    public float GetMotionLevel()
+    {
+        return motionLevel;
+    }
+    
+    public float GetTemperature()
+    {
+        return temperature;
+    }
+    
+    public float GetAmbientLightLevel()
+    {
+        return ambientLightLevel;
+    }
+    
+    public float GetEnergyConsumption()
+    {
+        return energyConsumption;
+    }
+    
+    public string GetLastVoiceCommand()
+    {
+        return lastVoiceCommand;
+    }
+
+    public List<ISmartHomeComponent> GetComponents()
+    {
+        return components;
+    }
+    
+    
 
 }
