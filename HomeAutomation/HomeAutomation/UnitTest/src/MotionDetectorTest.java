@@ -22,11 +22,10 @@ public class MotionDetectorTest
         EnvironmentState environmentState = new EnvironmentState();
         environmentState.setMotionDetected(false);
 
-        motionDetector.update(environmentState); // Simulate no motion
+        motionDetector.update(environmentState);
         assertFalse(motionDetector.isMotionDetected());
     }
 
-    // Edge Case: Test motion detection with boundary value
     @Test
     public void testEdgeCaseMotion()
     {
@@ -34,7 +33,7 @@ public class MotionDetectorTest
         EnvironmentState environmentState = new EnvironmentState();
         environmentState.setMotionDetected(true);
 
-        motionDetector.update(environmentState); // Simulate motion detected
+        motionDetector.update(environmentState);
         assertTrue(motionDetector.isMotionDetected(), "Motion should be detected.");
     }
 }
