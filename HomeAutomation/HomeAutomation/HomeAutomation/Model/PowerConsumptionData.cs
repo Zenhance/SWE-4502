@@ -10,4 +10,14 @@ public class PowerConsumptionData
         _consumption = consumption;
         _timestamp = DateTime.Now;
     }
+    
+    public float getConsumption()
+    {
+        return _consumption;
+    }
+    
+    public DateTime getTimestamp()
+    {
+        return _timestamp;
+    }
 }
