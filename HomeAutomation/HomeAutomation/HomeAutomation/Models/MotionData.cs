@@ -14,4 +14,19 @@ public class MotionData
         this.time = time;
         this.behavior = behavior;
     }
+    
+    public float getValue()
+    {
+        return value;
+    }
+    
+    public DateTime getTime()
+    {
+        return time;
+    }
+    
+    public MOTIONBEHAVIOR getBehavior()
+    {
+        return behavior;
+    }
 }
