@@ -14,4 +14,19 @@ public class MotionData
         _time = DateTime.Now;
         _motionbehavior = motionbehavior;
     }
+    
+    public float getValue()
+    {
+        return _value;
+    }
+    
+    public DateTime getTime()
+    {
+        return _time;
+    }
+    
+    public MOTIONBEHAVIOR getMotionBehavior()
+    {
+        return _motionbehavior;
+    }
 }
