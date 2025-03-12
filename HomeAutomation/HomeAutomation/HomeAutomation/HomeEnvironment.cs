@@ -30,7 +30,7 @@ namespace HomeAutomation
 
         public void UpdateHomeEnvironment(bool detected,double temp, string location)
         {
-            detected = isMotionDetected;
+            isMotionDetected = detected;
             Temperature = temp;
             Location = location;
 
