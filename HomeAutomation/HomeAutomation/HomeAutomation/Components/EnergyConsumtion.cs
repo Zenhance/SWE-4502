@@ -17,8 +17,9 @@ namespace HomeAutomation.Components
 
         public void Update(CentralState state)
         {
-           double currentEnergyUsage = state.EnergyUsage;
+            double currentEnergyUsage = state.EnergyUsage;
             TrackUsagesStatistics(currentEnergyUsage);
+            DetectUnusualConsumption(currentEnergyUsage);
         }
 
         public void TrackUsagesStatistics (double usage)
@@ -28,6 +29,21 @@ namespace HomeAutomation.Components
             Count++;
             AverageUsage = TotalUsage/Count;
 
+        }
+
+        public void DetectUnusualConsumption(double curentEnergyUsage)
+        {
+            if (Count > 1)
+            {
+                if(curentEnergyUsage>AverageUsage * 2)
+                {
+                    Console.WriteLine("Warning : Unusually high energy consumption detected !");
+                }
+                else if(curentEnergyUsage<AverageUsage / 2)
+                {
+                    Console.WriteLine("Notice : Unusuually low energy consumption detected .");
+                }
+            }
         }
     }
 }
