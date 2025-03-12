@@ -9,5 +9,6 @@ namespace HomeAutomation
     public interface IStateChangeListener
     {
         void OnStateChange(EnvironmentState state);
+
     }
 }
