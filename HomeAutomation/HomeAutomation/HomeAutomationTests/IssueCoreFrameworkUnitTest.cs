@@ -10,16 +10,21 @@ namespace HomeAutomationTests
             // Arrange
             var homeEnvironment = new HomeEnvironment();
             var motionSensor = new MotionDetector();
-            var temperatureSensor = new TemperatureDetection();
 
             homeEnvironment.Subscribe(motionSensor);
-            homeEnvironment.Subscribe(temperatureSensor);
 
             // Act
-            homeEnvironment.UpdateHomeEnvironment(true, 22.5);
+            homeEnvironment.UpdateHomeEnvironment(true, 12.12, "Batcave");
+
 
             // Assert
-            Assert.Equal(22.5, homeEnvironment.Temperature);
+            Assert.True(homeEnvironment.isMotionDetected);    
+            Assert.Equal(12.12, homeEnvironment.Temperature);  
+            Assert.Equal("Batcave", homeEnvironment.Location);
+
+            
+            Assert.Contains("Motion detected at", motionSensor.detectionLogs[0]);  
+            Assert.Contains("Batcave", motionSensor.detectionLogs[0]);
         }
     }
 }
