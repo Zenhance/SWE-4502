@@ -1,4 +1,5 @@
-public class EnvironmentState {
+public class EnvironmentState
+{
     private boolean motionDetected;
     private double temperature;
     private double lightLevel;

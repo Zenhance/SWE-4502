@@ -1,4 +1,5 @@
-public class SystemState {
+public class SystemState
+{
     public boolean motionDetected;
     public int lightLevel;
     public int temperature;
