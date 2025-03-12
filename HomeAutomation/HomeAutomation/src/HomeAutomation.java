@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeAutomatiom implements Subject{
+public class HomeAutomation implements Subject{
     private List<Observer>observers=new ArrayList<>();
     private final EnvironmentState state=new EnvironmentState();
 
