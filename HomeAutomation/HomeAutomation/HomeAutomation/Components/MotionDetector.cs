@@ -6,12 +6,12 @@ namespace HomeAutomation.Components;
 
 public class MotionDetector: ISmartHomeComponent
 {
-    private List<MotionData> motionDataList;
+    private List<MotionData> motionData;
     private float threshold;
     
     public MotionDetector(float threshold)
     {
-        motionDataList = new List<MotionData>();
+        motionData = new List<MotionData>();
         this.threshold = threshold;
     }
     
@@ -22,26 +22,69 @@ public class MotionDetector: ISmartHomeComponent
         {
             if (value > threshold)
             {
-                motionDataList.Add(new MotionData(value, DateTime.Now, MOTIONBEHAVIOR.SUSPICIOUS));
+                motionData.Add(new MotionData(value, DateTime.Now, MOTIONBEHAVIOR.SUSPICIOUS));
             }
             else
             {
-                motionDataList.Add(new MotionData(value, DateTime.Now, MOTIONBEHAVIOR.NORMAL));
+                motionData.Add(new MotionData(value, DateTime.Now, MOTIONBEHAVIOR.NORMAL));
             }
         }
     }
     
-    public List<MotionData> GetMotionDataList()
+    public List<MotionData> GetMotionData()
     {
-        return motionDataList;
+        return motionData;
     }
     
     public MotionData GetLatestMotionData()
     {
-        return motionDataList.Last();
+        return motionData.Last();
     }
     
+    public void ClearMotionData()
+    {
+        motionData.Clear();
+    }
     
+    public float GetThreshold()
+    {
+        return threshold;
+    }
+    
+    public void SetThreshold(float threshold)
+    {
+        this.threshold = threshold;
+    }
+
+    public MotionData motionDataAt(int index)
+    {
+        return motionData[index];
+    }
+    
+    public int suspiciousMotionCount()
+    {
+        return motionData.Count(motionData => motionData.getBehavior() == MOTIONBEHAVIOR.SUSPICIOUS);
+    }
+    
+    public int normalMotionCount()
+    {
+        return motionData.Count(motionData => motionData.getBehavior() == MOTIONBEHAVIOR.NORMAL);
+    }
+
+    public MOTIONBEHAVIOR overall()
+    {
+        int susCount = this.suspiciousMotionCount();
+        int normCount = this.normalMotionCount();
+        
+        if (susCount > normCount)
+        {
+            return MOTIONBEHAVIOR.SUSPICIOUS;
+        }
+        else
+        {
+            return MOTIONBEHAVIOR.NORMAL;
+        }
+    }
     
     
 }
