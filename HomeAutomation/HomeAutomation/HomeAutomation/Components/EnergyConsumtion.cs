@@ -45,5 +45,16 @@ namespace HomeAutomation.Components
                 }
             }
         }
+
+        public double GetAverageUsuage()
+        {
+            return AverageUsage;
+        }
+
+        public List<double> GetUsageHistory()
+        {
+            return UsageHistory;
+        }
+
     }
 }
