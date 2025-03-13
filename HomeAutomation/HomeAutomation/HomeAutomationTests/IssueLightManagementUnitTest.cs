@@ -1,46 +1,54 @@
 ﻿using HomeAutomation;
+using Moq;
 using System.IO;
 
 namespace HomeAutomationTests
 {
+
     public class IssueLightManagementUnitTest
     {
-        private readonly StringWriter stringWriter;
+        public StringWriter sw;
+
         public IssueLightManagementUnitTest()
         {
-            stringWriter = new StringWriter();
+            sw = new StringWriter();
         }
-        
+
         [Fact]
         public void ShouldTurnOnLightsIfRoomIsTaken()
         {
-            var lightControl = new RoomLightControl();
-            var state = new LightState(true, 50);
+            // Arrange
+            var mockLight = new Mock<Light>();  
+            var lightControl = new RoomLightControl(mockLight.Object);  
 
-            var stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
+            var state = new LightState(true, 50);  //room taken
+
+            Console.SetOut(sw);
 
             // Act
-            lightControl.AdjustLight(state);
+            lightControl.AdjustLight(state);  
 
             // Assert
-            Assert.Contains("Turning lights on.", stringWriter.ToString());
+            mockLight.Verify(light => light.Manage(It.IsAny<LightState>()), Times.Once);  
         }
+
         [Fact]
         public void ShouldIncreaseIfAmbientLightIsLow()
         {
             // Arrange
-            var lightControl = new RoomLightControl();
-            var state = new LightState(true, 12);
+            var mockLight = new Mock<Light>();  
+            var lightControl = new RoomLightControl(mockLight.Object);  
+
+            var state = new LightState(true, 12);  //ambient light too low
 
             
-            Console.SetOut(stringWriter);
+            Console.SetOut(sw);
 
             // Act
-            lightControl.AdjustLight(state);
+            lightControl.AdjustLight(state);  
 
             // Assert
-            Assert.Contains("Ambient light too low : increasing light.", stringWriter.ToString());
+            mockLight.Verify(light => light.Manage(It.IsAny<LightState>()), Times.Once);  
         }
     }
 }
