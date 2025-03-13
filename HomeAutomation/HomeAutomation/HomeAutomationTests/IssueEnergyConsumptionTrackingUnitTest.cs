@@ -1,26 +1,26 @@
 ﻿using HomeAutomation;
+using Moq;
 
 namespace HomeAutomationTests
 {
     public class IssueEnergyConsumptionTrackingUnitTest
     {
-        private readonly StringWriter stringWriter;
-        public IssueEnergyConsumptionTrackingUnitTest()
-        {
-            stringWriter = new StringWriter();
-        }
         [Fact]
         public void ShouldTrackEnergyConsumptionWhenMotionIsDetected()
         {
-            var energyTracker = new EnergyTracker();
+            // Arrange
+            var mockEnergyChain = new Mock<EnergyChain>();  
             var homeEnvironment = new HomeEnvironment();
+
+            var energyTracker = new EnergyTracker(mockEnergyChain.Object);
             homeEnvironment.Subscribe(energyTracker);
 
-            Console.SetOut(stringWriter);
-            homeEnvironment.UpdateHomeEnvironment(true, 12.12, "Backyard");
+            // Act
+            homeEnvironment.UpdateHomeEnvironment(true, 12.12, "Kitchen");
 
+            // Assert
+            mockEnergyChain.Verify(chain => chain.Manager(It.IsAny<EnvironmentalState>()), Times.Once);
 
-            Assert.Contains("Energy Consumption Updated", stringWriter.ToString());
         }
     }
-}
+ }
