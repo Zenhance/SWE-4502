@@ -10,5 +10,17 @@ namespace HomeAutomationTest
 {
     public class TemperatureControllerTests
     {
+        [Fact]
+        public void OnStateChanged_ActivatesHeating_WhenTemperatureTooLow()
+        {
+            double target = 22;
+            var controller = new TemperatureController(target);
+            var state = new EnvironmentalState { Temperature = 20 };
+
+            controller.OnStateChanged(state);
+
+            Assert.True(controller.HeatingOn);
+            Assert.False(controller.CoolingOn);
+        }
     }
 }
