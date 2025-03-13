@@ -104,4 +104,24 @@ public class EnvironmentTest
         Assert.That(_environment.GetTemperature(), Is.EqualTo(25));
         Assert.That(_temperatureManager.GetState(), Is.EqualTo(TEMPSTATE.IDLE));
     }
+    
+    [Test]
+    public void TestSetMotionLevelSuspicious()
+    {
+        Command command = new Command(0.6f);
+        _environment.SetMotionLevel(command);
+        
+        Assert.That(_environment.GetMotionLevel(), Is.EqualTo(0.6f));
+        Assert.That(_motionDetector.overall(), Is.EqualTo(MOTIONBEHAVIOR.SUSPICIOUS));
+    }
+    
+    [Test]
+    public void TestSetMotionLevelNormal()
+    {
+        Command command = new Command(0.4f);
+        _environment.SetMotionLevel(command);
+        
+        Assert.That(_environment.GetMotionLevel(), Is.EqualTo(0.4f));
+        Assert.That(_motionDetector.overall(), Is.EqualTo(MOTIONBEHAVIOR.NORMAL));
+    }
 }
