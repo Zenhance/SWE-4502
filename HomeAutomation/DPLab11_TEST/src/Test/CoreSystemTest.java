@@ -6,8 +6,6 @@ import core.CoreSystem;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.*;
-
 public class CoreSystemTest {
 
     private CoreSystem coreSystem;

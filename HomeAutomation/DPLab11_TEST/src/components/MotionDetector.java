@@ -3,7 +3,7 @@ package components;
 import java.util.HashMap;
 import java.util.Map;
 
-class MotionDetector {
+public class MotionDetector {
     private Map<String, String> motionLogs;
 
     public MotionDetector() {
