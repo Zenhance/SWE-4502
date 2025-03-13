@@ -51,7 +51,7 @@ public class LightManagementTest
     }
 
     [Test]
-    public void TestLightLevelUpdateForMovie()
+    public void TestLightModeUpdateForMovie()
     {
         LightManager lightManagement = new LightManager();
         Command command = new Command(0.2f);
@@ -59,4 +59,27 @@ public class LightManagementTest
         LIGHTMODE lightmode = lightManagement.GetCurrentMode();
         Assert.That(lightmode, Is.EqualTo(LIGHTMODE.MOVIE));
     }
+    
+    [Test]
+    public void TestLightModeUpdateForReading()
+    {
+        LightManager lightManagement = new LightManager();
+        Command command = new Command(0.4f);
+        lightManagement.update(SENSOR.LIGHT, command);
+        LIGHTMODE lightmode = lightManagement.GetCurrentMode();
+        Assert.That(lightmode, Is.EqualTo(LIGHTMODE.READING));
+    }
+    
+    [Test]
+    public void TestLightLevelUpdateTFor0()
+    {
+        LightManager lightManager = new LightManager();
+        Command command = new Command(0.05f);
+        lightManager.update(SENSOR.MOTION, command);
+        float lightLevel = lightManager.GetCurrentLightLevel();
+        
+        Assert.That(lightLevel, Is.EqualTo(0.0f));
+    }
+    
+    
 }
