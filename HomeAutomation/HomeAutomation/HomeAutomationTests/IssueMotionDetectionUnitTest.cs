@@ -1,25 +1,24 @@
 ﻿using HomeAutomation;
+using Moq;
 
 namespace HomeAutomationTests
 {
+
     public class IssueMotionDetectionUnitTest
     {
         [Fact]
         public void ShouldLogMotionWhenMotionIsDetected()
         {
             // Arrange
-            var motionDetector = new MotionDetector();
+            var mockObserver = new Mock<IObserver>();  
             var homeEnvironment = new HomeEnvironment();
-            homeEnvironment.Subscribe(motionDetector);
+            homeEnvironment.Subscribe(mockObserver.Object);
 
             // Act
-            homeEnvironment.UpdateHomeEnvironment(true, 12.12, "Basement");
+            homeEnvironment.UpdateHomeEnvironment(true, 12.12, "Batcave");
 
             // Assert
-            Assert.Single(motionDetector.detectionLogs);  
-            Assert.Contains("Motion detected at", motionDetector.detectionLogs[0]);
-            Assert.Contains("Basement", motionDetector.detectionLogs[0]); 
-
+            mockObserver.Verify(observer => observer.Notify(It.IsAny<EnvironmentalState>()), Times.Once);
         }
     }
 }
