@@ -36,6 +36,10 @@ public class LightControllerTest {
         assertFalse(lightController.isLightOn(), "Lights should be OFF when the room is empty.");
     }
 
-   
+    @Test
+    void testSetLightScene() {
+        lightController.setScene("Movie");
+        assertEquals("Movie", lightController.getCurrentScene(), "Light scene should be set to Movie.");
+    }
 
 }
