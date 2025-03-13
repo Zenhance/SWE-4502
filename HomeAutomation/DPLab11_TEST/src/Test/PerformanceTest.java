@@ -58,5 +58,36 @@ public class PerformanceTest {
         assertTrue(true);
     }
 
+    // 3. Timing Performance Test: Measure the time taken to process 1000 state changes
+    @Test
+    @Timeout(value = 10)  // Test should complete within 10 seconds
+    public void testTimingPerformanceFor1000StateChanges() {
+        CoreSystem coreSystem = CoreSystem.getInstance();
+
+        // Register 100 components (observers)
+        for (int i = 0; i < 100; i++) {
+            coreSystem.registerComponent(new MotionDetector());
+            coreSystem.registerComponent(new LightManager());
+            coreSystem.registerComponent(new EnergyTracker());
+            coreSystem.registerComponent(new TemperatureController());
+            coreSystem.registerComponent(new VoiceCommandProcessor());
+        }
+
+        // Measure the time taken to process 1000 state changes
+        long startTime = System.currentTimeMillis();
+
+        // Simulate 1000 state changes
+        for (int i = 0; i < 1000; i++) {
+            coreSystem.updateState("Test state update #" + (i + 1));
+        }
+
+        long endTime = System.currentTimeMillis();
+        long timeTaken = endTime - startTime;
+
+        System.out.println("Time taken to process 1000 state changes: " + timeTaken + " ms");
+
+        // Ensure the system processes the changes within an acceptable time (e.g., under 5 seconds)
+        assertTrue(timeTaken < 5000, "Performance test failed: Took too long to process 1000 state changes.");
+    }
 
 }
