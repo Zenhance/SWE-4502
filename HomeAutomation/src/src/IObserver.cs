@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace src
 {
-    public class observer
+    public interface IObserver
     {
-        int a, b;
-
-        public int add (int a, int b)
-        {
-            return a + b;
-        }
+        void Update(string key, string value);
     }
 }
