@@ -39,7 +39,7 @@ public class LightController implements IComponent{
         adjustLighting();
     }
 
-    private void adjustLighting() {
+    public void adjustLighting() {
         int baseLevel = lightingSceneStrategy.getBaseLevel();
         int ambientAdjustment = lightingSceneStrategy.calculateAmbientAdjustment(ambientLightLevel);
         int occupancyAdjustment = lightingSceneStrategy.calculateOccupancyAdjustment(roomOccupied);
@@ -50,5 +50,10 @@ public class LightController implements IComponent{
 
     public int getBrightness() {
         return brightness;
+    }
+
+    public void setLightingSceneStrategy(LightingSceneStrategy lightingSceneStrategy) {
+        this.lightingSceneStrategy = lightingSceneStrategy;
+        adjustLighting();
     }
 }
