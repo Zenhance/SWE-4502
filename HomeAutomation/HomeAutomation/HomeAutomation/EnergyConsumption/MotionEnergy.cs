@@ -10,9 +10,9 @@ namespace HomeAutomation
     {
         public double totalConsumption = 0;
 
-        public override void Manager(HomeEnvironment env)
+        public override void Manager(EnvironmentalState state)
         {
-            if (env.isMotionDetected)
+            if (state.isMotionDetected)
             {
                 double consumption = 12.12;
                 totalConsumption += consumption;
@@ -24,7 +24,7 @@ namespace HomeAutomation
                 }
             }
 
-            chain?.Manager(env);
+            chain?.Manager(state);
         }
     }
 }
