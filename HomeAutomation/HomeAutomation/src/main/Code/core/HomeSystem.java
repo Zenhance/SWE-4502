@@ -7,7 +7,7 @@ public class HomeSystem {
     private final Map<String, Object> environmentalState;
     private final Map<EventType, List<HomeSystemObserver>> observers;
 
-    private HomeSystem() {
+    public HomeSystem() {
         environmentalState = new HashMap<>();
         observers = new HashMap<>();
         for (EventType type : EventType.values()) {

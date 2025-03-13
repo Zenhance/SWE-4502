@@ -1,4 +1,4 @@
-package components;
+package main.Code.components;
 
 import core.EventType;
 import core.HomeSystem;
@@ -12,4 +12,6 @@ public interface MotionDetector extends HomeSystemObserver {
     boolean isMotionDetected(String location);
     List<Map<String, Object>> getMotionHistory();
     boolean isActivitySuspicious(String location);
+
+    void update(core.EventType eventType, Map<String, Object> mockData);
 }

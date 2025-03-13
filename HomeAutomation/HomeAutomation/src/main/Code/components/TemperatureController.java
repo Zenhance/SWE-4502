@@ -1,4 +1,4 @@
-package components;
+package main.Code.components;
 
 import core.EventType;
 import core.HomeSystem;
