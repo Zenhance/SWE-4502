@@ -90,4 +90,29 @@ public class PerformanceTest {
         assertTrue(timeTaken < 5000, "Performance test failed: Took too long to process 1000 state changes.");
     }
 
+    // 4. Performance Test with Timeout: Ensuring the system completes within a time limit
+    @Test
+    @Timeout(value = 5)  // Ensure test completes within 5 seconds
+    public void testPerformanceWithTimeout() {
+        CoreSystem coreSystem = CoreSystem.getInstance();
+
+        // Register 200 components (observers)
+        for (int i = 0; i < 200; i++) {
+            coreSystem.registerComponent(new MotionDetector());
+            coreSystem.registerComponent(new LightManager());
+            coreSystem.registerComponent(new EnergyTracker());
+            coreSystem.registerComponent(new TemperatureController());
+            coreSystem.registerComponent(new VoiceCommandProcessor());
+        }
+
+        // Simulate 200 state changes in rapid succession
+        for (int i = 0; i < 200; i++) {
+            coreSystem.updateState("Test state update #" + (i + 1));
+        }
+
+        // Assert the test completes within the time limit (5 seconds)
+        assertTrue(true);  // Simply passing ensures the test runs within the timeout
+    }
+
+
 }
