@@ -42,4 +42,37 @@ public class EnvironmentTest
         Assert.That(_environment.GetEnergyConsumption(), Is.EqualTo(0));
         Assert.That(_environment.GetLastVoiceCommand(), Is.EqualTo(""));
     }
+    
+    [Test]
+    public void AddMotionComponentTest()
+    {
+        Assert.That(_environment.GetComponents()[0], Is.EqualTo(_motionDetector));
+    }
+    
+    [Test]
+    public void AddLightComponentTest()
+    {
+        Assert.That(_environment.GetComponents()[1], Is.EqualTo(_lightManager));
+    }
+    
+    
+    [Test]
+    public void AddTemperatureComponentTest()
+    {
+        Assert.That(_environment.GetComponents()[2], Is.EqualTo(_temperatureManager));
+    }
+    
+    
+    [Test]
+    public void AddEnergyComponentTest()
+    {
+        Assert.That(_environment.GetComponents()[3], Is.EqualTo(_energyManager));
+    }
+    
+    
+    [Test]
+    public void AddVoiceCommandComponentTest()
+    {
+        Assert.That(_environment.GetComponents()[4], Is.EqualTo(_voiceCommandManager));
+    }
 }
