@@ -1,4 +1,4 @@
-﻿namespace HomeAutomation;
+﻿namespace HomeAutomation.Core;
 
 public interface ISubscriber
 {
