@@ -110,4 +110,49 @@ public class EnvironmentTest
         Assert.That(_environment.GetTemperature(), Is.EqualTo(20));
         Assert.That(_temperatureManager.GetCurrentState(), Is.EqualTo(TEMPSTATE.IDLE));
     }
+    
+    [Test]
+    public void SetMotionLevelSuspiciousTest()
+    {
+        Command command = new Command(0.6f);
+        _environment.SetMotionLevel(command);
+        
+        Assert.That(_environment.GetMotionLevel(), Is.EqualTo(0.6f));
+        Assert.That(_motionDetector.overall(), Is.EqualTo(MOTIONBEHAVIOR.SUSPICIOUSBEHAVIOR));
+    }
+    
+    
+    
+    [Test]
+    public void SetMotionLevelNormalTest()
+    {
+        Command command = new Command(0.4f);
+        _environment.SetMotionLevel(command);
+        
+        Assert.That(_environment.GetMotionLevel(), Is.EqualTo(0.4f));
+        Assert.That(_motionDetector.overall(), Is.EqualTo(MOTIONBEHAVIOR.NORMALBEHAVIOR));
+    }
+    
+    
+    
+    [Test]
+    public void SetAmbientLightLevelNightTest()
+    {
+        Command command = new Command(0.01f);
+        _environment.SetAmbientLightLevel(command);
+        
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.01f));
+        Assert.That(_lightManager.getCurrentMode(), Is.EqualTo(LIGHTMODE.NIGHT));
+    }
+    
+    
+    [Test]
+    public void SetAmbientLightLevelMovieTest()
+    {
+        Command command = new Command(0.1f);
+        _environment.SetAmbientLightLevel(command);
+        
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.1f));
+        Assert.That(_lightManager.getCurrentMode(), Is.EqualTo(LIGHTMODE.MOVIE));
+    }
 }
