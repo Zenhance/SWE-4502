@@ -1,4 +1,3 @@
-﻿
 ﻿using HomeAutomate.Components;
 using HomeAutomate.Core;
 using HomeAutomate.Enum;
