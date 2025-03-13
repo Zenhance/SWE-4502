@@ -52,7 +52,7 @@ public class MotionDetector implements Observer{
         return motionLogs;
     }
 
-    private class MotionLogEntry {
+    public class MotionLogEntry {
         private LocalDateTime timestamp;
         private String location;
 
