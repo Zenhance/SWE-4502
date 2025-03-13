@@ -24,5 +24,18 @@ public class LightControllerTest {
         assertTrue(lightController.isLightOn(), "Lights should be ON when dark and occupied.");
     }
 
+    @Test
+    void testLightsRemainOffWhenBright() {
+        monitor.setState(new EnvironmentState(true, 22, 80)); // Bright environment
+        assertFalse(lightController.isLightOn(), "Lights should be OFF when it's bright.");
+    }
+
+    @Test
+    void testLightsTurnOffWhenRoomEmpty() {
+        monitor.setState(new EnvironmentState(false, 22, 10)); // No motion, dark
+        assertFalse(lightController.isLightOn(), "Lights should be OFF when the room is empty.");
+    }
+
+   
 
 }
