@@ -8,12 +8,14 @@ namespace HomeAutomation
 {
     public class RoomLightControl
     {
-        public Light handler;
-        public RoomLightControl()
+        public Light handler { get; set; }
+        public RoomLightControl(Light light)
         {
-            handler = new RoomOccupancy();
+
+            handler = light;
+           /* handler = new RoomOccupancy();
             var ambientlight = new AmbientLight();
-            handler.Setlight(ambientlight);
+            handler.Setlight(ambientlight);*/
         }
 
         public void AdjustLight(LightState state)
