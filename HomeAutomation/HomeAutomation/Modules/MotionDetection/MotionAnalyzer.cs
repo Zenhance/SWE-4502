@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +8,11 @@ namespace HomeAutomation
 {
     public class MotionAnalyzer
     {
-        private readonly List<(DateTime Timestamp, string Location)> _motionLogs = new();
+        private readonly List<Tuple<DateTime, string>> _motionLogs = new List<Tuple<DateTime, string>>();
 
         public void LogMotion(string location)
         {
-            _motionLogs.Add((DateTime.Now, location));
+            _motionLogs.Add(new Tuple<DateTime, string>(DateTime.Now, location));
             Console.WriteLine($"Logged motion at {location} on {DateTime.Now}");
         }
 
@@ -25,7 +24,7 @@ namespace HomeAutomation
                 return;
             }
 
-            var groupedByLocation = _motionLogs.GroupBy(entry => entry.Location);
+            var groupedByLocation = _motionLogs.GroupBy(entry => entry.Item2);
             Console.WriteLine("Motion Analysis Report:");
             foreach (var group in groupedByLocation)
             {

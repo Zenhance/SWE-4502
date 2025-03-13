@@ -8,7 +8,7 @@ namespace HomeAutomation
 {
     public class EnergyMonitor : IEnergyMonitor
     {
-        private readonly List<double> _powerUsageHistory = new();
+        private readonly List<double> _powerUsageHistory = new List<double>();
 
         public void RecordPowerUsage(double watts)
         {

@@ -8,8 +8,8 @@ namespace HomeAutomation
 {
     public class StateManager : IStateSubject
     {
-        private readonly List<IStateObserver> _observers = new();
-        private EnvironmentalState _currentState = new();
+        private readonly List<IStateObserver> _observers = new List<IStateObserver>();
+        private EnvironmentalState _currentState = new EnvironmentalState();
 
         public void RegisterObserver(IStateObserver observer)
         {
