@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\DefaultCommandHandler.cs" />
     <Compile Include="Components\LightCommandHandler.cs" />
     <Compile Include="Components\EnergyTracker.cs" />
     <Compile Include="Components\LightManager.cs" />

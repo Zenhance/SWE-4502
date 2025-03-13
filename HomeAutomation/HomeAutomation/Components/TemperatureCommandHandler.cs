@@ -12,7 +12,7 @@ namespace HomeAutomation.Components
         {
             if (command.ToLower().Contains("temperature"))
             {
-                // Process temperature command.
+               
                 return "Temperature command processed.";
             }
             return base.HandleCommand(command);
