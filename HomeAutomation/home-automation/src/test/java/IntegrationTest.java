@@ -41,4 +41,15 @@ public class IntegrationTest {
         verify(remoteAccessApp).update(environmentState);
     }
 
+    @Test
+    public void testObserversReactToStateChanges() {
+        environmentState.setTemperature(16.0);
+        homeAutomationSystem.setEnvironmentState(environmentState);
+        assertTrue(hvacController.isHeatingOn());
+
+        environmentState.setTemperature(26.0);
+        homeAutomationSystem.setEnvironmentState(environmentState);
+        assertTrue(hvacController.isCoolingOn());
+    }
+
 }
