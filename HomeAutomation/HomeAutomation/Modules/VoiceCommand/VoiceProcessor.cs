@@ -9,7 +9,7 @@ namespace HomeAutomation
     public class VoiceProcessor : IVoiceProcessor
     {
         private string _lastCommand;
-        private readonly List<string> _commandHistory = new();
+        private readonly List<string> _commandHistory = new List<string>();
 
         public void ProcessCommand(string command)
         {

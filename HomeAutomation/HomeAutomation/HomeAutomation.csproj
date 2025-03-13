@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48996979-EDD1-47C3-B216-A9B30449D4B9}</ProjectGuid>
+    <ProjectGuid>{680B583E-24DD-4BE4-8AAA-EC2B81A7278E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>HomeAutomation</RootNamespace>
     <AssemblyName>HomeAutomation</AssemblyName>
@@ -43,8 +43,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\EnvironmentalState.cs" />
+    <Compile Include="Core\HomeAutomation.cs" />
+    <Compile Include="Core\ILoggerService.cs" />
+    <Compile Include="Core\IStateObserver.cs" />
+    <Compile Include="Core\IStateSubject.cs" />
+    <Compile Include="Core\LoggerService.cs" />
+    <Compile Include="Modules\EnergyTracking\EnergyMonitor.cs" />
+    <Compile Include="Modules\EnergyTracking\IEnergyMonitor.cs" />
+    <Compile Include="Modules\VoiceCommand\IVoiceProcessor.cs" />
+    <Compile Include="Modules\TemperatureControl\IThermostat.cs" />
+    <Compile Include="Modules\RemoteApp\IRemoteController.cs" />
+    <Compile Include="Modules\MotionDetection\IMotionSensor.cs" />
+    <Compile Include="Modules\Lighting\ILightingController.cs" />
+    <Compile Include="Modules\Lighting\LightingController.cs" />
+    <Compile Include="Modules\MotionDetection\MotionAnalyzer.cs" />
+    <Compile Include="Modules\MotionDetection\MotionSensor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Modules\RemoteApp\RemoteController.cs" />
+    <Compile Include="Modules\TemperatureControl\Thermostat.cs" />
+    <Compile Include="Modules\VoiceCommand\VoiceProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

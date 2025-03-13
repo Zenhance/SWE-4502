@@ -31,7 +31,8 @@ namespace HomeAutomation
                 return;
             }
 
-            _brightness = Math.Clamp(level, 0, 100);
+            _brightness = Math.Max(0, Math.Min(level, 100));
+
             Console.WriteLine($"Brightness set to {_brightness}%.");
         }
     }
