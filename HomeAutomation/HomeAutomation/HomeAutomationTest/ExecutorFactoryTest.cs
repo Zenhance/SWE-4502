@@ -36,4 +36,42 @@ public class ExecutorFactoryTest
         
         Assert.That(sce, Is.InstanceOf<AmbientLightLevelStateChangeExecutor>());
     }
+    
+    [Test]
+    public void TestExecutorFactoryMotionLevelObjectSet()
+    {
+        EnvironmentState environment = new EnvironmentState();
+
+        Command cmd = new Command("motion value 0.7");
+        
+        StateChangeExecutor sce = ExecutorFactory.getExecutor(cmd, environment);
+        
+        Assert.That(sce, Is.InstanceOf<MotionLevelStateChangeExecutor>());
+    }
+    
+    [Test]
+    public void TestExecutorFactoryEnergyConsumptionObjectSet()
+    {
+        EnvironmentState environment = new EnvironmentState();
+
+        Command cmd = new Command("energy value 125 watt");
+        
+        StateChangeExecutor sce = ExecutorFactory.getExecutor(cmd, environment);
+        
+        Assert.That(sce, Is.InstanceOf<EnergyConsumptionStateChangeExecutor>());
+    }
+    
+    [Test]
+    public void TestExecutorFactoryCommandConversion()
+    {
+        EnvironmentState environment = new EnvironmentState();
+
+        Command cmd = new Command("energy value 125 watt");
+        
+        StateChangeExecutor sce = ExecutorFactory.getExecutor(cmd, environment);
+        
+        Command returnedCommand = sce.getCommand();
+        
+        Assert.That(returnedCommand.getValue(), Is.EqualTo(125));
+    }
 }
