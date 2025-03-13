@@ -12,24 +12,25 @@ namespace HomeAutomation.Core
         public void RegisterComponent(IComponent component)
         {
             if (!_components.Contains(component))
-            {
                 _components.Add(component);
-            }
         }
-
 
         public void UpdateState(Action<EnvironmentalState> updateAction)
         {
+            // Update the shared state.
             updateAction(CurrentState);
-            NotifyComponents();
+            // Use Prototype: create a copy to send to each observer.
+            var stateClone = (EnvironmentalState)CurrentState.Clone();
+            NotifyComponents(stateClone);
         }
 
-        private void NotifyComponents()
+        private void NotifyComponents(EnvironmentalState state)
         {
             foreach (var component in _components)
             {
-                component.OnStateChanged(CurrentState);
+                component.OnStateChanged(state);
             }
         }
-    }
+    
+}
 }
