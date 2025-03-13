@@ -6,6 +6,9 @@ public class SystemState {
         this.stateType = stateType;
         this.stateDescription = stateDescription;
     }
+    public SystemState() {
+
+    }
     public SystemStateType getStateType() {
         return stateType;
     }
