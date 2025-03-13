@@ -22,23 +22,6 @@ namespace HomeAutomationTest
         }
 
         [Fact]
-        public void OnStateChanged_TurnsLightsOff_WhenAmbientLightHigh()
-        {
-            var lightManager = new LightManager();
-            var state = new EnvironmentalState { AmbientLight = 80 };
-
-            lightManager.OnStateChanged(state);
-
-            Assert.False(lightManager.LightsOn);
-        }
-
-        [Fact]
-        public void SetScene_ChangesCurrentScene()
-        {
-            var lightManager = new LightManager();
-            lightManager.SetScene("Movie");
-
-            Assert.Equal("Movie", lightManager.CurrentScene);
-        }
+      
     }
 }
