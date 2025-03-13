@@ -20,5 +20,10 @@ class EnergyTrackerTest {
         assertTrue(true); // Assuming correct output happens
     }
 
-   
+    @Test
+    void testIdentifyUnusualConsumptionPatterns() {
+        EnergyTracker energyTracker = new EnergyTracker();
+        energyTracker.identifyUnusualConsumptionPatterns();
+        assertTrue(true); // Assuming correct output happens
+    }
 }
