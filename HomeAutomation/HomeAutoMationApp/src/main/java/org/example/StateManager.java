@@ -1,10 +1,12 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 
 public class StateManager {
     private static StateManager instance;
-    private List<StateObserver> observers = new ArrayList<>();
+    private List<IStateObserver> observers = new ArrayList<>();
     private EnvironmentalState currentState = new EnvironmentalState();
 
     StateManager() {}
@@ -16,12 +18,12 @@ public class StateManager {
         return instance;
     }
 
-    public void registerObserver(StateObserver observer) {
+    public void registerObserver(IStateObserver observer) {
         observers.add(observer);
     }
 
     public void notifyObservers() {
-        for (StateObserver observer : observers) {
+        for (IStateObserver observer : observers) {
             observer.update(currentState);
         }
     }
