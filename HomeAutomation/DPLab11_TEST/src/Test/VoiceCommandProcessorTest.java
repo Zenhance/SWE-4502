@@ -34,5 +34,10 @@ class VoiceCommandProcessorTest {
         assertEquals("turn on the light", voiceCommandProcessor.getCommandHistory().get(0));
     }
 
-    
+    @Test
+    void testTranslateCommandTurnOff() {
+        VoiceCommandProcessor voiceCommandProcessor = new VoiceCommandProcessor();
+        voiceCommandProcessor.translateCommand("turn off the light");
+        assertEquals("turn off the light", voiceCommandProcessor.getCommandHistory().get(0));
+    }
 }
