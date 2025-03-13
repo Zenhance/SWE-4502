@@ -12,6 +12,12 @@ public class EnergyTrackerTest {
         energyTracker = new EnergyTracker();
         manager.addObserver(energyTracker);
     }
+    @Test
+    public void testEnergyConsumptionDetection() {
+        SystemState energyState = new SystemState(SystemStateType.POWER_CONSUMPTION_DETECTED, "Power Consumption Detected");
+        manager.setState(energyState);
+
+    }
 
 
 }
