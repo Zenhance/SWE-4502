@@ -13,21 +13,33 @@ namespace HomeAutomationTests
         [Fact]
         public void ShouldActivateHeatingWhenTemperatureIsLow()
         {
-            // Arrange
-            var tempControl = new TemperatureControl(22.0);
+            var tempControl = new TemperatureControl(22.0);  
             var homeEnvironment = new HomeEnvironment();
             homeEnvironment.Subscribe(tempControl);
-            homeEnvironment.UpdateHomeEnvironment(false, 20.0, "Living Room");
 
-            Console.SetOut(stringWriter); 
+            Console.SetOut(stringWriter);
 
-            // Act
-            homeEnvironment.UpdateHomeEnvironment(false, 20.0, "Living Room");
+            homeEnvironment.UpdateHomeEnvironment(false, 9.0, "Living Room");  
 
-            // Assert
             Assert.Contains("Activating heating...", stringWriter.ToString());
         }
 
+        [Fact]
+        public void ShouldActivateCoolingWhenTemperatureIsHigh()
+        {
+            var tempControl = new TemperatureControl(22.0);
+            var homeEnvironment = new HomeEnvironment();
+            homeEnvironment.Subscribe(tempControl);
+
+            Console.SetOut(stringWriter);
+
+            homeEnvironment.UpdateHomeEnvironment(false, 25.0, "Living Room");  
+
+            Assert.Contains("Activating Cooling...", stringWriter.ToString());
+        }
+
         
+
+
     }
 }
