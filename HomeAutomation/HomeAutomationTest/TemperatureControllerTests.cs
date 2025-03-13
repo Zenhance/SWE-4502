@@ -35,5 +35,18 @@ namespace HomeAutomationTest
             Assert.True(controller.CoolingOn);
             Assert.False(controller.HeatingOn);
         }
+
+        [Fact]
+        public void OnStateChanged_NoAction_WhenTemperatureWithinHysteresis()
+        {
+            double target = 22;
+            var controller = new TemperatureController(target);
+            var state = new EnvironmentalState { Temperature = 22 };
+
+            controller.OnStateChanged(state);
+
+            Assert.False(controller.HeatingOn);
+            Assert.False(controller.CoolingOn);
+        }
     }
 }
