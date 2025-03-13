@@ -40,6 +40,13 @@ public class MotionDetectorTest {
         assertTrue(output.contains("Suspicious activity detected"));
     }
 
-
+    @Test
+    public void testMotionLoggingOutput() {
+        outContent.reset();
+        motionDetector.update(State);
+        String output = outContent.toString();
+        assertTrue(output.contains("Logging motion: Living Room"));
+        assertTrue(output.contains("Normal motion activity detected"));
+    }
 
 }
