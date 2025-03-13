@@ -1,5 +1,4 @@
 ﻿using HomeAutomation;
-
 namespace HomeAutomationTests
 {
     public class IssueRemoteAccessAppUnitTest
@@ -9,15 +8,18 @@ namespace HomeAutomationTests
         {
             stringWriter = new StringWriter();
         }
+        
         [Fact]
         public void ShouldControlSystemSuccessfully()
         {
             var homeEnvironment = new HomeEnvironment();
-            var remoteAccessApp = new RemoteAccess(homeEnvironment);
+            var remoteAccessApp = new RemoteAccess(homeEnvironment,stringWriter);
 
-            remoteAccessApp.ControlSystem(true);
+            // Act
+            remoteAccessApp.ControlSystem(true);  
 
-            Assert.True(homeEnvironment.isMotionDetected);
+            // Assert
+            Assert.True(homeEnvironment.CurrentState.isMotionDetected);
         }
 
     }
