@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoteControllerTests.cs" />
     <Compile Include="ThermostatTests.cs" />
+    <Compile Include="VoiceProcessorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
