@@ -7,7 +7,15 @@ public class EnergyTracker implements IObserver{
 
     @Override
     public void update(SystemState state) {
+        String usageDescription = state.getStateDescription();
 
+        if (usageDescription.equals("Power Consumption Detected")) {
+            int consumption = (int) (Math.random() * 100);
+            logEnergyConsumption(consumption);
+            trackUsageStats(consumption);
+
+            System.out.println("Current power consumption: " + consumption + " kWh.");
+        }
     }
 
     private void logEnergyConsumption(int consumption) {
