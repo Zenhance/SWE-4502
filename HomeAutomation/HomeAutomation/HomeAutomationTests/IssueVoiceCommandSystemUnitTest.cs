@@ -42,6 +42,6 @@ namespace HomeAutomationTests
 
             Assert.Contains("Voice Command: Turning the light off.", stringWriter.ToString());
         }
-
+        
     }
 }
