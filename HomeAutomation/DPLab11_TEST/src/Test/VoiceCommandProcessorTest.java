@@ -20,5 +20,12 @@ class VoiceCommandProcessorTest {
         assertTrue(voiceCommandProcessor.getCommandHistory().contains("turn off the light"));
     }
 
-    
+    @Test
+    void testProcessCommandUnknown() {
+        VoiceCommandProcessor voiceCommandProcessor = new VoiceCommandProcessor();
+        voiceCommandProcessor.processCommand("play music");
+        assertTrue(voiceCommandProcessor.getCommandHistory().contains("play music"));
+    }
+
+
 }
