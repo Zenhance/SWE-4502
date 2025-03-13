@@ -10,11 +10,11 @@ namespace HomeAutomation
     {
 
         public List<string> detectionLogs = new List<string>();
-        public void Notify(HomeEnvironment env)
+        public void Notify(EnvironmentalState state)
         {
-            if (env.isMotionDetected)
+            if (state.isMotionDetected)
             {
-                var LogDetected = $"Motion detected at {DateTime.Now} in {env.Location}";
+                var LogDetected = $"Motion detected at {DateTime.Now} in {state.Location}";
                 detectionLogs.Add(LogDetected);
                 Console.WriteLine(LogDetected);
             }
