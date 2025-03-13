@@ -23,10 +23,24 @@ namespace HomeAutomationTests
             homeEnvironment.Subscribe(voiceCommandSystem);
 
             Console.SetOut(stringWriter);
-            homeEnvironment.UpdateHomeEnvironment(true, 12.12, "Hallway");
 
+            homeEnvironment.UpdateHomeEnvironment(true, 12.12, "Hallway");  
 
             Assert.Contains("Voice Command: Turning the light on.", stringWriter.ToString());
+        }
+
+        [Fact]
+        public void ShouldTurnOffLightVoiceCommand()
+        {
+            var voiceCommandSystem = new VoiceCommand();
+            var homeEnvironment = new HomeEnvironment();
+            homeEnvironment.Subscribe(voiceCommandSystem);
+
+            Console.SetOut(stringWriter);
+
+            homeEnvironment.UpdateHomeEnvironment(false, 12.12, "Hallway");  
+
+            Assert.Contains("Voice Command: Turning the light off.", stringWriter.ToString());
         }
 
     }
