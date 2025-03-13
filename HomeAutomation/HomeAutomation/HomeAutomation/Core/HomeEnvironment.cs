@@ -10,10 +10,7 @@ namespace HomeAutomation
     public class HomeEnvironment
     {
         public List<IObserver> subscribers = new List<IObserver> ();
-        public bool isMotionDetected { get; set; }
-        public double Temperature { get; set; }
-
-        public string Location { get; set; }
+        public EnvironmentalState CurrentState { get; set; }
 
         public void Subscribe(IObserver subscriber)
         {
@@ -28,15 +25,23 @@ namespace HomeAutomation
             subscribers.Remove(subscriber);
         }
 
-        public void UpdateHomeEnvironment(bool detected,double temp, string location)
+        public void UpdateHomeEnvironment(bool detected, double temp, string location)
         {
-            isMotionDetected = detected;
-            Temperature = temp;
-            Location = location;
+            CurrentState = new EnvironmentalState
+            {
+                isMotionDetected = detected,
+                Temperature = temp,
+                Location = location
+            };
 
+            NotifySubscribers();
+        }
+
+        public void NotifySubscribers()
+        {
             foreach (var subscriber in subscribers)
             {
-                subscriber.Notify(this);
+                subscriber.Notify(CurrentState);
             }
         }
     }
