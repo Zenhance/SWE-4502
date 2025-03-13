@@ -52,6 +52,7 @@
     <Compile Include="EnergyMonitorTests.cs" />
     <Compile Include="LightingControllerTests.cs" />
     <Compile Include="MotionAnalyzerTests.cs" />
+    <Compile Include="MotionSensorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
