@@ -9,9 +9,9 @@ namespace HomeAutomation
     public class EnergyTracker : IObserver
     {
         public EnergyChain energychain;
-        public EnergyTracker()
+        public EnergyTracker(EnergyChain chain)
         {
-            energychain = new MotionEnergy();
+            energychain = chain;
         }
         public void Notify(EnvironmentalState state)
         {
