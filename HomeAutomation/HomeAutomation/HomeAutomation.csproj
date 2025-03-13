@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\EnergyTracker.cs" />
     <Compile Include="Components\LightManager.cs" />
     <Compile Include="Components\MotionDetector.cs" />
     <Compile Include="Components\TemperatureController.cs" />
