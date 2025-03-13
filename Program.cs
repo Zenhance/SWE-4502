@@ -15,8 +15,9 @@
          public double EnergyUsage { get; set; }
          public string VoiceCommand { get; set; }
      }
-    interface IObServer
+   public interface IObserver
      {
+         void Update(CentralState state);
      }
 
       public class CentralStateManager
