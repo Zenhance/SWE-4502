@@ -56,6 +56,7 @@ namespace HomeAutomation
             remoteController.ControlSystem("Activate Security Mode");
 
             Console.WriteLine("Home Automation System Operations Completed.");
+            Console.ReadLine();
         }
     }
 }
