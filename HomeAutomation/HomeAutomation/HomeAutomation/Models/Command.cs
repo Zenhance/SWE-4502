@@ -22,6 +22,14 @@ public class Command
         _command = "";
         _value = value;
     }
+    public string getCommand()
+    {
+        return _command;
+    }
     
+    public float getValue()
+    {
+        return _value;
+    }
    
 }
