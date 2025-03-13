@@ -1,39 +1,40 @@
 package core;
 
-import components.HomeComponent;
-
-import java.awt.*;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class CoreSystem {
-    public Map<String, Integer> environmentStates;
-    public Set<HomeComponent> registeredComponents;
+    private static CoreSystem instance;
+    private Set<IComponent> components;
+    private String environmentState;
 
-    public CoreSystem() {
-        environmentStates = new HashMap<>();
-        registeredComponents = new HashSet<>();
+    private CoreSystem() {
+        components = new HashSet<>();
     }
 
-    public void registerComponent(HomeComponent component) {
-        registeredComponents.add(component);
+    public static CoreSystem getInstance() {
+        if (instance == null) {
+            instance = new CoreSystem();
+        }
+        return instance;
     }
 
-    public void changeState(String state, int value) {
-        environmentStates.put(state, value);
-        notifyComponents(state, value);
+    public void registerComponent(IComponent component) {
+        components.add(component);
     }
 
-    public int getState(String state) {
-        return environmentStates.getOrDefault(state, 0);
+    public void updateState(String newState) {
+        this.environmentState = newState;
+        notifyComponents();
     }
 
-    private void notifyComponents(String state, int value) {
-        for (HomeComponent component : registeredComponents) {
-            component.onStateChange(state, value);
+    private void notifyComponents() {
+        for (IComponent component : components) {
+            component.onStateChanged(environmentState, 0);
         }
     }
-}
 
+    public String getEnvironmentState() {
+        return environmentState;
+    }
+}
