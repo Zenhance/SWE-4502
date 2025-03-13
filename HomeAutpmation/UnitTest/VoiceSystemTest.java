@@ -13,7 +13,25 @@ public class VoiceSystemTest {
         voiceCommandFollower = new VoiceSystem();
         systemState = new SystemState();
     }
+    @Test
+    public void testTurnOnLightsCommand() {
+        systemState.setStateDescription("Turn On Lights");
+        voiceCommandFollower.update(systemState);
+        assertEquals("Processing command: Turn On Lights", voiceCommandFollower.getLastAction());
+        assertTrue(voiceCommandFollower.getCommandHistory().contains("Turn On Lights"));
+    }
+
+    @Test
+    public void testTurnOffLightsCommand() {
+        systemState.setStateDescription("Turn Off Lights");
+        voiceCommandFollower.update(systemState);
+        assertEquals("Processing command: Turn Off Lights", voiceCommandFollower.getLastAction());
+        assertTrue(voiceCommandFollower.getCommandHistory().contains("Turn Off Lights"));
+    }
 
 
-   
+
+
+
+
 }
