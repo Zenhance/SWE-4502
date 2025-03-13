@@ -155,4 +155,68 @@ public class EnvironmentTest
         Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.1f));
         Assert.That(_lightManager.getCurrentMode(), Is.EqualTo(LIGHTMODE.MOVIE));
     }
+    
+    public void SetAmbientLightLevelReadingTest()
+    {
+        Command command = new Command(0.4f);
+        _environment.SetAmbientLightLevel(command);
+        
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.4f));
+        Assert.That(_lightManager.getCurrentMode(), Is.EqualTo(LIGHTMODE.READING));
+    }
+    
+    
+    [Test]
+    public void SetAmbientLightLevelPartyTest()
+    {
+        Command command = new Command(0.6f);
+        _environment.SetAmbientLightLevel(command);
+        
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.6f));
+        Assert.That(_lightManager.getCurrentMode(), Is.EqualTo(LIGHTMODE.PARTY));
+    }
+    
+    
+    [Test]
+    public void SetAmbientLightLevelDaylightTest()
+    {
+        Command command = new Command(0.8f);
+        _environment.SetAmbientLightLevel(command);
+        
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.8f));
+        Assert.That(_lightManager.getCurrentMode(), Is.EqualTo(LIGHTMODE.DAYLIGHT));
+    }
+    
+    
+    [Test]
+    public void SetEnergyConsumptionUnusualTest()
+    {
+        Command command = new Command(150);
+        _environment.SetEnergyConsumption(command);
+        
+        Assert.That(_environment.GetEnergyConsumption(), Is.EqualTo(150));
+        Assert.That(_energyManager.getConsumptionPattern(), Is.EqualTo(CONSUMPTIONPATTERN.UNUSUAL));
+    }
+    
+    
+    [Test]
+    public void SetEnergyConsumptionUsualTest()
+    {
+        Command command = new Command(100);
+        _environment.SetEnergyConsumption(command);
+        
+        Assert.That(_environment.GetEnergyConsumption(), Is.EqualTo(100));
+        Assert.That(_energyManager.getConsumptionPattern(), Is.EqualTo(CONSUMPTIONPATTERN.USUAL));
+    }
+    
+    
+    [Test]
+    public void SetVoiceCommandOnEnergyTest()
+    {
+        Command command = new Command("energy value 127 kWh");
+        _environment.SetVoiceCommand(command);
+        
+        Assert.That(_environment.GetLastVoiceCommand(), Is.EqualTo("energy value 127 kWh"));
+        Assert.That(_energyManager.getConsumptionPattern(), Is.EqualTo(CONSUMPTIONPATTERN.USUAL));
+    }
 }
