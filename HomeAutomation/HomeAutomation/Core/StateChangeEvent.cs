@@ -4,4 +4,6 @@ public enum StateChangeEvent
 {
     Motion,
     Light,
+    Temperature,
+
 }
