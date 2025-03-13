@@ -46,15 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\DefaultCommandHandler.cs" />
-    <Compile Include="Components\LightCommandHandler.cs" />
     <Compile Include="Components\EnergyTracker.cs" />
     <Compile Include="Components\LightManager.cs" />
     <Compile Include="Components\MotionDetector.cs" />
-    <Compile Include="Components\TemperatureCommandHandler.cs" />
     <Compile Include="Components\TemperatureController.cs" />
-    <Compile Include="Components\VoiceCommandHandler.cs" />
-    <Compile Include="Components\VoiceCommandProcessor.cs" />
     <Compile Include="Core\EnvironmentalState.cs" />
     <Compile Include="Core\IComponent.cs" />
     <Compile Include="Core\StateManager.cs" />

@@ -6,38 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 using HomeAutomation.Core;
 
-
 namespace HomeAutomation.Components
 {
     public class VoiceCommandProcessor : IComponent
     {
         public List<string> CommandHistory { get; private set; } = new List<string>();
-        private VoiceCommandHandler _handlerChain;
 
-        public VoiceCommandProcessor()
+        public void OnStateChanged(EnvironmentalState state)
         {
-          
-            var lightHandler = new LightCommandHandler();
-            var temperatureHandler = new TemperatureCommandHandler();
-            var defaultHandler = new DefaultCommandHandler();
-
-            lightHandler.SetNext(temperatureHandler);
-            temperatureHandler.SetNext(defaultHandler);
-
-            _handlerChain = lightHandler;
+            // In this simplified example, state changes do not affect command processing.
         }
 
         public string ProcessCommand(string command)
         {
+         
             CommandHistory.Add(command);
-            return _handlerChain.HandleCommand(command);
-        }
-
-       
-        public void OnStateChanged(EnvironmentalState state)
-        {
-            
-            
+            return command.ToUpper();
         }
     }
 }
