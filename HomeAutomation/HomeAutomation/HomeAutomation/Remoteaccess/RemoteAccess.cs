@@ -17,8 +17,7 @@ namespace HomeAutomation
         }
         public void Notify(EnvironmentalState state)
         {
-/*            
-*/            Console.WriteLine($"Motion Detected: {state.isMotionDetected}, Temperature: {state.Temperature}, Location: {state.Location}");
+            Console.WriteLine($"Motion Detected: {state.isMotionDetected}, Temperature: {state.Temperature}, Location: {state.Location}");
         }
 
         public void ControlSystem(bool motionDetected)
