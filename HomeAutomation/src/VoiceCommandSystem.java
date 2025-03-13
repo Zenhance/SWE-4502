@@ -11,7 +11,5 @@ public class VoiceCommandSystem implements IObserver {
     @Override
     public void update(String stateName, Object value) {
 
-        }
     }
-
-
+}
