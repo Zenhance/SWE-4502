@@ -164,4 +164,24 @@ public class EnvironmentTest
         Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.8f));
         Assert.That(_lightManager.GetCurrentMode(), Is.EqualTo(LIGHTMODE.DAYLIGHT));
     }
+    
+    [Test]
+    public void TestSetEnergyConsumptionUnusual()
+    {
+        Command command = new Command(150);
+        _environment.SetEnergyConsumption(command);
+        
+        Assert.That(_environment.GetEnergyConsumption(), Is.EqualTo(150));
+        Assert.That(_energyConsumptionManager.getPattern(), Is.EqualTo(CONSUMPTIONPATTERN.UNUSUAL));
+    }
+    
+    [Test]
+    public void TestSetEnergyConsumptionUSUAL()
+    {
+        Command command = new Command(100);
+        _environment.SetEnergyConsumption(command);
+        
+        Assert.That(_environment.GetEnergyConsumption(), Is.EqualTo(100));
+        Assert.That(_energyConsumptionManager.getPattern(), Is.EqualTo(CONSUMPTIONPATTERN.USUAL));
+    }
 }
