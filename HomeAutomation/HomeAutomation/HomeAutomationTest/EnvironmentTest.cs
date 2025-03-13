@@ -84,4 +84,24 @@ public class EnvironmentTest
         Assert.That(_environment.GetTemperature(), Is.EqualTo(40));
         Assert.That(_temperatureManager.GetState(), Is.EqualTo(TEMPSTATE.COOLING));
     }
+
+    [Test]
+    public void TestSetTemperatureHeating()
+    {
+        Command command = new Command(9);
+        _environment.SetTemperature(command);
+        
+        Assert.That(_environment.GetTemperature(), Is.EqualTo(9));
+        Assert.That(_temperatureManager.GetState(), Is.EqualTo(TEMPSTATE.HEATING));
+    }
+
+    [Test]
+    public void TestSetTemperatureNormal()
+    {
+        Command command = new Command(25);
+        _environment.SetTemperature(command);
+        
+        Assert.That(_environment.GetTemperature(), Is.EqualTo(25));
+        Assert.That(_temperatureManager.GetState(), Is.EqualTo(TEMPSTATE.IDLE));
+    }
 }
