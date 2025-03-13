@@ -19,4 +19,13 @@ public class EnergyTracker implements IObserver {
     }
 
 
+    public void setPowerUsage(int usage) {
+        homeState.setState("power-usage", usage);
+    }
+
+    public int getTotalUsage() {
+        return totalUsage;
+    }
+
+
 }
