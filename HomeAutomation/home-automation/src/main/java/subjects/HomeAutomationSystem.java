@@ -36,4 +36,8 @@ public class HomeAutomationSystem implements Subject {
         this.environmentState = environmentState;
         notifyObservers();
     }
+
+    public EnvironmentState getEnvironmentState(){
+        return this.environmentState;
+    }
 }
