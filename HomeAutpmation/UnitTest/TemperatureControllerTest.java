@@ -21,6 +21,20 @@ public class TemperatureControllerTest {
         assertEquals("Temperature is low. Activating heating...", temperatureController.getLastAction());
     }
 
+    @Test
+    public void testActivateCoolingWhenTemperatureIsHigh() {
+        systemState.setStateDescription("30.0");
+        temperatureController.update(systemState);
+        assertEquals("Temperature is high. Activating cooling...", temperatureController.getLastAction());
+    }
+
+
+    @Test
+    public void testTemperatureWithinAcceptableRange() {
+        systemState.setStateDescription("22.0");
+        temperatureController.update(systemState);
+        assertEquals("Temperature is within acceptable range.", temperatureController.getLastAction());
+    }
 
 
 
