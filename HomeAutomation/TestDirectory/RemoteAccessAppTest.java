@@ -8,7 +8,7 @@ public class RemoteAccessAppTest {
     @Test
     public void testDisplayCurrentState() {
         HomeState homeState = new HomeState();
-        RemoteAccessApp remoteAccessApp = new RemoteAccessApp(new HomeState(), homeState);
+        RemoteAccessApp remoteAccessApp = new RemoteAccessApp(homeState); // Only passing homeState
 
         homeState.motionDetected = true;
         homeState.roomOccupied = true;
@@ -35,7 +35,7 @@ public class RemoteAccessAppTest {
     @Test
     public void testGenerateNotificationForLightAndMotion() {
         HomeState homeState = new HomeState();
-        RemoteAccessApp remoteAccessApp = new RemoteAccessApp(new HomeState(), homeState);
+        RemoteAccessApp remoteAccessApp = new RemoteAccessApp(homeState); // Only passing homeState
 
         // Test notification for turning the lights on
         String lightNotification = remoteAccessApp.generateNotification("Lights turned on remotely");
@@ -56,7 +56,7 @@ public class RemoteAccessAppTest {
     @Test
     public void testRemoteControlForEnergyAndTemperature() {
         HomeState homeState = new HomeState();
-        RemoteAccessApp remoteAccessApp = new RemoteAccessApp(new HomeState(), homeState);
+        RemoteAccessApp remoteAccessApp = new RemoteAccessApp(homeState); // Only passing homeState
 
         // Simulate remote control to increase energy usage
         String energyResult = remoteAccessApp.remoteControl("increase energy usage", homeState);
@@ -71,7 +71,6 @@ public class RemoteAccessAppTest {
         // Assert that the notifications and changes are correct
         assertEquals("NOTIFICATION: Energy usage increased remotely.", energyResult);
         assertEquals("NOTIFICATION: Temperature increased remotely.", tempResult);
-
     }
 
 }
