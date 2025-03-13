@@ -52,4 +52,15 @@ public class IntegrationTest {
         assertTrue(hvacController.isCoolingOn());
     }
 
+    @Test
+    public void testRemoteAccessAppControlsDevices() {
+        remoteAccessApp.controlLights(true);
+        assertEquals(100, homeAutomationSystem.getEnvironmentState().getLightLevel());
+
+        remoteAccessApp.controlLights(false);
+        assertEquals(0, homeAutomationSystem.getEnvironmentState().getLightLevel());
+
+        remoteAccessApp.controlTemperature(21.0);
+        assertEquals(21.0, homeAutomationSystem.getEnvironmentState().getTemperature());
+    }
 }
