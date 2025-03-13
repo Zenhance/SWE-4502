@@ -22,5 +22,18 @@ namespace HomeAutomationTest
             Assert.True(controller.HeatingOn);
             Assert.False(controller.CoolingOn);
         }
+
+        [Fact]
+        public void OnStateChanged_ActivatesCooling_WhenTemperatureTooHigh()
+        {
+            double target = 22;
+            var controller = new TemperatureController(target);
+            var state = new EnvironmentalState { Temperature = 24 };
+
+            controller.OnStateChanged(state);
+
+            Assert.True(controller.CoolingOn);
+            Assert.False(controller.HeatingOn);
+        }
     }
 }
