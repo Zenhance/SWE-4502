@@ -13,6 +13,6 @@ namespace HomeAutomation
         {
             chain = energychain;
         }
-        public abstract void Manager(HomeEnvironment env);
+        public abstract void Manager(EnvironmentalState state);
     }
 }

@@ -13,9 +13,9 @@ namespace HomeAutomation
         {
             energychain = new MotionEnergy();
         }
-        public void Notify(HomeEnvironment env)
+        public void Notify(EnvironmentalState state)
         {
-            energychain.Manager(env);
+            energychain.Manager(state);
         }
     }
 }
