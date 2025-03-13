@@ -1,5 +1,6 @@
 ﻿namespace HomeAutomation.Core;
 
-public abstract class StateChangeEvent
+public enum StateChangeEvent
 {
+    Motion
 }

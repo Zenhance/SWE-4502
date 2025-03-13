@@ -23,12 +23,12 @@ public class StateObserver
         return false;
     }
 
-    private int NotifySubscribers(StateChangeEvent changeEvent)
+    private int NotifySubscribers(StateChangeEvent changeEvent, State state)
     {
         int count = 0;
         foreach (var subscriber in _subscribers[changeEvent])
         {
-            subscriber.Update();
+            subscriber.Update(state);
         }
 
         return count;
@@ -42,6 +42,6 @@ public class StateObserver
     public int ChangeCurrentState(StateChangeEvent changeEvent, State state)
     {
         _currentState[changeEvent] = state;
-        return NotifySubscribers(changeEvent);
+        return NotifySubscribers(changeEvent, state);
     }
 }

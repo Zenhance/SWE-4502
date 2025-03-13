@@ -2,5 +2,5 @@
 
 public interface ISubscriber
 {
-    void Update();
+    string Update(State state);
 }
