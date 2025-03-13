@@ -17,7 +17,7 @@ namespace src
             state = new Dictionary<string, string>();
         }
 
-         public void RegisterObserver(IObserver observer)
+        public void RegisterObserver(IObserver observer)
         {
             observers.Add(observer);
         }
@@ -25,6 +25,14 @@ namespace src
         public void UnregisterObserver(IObserver observer)
         {
             observers.Remove(observer);
+        }
+
+        public void NotifyObservers(string key)
+        {
+            foreach (var observer in observers)
+            {
+                observer.Update(key, state[key]);
+            }
         }
 
     }
