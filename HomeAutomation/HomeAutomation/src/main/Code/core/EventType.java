@@ -1,4 +1,4 @@
-package org.example;
+package core;
 
 public enum EventType {
     MOTION_DETECTED,

@@ -1,8 +1,6 @@
-package org.example;
+package main.Test;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class Test1 {
     @Test

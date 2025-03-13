@@ -1,4 +1,4 @@
-package org.example;
+package core;
 
 import java.util.Map;
 
