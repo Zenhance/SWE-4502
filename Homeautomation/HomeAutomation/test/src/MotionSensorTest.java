@@ -6,7 +6,8 @@ public class MotionSensorTest {
     @Test
     void testMotionDetection() {
         MotionSensor sensor = new MotionSensor();
-        EnvironmentalState state = new EnvironmentalState(true, 22, 50, 100);
+        EnvironmentalState state = new EnvironmentalState();
+        state.motionDetected=true;
         sensor.update(state);
         assertTrue(sensor.isMotionDetected());
     }
