@@ -1,4 +1,5 @@
 using HomeAutomation;
+using Moq;
 
 namespace HomeAutomationTests
 {
@@ -18,12 +19,12 @@ namespace HomeAutomationTests
 
 
             // Assert
-            Assert.True(homeEnvironment.CurrentState.isMotionDetected);    
-            Assert.Equal(12.12, homeEnvironment.CurrentState.Temperature);  
+            Assert.True(homeEnvironment.CurrentState.isMotionDetected);
+            Assert.Equal(12.12, homeEnvironment.CurrentState.Temperature);
             Assert.Equal("Batcave", homeEnvironment.CurrentState.Location);
 
-            
-            Assert.Contains("Motion detected at", motionSensor.detectionLogs[0]);  
+
+            Assert.Contains("Motion detected at", motionSensor.detectionLogs[0]);
             Assert.Contains("Batcave", motionSensor.detectionLogs[0]);
         }
     }
