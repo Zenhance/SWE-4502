@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\EnvironmentalState.cs" />
     <Compile Include="LightManagement\AmbientLight.cs" />
     <Compile Include="TemperatureControl\CoolCommand.cs" />
     <Compile Include="EnergyConsumption\EnergyChain.cs" />
