@@ -1,45 +1,73 @@
 ﻿using HomeAutomation;
+using Moq;
 using System.IO;
 
 namespace HomeAutomationTests
 {
     public class IssueTemperatureControlUnitTest
     {
-        private readonly StringWriter stringWriter;
-        public IssueTemperatureControlUnitTest()
-        {
-            stringWriter = new StringWriter();
-        }
+
         [Fact]
         public void ShouldActivateHeatingWhenTemperatureIsLow()
         {
-            var tempControl = new TemperatureControl(22.0);  
+            // Arrange
+            var mockHeatCommand = new Mock<ITemp>();  
+            var mockCoolCommand = new Mock<ITemp>(); 
+            var tempControl = new TemperatureControl(12.12);  
+            tempControl.heat = mockHeatCommand.Object;  
+            tempControl.cool = mockCoolCommand.Object;  
+
             var homeEnvironment = new HomeEnvironment();
             homeEnvironment.Subscribe(tempControl);
 
-            Console.SetOut(stringWriter);
+            // Act: temperature difference exceeds the hysteresis threshold
+            homeEnvironment.UpdateHomeEnvironment(false, 39.12, "Bedroom 1");  
 
-            homeEnvironment.UpdateHomeEnvironment(false, 9.0, "Living Room");  
-
-            Assert.Contains("Activating heating...", stringWriter.ToString());
+            // Assert
+            mockCoolCommand.Verify(command => command.Do(), Times.Once);  
+            mockHeatCommand.Verify(command => command.Do(), Times.Never);  
         }
 
         [Fact]
         public void ShouldActivateCoolingWhenTemperatureIsHigh()
         {
-            var tempControl = new TemperatureControl(22.0);
+            // Arrange
+            var mockHeatCommand = new Mock<ITemp>(); 
+            var mockCoolCommand = new Mock<ITemp>(); 
+            var tempControl = new TemperatureControl(12.12);  
+            tempControl.heat = mockHeatCommand.Object;  
+            tempControl.cool = mockCoolCommand.Object;  
+
             var homeEnvironment = new HomeEnvironment();
             homeEnvironment.Subscribe(tempControl);
 
-            Console.SetOut(stringWriter);
+            // Act: temperature difference exceeds the hysteresis threshold
+            homeEnvironment.UpdateHomeEnvironment(false, 39.12, "Sheldon's Spot");  
 
-            homeEnvironment.UpdateHomeEnvironment(false, 25.0, "Living Room");  
-
-            Assert.Contains("Activating Cooling...", stringWriter.ToString());
+            // Assert
+            mockCoolCommand.Verify(command => command.Do(), Times.Once);  
+            mockHeatCommand.Verify(command => command.Do(), Times.Never);  
         }
 
-        
+        [Fact]
+        public void ShouldDoNothingWhenTemperatureIsStable()
+        {
+            // Arrange
+            var mockHeatCommand = new Mock<ITemp>();  
+            var mockCoolCommand = new Mock<ITemp>(); 
+            var tempControl = new TemperatureControl(12.12);  
+            tempControl.heat = mockHeatCommand.Object;  
+            tempControl.cool = mockCoolCommand.Object;  
 
+            var homeEnvironment = new HomeEnvironment();
+            homeEnvironment.Subscribe(tempControl);
 
+            // Act: Temperature is equal to target, nothing should happen
+            homeEnvironment.UpdateHomeEnvironment(false, 12.12, "Hell on earth");  
+
+            // Assert
+            mockHeatCommand.Verify(command => command.Do(), Times.Never);  
+            mockCoolCommand.Verify(command => command.Do(), Times.Never);  
+        }
     }
 }
