@@ -1,9 +1,13 @@
 public class VoiceCommandSystem implements Observer {
-    @Override
+    private boolean voiceDetected=false;
     public void update(EnvironmentState state) {
         String voiceCommand = (String) state.getState("voiceCommand");
         if (voiceCommand != null) {
-            System.out.println("Processing voice command: " + voiceCommand);
+            voiceDetected=true;
+            System.out.println("Processing voice command.");
         }
+    }
+    public boolean isVoiceDetected(){
+        return voiceDetected;
     }
 }
