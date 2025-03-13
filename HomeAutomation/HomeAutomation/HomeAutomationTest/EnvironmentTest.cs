@@ -46,6 +46,11 @@ public class EnvironmentTest
         Assert.That(_environment.GetLastVoiceCommand(), Is.EqualTo(""));
     }
     
+    [Test]
+    public void AddMotionComponentTest()
+    {
+        Assert.That(_environment.GetComponents()[0], Is.EqualTo(_motionDetector));
+    }
     
     
     
