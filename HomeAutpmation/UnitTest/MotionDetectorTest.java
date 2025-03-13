@@ -19,6 +19,27 @@ public class MotionDetectorTest {
 
         System.setOut(new PrintStream(outContent));
     }
+    @Test
+    public void testNormalMotionActivity() {
+
+        motionDetector.update(State);
+        assertEquals(1, motionDetector.getMotionCount("Living Room"));
+        String output = outContent.toString();
+        assertTrue(output.contains("Logging motion: Living Room"));
+        assertTrue(output.contains("Normal motion activity detected"));
+    }
+
+    @Test
+    public void testSuspiciousActivity() {
+
+        for (int i = 0; i < 6; i++) {
+            motionDetector.update(State);
+        }
+        assertEquals(6, motionDetector.getMotionCount("Living Room"));
+        String output = outContent.toString();
+        assertTrue(output.contains("Suspicious activity detected"));
+    }
+
 
 
 }
