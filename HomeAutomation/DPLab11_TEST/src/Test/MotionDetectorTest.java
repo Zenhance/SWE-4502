@@ -18,16 +18,19 @@ class MotionDetectorTest {
     void testLogActivity() {
         MotionDetector motionDetector = new MotionDetector();
         motionDetector.logActivity("motion detected at 10:00 AM");
-        assertEquals(1, motionDetector.motionLog.size());
+        assertEquals(1, motionDetector.getMotionLog().size());
     }
 
     @Test
     void testAnalyzePattern() {
         MotionDetector motionDetector = new MotionDetector();
-        motionDetector.setSuspiciousActivityThreshold(2);
+        motionDetector.setSuspiciousActivityThreshold(2);  // Set threshold to 2
         motionDetector.logActivity("motion detected at 10:00 AM");
         motionDetector.logActivity("motion detected at 10:05 AM");
+        motionDetector.logActivity("motion detected at 10:10 AM"); // Add a third activity
+
         motionDetector.analyzePattern();
-        assertTrue(motionDetector.motionLog.size() > 2);
+
+        assertTrue(motionDetector.getMotionLog().size() > 2, "Suspicious activity should be detected when the motion log size exceeds the threshold.");
     }
 }

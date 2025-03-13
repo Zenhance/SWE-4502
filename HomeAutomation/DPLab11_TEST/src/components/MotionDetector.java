@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class MotionDetector implements IComponent {
-    public List<String> motionLog;
+    private List<String> motionLog;
     private int suspiciousActivityThreshold;
 
     public MotionDetector() {
@@ -37,5 +37,9 @@ public class MotionDetector implements IComponent {
 
     public void trackMovement(String location, String time) {
         System.out.println("Movement detected at " + location + " at " + time);
+    }
+
+    public List<String> getMotionLog() {
+        return motionLog;
     }
 }
