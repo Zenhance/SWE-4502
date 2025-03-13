@@ -1,20 +1,24 @@
 import static org.junit.Assert.*;
 
 
+import components.HomeComponent;
+import core.CoreSystem;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.awt.*;
 
 public class CoreSystemTest {
 
     private CoreSystem coreSystem;
-    private Component componentA;
-    private Component componentB;
+    private HomeComponent componentA;
+    private HomeComponent componentB;
 
     @Before
     public void setUp() {
         coreSystem = new CoreSystem(); // Initialize CoreSystem before each test
-        componentA = new Component("ComponentA");
-        componentB = new Component("ComponentB");
+        componentA = new HomeComponent("ComponentA");
+        componentB = new HomeComponent("ComponentB");
     }
 
     @Test
