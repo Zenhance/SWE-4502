@@ -8,7 +8,7 @@ public class CoreSystem {
     private Set<IComponent> components;
     private String environmentState;
 
-    private CoreSystem() {
+    public CoreSystem() {
         components = new HashSet<>();
     }
 

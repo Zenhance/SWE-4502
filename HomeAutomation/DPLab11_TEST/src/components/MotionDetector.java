@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class MotionDetector implements IComponent {
-    private List<String> motionLog;
+    public List<String> motionLog;
     private int suspiciousActivityThreshold;
 
     public MotionDetector() {

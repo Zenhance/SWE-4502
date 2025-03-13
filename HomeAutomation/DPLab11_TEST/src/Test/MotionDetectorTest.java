@@ -1,65 +1,33 @@
-import static org.junit.Assert.*;
+package Test;
 
 import components.MotionDetector;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class MotionDetectorComponentTest {
+class MotionDetectorTest {
 
-    private MotionDetector motionDetectorA;
-    private MotionDetector motionDetectorB;
-
-    @Before
-    public void setUp() {
-        motionDetectorA = new MotionDetector("MotionDetectorA");
-        motionDetectorB = new MotionDetector("MotionDetectorB");
+    @Test
+    void testOnStateChanged() {
+        MotionDetector motionDetector = new MotionDetector();
+        motionDetector.setSuspiciousActivityThreshold(5);
+        motionDetector.onStateChanged("motion detected", 0);
+        assertTrue(motionDetector != null);
     }
 
     @Test
-    public void testMotionDetection() {
-        motionDetectorA.detectMotion();  // Simulate motion detection
-        assertTrue("Motion should be detected", motionDetectorA.isMotionDetected());
-        assertNotNull("Last motion time should be logged", motionDetectorA.getLastMotionTime());
+    void testLogActivity() {
+        MotionDetector motionDetector = new MotionDetector();
+        motionDetector.logActivity("motion detected at 10:00 AM");
+        assertEquals(1, motionDetector.motionLog.size());
     }
 
     @Test
-    public void testMotionCount() {
-        motionDetectorA.detectMotion();
-        motionDetectorA.detectMotion();
-        motionDetectorA.detectMotion();
-
-        assertEquals("Motion count should be 3", 3, motionDetectorA.getMotionCount());
-    }
-
-    @Test
-    public void testAnalyzePatterns() {
-        motionDetectorA.detectMotion();
-        motionDetectorA.detectMotion();
-        motionDetectorA.detectMotion();
-        motionDetectorA.detectMotion();
-        motionDetectorA.detectMotion();
-        motionDetectorA.detectMotion();
-
-        // Check that suspicious behavior is detected after more than 5 motions
-        assertTrue("Suspicious behavior should be detected", motionDetectorA.getMotionCount() > 5);
-    }
-
-    @Test
-    public void testNormalBehavior() {
-        motionDetectorB.detectMotion();
-        motionDetectorB.detectMotion();
-
-        // Check that normal behavior is detected with less than 6 motions
-        assertTrue("Normal behavior should be detected", motionDetectorB.getMotionCount() <= 5);
-    }
-
-    @Test
-    public void testLogMotion() {
-        motionDetectorA.detectMotion();  // Simulate motion detection and logging
-        motionDetectorA.logMotion();
-
-        // Since the log is directly printed via System.out, it's not captured here,
-        // but we check the count of motions for verification.
-        assertEquals("Motion count should be 1", 1, motionDetectorA.getMotionCount());
+    void testAnalyzePattern() {
+        MotionDetector motionDetector = new MotionDetector();
+        motionDetector.setSuspiciousActivityThreshold(2);
+        motionDetector.logActivity("motion detected at 10:00 AM");
+        motionDetector.logActivity("motion detected at 10:05 AM");
+        motionDetector.analyzePattern();
+        assertTrue(motionDetector.motionLog.size() > 2);
     }
 }

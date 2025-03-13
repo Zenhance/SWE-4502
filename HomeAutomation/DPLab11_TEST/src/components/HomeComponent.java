@@ -1,6 +1,8 @@
 package components;
 
-public class HomeComponent {
+import core.IComponent;
+
+public class HomeComponent implements IComponent {
     private String name;
     private boolean notified;
 
@@ -9,7 +11,8 @@ public class HomeComponent {
         this.notified = false; // Initially, the component is not notified
     }
 
-    public void onStateChange(String state, int value) {
+    @Override
+    public void onStateChanged(String state, int value) {
         System.out.println("Component " + name + " notified of state change: " + state + " = " + value);
         this.notified = true;
     }
