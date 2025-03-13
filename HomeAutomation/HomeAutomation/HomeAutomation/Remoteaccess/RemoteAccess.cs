@@ -9,16 +9,16 @@ namespace HomeAutomation
 {
     public class RemoteAccess:IObserver
     {
-        public HomeEnvironment homeenv; private readonly StringWriter stringWriter;
-        public RemoteAccess(HomeEnvironment env,StringWriter sw)
+        public HomeEnvironment homeenv; 
+        public RemoteAccess(HomeEnvironment env)
         {
             this.homeenv = env;
-            this.stringWriter = sw;
+            
         }
         public void Notify(EnvironmentalState state)
         {
-            stringWriter.WriteLine($"Motion detected in {state.Location}");
-            Console.WriteLine($"Motion Detected: {state.isMotionDetected}, Temperature: {state.Temperature}, Location: {state.Location}");
+/*            
+*/            Console.WriteLine($"Motion Detected: {state.isMotionDetected}, Temperature: {state.Temperature}, Location: {state.Location}");
         }
 
         public void ControlSystem(bool motionDetected)
