@@ -7,7 +7,18 @@ public class TemperatureController implements IObserver {
 
     @Override
     public void update(SystemState state) {
+        double currentTemp = Double.parseDouble(state.getStateDescription());
+            if (currentTemp < MIN_TEMP) {
+                 activateHeating();
+                 lastStateTemp = currentTemp;
 
+            } else if (currentTemp > MAX_TEMP) {
+                activateCooling();
+                lastStateTemp = currentTemp;
+
+            } else {
+                lastAction = "Temperature is within acceptable range.";
+            }
 
     }
 
