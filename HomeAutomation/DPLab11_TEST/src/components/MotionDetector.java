@@ -1,38 +1,41 @@
 package components;
 
-import java.util.HashMap;
-import java.util.Map;
+import core.IComponent;
 
-public class MotionDetector {
-    private Map<String, String> motionLogs;
+import java.util.List;
+import java.util.ArrayList;
+
+public class MotionDetector implements IComponent {
+    private List<String> motionLog;
+    private int suspiciousActivityThreshold;
 
     public MotionDetector() {
-        motionLogs = new HashMap<>();
+        motionLog = new ArrayList<>();
     }
 
-
-    public void detectMotion(String location, String time) {
-        motionLogs.put(location, time);
+    @Override
+    public void onStateChanged(String newState, int value) {
+        if(newState.contains("motion")) {
+            logActivity(newState);
+            analyzePattern();
+        }
     }
 
-
-    public String getLastLocation() {
-        return motionLogs.keySet().stream().findFirst().orElse("Unknown");
+    public void setSuspiciousActivityThreshold(int threshold) {
+        suspiciousActivityThreshold = threshold;
     }
 
-    // Get the last detected time
-    public String getLastTime() {
-        return motionLogs.values().stream().findFirst().orElse("Unknown");  // Return the first logged time
+    public void logActivity(String motionData) {
+        motionLog.add(motionData);
     }
 
-    // Analyze motion patterns to determine if behavior is normal or suspicious
-    public boolean analyzeBehavior() {
-        // Placeholder analysis logic (for now, always returns true)
-        return true;  // Can be expanded with real logic for detecting suspicious behavior
+    public void analyzePattern() {
+        if (motionLog.size() > suspiciousActivityThreshold) {
+            System.out.println("Suspicious activity detected! Alerting security.");
+        }
     }
 
-    // Check if motion has been detected
-    public boolean isMotionDetected() {
-        return !motionLogs.isEmpty();  // Returns true if there are any logged motions
+    public void trackMovement(String location, String time) {
+        System.out.println("Movement detected at " + location + " at " + time);
     }
 }
