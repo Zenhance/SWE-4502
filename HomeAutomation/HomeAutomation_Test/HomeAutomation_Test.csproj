@@ -54,6 +54,7 @@
     <Compile Include="MotionAnalyzerTests.cs" />
     <Compile Include="MotionSensorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoteControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
