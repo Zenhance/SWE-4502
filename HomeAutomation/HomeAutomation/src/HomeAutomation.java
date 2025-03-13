@@ -23,4 +23,7 @@ public class HomeAutomation implements Subject{
             observer.update(state);
         }
     }
+    public Object getState(String key) {
+        return state.getState(key);
+    }
 }
