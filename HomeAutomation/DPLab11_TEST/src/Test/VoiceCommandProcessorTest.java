@@ -27,5 +27,12 @@ class VoiceCommandProcessorTest {
         assertTrue(voiceCommandProcessor.getCommandHistory().contains("play music"));
     }
 
+    @Test
+    void testTranslateCommandTurnOn() {
+        VoiceCommandProcessor voiceCommandProcessor = new VoiceCommandProcessor();
+        voiceCommandProcessor.translateCommand("turn on the light");
+        assertEquals("turn on the light", voiceCommandProcessor.getCommandHistory().get(0));
+    }
 
+    
 }
