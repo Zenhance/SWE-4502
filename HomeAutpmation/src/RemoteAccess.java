@@ -5,7 +5,13 @@ public class RemoteAccess implements IObserver {
 
     @Override
     public void update(SystemState state) {
+        String description = state.getStateDescription();
 
+        if (description.equals("System Alert")) {
+            generateNotification("Important event occurred in the system.");
+        } else {
+            displayCurrentState(description);
+        }
     }
 
     private void displayCurrentState(String state) {
