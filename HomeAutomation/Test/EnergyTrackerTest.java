@@ -19,5 +19,15 @@ public class EnergyTrackerTest {
         assertEquals(800, energyTracker.getTotalUsage());
     }
 
+    @Test
+    void testUnusualWhenHighUsage() {
+        energyTracker.setPowerUsage(1200);
+        assertTrue(energyTracker.isUnusual());
+    }
 
+    @Test
+    void testNotUnusualWhenLowUsage() {
+        energyTracker.setPowerUsage(800);
+        assertFalse(energyTracker.isUnusual());
+    }
 }
