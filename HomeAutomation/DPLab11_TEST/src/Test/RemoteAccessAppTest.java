@@ -7,7 +7,6 @@ import remote.RemoteAccessApp;
 public class RemoteAccessAppTest {
 
     public static void main(String[] args) {
-        // Initialize the core system and components
         CoreSystem coreSystem = CoreSystem.getInstance();
 
         MotionDetector motionDetector = new MotionDetector();
