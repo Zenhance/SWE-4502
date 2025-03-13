@@ -8,10 +8,10 @@ namespace HomeAutomation
 {
     public class VoiceCommand : IObserver
     {
-        public IVoice ivoice;
-        public void Notify(HomeEnvironment env)
+        public IVoice ivoice { get; set; }
+        public void Notify(EnvironmentalState state)
         {
-            if (env.isMotionDetected)
+            if (state.isMotionDetected)
             {
                 ivoice = new LightOn();
             }
