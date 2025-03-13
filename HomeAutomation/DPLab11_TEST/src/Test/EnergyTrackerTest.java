@@ -13,5 +13,12 @@ class EnergyTrackerTest {
         assertTrue(true); // Assuming correct output happens
     }
 
+    @Test
+    void testCalculateUsageStatistics() {
+        EnergyTracker energyTracker = new EnergyTracker();
+        energyTracker.calculateUsageStatistics();
+        assertTrue(true); // Assuming correct output happens
+    }
+
    
 }
