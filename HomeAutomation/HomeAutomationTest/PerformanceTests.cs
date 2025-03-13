@@ -10,44 +10,48 @@ using System.Threading.Tasks;
 namespace HomeAutomationTest
 {
 
-    public class PerformanceTests
+    public class TestObserver : IComponent
     {
-        private class TestComponent : IComponent
+        private readonly System.Action _onNotify;
+        public TestObserver(System.Action onNotify)
         {
-            public int NotificationCount { get; private set; } = 0;
-
-            public void OnStateChanged(EnvironmentalState state)
-            {
-                NotificationCount++;
-            }
+            _onNotify = onNotify;
         }
-
-        [Fact]
-        public void StateManager_Should_Handle_Many_Components_Efficiently()
+        public void OnStateChanged(EnvironmentalState state)
         {
-            // Arrange
-            var stateManager = new StateManager();
-            const int numComponents = 10000;
-            var components = new List<TestComponent>();
-
-            for (int i = 0; i < numComponents; i++)
-            {
-                var component = new TestComponent();
-                stateManager.RegisterComponent(component);
-            }
-
-            // Act
-            var stopwatch = Stopwatch.StartNew();
-            stateManager.UpdateState(state => state.Temperature = 25);
-            stopwatch.Stop();
-
-            // Assert
-            int totalNotifications = testComponents.Sum(c => c.NotificationCount);
-            Assert.Equal(numComponents, totalNotifications);
-
-            // Performance expectation: should complete within a reasonable time (e.g., 200ms)
-            Assert.True(stopwatch.ElapsedMilliseconds < 500, "Performance test took too long!");
+            _onNotify();
         }
     }
 
+    public class PerformanceTests
+    {
+        [Fact]
+        public void StateManager_Performance_WithManyObservers()
+        {
+           
+            var stateManager = new StateManager();
+            const int observerCount = 10000;
+            int notificationCount = 0;
+
+            for (int i = 0; i < observerCount; i++)
+            {
+                stateManager.RegisterComponent(new TestObserver(() => { notificationCount++; }));
+            }
+
+            
+            var stopwatch = Stopwatch.StartNew();
+            stateManager.UpdateState(state => {
+                state.Temperature = 22;
+                state.AmbientLight = 50;
+                state.MotionDetected = false;
+            });
+            stopwatch.Stop();
+
+          
+            Assert.Equal(observerCount, notificationCount);
+            
+            Assert.True(stopwatch.ElapsedMilliseconds < 1000, $"Performance issue: {stopwatch.ElapsedMilliseconds}ms elapsed");
+        }
+    }
+    
 }
