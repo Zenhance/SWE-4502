@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation", "HomeAutomation\HomeAutomation.csproj", "{058241F8-4F12-41C5-A8FC-76B16E0F001A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomationTest", "HomeAutomationTest\HomeAutomationTest.csproj", "{477A9CEF-1A78-4ECB-B540-86D899CA5B02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{058241F8-4F12-41C5-A8FC-76B16E0F001A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{058241F8-4F12-41C5-A8FC-76B16E0F001A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{058241F8-4F12-41C5-A8FC-76B16E0F001A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{058241F8-4F12-41C5-A8FC-76B16E0F001A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477A9CEF-1A78-4ECB-B540-86D899CA5B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477A9CEF-1A78-4ECB-B540-86D899CA5B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477A9CEF-1A78-4ECB-B540-86D899CA5B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477A9CEF-1A78-4ECB-B540-86D899CA5B02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
