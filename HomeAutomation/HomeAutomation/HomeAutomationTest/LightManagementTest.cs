@@ -18,4 +18,12 @@ public class LightManagementTest
         
         Assert.That(lightmode, Is.EqualTo(LIGHTMODE.DAYLIGHT));
     }
+    [Test]
+    public void TestLightLevelInitialization()
+    {
+        LightManager lightManagement = new LightManager();
+        float lightLevel = lightManagement.GetCurrentLightLevel();
+        
+        Assert.That(lightLevel, Is.EqualTo(1.0f));
+    }
 }
