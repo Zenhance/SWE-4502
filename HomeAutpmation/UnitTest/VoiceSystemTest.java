@@ -31,7 +31,22 @@ public class VoiceSystemTest {
 
 
 
+    @Test
+    public void testMultipleCommands() {
+        systemState.setStateDescription("Turn On Lights");
+        voiceCommandFollower.update(systemState);
 
+        systemState.setStateDescription("Turn Off Lights");
+        voiceCommandFollower.update(systemState);
+
+        systemState.setStateDescription("Dim Lights");
+        voiceCommandFollower.update(systemState);
+
+
+        assertTrue(voiceCommandFollower.getCommandHistory().contains("Turn On Lights"));
+        assertTrue(voiceCommandFollower.getCommandHistory().contains("Turn Off Lights"));
+        assertFalse(voiceCommandFollower.getCommandHistory().contains("Dim Lights"));
+    }
 
 
 }
