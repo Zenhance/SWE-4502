@@ -124,4 +124,44 @@ public class EnvironmentTest
         Assert.That(_environment.GetMotionLevel(), Is.EqualTo(0.4f));
         Assert.That(_motionDetector.overall(), Is.EqualTo(MOTIONBEHAVIOR.NORMAL));
     }
+
+    [Test]
+    public void TestSetAmbientLightLevelNight()
+    {
+        Command command = new Command(0.01f);
+        _environment.SetAmbientLightLevel(command);
+        
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.01f));
+        Assert.That(_lightManager.GetCurrentMode(), Is.EqualTo(LIGHTMODE.NIGHT));
+    }
+    
+    [Test]
+    public void TestSetAmbientLightLevelMovie()
+    {
+        Command command = new Command(0.1f);
+        _environment.SetAmbientLightLevel(command);
+        
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.1f));
+        Assert.That(_lightManager.GetCurrentMode(), Is.EqualTo(LIGHTMODE.MOVIE));
+    }
+    
+    [Test]
+    public void TestSetAmbientLightLevelReading()
+    {
+        Command command = new Command(0.4f);
+        _environment.SetAmbientLightLevel(command);
+        
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.4f));
+        Assert.That(_lightManager.GetCurrentMode(), Is.EqualTo(LIGHTMODE.READING));
+    }
+    
+    [Test]
+    public void TestSetAmbientLightLevelDaylight()
+    {
+        Command command = new Command(0.8f);
+        _environment.SetAmbientLightLevel(command);
+        
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0.8f));
+        Assert.That(_lightManager.GetCurrentMode(), Is.EqualTo(LIGHTMODE.DAYLIGHT));
+    }
 }
