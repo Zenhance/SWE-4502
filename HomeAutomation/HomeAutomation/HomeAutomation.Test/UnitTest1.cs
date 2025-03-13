@@ -1,4 +1,4 @@
-namespace HomeAutomationTest
+namespace HomeAutomation.Test
 {
     public class UnitTest1
     {

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation
 {
-    public interface IMotionDetector
+    public interface IObserver
     {
-        void DetectMotion(string location, DateTime time);
+        void Update(string key, string value);
     }
 }
