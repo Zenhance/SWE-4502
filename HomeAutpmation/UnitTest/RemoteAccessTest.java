@@ -14,6 +14,20 @@ public class RemoteAccessTest {
         systemState = new SystemState();
     }
 
+    @Test
+    public void testGenerateNotificationForSystemAlert() {
+        systemState.setStateDescription("System Alert");
+        remoteAccessApp.update(systemState);
+        assertEquals("Notification: Important event occurred in the system.", remoteAccessApp.getLastAction());
+    }
+
+    @Test
+    public void testDisplayCurrentState() {
+        systemState.setStateDescription("Room Occupied");
+        remoteAccessApp.update(systemState);
+        assertEquals("Current home state: Room Occupied", remoteAccessApp.getLastAction());
+    }
+
 
 
 
