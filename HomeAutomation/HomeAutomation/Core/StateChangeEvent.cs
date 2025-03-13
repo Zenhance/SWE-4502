@@ -2,5 +2,6 @@
 
 public enum StateChangeEvent
 {
-    Motion
+    Motion,
+    Light,
 }
