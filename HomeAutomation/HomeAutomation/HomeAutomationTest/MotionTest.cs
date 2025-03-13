@@ -46,4 +46,45 @@ public class MotionTest
         MOTIONBEHAVIOR motionBehavior = motionDetector.overall();
         Assert.That(motionBehavior, Is.EqualTo(MOTIONBEHAVIOR.SUSPICIOUS));
     }
+    
+    [Test]
+    public void TestSetMotionLevelMultipleNormal()
+    {
+        MotionDetector motionDetector = new MotionDetector(0.5f);
+        EnvironmentState environmentState = new EnvironmentState();
+        environmentState.AddComponent(motionDetector);
+        environmentState.SetMotionLevel(new Command(0.4f));
+        environmentState.SetMotionLevel(new Command(0.4f));
+        environmentState.SetMotionLevel(new Command(0.6f));
+        MOTIONBEHAVIOR motionBehavior = motionDetector.overall();
+        Assert.That(motionBehavior, Is.EqualTo(MOTIONBEHAVIOR.NORMAL));
+    }
+
+    [Test]
+    public void TestSetMotionLevelSuspiciousCountTest()
+    {
+        MotionDetector motionDetector = new MotionDetector(0.5f);
+        EnvironmentState environmentState = new EnvironmentState();
+        environmentState.AddComponent(motionDetector);
+        environmentState.SetMotionLevel(new Command(0.6f));
+        environmentState.SetMotionLevel(new Command(0.4f));
+        environmentState.SetMotionLevel(new Command(0.6f));
+        
+        int count = motionDetector.suspiciousMotionCount();
+        Assert.That(count, Is.EqualTo(2));
+    }
+    
+    [Test]
+    public void TestSetMotionLevelNormalCountTest()
+    {
+        MotionDetector motionDetector = new MotionDetector(0.5f);
+        EnvironmentState environmentState = new EnvironmentState();
+        environmentState.AddComponent(motionDetector);
+        environmentState.SetMotionLevel(new Command(0.4f));
+        environmentState.SetMotionLevel(new Command(0.4f));
+        environmentState.SetMotionLevel(new Command(0.6f));
+        
+        int count = motionDetector.normalMotionCount();
+        Assert.That(count, Is.EqualTo(2));
+    }
 }
