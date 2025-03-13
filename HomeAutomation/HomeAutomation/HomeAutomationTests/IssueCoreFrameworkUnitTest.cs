@@ -18,9 +18,9 @@ namespace HomeAutomationTests
 
 
             // Assert
-            Assert.True(homeEnvironment.isMotionDetected);    
-            Assert.Equal(12.12, homeEnvironment.Temperature);  
-            Assert.Equal("Batcave", homeEnvironment.Location);
+            Assert.True(homeEnvironment.CurrentState.isMotionDetected);    
+            Assert.Equal(12.12, homeEnvironment.CurrentState.Temperature);  
+            Assert.Equal("Batcave", homeEnvironment.CurrentState.Location);
 
             
             Assert.Contains("Motion detected at", motionSensor.detectionLogs[0]);  
