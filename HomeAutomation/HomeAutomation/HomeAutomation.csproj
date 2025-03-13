@@ -50,6 +50,7 @@
     <Compile Include="Components\LightManager.cs" />
     <Compile Include="Components\MotionDetector.cs" />
     <Compile Include="Components\TemperatureController.cs" />
+    <Compile Include="Components\VoiceCommandHandler.cs" />
     <Compile Include="Core\EnvironmentalState.cs" />
     <Compile Include="Core\IComponent.cs" />
     <Compile Include="Core\StateManager.cs" />
