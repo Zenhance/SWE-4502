@@ -28,7 +28,17 @@ public class RemoteAccessTest {
         assertEquals("Current home state: Room Occupied", remoteAccessApp.getLastAction());
     }
 
+    @Test
+    public void testMultipleUpdates() {
+        systemState.setStateDescription("System Alert");
+        remoteAccessApp.update(systemState);
+        assertEquals("Notification: Important event occurred in the system.", remoteAccessApp.getLastAction());
 
+
+        systemState.setStateDescription("Room Unoccupied");
+        remoteAccessApp.update(systemState);
+        assertEquals("Current home state: Room Unoccupied", remoteAccessApp.getLastAction());
+    }
 
 
 
