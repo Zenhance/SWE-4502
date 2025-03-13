@@ -9,8 +9,18 @@ namespace HomeAutomation
 {
     public class HomeEnvironment
     {
-        public List<IObserver> subscribers = new List<IObserver> ();
+        public List<IObserver> subscribers { get; set; } = new List<IObserver>();
         public EnvironmentalState CurrentState { get; set; }
+
+        public HomeEnvironment()
+        {
+            CurrentState = new EnvironmentalState
+            {
+                isMotionDetected = false,
+                Temperature = 12.12,
+                Location = "Under the stairs"  
+            };
+        }
 
         public void Subscribe(IObserver subscriber)
         {
