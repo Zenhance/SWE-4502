@@ -1,5 +1,7 @@
 ﻿using HomeAutomation.Components;
 using HomeAutomation.Core;
+using HomeAutomation.ENUM;
+using HomeAutomation.Models;
 
 namespace HomeAutomationTest;
 
@@ -72,5 +74,14 @@ public class EnvironmentTest
     public void TestAddVoiceCommandComponent()
     {
         Assert.That(_environment.GetComponents()[4], Is.EqualTo(_voiceCommandManager));
+    }
+    
+    [Test]
+    public void TestSetTemperature()
+    {
+        Command command = new Command(40);
+        _environment.SetTemperature(command);
+        Assert.That(_environment.GetTemperature(), Is.EqualTo(40));
+        Assert.That(_temperatureManager.GetState(), Is.EqualTo(TEMPSTATE.COOLING));
     }
 }
