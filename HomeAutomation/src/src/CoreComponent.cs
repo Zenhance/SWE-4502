@@ -35,5 +35,17 @@ namespace src
             }
         }
 
+        public void SetState(string key, string value)
+        {
+            state[key] = value;
+            NotifyObservers(key);
+        }
+
+        public string GetState(string key)
+        {
+            if (state.ContainsKey(key)) return state[key];
+            throw new Exception("Key not found!");
+        }
+
     }
 }
