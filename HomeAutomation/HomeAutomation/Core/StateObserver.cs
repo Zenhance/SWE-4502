@@ -26,17 +26,26 @@ public class StateObserver
     private int NotifySubscribers(StateChangeEvent changeEvent, State state)
     {
         int count = 0;
+        if(!_subscribers.ContainsKey(changeEvent))
+        {
+            return count;
+        }
         foreach (var subscriber in _subscribers[changeEvent])
         {
             subscriber.Update(state);
+            count++;
         }
 
         return count;
     }
 
-    public State GetCurrentState(StateChangeEvent changeEvent)
+    public State? GetCurrentState(StateChangeEvent changeEvent)
     {
-        return _currentState[changeEvent];
+        if (_currentState.ContainsKey(changeEvent))
+        {
+            return _currentState[changeEvent];
+        }
+        return null;
     }
 
     public int ChangeCurrentState(StateChangeEvent changeEvent, State state)
