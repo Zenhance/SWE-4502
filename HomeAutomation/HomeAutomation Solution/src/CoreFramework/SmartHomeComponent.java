@@ -23,9 +23,4 @@ public abstract class SmartHomeComponent implements EnvironmentObserver{
      * Shutdown the component and unregister observers
      */
     public abstract void shutdown();
-
-    @Override
-    public void onEnvironmentChange(String key, Object newValue) {
-
-    }
 }
