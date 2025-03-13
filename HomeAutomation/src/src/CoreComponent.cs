@@ -16,5 +16,16 @@ namespace src
             observers = new List<IObserver>();
             state = new Dictionary<string, string>();
         }
+
+         public void RegisterObserver(IObserver observer)
+        {
+            observers.Add(observer);
+        }
+
+        public void UnregisterObserver(IObserver observer)
+        {
+            observers.Remove(observer);
+        }
+
     }
 }
