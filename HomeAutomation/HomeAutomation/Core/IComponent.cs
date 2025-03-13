@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation.Core
 {
-    public interface IEnvironmentObserver
+    public interface IComponent
     {
-        void OnEnvironmentStateChanged(EnvironmentState state);
+        void Update(string property, object value);
     }
-
 }
