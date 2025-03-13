@@ -42,4 +42,35 @@ class EnergyObserverTest {
         assertEquals("Living Room", observer.lastRoom);
     }
 
+    // Test Case 3: Track High Power Consumption
+    @Test
+    void testHighEnergyConsumption() {
+        // Create energy control system and observer
+        EnergyControlSystem energySystem = new EnergyControlSystem();
+        EnergyObserver observer = new EnergyObserver();
+
+        // Register observer
+        energySystem.registerObserver(observer);
+
+        // Simulate high power usage
+        energySystem.changeEnergyUsage(500, "Kitchen");
+
+        // Assert that the observer received the correct energy usage data
+        assertEquals(500, observer.currentPowerUsage);
+        assertEquals("Kitchen", observer.lastRoom);
+    }
+
+
+    // Test Case 4: Unusual Low Consumption Detection
+    @Test
+    void testUnusualLowConsumption() {
+        EnergyControlSystem energySystem = new EnergyControlSystem();
+        EnergyObserver observer = new EnergyObserver();
+
+        energySystem.registerObserver(observer);
+        energySystem.changeEnergyUsage(100, "Living Room");
+        energySystem.changeEnergyUsage(20, "Living Room");
+
+        assertTrue(observer.currentPowerUsage < observer.averageUsage / 2);
+    }
 }
