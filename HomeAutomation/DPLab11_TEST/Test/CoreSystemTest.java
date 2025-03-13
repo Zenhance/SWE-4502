@@ -1,4 +1,6 @@
 import static org.junit.Assert.*;
+
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -56,7 +58,7 @@ public class CoreSystemTest {
         coreSystem.registerComponent(componentA);
 
         // Change state
-        coreSystem.changeState("pressure", 100);
+        coreSystem.changeState("pressure", 1000000);
 
         // Verify that only the registered component is notified
         assertTrue("ComponentA should be notified", componentA.isNotified());
