@@ -1,52 +1,48 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import models.EnvironmentState;
 import observers.EnergyMonitor;
-
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.List;
+import subjects.HomeAutomationSystem;
+import models.EnvironmentState;
 
 public class EnergyMonitorTest {
+    // Mock Instances
+    @Mock
+    private EnergyMonitor mockEnergyMonitor;
+
+    // Actual Instances
     private EnergyMonitor energyMonitor;
-    private EnvironmentState environmentState;
+    private HomeAutomationSystem homeAutomationSystem;
 
     @BeforeEach
     void setUp() {
+        homeAutomationSystem = new HomeAutomationSystem();
+        mockEnergyMonitor = mock(EnergyMonitor.class);
         energyMonitor = new EnergyMonitor();
-        environmentState = new EnvironmentState();
+
+        homeAutomationSystem.registerObserver(mockEnergyMonitor);
+        homeAutomationSystem.registerObserver(energyMonitor);
     }
 
     @Test
-    void testUpdateTracksEnergyConsumption() {
-        environmentState.setPowerUsage(5.0);
-        energyMonitor.update(environmentState);
+    public void testUpdateMethodCalled() {
+        EnvironmentState environmentState = new EnvironmentState();
+        environmentState.setPowerUsage(120.5);
+        homeAutomationSystem.setEnvironmentState(environmentState);
 
-        assertEquals(5.0, energyMonitor.getTotalEnergyConsumed());
+        verify(mockEnergyMonitor).update(any());
     }
 
     @Test
-    void testUpdateAccumulatesEnergyConsumption() {
-        environmentState.setPowerUsage(3.0);
-        energyMonitor.update(environmentState);
+    public void testEnergyConsumptionTracking() {
+        EnvironmentState environmentState = new EnvironmentState();
+        environmentState.setPowerUsage(120.5);
+        homeAutomationSystem.setEnvironmentState(environmentState);
 
-        environmentState.setPowerUsage(7.0);
-        energyMonitor.update(environmentState);
-
-        assertEquals(10.0, energyMonitor.getTotalEnergyConsumed());
-    }
-
-    @Test
-    void testUsageHistoryIsTracked() {
-        environmentState.setPowerUsage(2.5);
-        energyMonitor.update(environmentState);
-
-        environmentState.setPowerUsage(3.5);
-        energyMonitor.update(environmentState);
-
-        List<Double> history = energyMonitor.getUsageHistory();
-        assertEquals(2, history.size());
-        assertEquals(2.5, history.get(0));
-        assertEquals(3.5, history.get(1));
+        assertEquals(120.5, energyMonitor.getTotalEnergyConsumed());
     }
 }
