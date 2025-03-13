@@ -34,5 +34,29 @@ public class PerformanceTest {
         assertTrue(true);  // This asserts that the test passes without throwing exceptions
     }
 
+    // 2. Stress Test: Test with more observers and state changes (e.g., 500 observers)
+    @Test
+    @Timeout(value = 10)  // Test should complete within 10 seconds
+    public void testStressTestWithMoreObservers() {
+        CoreSystem coreSystem = CoreSystem.getInstance();
+
+        // Register 500 components (observers)
+        for (int i = 0; i < 500; i++) {
+            coreSystem.registerComponent(new MotionDetector());
+            coreSystem.registerComponent(new LightManager());
+            coreSystem.registerComponent(new EnergyTracker());
+            coreSystem.registerComponent(new TemperatureController());
+            coreSystem.registerComponent(new VoiceCommandProcessor());
+        }
+
+        // Simulate 500 state changes in rapid succession
+        for (int i = 0; i < 500; i++) {
+            coreSystem.updateState("Test state update #" + (i + 1));
+        }
+
+        // Assert the system can handle this large number of components and state changes
+        assertTrue(true);
+    }
+
 
 }
