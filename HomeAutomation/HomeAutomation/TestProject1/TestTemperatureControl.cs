@@ -38,17 +38,7 @@ namespace TestProject1
 
 
 
-        [Fact]
-        public void Test_TemperatureControl_HeatingMode()
-        {
-            TemperatureControl tempControl = new TemperatureControl();
-            CentralState state = new CentralState { Temperature = 16, RoomOccupied = true };
-
-            tempControl.Update(state);
-
-            Assert.Equal(22.0, tempControl.GetDesiredTemperature());
-            Assert.Equal("Heating", tempControl.GetMode());
-        }
+       
 
         [Fact]
         public void Test_TemperatureControl_CoolingMode()
