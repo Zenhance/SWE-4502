@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\MotionDetector.cs" />
     <Compile Include="Core\EnvironmentalState.cs" />
     <Compile Include="Core\IComponent.cs" />
     <Compile Include="Core\StateManager.cs" />
@@ -55,8 +56,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Components\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
