@@ -10,7 +10,7 @@ namespace HomeAutomationTest
     public class EdgeCaseTests
     {
         [Fact]
-        public void UpdateState_WithNoRegisteredComponents_DoesNotThrow()
+        public void UpdateState_WithNoRegisteredComponents()
         {
           
             var stateManager = new StateManager();
