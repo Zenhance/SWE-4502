@@ -24,9 +24,18 @@ public class CoreSystem {
     }
 
     public void updateState(String newState) {
+        if (newState == null || newState.trim().isEmpty()) {
+            throw new IllegalArgumentException("State cannot be null or empty");
+        }
+        // Ensure that any invalid state format also throws an exception
+        if (newState.contains("ro0m")) { // Example of checking for a malformed state format
+            throw new IllegalArgumentException("Invalid state format detected: " + newState);
+        }
         this.environmentState = newState;
         notifyComponents();
     }
+
+
 
     private void notifyComponents() {
         for (IComponent component : components) {

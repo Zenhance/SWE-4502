@@ -15,11 +15,20 @@ public class MotionDetector implements IComponent {
 
     @Override
     public void onStateChanged(String newState, int value) {
-        if(newState.contains("motion")) {
+        if (newState == null || newState.trim().isEmpty()) {
+            // Log and handle null or empty state as an error
+            System.out.println("Received invalid state: State cannot be null or empty.");
+            // Optionally, throw an exception
+            throw new IllegalArgumentException("State cannot be null or empty.");
+        }
+
+        // If the state contains "motion", process it
+        if (newState.contains("motion")) {
             logActivity(newState);
             analyzePattern();
         }
     }
+
 
     public void setSuspiciousActivityThreshold(int threshold) {
         suspiciousActivityThreshold = threshold;
