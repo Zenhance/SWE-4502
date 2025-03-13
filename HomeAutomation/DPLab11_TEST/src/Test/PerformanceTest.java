@@ -114,5 +114,10 @@ public class PerformanceTest {
         assertTrue(true);  // Simply passing ensures the test runs within the timeout
     }
 
-
+    // 5. Additional Check for System Behavior after Performance Testing
+    @Test
+    public void testSystemIsNotNullAfterPerformanceTests() {
+        CoreSystem coreSystem = CoreSystem.getInstance();
+        assertNotNull(coreSystem, "CoreSystem instance should not be null after performance tests.");
+    }
 }
