@@ -4,7 +4,8 @@ import java.util.Map;
 public class EnergyTracker implements IObserver {
 
     private Map<String, Integer> energyConsumption = new HashMap<>();
-
+    private String lastAction;
+    private int totalConsumption;
     @Override
     public void update(SystemState state) {
         String usageDescription = state.getStateDescription();
@@ -13,35 +14,35 @@ public class EnergyTracker implements IObserver {
             int consumption = (int) (Math.random() * 100);
             logEnergyConsumption(consumption);
             trackUsageStats(consumption);
-
-            System.out.println("Current power consumption: " + consumption + " kWh.");
         }
     }
 
     public void logEnergyConsumption(int consumption) {
-        System.out.println("Logging energy consumption: " + consumption + " kWh.");
+        lastAction = "Logging energy consumption: " + consumption + " kWh.";
     }
 
     public void trackUsageStats(int consumption) {
         energyConsumption.put("total", energyConsumption.getOrDefault("total", 0) + consumption);
-
-        int totalConsumption = energyConsumption.get("total");
+        totalConsumption = energyConsumption.get("total");
 
         if (totalConsumption > 500) {
-            System.out.println("Unusual consumption pattern detected: " + totalConsumption + " kWh.");
+            lastAction = "Unusual consumption pattern detected: " + totalConsumption + " kWh.";
         } else {
-            System.out.println("Energy consumption is within normal range.");
+            lastAction = "Energy consumption is within normal range.";
         }
     }
 
-
     public void resetConsumption() {
         energyConsumption.put("total", 0);
-
+        lastAction = "Energy consumption has been reset.";
+        totalConsumption = 0;
     }
 
-
     public int getTotalConsumption() {
-        return energyConsumption.getOrDefault("total", 0);
+        return totalConsumption;
+    }
+
+    public String getLastAction() {
+        return lastAction;
     }
 }
