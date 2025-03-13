@@ -18,7 +18,7 @@ public class EnergyMonitor implements Observer {
 
     @Override
     public void update(EnvironmentState state) {
-        trackEnergyUsage(state.getLightLevel()*10);
+        trackEnergyUsage(state.getLightLevel()*100);
     }
 
     private void trackEnergyUsage(int powerUsage) {
