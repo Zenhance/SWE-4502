@@ -2,37 +2,46 @@
 
 public class StateObserver
 {
-    private Dictionary<StateChangeEvent, List<ISubscriber>> _subscribers = new Dictionary<StateChangeEvent, List<ISubscriber>>();
+    private Dictionary<StateChangeEvent, HashSet<ISubscriber>> _subscribers = new Dictionary<StateChangeEvent, HashSet<ISubscriber>>();
     private Dictionary<StateChangeEvent, State> _currentState = new Dictionary<StateChangeEvent, State>();
 
-    public void AddSubscriber(StateChangeEvent changeEvent, ISubscriber subscriber)
+    public bool AddSubscriber(StateChangeEvent changeEvent, ISubscriber subscriber)
     {
         if(!_subscribers.ContainsKey(changeEvent))
         {
-            _subscribers.Add(changeEvent, new List<ISubscriber>());
+            _subscribers.Add(changeEvent, new HashSet<ISubscriber>());
         }
-        _subscribers[changeEvent].Add(subscriber);
+        return _subscribers[changeEvent].Add(subscriber);
     }
 
-    public void RemoveSubscriber(StateChangeEvent changeEvent, ISubscriber subscriber)
+    public bool RemoveSubscriber(StateChangeEvent changeEvent, ISubscriber subscriber)
     {
         if (_subscribers.ContainsKey(changeEvent))
         {
-            _subscribers[changeEvent].Remove(subscriber);
+            return _subscribers[changeEvent].Remove(subscriber);
         }
+        return false;
     }
 
-    public void NotifySubscribers(StateChangeEvent changeEvent)
+    private int NotifySubscribers(StateChangeEvent changeEvent)
     {
+        int count = 0;
         foreach (var subscriber in _subscribers[changeEvent])
         {
-            subscriber.Notify();
+            subscriber.Update();
         }
 
+        return count;
     }
 
-    public State GetState(StateChangeEvent changeEvent)
+    public State GetCurrentState(StateChangeEvent changeEvent)
     {
         return _currentState[changeEvent];
+    }
+
+    public int ChangeCurrentState(StateChangeEvent changeEvent, State state)
+    {
+        _currentState[changeEvent] = state;
+        return NotifySubscribers(changeEvent);
     }
 }

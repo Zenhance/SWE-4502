@@ -2,5 +2,5 @@
 
 public interface ISubscriber
 {
-    void Notify();
+    void Update();
 }
