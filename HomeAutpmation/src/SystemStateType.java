@@ -1,5 +1,6 @@
 public enum SystemStateType {
     MOTION_DETECTED,
+    Living_Room,
     DARK,
     BRIGHT,
     TOO_HOT,
