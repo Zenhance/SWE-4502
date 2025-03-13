@@ -1,10 +1,11 @@
 ﻿using HomeAutomate.Enum;
 using HomeAutomate.Factory;
+using HomeAutomate.Interfaces;
 using HomeAutomate.Models;
 
 namespace HomeAutomate.Components;
 
-public class TempManager
+public class TempManager : ISmartHomeComponent
 {
     private TEMPSTATE _state;
     private int _temperature;
