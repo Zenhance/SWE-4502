@@ -32,4 +32,14 @@ public class EnvironmentTest
         _voiceCommandManager = new VoiceCommandManager(_environment);
         _environment.AddComponent(_voiceCommandManager);
     }
+    
+    [Test]
+    public void EnvironmentInitializeTest()
+    {
+        Assert.That(_environment.GetTemperature(), Is.EqualTo(0));
+        Assert.That(_environment.GetMotionLevel(), Is.EqualTo(0));
+        Assert.That(_environment.GetAmbientLightLevel(), Is.EqualTo(0));
+        Assert.That(_environment.GetEnergyConsumption(), Is.EqualTo(0));
+        Assert.That(_environment.GetLastVoiceCommand(), Is.EqualTo(""));
+    }
 }
