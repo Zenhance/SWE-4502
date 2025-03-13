@@ -1,6 +1,6 @@
 public class HVACController implements Observer
 {
-    private int targetTemperature;
+    int targetTemperature;
 
     @Override
     public void update(EnvironmentState state)
