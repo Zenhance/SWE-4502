@@ -67,7 +67,7 @@ public class LightLevel implements Observer {
     }
 
 
-    private boolean isLightOn(){
+    public boolean isLightOn(){
         return lightOn;
     }
 }
