@@ -29,7 +29,7 @@ public class TextEditor {
         }
     }
 
-    // This method is to add selection
+    // his method isT to add selection
     public void addSelection(String selection) {
         selections.add(selection);
     }
