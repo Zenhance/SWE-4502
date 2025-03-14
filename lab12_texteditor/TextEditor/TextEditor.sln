@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextEditor", "TextEditor\TextEditor.csproj", "{5431533B-41FC-47E7-89CD-40B16E5B8213}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTextEditor", "TestTextEditor\TestTextEditor.csproj", "{34DE99E9-13D5-4B3B-831D-3512429FE822}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5431533B-41FC-47E7-89CD-40B16E5B8213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5431533B-41FC-47E7-89CD-40B16E5B8213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5431533B-41FC-47E7-89CD-40B16E5B8213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5431533B-41FC-47E7-89CD-40B16E5B8213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34DE99E9-13D5-4B3B-831D-3512429FE822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34DE99E9-13D5-4B3B-831D-3512429FE822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34DE99E9-13D5-4B3B-831D-3512429FE822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34DE99E9-13D5-4B3B-831D-3512429FE822}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
