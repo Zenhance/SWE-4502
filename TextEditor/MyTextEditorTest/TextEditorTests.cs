@@ -55,5 +55,36 @@ namespace MyTextEditorTest
             var memento = editor.CreateMemento();
             Assert.Empty(memento.Selections);
         }
+
+        [Fact]
+        public void SaveAndLoadState_ShouldPreserveEditorState()
+        {
+            var editor = new TextEditor();
+            var history = new History(editor);
+
+            editor.SetContent("abcdef");
+            editor.SetCursorPosition(5);
+            editor.AddSelection("Selection");
+            history.Backup();
+
+            string tempFile = "test_save_load.json";
+
+            history.SaveToFile(tempFile);
+
+            var newEditor = new TextEditor();
+            var newHistory = new History(newEditor);
+            newHistory.LoadFromFile(tempFile);
+
+            var memento = newEditor.CreateMemento();
+            Assert.Equal("abcdef", memento.Content);
+            Assert.Equal(5, memento.CursorPosition);
+            Assert.Single(memento.Selections);
+            Assert.Equal("Selection", memento.Selections[0]);
+
+            if (File.Exists(tempFile))
+            {
+                File.Delete(tempFile);
+            }
+        }
     }
 }
