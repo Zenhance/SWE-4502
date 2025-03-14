@@ -80,7 +80,13 @@ namespace TextEditorProject.Core
 
         public void RestoreFromMemento(EditorMemento memento)
         {
-            //
+            if (memento != null)
+            {
+                content = memento.Content;
+                cursorPosition = memento.CursorPosition;
+                selections=new List<string>(memento.Selections);
+            }
+
         }
 
     }
