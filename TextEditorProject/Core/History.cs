@@ -65,6 +65,14 @@ namespace TextEditorProject.Core
 
         public void LoadFromFile(string filePath)
         {
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine("File not found.");
+                return;
+            }
+            string json = File.ReadAllText(filePath);
+            editorMementos = JsonSerializer.Deserialize<List<EditorMemento>>(json) ?? new List<EditorMemento>();
+            Console.WriteLine("History loaded successfully from file.");
 
         }
 
