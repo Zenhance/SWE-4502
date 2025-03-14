@@ -1,12 +1,13 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EditorMemento
 {
-    private final String content;
-    private final int cursorPosition;
-    private final List<String> selections;
+    private String content;
+    private int cursorPosition;
+    private  List<String> selections;
 
     public EditorMemento(String content, int cursorPosition, List<String> selections) {
         this.content = content;
@@ -25,5 +26,14 @@ public class EditorMemento
     public List<String> getSelections() {
         return selections;
     }
+    public EditorMemento createMemento() {
+        return new EditorMemento(content, cursorPosition, selections);
+    }
+    public void restoreFromMemento(EditorMemento memento) {
+        this.content = memento.getContent();
+        this.cursorPosition = memento.getCursorPosition();
+        this.selections = new ArrayList<>(memento.getSelections());
+    }
+
 
 }
