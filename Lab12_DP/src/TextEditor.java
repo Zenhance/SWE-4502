@@ -11,11 +11,7 @@ class TextEditor {
     }
 
     public void setCursorPosition(int position) {
-        if (position >= 0 && position <= content.length()) {
-            this.cursorPosition = position;
-        } else {
-            System.out.println("Invalid cursor position.");
-        }
+        this.cursorPosition = position;
     }
 
     public void addSelection(String selection) {
@@ -33,12 +29,18 @@ class TextEditor {
     public void restoreFromMemento(EditorMemento memento) {
         this.content = memento.getContent();
         this.cursorPosition = memento.getCursorPosition();
-        this.selections = new ArrayList<>(memento.getSelections());
+
+        // ✅ Ensure previous selections are cleared before restoring
+        this.selections.clear();
+        this.selections.addAll(memento.getSelections());
+
+        // Debugging
+        System.out.println("Restored content: " + this.content);
+        System.out.println("Restored cursor position: " + this.cursorPosition);
+        System.out.println("Restored selections: " + this.selections);
     }
 
+
     public void displayState() {
-        System.out.println("Content: " + content);
-        System.out.println("Cursor Position: " + cursorPosition);
-        System.out.println("Selections: " + selections);
     }
 }
