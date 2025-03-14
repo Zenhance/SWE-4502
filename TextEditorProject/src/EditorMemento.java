@@ -26,4 +26,6 @@ public class EditorMemento implements Serializable {
     public List<String> getSelections() {
         return new ArrayList<>(selections);
     }
+
+
 }
