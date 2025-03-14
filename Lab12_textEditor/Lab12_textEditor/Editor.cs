@@ -65,6 +65,20 @@ namespace Lab12_textEditor
         {
             return _selection;
         }
+        //Add to TextEditor:
+        //- CreateMemento() method
+        //- RestoreFromMemento(EditorMemento memento) method
+
+        public EditorMemento CreateMemento()
+        {
+            return new EditorMemento(_text, _cursorPosition, _selection);
+        }
+        public void RestoreFromMemento(EditorMemento memento)
+        {
+            _text = memento.GetText();
+            _cursorPosition = memento.GetCursorPosition();
+            _selection = memento.GetSelection();
+        }
 
     }
 }
