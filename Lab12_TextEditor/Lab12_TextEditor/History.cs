@@ -1,5 +1,5 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace Lab12_TextEditor;
 
@@ -39,7 +39,7 @@ public class History
 
     public void SaveToJson(string path)
     {
-        var json = JsonSerializer.Serialize(_mementos[_mementos.Count - 1]);
+        var json = JsonConvert.SerializeObject(_mementos[_mementos.Count - 1]);
         File.WriteAllText(path, json);
     }
     
@@ -47,7 +47,7 @@ public class History
     public void LoadFromJson(string path)
     {
         var json = File.ReadAllText(path);
-        var memento = JsonSerializer.Deserialize<EditorMemento>(json);
+        var memento = JsonConvert.DeserializeObject<EditorMemento>(json);
         _editor.Restore(memento);
     }
     
