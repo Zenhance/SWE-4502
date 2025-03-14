@@ -39,5 +39,12 @@ public class Texteditor
         Console.WriteLine($"Cursor Position: {_cursorPosition}");
         Console.WriteLine("Selections: " + string.Join(", ", _selections));
     }
-    
+     public void CreateMemento(){
+        return new EditorMemento(_content, _cursorPosition, _selections);
+    }
+    public void RestoreFromMemento(EditorMemento memento){
+        _content=memento.Content;
+        _cursorPosition=memento.CursorPosition;
+        _selections=new List<string>(memento.Selections);
+    }
 }
