@@ -5,7 +5,7 @@ public class Program {
         editor.setCursorPosition(7);
         editor.addSelection("World");
         editor.displayState();
-        
+
 
 
     }
