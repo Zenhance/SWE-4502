@@ -31,10 +31,12 @@ public class TextEditor {
             this.content = content;
         }
 
-        public void setCursorPosition(int position)
-        {
-
-            this.cursorPosition = position;
+        public void setCursorPosition(int position) {
+            if (position >= 0 && position <= content.length()) {
+                this.cursorPosition = position;
+            } else {
+                throw new IllegalArgumentException("Cursor position is out of bounds.");
+            }
         }
 
         public void addSelection(String selection) {
