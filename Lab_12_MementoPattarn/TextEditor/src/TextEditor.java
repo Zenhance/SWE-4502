@@ -4,7 +4,7 @@ import java.util.List;
 
 public class TextEditor implements Serializable
 {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;//The serialVersionUID is a universal version identifier for a Serializable class. Deserialization uses this number to ensure that a loaded class corresponds exactly to a serialized object. If no match is found, then an InvalidClassException is thrown.
     private String content;
     private int cursorPosition;
     private List<String> selections;
@@ -35,9 +35,11 @@ public class TextEditor implements Serializable
     }
 
     public void addSelection(String selection) {
-        if(selection !=null && !selection.isEmpty()) {
-            selections.add(selection);
+        if(selection !=null && !selection.isEmpty())//if selection is not null and not empty
+        {
+            selections.add(selection);//add selection to the selections list;
         }
+
     }
 
     public void clearSelections() {
@@ -56,7 +58,7 @@ public class TextEditor implements Serializable
     }
 
     public EditorMemento createMemento() {
-        return new EditorMemento(content, cursorPosition, new ArrayList<>(selections));
+        return new EditorMemento(content, cursorPosition, new ArrayList<>(selections));//return a new EditorMemento object with the current content, cursorPosition, and selections
     }
 
     public void restoreFromMemento(EditorMemento memento)
