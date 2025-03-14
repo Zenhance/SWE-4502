@@ -59,4 +59,9 @@ public class Editor
         
         cursorPosition = position;
     }
+
+    public EditorMemento CreateMemento()
+    {
+        return new EditorMemento(text, cursorPosition, selection);
+    }
 }
