@@ -89,7 +89,19 @@ namespace Lab12
             Console.WriteLine("Selection: " + _selection);
         }
 
-        
+        public EditorMemento CreateMemento()
+        {
+            return new EditorMemento(_text, _cursorPosition, _selection);
+        }
+
+        public void RestoreMemento(EditorMemento memento)
+        {
+            _text = memento.Text;
+            _cursorPosition = memento.CursorPosition;
+            _selection = memento.Selection;
+        }
+
+
     }
 
 }
