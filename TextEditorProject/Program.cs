@@ -9,7 +9,11 @@ namespace TextEditorApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Text Editor Started");
+            TextEditor editor = new TextEditor();
+            editor.SetContent("Hello World");
+            editor.SetCursorPosition(5);
+            editor.AddSelection("World");
+            editor.DisplayState();
         }
     }
 
