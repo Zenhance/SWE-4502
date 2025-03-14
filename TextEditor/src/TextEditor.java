@@ -17,19 +17,24 @@ public class TextEditor {
     }
 
     public void setCursorPosition(int position) {
-        if (position >= 0 && position <= content.length()) {
-            this.cursorPosition = position;  // Ensure it's an integer
-        } else {
-            System.out.println("Invalid cursor position.");
+        if (position < 0 || position > content.length()) {
+            throw new IllegalArgumentException("Invalid cursor position");
         }
+        this.cursorPosition = position;
     }
 
     public void addSelection(String selection) {
-        this.selections.add(selection);  // Correctly storing the selection
+        selections.add(selection);
     }
 
     public void clearSelections() {
-        this.selections.clear();
+        selections.clear();
+    }
+
+    public void displayState() {
+        System.out.println("Content: " + content);
+        System.out.println("Cursor Position: " + cursorPosition);
+        System.out.println("Selections: " + selections);
     }
 
     public EditorMemento createMemento() {
@@ -40,11 +45,5 @@ public class TextEditor {
         this.content = memento.getContent();
         this.cursorPosition = memento.getCursorPosition();
         this.selections = new ArrayList<>(memento.getSelections());
-    }
-
-    public void displayState() {
-        System.out.println("Content: " + content);
-        System.out.println("Cursor Position: " + cursorPosition);  // Display as number
-        System.out.println("Selections: " + selections);
     }
 }

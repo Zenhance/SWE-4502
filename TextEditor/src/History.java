@@ -1,25 +1,23 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 public class History {
-    private List<EditorMemento> history;
+    private Stack<EditorMemento> history;
     private TextEditor editor;
 
     public History(TextEditor editor) {
         this.editor = editor;
-        this.history = new ArrayList<>(); // Ensure list is initialized
+        this.history = new Stack<>();
     }
 
     public void backup() {
-        history.add(editor.createMemento()); // No longer causes NullPointerException
+        history.push(editor.createMemento());
     }
 
     public void undo() {
         if (!history.isEmpty()) {
-            EditorMemento memento = history.remove(history.size() - 1);
-            editor.restoreFromMemento(memento);
+            editor.restoreFromMemento(history.pop());
         } else {
-            System.out.println("No history to undo.");
+            System.out.println("No previous state to restore.");
         }
     }
 }

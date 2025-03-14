@@ -5,20 +5,26 @@ public class Main {
 
         editor.setContent("Hello, World!");
         editor.setCursorPosition(5);
-        editor.addSelection("Hello");
-        history.backup();
-
         editor.displayState();
 
-        editor.setContent("New Content");
+        history.backup();  // Save state
+
+        editor.setContent("New content");
         editor.setCursorPosition(3);
-        history.backup();
-
-        System.out.println("\nAfter Modification:");
         editor.displayState();
 
-        history.undo();
-        System.out.println("\nAfter Undo:");
+        history.undo();  // Restore previous state
         editor.displayState();
+
+        // File persistence example
+        String filePath = "editor_state.json";
+        FilePersistence.saveToFile(editor.createMemento(), filePath);
+        EditorMemento loadedMemento = FilePersistence.loadFromFile(filePath);
+
+        if (loadedMemento != null) {
+            editor.restoreFromMemento(loadedMemento);
+            System.out.println("Loaded state:");
+            editor.displayState();
+        }
     }
 }
