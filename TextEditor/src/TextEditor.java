@@ -17,39 +17,34 @@ public class TextEditor {
     }
 
     public void setCursorPosition(int position) {
-        if (position < 0 || position > content.length()) {
-            throw new IllegalArgumentException("Invalid cursor position");
+        if (position >= 0 && position <= content.length()) {
+            this.cursorPosition = position;  // Ensure it's an integer
+        } else {
+            System.out.println("Invalid cursor position.");
         }
-        this.cursorPosition = position;
     }
 
     public void addSelection(String selection) {
-        selections.add(selection);
+        this.selections.add(selection);  // Correctly storing the selection
     }
 
-    public void clearSelection()
-    {
-        selections.clear();
+    public void clearSelections() {
+        this.selections.clear();
     }
 
-    public void displayState()
-    {
-        System.out.println("Content:" + content);
-        System.out.println("Cursor Position:" + content);
-        System.out.println("Selections:" + content);
-
-    }
-
-    public EditorMemento createMemento()
-    {
+    public EditorMemento createMemento() {
         return new EditorMemento(content, cursorPosition, new ArrayList<>(selections));
     }
 
-    public void restoreMemento(EditorMemento memento)
-    {
+    public void restoreFromMemento(EditorMemento memento) {
         this.content = memento.getContent();
-        this.cursorPosition=memento.getCursorPosition();
-        this.selections=new ArrayList<>(memento.getSelections());
+        this.cursorPosition = memento.getCursorPosition();
+        this.selections = new ArrayList<>(memento.getSelections());
     }
 
+    public void displayState() {
+        System.out.println("Content: " + content);
+        System.out.println("Cursor Position: " + cursorPosition);  // Display as number
+        System.out.println("Selections: " + selections);
+    }
 }
