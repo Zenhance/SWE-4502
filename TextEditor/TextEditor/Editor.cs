@@ -66,5 +66,21 @@ public class Editor
         _cursorPosition = memento.GetCursorPosition();
         _selection = memento.GetSelection();
     }
+    
+    
+    public string GetText()
+    {
+        return _text;
+    }
+ 
+    public int GetCursorPosition()
+    {
+        return _cursorPosition;
+    }
+     
+    public string GetSelection()
+    {
+        return _selection;
+    }
    
 }

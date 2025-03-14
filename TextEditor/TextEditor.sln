@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextEditor", "TextEditor\TextEditor.csproj", "{CE607B06-B80C-42C4-9E40-B74D110AAB01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject_TextEditor", "TestProject_TextEditor\TestProject_TextEditor.csproj", "{4AE721F7-681C-4AE2-AE2E-449C3CC4FD6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{CE607B06-B80C-42C4-9E40-B74D110AAB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE607B06-B80C-42C4-9E40-B74D110AAB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE607B06-B80C-42C4-9E40-B74D110AAB01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE721F7-681C-4AE2-AE2E-449C3CC4FD6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE721F7-681C-4AE2-AE2E-449C3CC4FD6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE721F7-681C-4AE2-AE2E-449C3CC4FD6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE721F7-681C-4AE2-AE2E-449C3CC4FD6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
