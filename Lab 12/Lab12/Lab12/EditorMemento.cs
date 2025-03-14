@@ -29,6 +29,14 @@ namespace Lab12
             info.AddValue("Selection", Selection);
         }
 
+        public EditorMemento(string text ,int cursorPosition, string selection )
+        {
+            Text = text;
+            CursorPosition = cursorPosition;
+            Selection = selection;
+
+        }
+
 
      }
 }
