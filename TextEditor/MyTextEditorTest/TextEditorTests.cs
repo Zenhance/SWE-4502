@@ -86,5 +86,23 @@ namespace MyTextEditorTest
                 File.Delete(tempFile);
             }
         }
+
+        [Fact]
+        public void Undo_ShouldRestorePreviousState()
+        {
+            var editor = new TextEditor();
+            var history = new History(editor);
+
+            editor.SetContent("State 1");
+            history.Backup();
+
+            editor.SetContent("State 2");
+            history.Backup();
+
+            history.Undo(); 
+
+            var memento = editor.CreateMemento();
+            Assert.Equal("State 1", memento.Content);
+        }
     }
 }

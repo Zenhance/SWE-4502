@@ -30,6 +30,24 @@ namespace MyTextEditor
             public List<string> Selections { get; set; }
         }
 
+        public void Undo()
+        {
+            if (history.Count == 0)
+            {
+                Console.WriteLine("History: No history available to undo.");
+                return;
+            }
+
+            var lastIndex = history.Count - 1;
+            var memento = history[lastIndex];
+            history.RemoveAt(lastIndex);
+
+            Console.WriteLine("History: Restoring previous state...");
+            lastIndex = history.Count - 1;
+            memento = history[lastIndex];
+            editor.RestoreFromMemento(memento);
+        }
+
         public void SaveToFile(string filePath)
         {
             try
