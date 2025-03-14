@@ -15,5 +15,13 @@ namespace Lab12
         {
             _editor = editor;
         }
+
+        public void Backup()
+        {
+            _mementos.Add(_editor.CreateMemento());
+            Console.WriteLine("State Saved ");
+        }
+
+
     }
 }
