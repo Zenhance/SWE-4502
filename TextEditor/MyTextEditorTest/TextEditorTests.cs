@@ -28,5 +28,19 @@ namespace MyTextEditorTest
             var memento = editor.CreateMemento();
             Assert.Equal(12, memento.CursorPosition);
         }
+
+        [Fact]
+        public void AddSelection_ShouldAddToSelections()
+        {
+            var editor = new TextEditor();
+
+            editor.AddSelection("Selection 1");
+            editor.AddSelection("Selection 2");
+
+            var memento = editor.CreateMemento();
+            Assert.Equal(2, memento.Selections.Count);
+            Assert.Contains("Selection 1", memento.Selections);
+            Assert.Contains("Selection 2", memento.Selections);
+        }
     }
 }
