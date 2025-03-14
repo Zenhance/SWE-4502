@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab12_textEditor", "Lab12_textEditor\Lab12_textEditor.csproj", "{5668BB9C-97B0-4539-9D7F-4819993C5A22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab12_textEditor.test", "Lab12_textEditor.test\Lab12_textEditor.test.csproj", "{B5AE50FB-8361-447E-85CA-C8FC95B9106F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5668BB9C-97B0-4539-9D7F-4819993C5A22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5668BB9C-97B0-4539-9D7F-4819993C5A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5668BB9C-97B0-4539-9D7F-4819993C5A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5668BB9C-97B0-4539-9D7F-4819993C5A22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5AE50FB-8361-447E-85CA-C8FC95B9106F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5AE50FB-8361-447E-85CA-C8FC95B9106F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5AE50FB-8361-447E-85CA-C8FC95B9106F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5AE50FB-8361-447E-85CA-C8FC95B9106F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
