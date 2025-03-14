@@ -33,6 +33,15 @@ namespace Lab12_textEditor
             }
             _text = _text.Remove(_cursorPosition, length);
         }
+
+        public void Select(int start, int length)
+        {
+            if (start + length > _text.Length)
+            {
+                length = _text.Length - start;
+            }
+            _selection = _text.Substring(start, length);
+        }
         public void clearSelection()
         {
             _selection = string.Empty;

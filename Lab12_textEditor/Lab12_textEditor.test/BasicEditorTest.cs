@@ -37,7 +37,29 @@ namespace Lab12_textEditor.test
             Assert.Equal(testString, editor.GetText());
             Assert.Equal(actualCursorPosition, editor.GetCursorPosition());
         }
+        [Fact]
+        public void DeleteTextFromEditorTest()
+        {
+            string testString = "I Am Emon";
+            Editor editor = new Editor();
+            editor.Insert(testString);
+            editor.SetCursorPosition(0);
+            editor.Delete(1);
+            Assert.Equal(" Am Emon", editor.GetText());
+        }
 
+        [Fact]
+        public void SelectTextInEditorTest()
+        {
+            string testString = "I Am Emon";
+            Editor editor = new Editor();
+            editor.Insert(testString);
+            editor.SetCursorPosition(0);
+            editor.Insert("I");
+            editor.SetCursorPosition(2);
+            editor.Insert("E");
+            Assert.Equal("I E", editor.GetSelection());
+        }
 
 
 
