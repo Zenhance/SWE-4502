@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextEditorProject.Core
+namespace Text_Editor_Project.Core
 {
     public class EditorMemento
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.IO;
 
-namespace TextEditorProject.Core
+namespace Text_Editor_Project.Core
 {
     public class History
     {
