@@ -3,12 +3,11 @@ package Editor;
 import java.util.ArrayList;
 import java.util.List;
 
-// Placeholder for TextEditor class
+
 public class TextEditor {
     private String content;
     private int cursorPosition;
     private List<String> selections;
-
 
     public TextEditor() {
         this.content = "";
@@ -18,7 +17,7 @@ public class TextEditor {
 
     public void setContent(String content) {
         this.content = content;
-        this.cursorPosition=content.length();
+        this.cursorPosition = content.length();
     }
 
     public void setCursorPosition(int position) {
@@ -32,14 +31,18 @@ public class TextEditor {
         selections.add(selection);
     }
 
-    public void clearSelections(){
+    public void clearSelections() {
         selections.clear();
     }
 
-    public void displayState() {
-        System.out.println("Content: " + content);
-        System.out.println("Cursor Position: " + cursorPosition);
-        System.out.println("Selections: " + selections);
+    public EditorMemento createMemento() {
+        return new EditorMemento(content, cursorPosition, selections);
+    }
+
+    public void restoreFromMemento(EditorMemento memento) {
+        this.content = memento.getContent();
+        this.cursorPosition = memento.getCursorPosition();
+        this.selections = new ArrayList<>(memento.getSelections());
     }
 
     public String getContent() {
@@ -53,6 +56,5 @@ public class TextEditor {
     public List<String> getSelections() {
         return selections;
     }
-
-
 }
+
