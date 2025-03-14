@@ -57,9 +57,13 @@ namespace HomeAutomation
 
             Console.WriteLine("Home Automation System Operations Completed.");
 <<<<<<< HEAD
+<<<<<<< HEAD
             Console.ReadLine();
 =======
 >>>>>>> 75f1046 (Completing Base Project)
+=======
+            Console.ReadLine();
+>>>>>>> 8e1234a (Add Test)
         }
     }
 }
