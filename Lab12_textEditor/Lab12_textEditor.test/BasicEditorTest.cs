@@ -51,15 +51,18 @@ namespace Lab12_textEditor.test
         [Fact]
         public void SelectTextInEditorTest()
         {
-            string testString = "I Am Emon";
+            string testString = "I am emon";
+            int start = 5;
+            int length = 4;
+            string expectedSelection = "emon";
+
             Editor editor = new Editor();
             editor.Insert(testString);
-            editor.SetCursorPosition(0);
-            editor.Insert("I");
-            editor.SetCursorPosition(2);
-            editor.Insert("E");
-            Assert.Equal("I E", editor.GetSelection());
+            editor.Select(start, length);
+
+            Assert.Equal(expectedSelection, editor.GetSelection());
         }
+
 
 
 
