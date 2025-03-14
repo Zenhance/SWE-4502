@@ -31,6 +31,12 @@ public class History
     }
 
 
+    public EditorMemento GetLastMemento()
+    {
+        return _mementos[_mementos.Count - 1];
+    }
+
+
     public void SaveToJson(string path)
     {
         var json = JsonSerializer.Serialize(_mementos[_mementos.Count - 1]);
