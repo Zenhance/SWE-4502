@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace TextEditorApp
 {
@@ -22,17 +21,34 @@ namespace TextEditorApp
             states.Add(editor.CreateMemento());
         }
 
-        public void Undo()
+        public void SaveToFile(string filePath)
         {
-            if (states.Count > 0)
+            try
             {
-                EditorMemento lastState = states[states.Count - 1];
-                states.RemoveAt(states.Count - 1);
-                editor.RestoreFromMemento(lastState);
+                string json = JsonSerializer.Serialize(states);
+                File.WriteAllText(filePath, json);
+                Console.WriteLine("History saved successfully.");
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("No history available.");
+                Console.WriteLine($"Error saving history: {ex.Message}");
+            }
+        }
+
+        public void LoadFromFile(string filePath)
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    string json = File.ReadAllText(filePath);
+                    states = JsonSerializer.Deserialize<List<EditorMemento>>(json) ?? new List<EditorMemento>();
+                    Console.WriteLine("History loaded successfully.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading history: {ex.Message}");
             }
         }
     }
