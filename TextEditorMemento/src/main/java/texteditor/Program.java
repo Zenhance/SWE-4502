@@ -2,9 +2,15 @@ package main.java.texteditor;
 
 public class Program {
     public static void main(String[] args) {
-        System.out.println("Text Editor Project initialized");
+        TextEditor editor = new TextEditor();
+
+        editor.setContent("Hello, World!");
+        editor.setCursorPosition(5);
+        editor.addSelection("Hello");
+        editor.addSelection("World");
+        editor.displayState();
+
+        editor.clearSelections();
+        editor.displayState();
     }
 }
-
-
-
