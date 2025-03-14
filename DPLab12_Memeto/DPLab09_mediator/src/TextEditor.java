@@ -31,5 +31,17 @@ public class TextEditor {
         System.out.println("Selection: " + selection);
     }
 
+    // Method to create a memento of the current state
+    //current state e use hoi
+    public EditorMemento createMemento() {
+        return new EditorMemento(content, cursorPosition, selection);
+    }
 
+    // Method to restore the state from a memento
+    //undo teh use hoi
+    public void restoreFromMemento(EditorMemento memento) {
+        this.content = memento.getContent();
+        this.cursorPosition = memento.getCursorPosition();
+        this.selection = memento.getSelection();
+    }
 }
