@@ -8,5 +8,11 @@ public class Main {
         editor.addSelection("Hello");
 
         editor.displayState();
+
+        editor.setContent("New Content");
+        editor.setCursorPosition(3);
+
+        System.out.println("\nAfter Modification:");
+        editor.displayState();
     }
 }

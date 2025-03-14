@@ -40,6 +40,16 @@ public class TextEditor {
 
     }
 
+    public EditorMemento createMemento()
+    {
+        return new EditorMemento(content, cursorPosition, new ArrayList<>(selections));
+    }
 
+    public void restoreMemento(EditorMemento memento)
+    {
+        this.content = memento.getContent();
+        this.cursorPosition=memento.getCursorPosition();
+        this.selections=new ArrayList<>(memento.getSelections());
+    }
 
 }
