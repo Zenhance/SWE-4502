@@ -39,6 +39,18 @@ public class TextEditor {
         selections.clear();
     }
 
+    // Now we create a snapshot of the current state
+    public EditorMemento createMemento() {
+        return new EditorMemento(content, cursorPosition, new ArrayList<>(selections));
+    }
+
+    // Here we restore state from a memento
+    public void restoreFromMemento(EditorMemento memento) {
+        this.content = memento.getContent();
+        this.cursorPosition = memento.getCursorPosition();
+        this.selections = new ArrayList<>(memento.getSelections());
+    }
+
     // This method is to display editor state
     public void displayState() {
         System.out.println("Content: " + content);
