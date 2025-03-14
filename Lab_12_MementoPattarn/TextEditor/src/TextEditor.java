@@ -55,6 +55,20 @@ public class TextEditor implements Serializable
         System.out.println("-------------------------");
     }
 
+    public EditorMemento createMemento() {
+        return new EditorMemento(content, cursorPosition, new ArrayList<>(selections));
+    }
+
+    public void restoreFromMemento(EditorMemento memento)
+    {
+        if(memento!=null) {
+            this.content = memento.getContent();
+            this.cursorPosition = memento.getCursorPosition();
+            this.selections = new ArrayList<>(memento.getSelections());
+        }
+
+    }
+
     public String getContent() {
         return content;
     }
