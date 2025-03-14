@@ -1,5 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+
+        TextEditor editor = new TextEditor();
+        editor.setContent("Hello, World!");
+        editor.setCursorPosition(5);
+        editor.addSelection("Hello");
+
+        editor.displayState();
     }
 }
