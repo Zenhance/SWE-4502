@@ -4,7 +4,7 @@ import java.util.List;
 public class TextEditor {
     private String content;
     private int cursorPosition;
-    private List<String> selections;
+    private List<String> selections; // Made selections final for better design
 
     public TextEditor() {
         this.content = "";

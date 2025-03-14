@@ -1,6 +1,5 @@
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 public class EditorMemento {
@@ -8,7 +7,7 @@ public class EditorMemento {
     private int cursorPosition;
     private List<String> selections;
 
-    // ✅ Default constructor for Jackson
+    // Default constructor for Jackson
     public EditorMemento() {}
 
     @JsonCreator
