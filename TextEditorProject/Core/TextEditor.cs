@@ -80,8 +80,7 @@ namespace TextEditorProject.Core
 
         public void RestoreFromMemento(EditorMemento memento)
         {
-          //
-
+            //
         }
 
     }

@@ -8,5 +8,22 @@ namespace TextEditorProject.Core
 {
     public class History
     {
+        public TextEditor textEditor;
+        public List<EditorMemento> editorMementos;
+
+        public History(TextEditor textEditor) {
+
+            this.textEditor = textEditor;
+        }
+
+        public void Backup()
+        {
+
+        }
+
+        public void Undo()
+        {
+
+        }
     }
 }
