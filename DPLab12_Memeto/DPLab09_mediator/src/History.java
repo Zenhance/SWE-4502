@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class History {
-    private List<EditorMemento> history = new ArrayList<>();
+    public List<EditorMemento> history = new ArrayList<>();
     private int currentIndex = -1;
 
     // Add a new state to the history list and update the currentIndex
@@ -37,3 +37,4 @@ public class History {
         return history.get(currentIndex);
     }
 }
+

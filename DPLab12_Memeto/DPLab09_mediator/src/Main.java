@@ -1,54 +1,39 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+        // Create an instance of TextEditor and History
         TextEditor editor = new TextEditor();
         History history = new History();
 
-        // Initial state
-        editor.setContent("New content!");
-        editor.setCursorPosition(4);
-        editor.addSelection("New");
+        // Perform some actions
+        editor.setContent("Initial content!");
+        editor.setCursorPosition(5);
+        editor.addSelection("Initial selection");
         history.backup(editor.createMemento());
 
-        // Display initial state
-        System.out.println("Initial State:");
-        editor.displayState();
-
-        // Modify state (e.g., new action)
         editor.setContent("Updated content!");
         editor.setCursorPosition(10);
-        editor.addSelection("Updated");
+        editor.addSelection("Updated selection");
         history.backup(editor.createMemento());
 
-        // Display updated state
-        System.out.println("\nAfter Modification:");
-        editor.displayState();
+        // Save history to file
+        FilePersistence.saveToFile("history.dat", history.history);
 
-        // Undo the change
-        if (history.undo()) {
-            editor.restoreFromMemento(history.getCurrentMemento());
-        }
-
-        // Display state after undo
-        System.out.println("\nAfter Undo:");
-        editor.displayState();
-
-        // Modify state again (e.g., new action)
-        editor.setContent("Newer content!");
+        // Modify editor again
+        editor.setContent("Another content change");
         editor.setCursorPosition(15);
-        editor.addSelection("Newer");
+        editor.addSelection("Another selection");
         history.backup(editor.createMemento());
 
-        // Display state after new modification
-        System.out.println("\nAfter New Modification:");
-        editor.displayState();
+        // Load history from file
+        List<EditorMemento> loadedHistory = FilePersistence.loadFromFile("history.dat");
 
-        // Undo the change
-        if (history.undo()) {
-            editor.restoreFromMemento(history.getCurrentMemento());
+        // If the history is loaded, print the content of the last state
+        if (loadedHistory != null && !loadedHistory.isEmpty()) {
+            editor.restoreFromMemento(loadedHistory.get(loadedHistory.size() - 1));
+            editor.displayState();
         }
-
-        // Display state after undo
-        System.out.println("\nAfter Undo Again:");
-        editor.displayState();
     }
 }
