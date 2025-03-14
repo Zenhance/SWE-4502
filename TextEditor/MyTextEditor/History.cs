@@ -56,5 +56,42 @@ namespace MyTextEditor
             }
         }
 
+        public void LoadFromFile(string filePath)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    Console.WriteLine($"File not found: {filePath}");
+                    return;
+                }
+
+                string jsonString = File.ReadAllText(filePath);
+                var serializableStates = JsonSerializer.Deserialize<List<SerializableState>>(jsonString);
+
+                history.Clear();
+
+                foreach (var state in serializableStates)
+                {
+                    history.Add(new Memento(
+                        state.Content,
+                        state.CursorPosition,
+                        state.Selections
+                    ));
+                }
+
+                Console.WriteLine($"History: Successfully loaded {history.Count} states from {filePath}");
+
+                if (history.Count > 0)
+                {
+                    editor.RestoreFromMemento(history[history.Count - 1]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading from file: {ex.Message}");
+            }
+        }
     }
 }
+
