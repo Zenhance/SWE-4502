@@ -33,4 +33,9 @@ public class EnvironmentTest
         _environment.AddComponent(_voiceCommandManager);
     }
 
+    [Test]
+    public void AddMotionComponentTest()
+    {
+        Assert.That(_environment.GetComponents()[0], Is.EqualTo(_motionDetector));
+    }
 }
