@@ -1,5 +1,7 @@
 ﻿namespace TextEditor;
 
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
 public class History
 {
     private List<EditorMemento> _mementos;
@@ -24,6 +26,19 @@ public class History
         }
         var memento = _mementos.Last();
         _mementos.Remove(memento);
+        _editor.Restore(memento);
+    }
+    
+    public void SaveToJson(string path)
+    {
+        var json = JsonSerializer.Serialize(_mementos[_mementos.Count - 1]);
+        File.WriteAllText(path, json);
+    }
+    
+    public void LoadFromJson(string path)
+    {
+        var json = File.ReadAllText(path);
+        var memento = JsonSerializer.Deserialize<EditorMemento>(json);
         _editor.Restore(memento);
     }
      

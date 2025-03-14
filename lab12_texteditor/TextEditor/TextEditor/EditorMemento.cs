@@ -2,9 +2,9 @@
 
 public class EditorMemento
 {
-    private readonly string _text;
-    private readonly int _cursorPosition;
-    private readonly string _selection;
+    public readonly string _text;
+    public readonly int _cursorPosition;
+    public readonly string _selection;
  
     public EditorMemento(string text, int cursorPosition, string selection)
     {
