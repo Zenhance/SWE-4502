@@ -42,5 +42,18 @@ namespace MyTextEditorTest
             Assert.Contains("Selection 1", memento.Selections);
             Assert.Contains("Selection 2", memento.Selections);
         }
+
+        [Fact]
+        public void ClearSelections_ShouldRemoveAllSelections()
+        {
+            var editor = new TextEditor();
+            editor.AddSelection("Selection 1");
+            editor.AddSelection("Selection 2");
+
+            editor.ClearSelections();
+
+            var memento = editor.CreateMemento();
+            Assert.Empty(memento.Selections);
+        }
     }
 }
