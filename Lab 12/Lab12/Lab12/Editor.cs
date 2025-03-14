@@ -39,7 +39,7 @@ namespace Lab12
 
         public void Delete(int length)
         {
-            if(_cursorPosition + length>_text.length)
+            if(_cursorPosition + length>_text.Length)
             {
                 length = _text.Length - _cursorPosition;
             }
