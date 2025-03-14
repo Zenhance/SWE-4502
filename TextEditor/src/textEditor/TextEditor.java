@@ -11,4 +11,25 @@ public class TextEditor {
         this.selection = _selection;
     }
 
+    public void setContent(String _content) {
+        this.content = _content;
+    }
+
+    public void setCursorPosition(int _position) {
+        this.cursorPosition = _position;
+    }
+
+    public void addSelection(String _selection) {
+        this.selection = _selection;
+    }
+
+    public void clearSelections() {
+        this.selection = "";
+    }
+
+    public void displayState() {
+        System.out.println("Content: " + content);
+        System.out.println("Cursor Position: " + cursorPosition);
+        System.out.println("Selection: " + selection);
+    }
 }
