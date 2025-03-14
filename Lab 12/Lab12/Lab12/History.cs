@@ -22,6 +22,18 @@ namespace Lab12
             Console.WriteLine("State Saved ");
         }
 
+        public void Undo()
+        {
+            if (_mementos.Count == 0)
+            {
+                Console.WriteLine("No states to undo!");
+                return;
+            }
 
+            var lastMemento = _mementos[_mementos.Count - 1];
+            _mementos.RemoveAt(_mementos.Count - 1);
+            _editor.RestoreMemento(lastMemento);
+            Console.WriteLine("Undo completed.");
+        }
     }
 }
