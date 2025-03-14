@@ -49,5 +49,20 @@ namespace TextEditorApp
             Console.WriteLine($"Cursor Position: {cursorPosition}");
             Console.WriteLine($"Selections: {string.Join(", ", selections)}");
         }
+
+        public EditorMemento CreateMemento()
+        {
+            return new EditorMemento(content, cursorPosition, selections);
+        }
+
+        public void RestoreFromMemento(EditorMemento memento)
+        {
+            if (memento != null)
+            {
+                content = memento.Content;
+                cursorPosition = memento.CursorPosition;
+                selections = new List<string>(memento.Selections);
+            }
+        }
     }
 }
