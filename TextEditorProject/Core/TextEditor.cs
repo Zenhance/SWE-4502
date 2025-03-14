@@ -73,5 +73,16 @@ namespace TextEditorProject.Core
             }
         }
 
+        public void CreateMemento()
+        {
+            //
+        }
+
+        public void RestoreFromMemento(EditorMemento memento)
+        {
+           //
+
+        }
+
     }
 }
