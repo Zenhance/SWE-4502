@@ -1,0 +1,4 @@
+C:\Users\bhuiy\OneDrive\Desktop\5th Semester\DP_LAB\Lab 2\Lab_2_EnDcypt\sample.txt
+
+
+C:\Users\bhuiy\OneDrive\Desktop\5th Semester\DP_LAB\Lab 2\Lab_2_EnDcypt\encrypted.txt
