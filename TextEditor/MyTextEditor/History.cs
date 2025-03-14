@@ -8,5 +8,6 @@ namespace MyTextEditor
 {
     class History
     {
+
     }
 }
