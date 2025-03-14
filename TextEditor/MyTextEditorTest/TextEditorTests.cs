@@ -16,5 +16,17 @@ namespace MyTextEditorTest
             var memento = editor.CreateMemento();
             Assert.Equal("abcd", memento.Content);
         }
+
+        [Fact]
+        public void SetCursorPosition_ValidPosition_ShouldUpdatePosition()
+        {
+            var editor = new TextEditor();
+            editor.SetContent("Test Content");
+
+            editor.SetCursorPosition(14);
+
+            var memento = editor.CreateMemento();
+            Assert.Equal(12, memento.CursorPosition);
+        }
     }
 }
