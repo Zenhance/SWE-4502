@@ -73,14 +73,14 @@ namespace TextEditorProject.Core
             }
         }
 
-        public void CreateMemento()
+        public EditorMemento CreateMemento()
         {
-            //
+            return new EditorMemento(content, cursorPosition, selections);
         }
 
         public void RestoreFromMemento(EditorMemento memento)
         {
-           //
+          //
 
         }
 
