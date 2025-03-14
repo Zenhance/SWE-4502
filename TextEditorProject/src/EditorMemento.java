@@ -1,7 +1,10 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditorMemento  {
+public class EditorMemento implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private final String content;
     private final int cursorPosition;
     private final List<String> selections;
