@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditorMemento {
+public class EditorMemento  {
     private final String content;
     private final int cursorPosition;
     private final List<String> selections;

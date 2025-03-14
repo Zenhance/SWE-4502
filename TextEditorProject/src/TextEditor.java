@@ -50,4 +50,6 @@ public class TextEditor {
         this.selections = new ArrayList<>(memento.getSelections());
     }
 
+
+
 }
