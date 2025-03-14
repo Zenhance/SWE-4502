@@ -55,4 +55,9 @@ public class Editor
         }
         _cursorPosition = position;
     }
+    
+    public EditorMemento CreateMemento()
+    {
+        return new EditorMemento(_text, _cursorPosition, _selection);
+    }
 }
