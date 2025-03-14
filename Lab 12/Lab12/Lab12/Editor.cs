@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab12
 {
-    public class Editor
+    [Serializable]
+    public class Editor 
     {
         private string _text;
         private int _cursorPosition;
@@ -18,6 +20,7 @@ namespace Lab12
             _cursorPosition = 0;
             _selection = string.Empty;
         }
+
 
         public void SetText(string text)
         {
@@ -85,6 +88,8 @@ namespace Lab12
             Console.WriteLine("Cursor Position: " + _cursorPosition);
             Console.WriteLine("Selection: " + _selection);
         }
+
+        
     }
 
 }
