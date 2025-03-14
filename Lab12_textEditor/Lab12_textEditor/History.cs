@@ -38,7 +38,7 @@ namespace Lab12_textEditor
         {
             try
             {
-                string json=JsonSerializer.Serialize(_mementos, new JsonSerializerOptions { WriteIndented=true})
+                string json = JsonSerializer.Serialize(_mementos, new JsonSerializerOptions { WriteIndented=true });
                     File.WriteAllText(path, json);
                 Console.WriteLine("History successfully saved to file.");
             }
