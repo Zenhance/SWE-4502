@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab12_TextEditor", "Lab12_T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab12_Test", "Lab12_Test\Lab12_Test.csproj", "{AF3E4BD3-6B09-4AD5-B00A-6A0B543B2AD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextEditor_Test", "TextEditor_Test\TextEditor_Test.csproj", "{58B945F3-4ECC-4D6B-9AD5-9687D45B531A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{AF3E4BD3-6B09-4AD5-B00A-6A0B543B2AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF3E4BD3-6B09-4AD5-B00A-6A0B543B2AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF3E4BD3-6B09-4AD5-B00A-6A0B543B2AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B945F3-4ECC-4D6B-9AD5-9687D45B531A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B945F3-4ECC-4D6B-9AD5-9687D45B531A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B945F3-4ECC-4D6B-9AD5-9687D45B531A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B945F3-4ECC-4D6B-9AD5-9687D45B531A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
