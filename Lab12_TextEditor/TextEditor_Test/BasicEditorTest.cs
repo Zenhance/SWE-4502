@@ -34,4 +34,36 @@ public class BasicEditorTest
         Assert.Equal(actualCursorPosition, editor.GetCursorPosition());
     }
     
+    [Fact]
+    public void DeleteTextFromEditorTest()
+    {
+        string testString = "Hello World!";
+        int deleteLength = 6;
+        int cursorPosition = testString.Length - deleteLength;
+        string expectedString = "Hello ";
+        
+        Editor editor = new Editor();
+        editor.Insert(testString);
+        editor.SetCursorPosition(cursorPosition);
+        editor.Delete(deleteLength);
+        
+        Assert.Equal(expectedString, editor.GetText());
+    }
+    
+    
+    [Fact]
+    public void SelectTextInEditorTest()
+    {
+        string testString = "Hello World!";
+        int start = 6;
+        int length = 6;
+        string expectedSelection = "World!";
+        
+        Editor editor = new Editor();
+        editor.Insert(testString);
+        editor.Select(start, length);
+        
+        Assert.Equal(expectedSelection, editor.GetSelection());
+    }
+    
 }
