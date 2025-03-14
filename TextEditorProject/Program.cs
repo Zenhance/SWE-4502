@@ -10,9 +10,16 @@ namespace TextEditorApp
         static void Main(string[] args)
         {
             TextEditor editor = new TextEditor();
+            History history = new History(editor);
+
+            editor.SetContent("Hello");
+            history.Backup();
+
             editor.SetContent("Hello World");
-            editor.SetCursorPosition(5);
-            editor.AddSelection("World");
+            history.Backup();
+
+            editor.DisplayState();
+            history.Undo();
             editor.DisplayState();
         }
     }
