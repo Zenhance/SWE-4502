@@ -70,4 +70,19 @@ public class TextEditor implements ISerialization {
     public void loadFromFile(String filePath) {
         System.out.println("loadFromFile() not implemented yet.");
     }
+    public EditorMemento createMemento() {
+        return new EditorMemento(content, cursorPosition, selections);
+    }
+
+    public void restoreFromMemento(EditorMemento memento) {
+        if (memento == null) {
+            System.out.println("No memento to restore from.");
+            return;
+        }
+        this.content = memento.getContent();
+        this.cursorPosition = memento.getCursorPosition();
+        this.selections = memento.getSelections(); // deep copy
+        System.out.println("State restored from memento.");
+    }
+
 }
