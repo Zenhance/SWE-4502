@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.IO;
 
 namespace TextEditorProject.Core
 {
@@ -44,5 +46,28 @@ namespace TextEditorProject.Core
             }
 
         }
+
+        public void SaveToFile(string filePath)
+        {
+            try
+            {
+                string json = JsonSerializer.Serialize(editorMementos, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(filePath, json);
+                Console.WriteLine("History saved successfully to file.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving history: {ex.Message}");
+            }
+
+
+        }
+
+        public void LoadFromFile(string filePath)
+        {
+
+        }
+
+
     }
 }
