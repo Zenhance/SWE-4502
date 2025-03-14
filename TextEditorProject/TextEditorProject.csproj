@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\EditorMemento.cs" />
+    <Compile Include="Core\History.cs" />
     <Compile Include="Core\TextEditor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

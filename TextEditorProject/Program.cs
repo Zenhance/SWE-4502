@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextEditorProject.Core;
 
 namespace TextEditorProject
 {
@@ -11,6 +12,7 @@ namespace TextEditorProject
         static void Main(string[] args)
         {
             Console.WriteLine("TextEditor project setup complete.");
+            Console.ReadKey();
         }
     }
 }
