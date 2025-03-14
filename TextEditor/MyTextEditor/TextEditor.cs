@@ -77,12 +77,12 @@ namespace MyTextEditor
             Console.WriteLine("=======================");
         }
 
-        public EditorMemento CreateMemento()
+        public Memento CreateMemento()
         {
-            return new EditorMemento(content, cursorPosition, new List<string>(selections));
+            return new Memento(content, cursorPosition, new List<string>(selections));
         }
 
-        public void RestoreFromMemento(EditorMemento memento)
+        public void RestoreFromMemento(Memento memento)
         {
             if (memento != null)
             {
