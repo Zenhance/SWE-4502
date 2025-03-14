@@ -1,16 +1,15 @@
 package textEditor;
 
-import javax.accessibility.AccessibleEditableText;
 
 public class TextEditor {
     private String content;
     private int cursorPosition;
     private String selection;
 
-    public TextEditor(String _content, int _cursorPosition, String _selection) {
-        this.content = _content;
-        this.cursorPosition = _cursorPosition;
-        this.selection = _selection;
+    public TextEditor() {
+        this.content = "";
+        this.cursorPosition = 0;
+        this.selection = "";
     }
 
     public void setContent(String _content) {
