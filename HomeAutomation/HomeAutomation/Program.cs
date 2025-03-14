@@ -56,7 +56,10 @@ namespace HomeAutomation
             remoteController.ControlSystem("Activate Security Mode");
 
             Console.WriteLine("Home Automation System Operations Completed.");
+<<<<<<< HEAD
             Console.ReadLine();
+=======
+>>>>>>> 75f1046 (Completing Base Project)
         }
     }
 }
