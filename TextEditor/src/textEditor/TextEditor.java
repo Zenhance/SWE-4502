@@ -16,7 +16,12 @@ public class TextEditor {
     }
 
     public void setCursorPosition(int _position) {
-        this.cursorPosition = _position;
+        if (_position >= 0 && _position <= content.length())
+        {
+            this.cursorPosition = _position;
+        } else {
+            System.out.println("Not valid cursor position.");
+        }
     }
 
     public void addSelection(String _selection) {
