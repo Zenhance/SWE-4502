@@ -10,8 +10,7 @@ namespace TextEditorTest
 
         [Fact]
         public void SetContent_ShouldUpdateContent()
-        {
-           
+        {           
             var editor = new TextEditor();
             string newContent = "Hello, World!";
             editor.SetContent(newContent);

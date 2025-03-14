@@ -8,5 +8,31 @@ namespace TextEditorProject.Core
 {
     public class EditorMemento
     {
+        public string Content { get; set; }
+        public int CursorPosition { get; set; }
+
+        public List<string> Selections { get; set; }
+
+        public EditorMemento(string content, int cursorPos, List<string> selections) {
+
+            Content = content;
+            CursorPosition = cursorPos;
+            Selections = new List<string>(selections);
+        
+        
+        }
+        public EditorMemento()
+        {
+            Content = string.Empty;
+            CursorPosition = 0;
+            Selections = new List<string>();
+        }
+
+     
+
+
+
+
+
     }
 }
