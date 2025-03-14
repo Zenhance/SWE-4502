@@ -21,6 +21,7 @@ namespace TextEditorProject
         public void Backup()
         {
             States.Add(editor.CreateMemento());
+            Console.WriteLine("Backup saved.");
         }
         public void Undo()
         {
@@ -29,6 +30,7 @@ namespace TextEditorProject
                 EditorMemento memento = States[States.Count - 1];
                 States.RemoveAt(States.Count - 1);
                 editor.RestoreFromMemento(memento);
+                Console.WriteLine("Undid.");
             }
             else
             {
@@ -44,6 +46,7 @@ namespace TextEditorProject
                 string json = JsonSerializer.Serialize(States, new JsonSerializerOptions { WriteIndented = true });
                 //string json = JsonSerializer.Serialize(States);
                 File.WriteAllText(filePath, json);
+                Console.WriteLine($"saved to {filePath}.");
             }
             catch
             {

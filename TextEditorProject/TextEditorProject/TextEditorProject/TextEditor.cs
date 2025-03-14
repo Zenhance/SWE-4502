@@ -54,7 +54,7 @@ namespace TextEditorProject
         {
             Console.WriteLine($"{Content}");
             Console.WriteLine($"{CursorPosition}");
-            Console.WriteLine($"{Selections}");
+            Console.WriteLine("Selections: " +(Selections.Count > 0 ? string.Join(", ", Selections) : "None"));
         }
 
         public EditorMemento CreateMemento()
