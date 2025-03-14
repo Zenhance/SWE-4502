@@ -1,4 +1,4 @@
-﻿namespace Lab12_TextEditor;
+﻿namespace TextEditor;
 
 public class EditorMemento
 {

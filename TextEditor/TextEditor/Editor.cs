@@ -1,4 +1,4 @@
-﻿namespace Lab12_TextEditor;
+﻿namespace TextEditor;
 
 public class Editor
 { 
@@ -59,6 +59,12 @@ public class Editor
     {
         return new EditorMemento(_text, _cursorPosition, _selection);
     }
-
+    
+    public void Restore(EditorMemento memento)
+    {
+        _text = memento.GetText();
+        _cursorPosition = memento.GetCursorPosition();
+        _selection = memento.GetSelection();
+    }
    
 }
