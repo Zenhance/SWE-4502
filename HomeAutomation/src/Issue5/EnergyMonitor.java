@@ -51,4 +51,9 @@ public class EnergyMonitor implements IComponent {
 
         stateManager.updateState("energy_statistics", new EnergyStats(avg, peak, cumulative));
     }
+
+
+    public double getCurrentPowerUsage() {
+        return currentPowerUsage;
+    }
 }
