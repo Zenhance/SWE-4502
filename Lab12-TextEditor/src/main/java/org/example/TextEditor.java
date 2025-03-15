@@ -48,16 +48,16 @@ public class TextEditor {
     }
 
 
-//    public EditorMemento createMemento(){
-//        return new EditorMemento(content, cursorPosition, selections);
-//    }
-//    public void RestoreFromMemento(EditorMemento memento){
-//        if (memento == null) {
-//            throw new IllegalArgumentException("Memento cannot be null");
-//        }
-//        content= memento.getContent();
-//        cursorPosition= memento.getCursorPosition();
-//        selections= memento.getSelections();
-//        displayState();
-//    }
+    public EditorMemento createMemento(){
+        return new EditorMemento(content, cursorPosition, selections);
+    }
+    public void RestoreFromMemento(EditorMemento memento){
+        if (memento == null) {
+            throw new IllegalArgumentException("Memento cannot be null");
+        }
+        content= memento.getContent();
+        cursorPosition= memento.getCursorPosition();
+        selections= memento.getSelections();
+        displayState();
+    }
 }
