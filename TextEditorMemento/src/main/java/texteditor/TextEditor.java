@@ -1,4 +1,4 @@
-package main.java.texteditor;
+package texteditor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,5 +84,18 @@ public class TextEditor implements ISerialization {
         this.selections = memento.getSelections(); // deep copy
         System.out.println("State restored from memento.");
     }
+
+    public String getContent() {
+        return content;
+    }
+
+    public int getCursorPosition() {
+        return cursorPosition;
+    }
+
+    public List<String> getSelections() {
+        return selections;
+    }
+
 
 }

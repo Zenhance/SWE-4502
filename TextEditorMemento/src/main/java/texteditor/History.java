@@ -1,4 +1,4 @@
-package main.java.texteditor;
+package texteditor;
 
 import java.util.Stack;
 import java.io.*;

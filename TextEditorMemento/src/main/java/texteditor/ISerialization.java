@@ -1,4 +1,4 @@
-package main.java.texteditor;
+package texteditor;
 
 import java.io.IOException;
 
