@@ -33,7 +33,7 @@ public class MotionDetector implements IComponent {
     }
 
     private void logActivity(MotionEvent event) {
-        // In a real implementation, this would log to a file or database
+
         System.out.println("Motion " + (event.isDetected() ? "detected" : "ended") +
                 " in " + event.getLocation() + " at " + event.getTimestamp());
     }

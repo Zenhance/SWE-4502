@@ -10,7 +10,7 @@ public class TemperatureSensor {
         this.stateManager = stateManager;
     }
 
-    // Simulate a temperature reading
+
     public void readTemperature(double temperature) {
         System.out.println("Sensor reading: " + temperature + "°C");
         stateManager.updateState(TEMP_KEY, temperature);

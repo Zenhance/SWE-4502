@@ -2,18 +2,17 @@ package Issue4;
 
 import Issue1.StateManager;
 
-public class StartHeatingCommand implements HVACCommand{
+public class StartCoolingCommand implements HVACCommand{
+
     private final StateManager stateManager;
 
-    public StartHeatingCommand(StateManager stateManager) {
+    public StartCoolingCommand(StateManager stateManager) {
         this.stateManager = stateManager;
     }
 
     @Override
     public void execute() {
-
-        System.out.println("Command executed: Starting heating system");
+        System.out.println("Command executed: Starting cooling system");
     }
-
 
 }

@@ -18,16 +18,16 @@ public class History implements Serializable {
         mementos.add(textEditor.createMemento());
     }
 
-    public boolean undo() {
+    public void undo() {
         if (mementos.isEmpty()) {
             System.out.println("History is empty, cannot undo.");
-            return false;
+
         }
 
         EditorMemento memento = mementos.remove(mementos.size() - 1);
         textEditor.restoreFromMemento(memento);
         System.out.println("Restored to previous state.");
-        return true;
+
     }
 
 
@@ -56,12 +56,12 @@ public class History implements Serializable {
 
     }
 
-    // This helps with verifying the loaded state in tests
+
     public EditorMemento getCurrentEditorMemento() {
         if (mementos.isEmpty()) {
             return null;
         }
-        // Return a copy of the last memento without removing it
+
         return mementos.get(mementos.size() - 1);
     }
 
