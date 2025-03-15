@@ -12,7 +12,11 @@ public class StartCoolingCommand implements HVACCommand{
 
     @Override
     public void execute() {
+
+
         System.out.println("Command executed: Starting cooling system");
+
+        stateManager.updateState(HVACController.MODE_KEY, HVACController.MODE_COOLING);
     }
 
 }

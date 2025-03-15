@@ -13,6 +13,8 @@ public class StartHeatingCommand implements HVACCommand{
     public void execute() {
 
         System.out.println("Command executed: Starting heating system");
+
+        stateManager.updateState(HVACController.MODE_KEY, HVACController.MODE_HEATING);
     }
 
 

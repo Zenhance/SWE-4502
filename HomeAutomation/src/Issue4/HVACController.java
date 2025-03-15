@@ -26,33 +26,26 @@ public class HVACController {
         this.hysteresis = hysteresis;
 
         stateManager.updateState(MODE_KEY, MODE_OFF);
-        stateManager.registerComponent(TemperatureSensor.TEMP_KEY, this::evaluateTemparature);}
+        stateManager.registerComponent(TemperatureSensor.TEMP_KEY, this::evaluateTemperature);}
 
-        public void evaluateTemparature (String key, Object value){
-            if (key.equals(TemperatureSensor.TEMP_KEY)) {
-                double temperature = (double) value;
-                String mode = (String) stateManager.getState(MODE_KEY);
-                if (mode.equals(MODE_OFF)) {
-                    if (temperature < targetTemperature - hysteresis) {
-                        stateManager.updateState(MODE_KEY, MODE_HEATING);
-                        heatingCommand.execute();
-                    } else if (temperature > targetTemperature + hysteresis) {
-                        stateManager.updateState(MODE_KEY, MODE_COOLING);
-                        coolingCommand.execute();
-                    }
-                } else if (mode.equals(MODE_HEATING)) {
-                    if (temperature > targetTemperature) {
-                        stateManager.updateState(MODE_KEY, MODE_OFF);
-                        stopCommand.execute();
-                    }
-                } else if (mode.equals(MODE_COOLING)) {
-                    if (temperature < targetTemperature) {
-                        stateManager.updateState(MODE_KEY, MODE_OFF);
-                        stopCommand.execute();
-                    }
-                }
+    private void evaluateTemperature(String key, Object value) {
+        if (value instanceof Double) {
+            double temp = (Double) value;
+            String currentMode = (String) stateManager.getState(MODE_KEY);
+
+            double coolingThreshold = targetTemperature + hysteresis;
+            double heatingThreshold = targetTemperature - hysteresis;
+
+            if (MODE_OFF.equals(currentMode)) {
+                if (temp > coolingThreshold) coolingCommand.execute();
+                else if (temp < heatingThreshold) heatingCommand.execute();
+            } else if (MODE_COOLING.equals(currentMode) && temp <= targetTemperature) {
+                stopCommand.execute();
+            } else if (MODE_HEATING.equals(currentMode) && temp >= targetTemperature) {
+                stopCommand.execute();
             }
         }
+    }
     }
 
 

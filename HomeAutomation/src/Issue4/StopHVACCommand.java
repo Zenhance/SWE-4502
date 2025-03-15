@@ -13,6 +13,7 @@ public class StopHVACCommand implements HVACCommand{
     @Override
     public void execute() {
         System.out.println("Command executed: Stopping HVAC system");
+        stateManager.updateState(HVACController.MODE_KEY, HVACController.MODE_OFF);
     }
 
 
