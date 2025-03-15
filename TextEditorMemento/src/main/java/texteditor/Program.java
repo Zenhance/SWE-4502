@@ -5,29 +5,33 @@ public class Program {
         TextEditor editor = new TextEditor();
         History history = new History(editor);
 
-        editor.setContent("Version 1");
-        editor.setCursorPosition(3);
-        editor.addSelection("One");
-        history.backup();  // Save state 1
+        // Create and backup state
+        editor.setContent("Initial Content");
+        editor.setCursorPosition(4);
+        editor.addSelection("Init");
+        history.backup();
 
-        editor.setContent("Version 2");
-        editor.setCursorPosition(5);
-        editor.addSelection("Two");
-        history.backup();  // Save state 2
-
-        editor.setContent("Version 3");
+        editor.setContent("Second Version");
         editor.setCursorPosition(8);
-        editor.addSelection("Three");
+        editor.addSelection("Version");
+        history.backup();
+
         editor.displayState();
 
-        // Undo twice
+        // Save to file
+        history.saveToFile("editor.tdump");
+
+        // Clear editor and history to simulate a restart
+        editor.setContent("");
+        editor.setCursorPosition(0);
+        editor.clearSelections();
+        editor.displayState();
+
+        // Load from file
+        history.loadFromFile("editor.tdump");
+
+        // Undo to restore last saved state
         history.undo();
         editor.displayState();
-
-        history.undo();
-        editor.displayState();
-
-        // Try undo beyond history
-        history.undo(); // Should show "No previous state to restore."
     }
 }

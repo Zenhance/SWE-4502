@@ -1,9 +1,11 @@
 package main.java.texteditor;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.ArrayList;
 
-public class EditorMemento {
+public class EditorMemento implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final String content;
     private final int cursorPosition;
     private final List<String> selections;
@@ -11,8 +13,7 @@ public class EditorMemento {
     public EditorMemento(String content, int cursorPosition, List<String> selections) {
         this.content = content;
         this.cursorPosition = cursorPosition;
-        // Deep copy to avoid outside modification
-        this.selections = new ArrayList<>(selections);
+        this.selections = selections;
     }
 
     public String getContent() {
@@ -24,6 +25,6 @@ public class EditorMemento {
     }
 
     public List<String> getSelections() {
-        return new ArrayList<>(selections); // Return deep copy
+        return selections;
     }
 }
