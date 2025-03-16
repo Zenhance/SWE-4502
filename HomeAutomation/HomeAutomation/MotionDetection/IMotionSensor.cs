@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation
 {
-    interface IMotionSensor
+    public interface IMotionSensor
     {
+        void DetectMotion(string location);
+        bool IsMotionDetected();
     }
 }
