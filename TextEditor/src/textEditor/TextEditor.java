@@ -48,4 +48,17 @@ public class TextEditor {
         cursorPosition = memento.getCursorPosition();
         selection = memento.getSelection();
     }
+
+
+    public String getContent(){
+        return content;
+    }
+
+    public int getCursorPosition(){
+        return cursorPosition;
+    }
+
+    public String getSelection(){
+        return selection;
+    }
 }
