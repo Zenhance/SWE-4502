@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: AssemblyTitle("HomeAutomation_Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -15,6 +16,13 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("UnitTestProject1")]
 >>>>>>> 8e1234a (Add Test)
+=======
+[assembly: AssemblyTitle("HomeAutomation_Test")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("HomeAutomation_Test")]
+>>>>>>> 0e8849e (Adding LightingControllerTests)
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -22,10 +30,14 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: Guid("6e39a267-1097-4d21-b9aa-7203c0c39b08")]
 =======
 [assembly: Guid("d42cccd9-8098-4df6-94ce-7e33a28c0dec")]
 >>>>>>> 8e1234a (Add Test)
+=======
+[assembly: Guid("6e39a267-1097-4d21-b9aa-7203c0c39b08")]
+>>>>>>> 0e8849e (Adding LightingControllerTests)
 
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
