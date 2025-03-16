@@ -17,23 +17,39 @@ public class FileTest {
     }
 
     @Test
-    public void testSaveAndLoadSingleState() {
+    public void saveAndLoadState_ShouldPreserveEditorState() {
         editor.setContent("Test content");
         editor.setCursorPosition(5);
         editor.addSelection("content");
         history.backup();
         history.saveToFile(testFilePath);
 
+        editor.setContent("");
+        editor.setCursorPosition(0);
+        editor.clearSelections();
 
-        TextEditor newEditor = new TextEditor();
-        History newHistory = new History(newEditor);
-        newHistory.loadFromFile(testFilePath);
+        history.loadFromFile(testFilePath);
 
-        int size = newHistory.getMementos().size() - 1;
-        EditorMemento loadedMemento = newHistory.getMementos().get(size);
+        int size = history.getMementos().size() - 1;
+        EditorMemento loadedMemento = history.getMementos().get(size);
 
         assertEquals("Test content", loadedMemento.getContent());
         assertEquals(5, loadedMemento.getCursorPosition());
         assertEquals("content", loadedMemento.getSelection());
     }
+
+    @Test
+    public void testLoadFileFromExistingFile() {
+
+        history.loadFromFile(testFilePath);
+        assertFalse(history.getMementos().isEmpty());
+    }
+
+    @Test
+    public void testLoadFileFromNonExistingFile() {
+
+        history.loadFromFile("notThere.txt");
+        assertTrue(history.getMementos().isEmpty());
+    }
+
 }

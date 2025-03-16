@@ -57,9 +57,9 @@ public class History {
                 mementos.add(memento);
             }
             count = mementos.size();
-            System.out.println("History loaded from file");
+            System.out.println("History loaded from file: "+ filePath);
         } catch (IOException e) {
-            System.err.println("Error loading history from file");
+            System.err.println("Error loading history from file: "+ filePath);
 
         }
     }
