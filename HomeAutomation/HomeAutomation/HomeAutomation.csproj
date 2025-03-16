@@ -43,14 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnvironmentalState.cs" />
-    <Compile Include="ILoggerService.cs" />
-    <Compile Include="IStateObserver.cs" />
-    <Compile Include="IStateSubject.cs" />
-    <Compile Include="LoggerService.cs" />
+    <Compile Include="Core\EnvironmentalState.cs" />
+    <Compile Include="Core\ILoggerService.cs" />
+    <Compile Include="Core\IStateObserver.cs" />
+    <Compile Include="Core\IStateSubject.cs" />
+    <Compile Include="Core\LoggerService.cs" />
+    <Compile Include="EnergyTracking\EnergyMonitor.cs" />
+    <Compile Include="EnergyTracking\IEnergyMonitor.cs" />
+    <Compile Include="Lighting\ILightingController.cs" />
+    <Compile Include="Lighting\LightingController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StateManager.cs" />
+    <Compile Include="Core\StateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
