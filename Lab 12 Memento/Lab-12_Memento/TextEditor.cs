@@ -12,10 +12,9 @@ namespace Lab_12_Memento
         private int cursorPosition;
         private List<string> selections;
 
-
         public TextEditor()
         {
-            content = string.Empty;
+            content = "";
             cursorPosition = 0;
             selections = new List<string>();
         }
@@ -23,12 +22,22 @@ namespace Lab_12_Memento
         public void SetContent(string newContent)
         {
             content = newContent;
-            cursorPosition = content.Length;
+        }
+
+        public string GetContent()
+        {
+            return content;
         }
 
         public void SetCursorPosition(int position)
         {
-            cursorPosition = position;
+            if (position >= 0 && position <= content.Length)
+                cursorPosition = position;
+        }
+
+        public int GetCursorPosition()
+        {
+            return cursorPosition;
         }
 
         public void AddSelection(string selection)
@@ -36,32 +45,33 @@ namespace Lab_12_Memento
             selections.Add(selection);
         }
 
+        public List<string> GetSelections()
+        {
+            return new List<string>(selections); 
+        }
 
-        public void ClearSelection(string selection)
+        public void ClearSelections()
         {
             selections.Clear();
         }
 
         public EditorMemento CreateMemento()
         {
-            return new EditorMemento(content, cursorPosition, selections);
-        }   
-
+            return new EditorMemento(content, cursorPosition, new List<string>(selections)); 
+        }
 
         public void RestoreFromMemento(EditorMemento memento)
         {
             content = memento.Content;
             cursorPosition = memento.CursorPosition;
-            selections = new List<string>(memento.Selections);
+            selections = new List<string>(memento.Selections); 
         }
-
 
         public void DisplayState()
         {
             Console.WriteLine("Content: " + content);
             Console.WriteLine("Cursor Position: " + cursorPosition);
-            Console.WriteLine("");
-
+            Console.WriteLine("Selections: " + string.Join(", ", selections));
         }
     }
 }

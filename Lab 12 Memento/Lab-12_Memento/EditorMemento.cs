@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_12_Memento
 {
+    [Serializable]
     public class EditorMemento
     {
         public string Content { get; }
@@ -16,7 +17,7 @@ namespace Lab_12_Memento
         {
             Content = content;
             CursorPosition = cursorPosition;
-            Selections = new List<string>(selections);
+            Selections = selections;
         }
     }
 }
