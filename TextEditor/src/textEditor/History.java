@@ -1,23 +1,34 @@
 package textEditor;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class History {
-    public TextEditor editor;
-    public List<EditorMemento> mementos;
+    private TextEditor editor;
+    private List<EditorMemento> mementos;
+    private int count;
 
     public History(TextEditor _textEditor) {
         this.editor = _textEditor;
+        this.mementos = new ArrayList<>();
+        this.count = -1;
     }
 
     public void backup() {
         mementos.add(editor.createMemento());
+        count++;
         System.out.println("Saved the current state");
     }
 
     public void undo() {
-
+        if (count >= 1) {
+            count--;
+            editor.restoreFromMemento(mementos.get(count));
+            System.out.println("Undo performed.");
+        } else {
+            System.out.println("Cannot undo.");
+        }
     }
 
     public void saveToFile(String filePath) {
@@ -51,5 +62,9 @@ public class History {
             System.err.println("Error loading history from file");
 
         }
+    }
+
+    public List<EditorMemento> getMementos(){
+        return mementos;
     }
 }
