@@ -50,6 +50,7 @@
     <Compile Include="Core\LoggerService.cs" />
     <Compile Include="EnergyTracking\EnergyMonitor.cs" />
     <Compile Include="EnergyTracking\IEnergyMonitor.cs" />
+    <Compile Include="TemperatureControl\IThermostat.cs" />
     <Compile Include="RemoteApp\IRemoteController.cs" />
     <Compile Include="MotionDetection\IMotionSensor.cs" />
     <Compile Include="Lighting\ILightingController.cs" />
@@ -60,9 +61,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\StateManager.cs" />
     <Compile Include="RemoteApp\RemoteController.cs" />
+    <Compile Include="TemperatureControl\Thermostat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
