@@ -22,11 +22,20 @@ public class History {
     }
 
     public void undo() {
-        if (count > 0) {
-            count--;
-            editor.restoreFromMemento(mementos.get(count));
-            System.out.println("Undo performed.");
-        } else {
+        if (count > 1) {
+            count --;
+            EditorMemento mem = mementos.get(count-1);
+            editor.restoreFromMemento(mem);
+            System.out.println("Undo Performed.");
+
+        } else if(count == 1){
+            count --;
+            EditorMemento mem = new EditorMemento("",0,"");
+            editor.restoreFromMemento(mem);
+            System.out.println("Undo Performed. No more undo can be done.");
+
+        }
+        else {
             System.out.println("Cannot undo.");
         }
     }
@@ -66,5 +75,9 @@ public class History {
 
     public List<EditorMemento> getMementos(){
         return mementos;
+    }
+
+    public int getCount(){
+        return count;
     }
 }
