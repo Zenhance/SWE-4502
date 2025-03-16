@@ -12,7 +12,7 @@ public class History {
     public History(TextEditor _textEditor) {
         this.editor = _textEditor;
         this.mementos = new ArrayList<>();
-        this.count = 0;
+        this.count = -1;
     }
 
     public void backup() {
@@ -22,7 +22,7 @@ public class History {
     }
 
     public void undo() {
-        if (count > 0) {
+        if (count >= 1) {
             count--;
             editor.restoreFromMemento(mementos.get(count));
             System.out.println("Undo performed.");
@@ -56,7 +56,7 @@ public class History {
                 EditorMemento memento = new EditorMemento(content, cursorPosition, selection);
                 mementos.add(memento);
             }
-            count = mementos.size();
+
             System.out.println("History loaded from file");
         } catch (IOException e) {
             System.err.println("Error loading history from file");
@@ -67,5 +67,4 @@ public class History {
     public List<EditorMemento> getMementos(){
         return mementos;
     }
-
 }
