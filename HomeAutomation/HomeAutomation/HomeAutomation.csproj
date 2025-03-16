@@ -50,6 +50,7 @@
     <Compile Include="Core\LoggerService.cs" />
     <Compile Include="EnergyTracking\EnergyMonitor.cs" />
     <Compile Include="EnergyTracking\IEnergyMonitor.cs" />
+    <Compile Include="VoiceCommand\IVoiceProcessor.cs" />
     <Compile Include="TemperatureControl\IThermostat.cs" />
     <Compile Include="RemoteApp\IRemoteController.cs" />
     <Compile Include="MotionDetection\IMotionSensor.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Core\StateManager.cs" />
     <Compile Include="RemoteApp\RemoteController.cs" />
     <Compile Include="TemperatureControl\Thermostat.cs" />
+    <Compile Include="VoiceCommand\VoiceProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
