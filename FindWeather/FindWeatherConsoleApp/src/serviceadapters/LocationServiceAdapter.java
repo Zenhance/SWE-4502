@@ -5,7 +5,6 @@ import org.json.JSONObject;
 import utils.RequestResponseHandler;
 
 public class LocationServiceAdapter {
-
     public String getPublicIPAddress() throws Exception {
         String ipServiceUrl = "https://api.ipify.org?format=json";
         String response = RequestResponseHandler.sendGetRequest(ipServiceUrl);
@@ -27,6 +26,4 @@ public class LocationServiceAdapter {
 
         return new LocationData(city, country, latitude, longitude);
     }
-
-
 }
