@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="Issue.cs" />
+    <Compile Include="IssueRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
