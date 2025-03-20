@@ -8,6 +8,8 @@ namespace labfinal_210042111
 {
     internal class Program
     {
+        public enum Priority { low, medium, high, critical}
+
         static void Main(string[] args)
         {
         }
