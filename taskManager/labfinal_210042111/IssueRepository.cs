@@ -20,6 +20,14 @@ namespace labfinal_210042111
             repository.Remove(id);
         }
 
+        public Issue getIssue(int id)
+        {
+            return repository.ContainsKey(id) ? repository[id] : null;
+
+        }
+
+        public bool Contains(int id)=>repository.ContainsKey(id);
+        public IEnumerable<Issue> GetAll() => repository.Values;
 
 
     }
