@@ -5,6 +5,9 @@ using System.Text;
 
 namespace labfinal_210042111
 {
+    public enum Priority { low, medium, high, critical }
+    public enum Status { open, inProgress, underReview, resolved, closed }
+
     public class Issue
     {
         public int Id { get; set; }
