@@ -11,8 +11,10 @@ namespace TaskManagerTests
             var issue = IssueFactory.CreateIssue(1, "First Issue", "Description", Priority.Medium);
             var createIssueCommand = new CreateIssueCommand(repository, issue);
             var invoker = new CommandInvoker();
+
             // Act
             invoker.ExecuteCommand(createIssueCommand);
+
             // Assert
             var retrievedIssue = repository.GetIssue(1);
             Assert.NotNull(retrievedIssue);
