@@ -51,5 +51,27 @@ namespace TaskManager.Tests
             Assert.Equal("Test Description", retrievedIssue.Description);
             Assert.Equal(Priority.Medium, retrievedIssue.Priority);
         }
+        //#F08
+        [Fact]
+        public void Logger_ShouldStoreCommandHistoryLogs()
+        {
+            var repository = new IssueRepository();
+            var commandManager = new CommandManager();
+            var issue = new Issue
+            {
+                Title = "Test Issue",
+                Description = "Test Description",
+                Priority = Priority.Medium
+            };
+
+            commandManager.ExecuteCommand(new CreateIssueCommand(repository, issue));
+            issue.Status = Status.InProgress;
+            commandManager.ExecuteCommand(new UpdateIssueCommand(repository, issue));
+
+            var logs = commandManager.GetCommandLogs();
+            Assert.Equal(2, logs.Count);
+            Assert.Contains(logs, l => l.Type == CommandType.Create);
+            Assert.Contains(logs, l => l.Type == CommandType.Update);
+        }
     }
 }
