@@ -6,11 +6,16 @@ public class IssueRepositoryTest {
     public void CreateIssue_ShouldAddIssueToRepository()
     {
         IssueRepository repository = new IssueRepository();
-        Issue issue = new Issue("LabFinal", "Final Lab for Java", "Hamim");
+        Issue issue = new Issue("LabFinal", "Final_Lab_for_Java", "Hamim");
         repository.addIssue(issue);
-        var searchedIssue = repository.getIssue(issue.getId());
-        assertTrue(searchedIssue.id == issue.id);
-        assert
+        Issue searchedIssue = repository.getIssue(issue.getId());
+
+        assertTrue(searchedIssue.getId() == issue.getId());
+        assertTrue(searchedIssue.getTitle().equals("LabFinal"));
+        assertTrue(searchedIssue.getDescription().equals("Final_Lab_for_Java"));
+        assertTrue(searchedIssue.getStatus().toString().equals("Open"));
+        assertTrue(searchedIssue.getPriority().toString().equals("Low"));
+
 
 
     }

@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Issue {
-    static int id = 54321;
+    private int id = 54321;
     public String title;
     public String description;
     public Status status;
@@ -15,11 +15,11 @@ public class Issue {
     public List<Comment> comments = new ArrayList<>();
 
     public Issue (String title, String description,String assignTo) {
-        Issue.id = id++;
+        this.id = id++;
         this.title = title;
         this.description = description;
-        this.status = Status.Open;
-        this.priority = Priority.Low;
+        setStatus(Status.Open);
+        setPriority(Priority.Low);
         this.assignTo = assignTo;
         this.creationDate = new Date();
         this.lastModifiedDate = new Date();
