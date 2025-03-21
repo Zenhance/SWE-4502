@@ -7,7 +7,7 @@ import main.core.Issue;
 import main.commands.IssueCreateCommand;
 import main.features.IssueRepository;
 
-public class AppTest {
+public class Issue1 {
 
     @Test
     public void CreateIssue_ShouldAddIssueToRepository() {
