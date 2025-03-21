@@ -10,9 +10,9 @@ namespace labfinal_210042111
     {
         public string Description { get; set; }
         public DateTime timeStamp { get; set; }
-        public CommandType Type { get; set; }
+        public string Type { get; set; }
 
-        public LogEntry(string description, DateTime timeStamp, CommandType type)
+        public LogEntry(string description, DateTime timeStamp, string type)
         {
             Description = description;
             this.timeStamp = timeStamp;
