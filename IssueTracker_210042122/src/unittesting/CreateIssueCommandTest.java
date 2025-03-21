@@ -29,9 +29,17 @@ class CreateIssueCommandTest {
     }
 
     @Test
-    void testCreateIssue() {
+    void CreateIssue_ShouldAddIssueToRepository() {
         createIssueCommand.Execute();
         Assertions.assertTrue(issueRepository.issues.contains(issue), "Class.Issue should be added to the repository");
         Assertions.assertEquals(1, issueRepository.issues.size(), "Repository should have one issue");
+    }
+
+    //undo check
+    @Test
+    void UndoCommand_ShouldRevertLastAction(){
+        createIssueCommand.Undo();
+        Assertions.assertFalse(issueRepository.issues.contains(issue), "Class.Issue should be removed to the repository");
+        Assertions.assertEquals(0, issueRepository.issues.size(), "Repository should have one issue");
     }
 }

@@ -23,6 +23,6 @@ public class CreateIssueCommand implements Command {
 
     @Override
     public void Undo() {
-        // i will do that later on
+        issueRepository.RemoveIssue(issue);
     }
 }

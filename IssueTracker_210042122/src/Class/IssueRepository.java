@@ -25,7 +25,13 @@ public IssueRepository (List<Issue>issues){
       issue.setStatus(status);
     }
 
+
+    public void RemoveIssue(Issue issue) {
+     issues.remove(issue);
+    }
+
     public List<Issue> GetAllIssues() {
         return new ArrayList<>(issues);
     }
+
 }
