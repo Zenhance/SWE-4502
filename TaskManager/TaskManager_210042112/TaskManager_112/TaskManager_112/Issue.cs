@@ -12,8 +12,8 @@ namespace TaskManager_112
         public int ID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Priority { get; set; }
-        public string Status { get; set; }
+        public Priority priority { get; set; }
+        public Status status { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime LastModifiedDate { get; set; }
         public string AssignedTo { get; set; }
@@ -29,6 +29,16 @@ namespace TaskManager_112
             Tags = tags.ToList();    
             Comments = new List<string>();
 
+        }
+
+        public enum Priority
+        {
+            Low,Medium,High,Critical
+        }
+
+        public enum Status
+        {
+            Open,InProgress,UnderReview,Resolved,Closed
         }
 
     }
