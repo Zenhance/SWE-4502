@@ -16,4 +16,14 @@ public class IssueDescriptionUpdateCmd
         this._description = description;
         this._oldDescription = issue.description;
     }
+    
+    public void Execute()
+    {
+        this._issueManager.UpdateIssueDescription(this._issue, this._description);
+    }
+    
+    public void Undo()
+    {
+        this._issueManager.UpdateIssueDescription(this._issue, this._oldDescription);
+    }
 }
