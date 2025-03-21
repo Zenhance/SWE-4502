@@ -1,19 +1,25 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class IssueRepository {
+    private Map<Integer, Issue> issues = new HashMap<>();
 
-    private Map<UUID, Issue> issues =new HashMap<>();
+    public void addIssue(Issue issue) {
+        issues.put(issue.getId(), issue);
+    }
 
-    public void addIssue(Issue issue){issues.put(issue.getId(), issue);}
+    public Issue getIssue(Integer id) {
+        return issues.get(id);
+    }
 
-    public Issue getIssue(int id){return issues.get(id);}
+    public void updateIssue(Issue issue) {
+        issues.put(issue.getId(), issue);
+    }
 
-    public void updateIssue(Issue issue){return;}
+    public void removeIssue(Integer id) {
+        issues.remove(id);
+    }
 
-    public void removeIssue(Issue issue){return;}
-
-
-
+    public Collection<Issue> getAllIssues() {
+        return issues.values();
+    }
 }
