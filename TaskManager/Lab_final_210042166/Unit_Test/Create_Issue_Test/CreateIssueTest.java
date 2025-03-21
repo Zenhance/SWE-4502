@@ -16,7 +16,7 @@ public class CreateIssueTest {
     @Test
     public void CreateIssue_ShouldAddIssueToRepository(){
         IssueRepository repository = IssueRepository.getInstance();
-        Issue issue = new Issue("1", "Test Issue", "Description", Priority.MEDIUM, "User1");
+        Issue issue = new Issue("1", "Test Issue", "Creating Issue", Priority.MEDIUM, "User1");
         Command createCommand = new CreateIssueCommand(issue, repository);
 
         createCommand.execute();
