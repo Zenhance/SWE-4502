@@ -23,5 +23,15 @@ public class Comment {
     {
         return author;
     }
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id='" + id + '\'' +
+                ", content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
+    }
+
 }
 
