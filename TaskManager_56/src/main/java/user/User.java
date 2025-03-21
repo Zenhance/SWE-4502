@@ -36,6 +36,10 @@ public class User {
         return comment;
 
     }
+    public void UpdateIssueState(Issue.Status status,Issue issue){
+        issue.status=status;
+
+    }
 
 
 
