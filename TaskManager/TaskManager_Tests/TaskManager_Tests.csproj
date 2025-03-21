@@ -52,6 +52,7 @@
     <Compile Include="AddComment_ShouldAddCommentToIssue.cs" />
     <Compile Include="ChangeStatus_ShouldUpdateIssueStatus.cs" />
     <Compile Include="CreateIssue_ShouldAddIssueToRepository.cs" />
+    <Compile Include="Observer_ShouldBeNotifiedOfCommands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedoCommand_ShouldReapplyUndoneAction.cs" />
     <Compile Include="UndoCommand_ShouldRevertLastAction.cs" />
