@@ -41,4 +41,11 @@ public class Issue {
         return cloned;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
 }
