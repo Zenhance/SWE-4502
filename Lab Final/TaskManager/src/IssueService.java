@@ -46,4 +46,14 @@ public class IssueService {
         issue.LastModified = new Date();
         return issue;
     }
+
+    public Issue addStatus(int id, String status) {
+        Issue issue = repository.getIssue(id);
+        if (issue == null) {
+            return null;
+        }
+        issue.status = status;
+        issue.LastModified = new Date();
+        return issue;
+    }
 }
