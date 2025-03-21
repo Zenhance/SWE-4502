@@ -19,9 +19,13 @@ public class IssueReposity {
     public void updateIssue(Issue issue) {
         issues.put(issue.getId(), issue);
     }
-    
+
+    public void removeIssue(Issue issue) {
+        issues.remove(issue.getId());
+    }
     public List<Issue> getAllIssues() {
         return new ArrayList<>(issues.values());
-    
-}
+    }
+
+
 }
