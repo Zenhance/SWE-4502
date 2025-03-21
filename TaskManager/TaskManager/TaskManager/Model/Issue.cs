@@ -25,6 +25,8 @@ public class Issue
         _createdDate = DateTime.Now;
         _updatedDate = DateTime.Now;
         _assignedTo = assignedTo;
+        _comments = new List<Comment>();
+        _tags = new List<Tag>();
     }
 
     public IssuePrototype Log()

@@ -7,12 +7,11 @@ public class Comment
     private User _user;
     private DateTime _createdDate;
     
-    public Comment(int id, string comment, User user, DateTime createdDate)
+    public Comment(string comment, User user)
     {
-        _id = id;
         _comment = comment;
         _user = user;
-        _createdDate = createdDate;
+        _createdDate = DateTime.Now;
     }
     
     public int getId()
