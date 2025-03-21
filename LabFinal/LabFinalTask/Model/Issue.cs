@@ -9,5 +9,10 @@ public class Issue
     public string description;
     public PRIORITY priority;
     public STATUS status;
+    public DateTime createdDate;
+    public DateTime lastModifiedDate;
+    public User AssignedTo;
+    
+    public List<Comment> comments;
     
 }

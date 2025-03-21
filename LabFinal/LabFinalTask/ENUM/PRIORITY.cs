@@ -4,5 +4,6 @@ public enum PRIORITY
 {
     LOW,
     MEDIUM,
-    HIGH
+    HIGH,
+    CRITICAL
 }
