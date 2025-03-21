@@ -51,21 +51,9 @@ public class Issue  {
 
 
 
-//    @Override
-//    public void CreateIssue(IssueRepository r) {
-//
-//       r.hm1.put(Id,new Issue());
-//       Id++;
-//       System.out.println("Issue " + Id +"has been created");
-//    }
-//
-//
-//
-//    @Override
-//    public void ChangeStatus(Priority p) {
-//        this.priority=p;
-//
-//    }
+
+
+
 //
 //    @Override
 //    public void Addcomments(Comment c) {
