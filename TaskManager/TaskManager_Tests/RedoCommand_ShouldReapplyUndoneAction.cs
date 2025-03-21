@@ -24,7 +24,7 @@ namespace TaskManager_Tests
             commandManager.Redo();
 
             var retrievedIssue = repo.GetIssue(1);
-            //
+            
 
         }
         
