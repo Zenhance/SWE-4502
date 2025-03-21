@@ -112,6 +112,21 @@ public class TaskManagementTests {
         assertFalse(logs.isEmpty());
         assertEquals("Logger test", logs.get(0));
     }
+
+    @Test
+    public void MultipleObservers_ShouldAllBeNotified() {
+        List<String> messages1 = new ArrayList<>();
+        List<String> messages2 = new ArrayList<>();
+        Observer observer1 = message -> messages1.add(message);
+        Observer observer2 = message -> messages2.add(message);
+        notificationService.registerObserver(observer1);
+        notificationService.registerObserver(observer2);
+        notificationService.notifyObservers("Multi observer test");
+        assertEquals(1, messages1.size());
+        assertEquals(1, messages2.size());
+        assertEquals("Multi observer test", messages1.get(0));
+        assertEquals("Multi observer test", messages2.get(0));
+    }
 }
 
 class DummyStatisticsCollector {
