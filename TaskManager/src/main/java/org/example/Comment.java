@@ -8,7 +8,7 @@ public class Comment {
     public String author;
     public Date createdAt;
 
-    public Comment(int id, String content, String author, Date createdAt){
+    public Comment(String content, String author){
         this.id= id;
         this.content= content;
         this.author= author;

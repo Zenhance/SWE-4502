@@ -37,7 +37,8 @@ public class Issue {
         status cng = status.Resolved;
         System.out.println("Issue status changed");
     }
-    public void addComment(){
+    public void addComment(String content, String author){
+        this.comments.concat(String.valueOf(new Comment(content, author)));
         System.out.println("Comment added");
     }
     public void undoRedo(){
