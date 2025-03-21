@@ -1,4 +1,4 @@
-public class IssueCommand implements Command {
+public class IssueCommand extends Command {
     private  IssueRepository issueRepository;
     private  Issue issue;
 
