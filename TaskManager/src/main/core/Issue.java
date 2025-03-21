@@ -48,6 +48,18 @@ public class Issue {
         this.comments = new ArrayList<>();
     }
 
+    public Issue(Issue target) {
+        if (target != null) {
+            this.title = target.title;
+            this.description = target.description;
+            this.assignedTo = target.assignedTo;
+        }
+    }
+
+    public Issue clone() {
+        return new Issue(this);
+    }
+
     public String GetId() {
         return id;
     }

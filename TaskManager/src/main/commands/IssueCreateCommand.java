@@ -5,23 +5,18 @@ import main.features.IssueRepository;
 
 public class IssueCreateCommand extends Command{
     private Issue issue;
-    private String title;
-    private String description;
-    private String assignedTo;
     private IssueRepository issueRepository;
 
-    public IssueCreateCommand(String _title, String _description, String _assignedTo) {
+    public IssueCreateCommand(Issue _issue, IssueRepository _issueRepository) {
         super();
-        this.title = _title;
-        this.description = _description;
-        this.assignedTo = _assignedTo;
-        this.issueRepository = new IssueRepository();
+        this.issue = _issue;
+        this.issueRepository = _issueRepository;
     }
 
     @Override
     public void execute() {
-        issue = new Issue(title, description, assignedTo);
-        issueRepository.AddIssueToRepository(issue);
+        Issue clonedIssue = issue.clone();
+        issueRepository.AddIssueToRepository(clonedIssue);
     }
 
     @Override
