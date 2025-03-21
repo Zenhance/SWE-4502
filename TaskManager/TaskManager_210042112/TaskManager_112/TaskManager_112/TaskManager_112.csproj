@@ -43,6 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeIssueStatusCommand.cs" />
+    <Compile Include="CommandInvoker.cs" />
+    <Compile Include="CommandLogger.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="CreateIssueCommand.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="IObserver.cs" />
+    <Compile Include="Issue.cs" />
+    <Compile Include="IssueFactory.cs" />
+    <Compile Include="IssueManager.cs" />
+    <Compile Include="IssueObserver.cs" />
+    <Compile Include="IssueRepository.cs" />
+    <Compile Include="NotificationService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
