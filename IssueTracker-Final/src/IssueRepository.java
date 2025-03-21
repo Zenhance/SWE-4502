@@ -14,6 +14,12 @@ public class IssueRepository {
         return issues.get(id);
     }
 
+    public String AddComment(String id, Comment comment){
+        Issue issue=issues.get(id);
+        issue.comments.add(comment);
+        return "Comment added successfully";
+    }
+
 
 
 

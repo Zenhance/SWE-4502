@@ -25,6 +25,24 @@ public class Issue1Test {
         assertEquals(issue, issueRepository.getIssue("1"));
     }
 
+    @Test
+
+    public void AddComment_ShouldAddCommentToIssue() {
+
+        IssueRepository issueRepository = new IssueRepository();
+        Issue issue = new Issue(1, "Title", "Description", Priority.Low, Status.Open, LocalDateTime.now(), LocalDateTime.now(), "AssignedTo", new ArrayList<>(), new ArrayList<>());
+        Comment comment = new Comment(1, "Content", "Author", LocalDateTime.now());
+
+        issueRepository.addIssue(issue);
+        issueRepository.AddComment("1", comment);
+
+        assertEquals(comment, issueRepository.getIssue("1").comments.get(0));
+    }
+
+
+
+
+
 
 
 
