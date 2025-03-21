@@ -16,14 +16,12 @@ public class IssuePrototype
     public DateTime createdDate;
     public DateTime lastModifiedDate;
     public User AssignedTo;
-
-    public UserMediator UserMediator;
     
     public List<Comment> comments;
     public List<Tag> tags;
 
     public IssuePrototype(string title, string description, PRIORITY priority, STATUS status, DateTime createdDate,
-        DateTime lastModifiedDate, User AssignedTo, UserMediator userMediator)
+        DateTime lastModifiedDate, User AssignedTo)
     {
         this.title = title;
         this.description = description;
@@ -32,6 +30,5 @@ public class IssuePrototype
         this.createdDate = createdDate;
         this.lastModifiedDate = lastModifiedDate;
         this.AssignedTo = AssignedTo;
-        this.UserMediator = userMediator;
     }
 }

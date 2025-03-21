@@ -13,6 +13,11 @@ public class UserMediator
     
     public void AddUser(User user)
     {
+        if(users.Contains(user))
+        {
+            return;
+        }
+        
         users.Add(user);
     }
     

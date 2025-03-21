@@ -14,11 +14,11 @@ public class IssueCreateCommand : ICommand
     {
         _issueManager = issueManager;
         _issue = issue;
+        _issuePrototype = issue.Log();
     }
 
     public void execute()
     {
-        _issuePrototype = _issue.Log();
         _issueManager.AddIssue(_issue);
     }
 
