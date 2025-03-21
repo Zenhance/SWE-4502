@@ -23,6 +23,15 @@ namespace dpfinal_200042152
             CreatedAt = _createdAt;
         
         }
-
+         
+        public Comment(Comment original) 
+        
+        { 
+            Id=original.Id;
+            Content = original.Content;
+            Author = original.Author;
+            CreatedAt = original.CreatedAt;
+        
+        }
     }
 }
