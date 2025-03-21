@@ -18,14 +18,23 @@ namespace labfinal_210042111
         public DateTime CreationDare { get; set; }
         public DateTime LastModificationDate { get; set; }
         public string AssignTo { get; set; }
-        public List<string> Tags { get; set; }=new List<string>();
-        public List<string> Comments { get; set; } = new List<string>();
+        public List<string> Tags { get; set; } = new List<string>();
+        public List<Comment> Comments { get; set; } = new List<Comment>();
 
         public Stack<string> titles;
 
         public Stack<string> descriptions;
-      
 
+        public Issue(int id, string title, string description, Priority priority, string assignedTo)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            this.priority= priority;
+            AssignTo = assignedTo;
+
+        }
+    
         public Status getStatus()
         {
             return status;
@@ -75,9 +84,9 @@ namespace labfinal_210042111
         {
             Tags.Add(tag);
         }
-        public void AddComments(string comments)
+        public void AddComments(Comment comments)
         {
-            Comments.Add(comments);
+            Comments.Add(comments.id, comments.Content, comments.Author);
         }
 
         public void changeStatus(Status status)

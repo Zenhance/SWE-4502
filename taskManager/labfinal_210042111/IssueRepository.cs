@@ -10,7 +10,11 @@ namespace labfinal_210042111
 
         private Dictionary<int, Issue> repository = new Dictionary<int, Issue>();
 
-
+        public IssueRepository(int id, Issue i)
+        {
+            repository.Add(id, i);
+           
+        }
         public void addIssue(Issue issue)
         {
             repository[issue.Id] = issue;

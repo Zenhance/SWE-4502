@@ -49,9 +49,9 @@
   <ItemGroup>
     <Compile Include="AddCommentCommand.cs" />
     <Compile Include="ChangeIssueStatusCommand.cs" />
+    <Compile Include="CreateIssueCommand.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="Comment.cs" />
-    <Compile Include="CreateIssueCommand.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="IssueRepository.cs" />
     <Compile Include="LogEntry.cs" />

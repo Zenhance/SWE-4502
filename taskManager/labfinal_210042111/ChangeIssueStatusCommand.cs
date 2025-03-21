@@ -18,7 +18,7 @@ namespace labfinal_210042111
             this.newStatus = newStatus;
 
         }
-        public void execute()
+        public void Execute()
         {
             oldStatus = issue.getStatus();
             issue.changeStatus(newStatus);

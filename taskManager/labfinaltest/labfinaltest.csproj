@@ -23,4 +23,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\labfinal_210042111\labfinal_210042111.csproj" />
+  </ItemGroup>
+
 </Project>
