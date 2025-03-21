@@ -2,6 +2,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TaskManagementTests {
     private IssueRepository repository;
     private CommandInvoker invoker;
@@ -69,6 +72,16 @@ public class TaskManagementTests {
         assertNull(repository.getIssue("5"));
         invoker.redo();
         assertNotNull(repository.getIssue("5"));
+    }
+
+    @Test
+    public void Observer_ShouldBeNotifiedOfCommands() {
+        List<String> messages = new ArrayList<>();
+        Observer testObserver = message -> messages.add(message);
+        notificationService.registerObserver(testObserver);
+        notificationService.notifyObservers("Test notification");
+        assertEquals(1, messages.size());
+        assertEquals("Test notification", messages.get(0));
     }
 
     
