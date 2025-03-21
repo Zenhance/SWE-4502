@@ -9,4 +9,7 @@ public class  StatisticsController implements Command{
     public void execute() {
         r.StatisticController();
     }
+
+
+
 }

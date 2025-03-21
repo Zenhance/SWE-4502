@@ -5,11 +5,11 @@ public class Comment {
     public String Content;
     public String Author;
     public Date CreatedAt;
-    public Comment(int id, String content, String Author, Date CreatedAt)
+    public Comment(int id, String content, String Author )
     {
         this.ID = id;
         this.Content = content;
         this.Author = Author;
-        this.CreatedAt = CreatedAt;
+        this.CreatedAt = new Date();
     }
 }

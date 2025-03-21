@@ -1,12 +1,15 @@
 public class AddComments implements Command{
-    private Receiver r;
-    Comment c;
-    public AddComments(Receiver r)
-    {
-        this.r=r;
+    public Comment c;
+
+    public Issue issue;
+    public  AddComments(Issue issue, Comment c) {
+        this.issue = issue;
+        issue.addComment(c);
+
     }
+
     @Override
     public void execute() {
-        r.Addcomments(c);
+       new AddComments(issue,c);
     }
 }

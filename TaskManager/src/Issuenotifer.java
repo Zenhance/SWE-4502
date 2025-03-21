@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Issuenotifer {
     private List<Observer> observers = new ArrayList<>();
-    private String weather;
+
 
 
     public void addObserver(Observer observer) {

@@ -27,10 +27,5 @@ public class test {
     }
 
 
-    @Test
-    void ChangeStausTest()
-    {
 
-
-    }
 }
