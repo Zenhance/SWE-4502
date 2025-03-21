@@ -8,6 +8,6 @@ namespace TaskManager
 {
     interface IObserver
     {
-        public void Notify();
+        void Notify(string message);
     }
 }

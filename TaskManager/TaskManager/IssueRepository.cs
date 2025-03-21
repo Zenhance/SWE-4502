@@ -8,25 +8,24 @@ namespace TaskManager
 {
     public class IssueRepository
     {
-        public List<Issue> Issues = new List<Issue>();
-        public List<Dictionary<string, string>> IssueHistory = new List<Dictionary<string, string>>();
+        private Dictionary<int, Issue> issues = new Dictionary<int, Issue>();
+
         public void AddIssue(Issue issue)
         {
-            Issues.Add(issue);
-            Console.WriteLine("Issue created");
+            issues[issue.Id] = issue;
+        }
+
+        public Issue GetIssue(int id)
+        {
+            return issues.ContainsKey(id) ? issues[id] : null;
         }
 
         public void UpdateIssue(Issue issue)
         {
-            Console.WriteLine("Issue updated");
+            if (issues.ContainsKey(issue.Id))
+            {
+                issues[issue.Id] = issue;
+            }
         }
-
-        public void ChangeIssueStatus(Issue issue, Status status)
-        {
-            Console.WriteLine("Issue status changed");
-        }
-
-        
-
     }
 }

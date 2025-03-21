@@ -6,21 +6,31 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    class UpdateIssueCommand :ICommand
+    public class UpdateIssueCommand : ICommand
     {
-        public IssueRepository repository;
-        Issue newIssue, oldIssue;
+        private IssueRepository repository;
+        private Issue newIssue, oldIssue;
 
-        public UpdateIssueCommand(IssueRepository repository, Issue newIssue, Issue oldIssue)
+        public UpdateIssueCommand(IssueRepository repo, Issue issue)
         {
-            this.repository = repository;
-            this.newIssue = newIssue;
-            this.oldIssue = oldIssue;
+            repository = repo;
+            oldIssue = (Issue)repo.GetIssue(issue.Id)?.Clone();
+            newIssue = issue;
         }
+
+
 
         public void Execute()
         {
-
+            repository.UpdateIssue(newIssue);
         }
+
+        public void Undo()
+        {
+            repository.UpdateIssue(oldIssue);
+        }
+
+        public string Description => $"Update Issue {newIssue.Id}";
+    
     }
 }

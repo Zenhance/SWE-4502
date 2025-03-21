@@ -8,9 +8,10 @@ namespace TaskManager
 {
     class NotificationService :IObserver
     {
-        public void Notify()
+        public void Notify(string message)
         {
-            Console.WriteLine("Email notification sent");
+            Console.WriteLine($"[Notification]: {message}");
         }
+
     }
 }

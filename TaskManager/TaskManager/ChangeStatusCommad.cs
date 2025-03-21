@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    class ChangeStatusCommad : ICommand
+    class ChangeStatusCommand : ICommand
     {
         private IssueRepository repository;
         private int issueId;
@@ -16,14 +16,15 @@ namespace TaskManager
 
 
 
-        public ChangeStatusCommad(IssueRepository repository, int issueId, Status oldStatus, Status newStatus, IObserver observer)
+        public ChangeStatusCommand(IssueRepository repo, int issueId, Status newStatus, IObserver obs)
         {
-            this.repository = repository;
+            repository = repo;
             this.issueId = issueId;
-            this.oldStatus = oldStatus;
             this.newStatus = newStatus;
-            this.observer = observer;
+            this.observer = obs;
         }
+
+
 
         public void Execute()
         {
