@@ -12,5 +12,8 @@ public class IssueRepository {
     public Issue getIssue(int id){
         return issues.get(id);
     }
+    public void removeIssue(int id){
+        issues.remove(id);
+    }
 
 }

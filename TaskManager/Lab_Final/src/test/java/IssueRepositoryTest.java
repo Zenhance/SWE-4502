@@ -19,12 +19,19 @@ public class IssueRepositoryTest {
         assertTrue(searchedIssue.getPriority().toString().equals("Low"));
 
 //        Test 2
+
         Comment comment = new Comment( "This is a comment");
         searchedIssue.addComment(comment);
         assertTrue(searchedIssue.getCommentById(comment.getId()).content.equals("This is a comment"));
+
 //        Test 3
+
         searchedIssue.setStatus(Issue.Status.Closed);
         assertTrue(searchedIssue.getStatus().toString().equals("Closed"));
+
+
+        // Test 4
+
 
     }
 }
