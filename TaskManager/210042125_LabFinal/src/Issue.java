@@ -16,7 +16,10 @@ public class Issue implements Notify{
     private ArrayList<Log> LogHistory;
     private ArrayList<User> SubscriberList;
 
-    public Issue(){
+    public Issue(String Title, String Description, Priority priority){
+        this.Title= Title;
+        this.Description= Description;
+        this.Priority= priority;
         CommentList= new ArrayList<>();
         SubscriberList= new ArrayList<>();
         notifying("New Status created with "+this.getID());
@@ -24,6 +27,16 @@ public class Issue implements Notify{
 
     public String getID(){
         return Id;
+    }
+
+    public String getDescription(){
+        return Description;
+    }
+    public String getTitle(){
+        return Title;
+    }
+    public Priority getPriority(){
+        return Priority;
     }
 
     public void updateIssue(String Title){

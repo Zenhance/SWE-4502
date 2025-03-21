@@ -16,4 +16,13 @@ public class IssueRepository {
             System.out.println("Issue ID: "+ a.getID());
         }
     }
+
+    public String getIssue(Issue issue){
+        if(IssueHistory.contains(issue)){
+            return("Title: "+issue.getTitle()+" Description: "+issue.getDescription()+" Priority: "+issue.getPriority());
+        }
+        else{
+            return "";
+        }
+    }
 }
