@@ -1,4 +1,6 @@
-﻿using TaskManager.Domain;
+﻿using Xunit;
+using TaskManager;
+using TaskManager.Domain;
 
 namespace TaskManager.Test;
 
@@ -26,5 +28,22 @@ public class IssueServiceTests
         Assert.Equal(result.Id, comment.Id);
         Assert.Equal(result.Content, comment.Content);
         Assert.Equal(result.Author, comment.Author);
+    }
+
+    [Fact()]
+    public void ChangeStatus_ShouldUpdateIssueStatus()
+    {
+        var issue = new Issue
+        {
+            Title = "another issue",
+            Description = "lorem ispum..",
+            Priority = IssuePriority.Low
+        };
+
+        var service = new IssueService();
+        issue = service.CreateIssue(issue);
+        issue = service.UpdateIssueStatus(issue.Id, IssueStatus.InProgress);
+
+        Assert.Equal(issue.Status, IssueStatus.InProgress);
     }
 }

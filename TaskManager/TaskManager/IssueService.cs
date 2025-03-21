@@ -30,4 +30,12 @@ public class IssueService
     {
         return _commentRepo.FindById(id);
     }
+
+    public Issue? UpdateIssueStatus(int issueId, IssueStatus status)
+    {
+        var issue = _issueRepo.FindById(issueId);
+        if (issue == null) return null;
+        issue.Status = status;
+        return issue;
+    }
 }
