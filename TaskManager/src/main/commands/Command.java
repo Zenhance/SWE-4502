@@ -12,13 +12,14 @@ enum Type {
 }
 
 public abstract class Command implements IOperation{
-    private Issue issue;
     private String description;
     private LocalDate timeStamp;
     private Type type;
 
-    public Command() {
-        
+    public Command(String _description, Type _type) {
+        this.description = _description,
+        this.timeStamp = LocalDate.now();
+        this.type = _type;
     }
 
     public abstract void execute();
