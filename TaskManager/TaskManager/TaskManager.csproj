@@ -21,8 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Observers\" />
-      <Folder Include="Services\" />
       <Folder Include="Tests\" />
     </ItemGroup>
 
