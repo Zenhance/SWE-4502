@@ -1,33 +1,28 @@
-﻿using LabFinalTask.Log;
+﻿using LabFinalTask.Core;
+using LabFinalTask.Log;
 using LabFinalTask.Model;
 
 namespace LabFinalTask.Command;
 
 public class IssueCreateCommand : ICommand
 {
-    IssuePrototype issuePrototype;
-    Issue issue;
+    private IssueManager _issueManager;
+    private Issue _issue;
+    private IssuePrototype _issuePrototype;
     
-    public IssueCreateCommand(Issue issue)
+    public IssueCreateCommand(IssueManager issueManager)
     {
-        this.issuePrototype = issue.Log();
-        this.issue = issue;
+        _issueManager = issueManager;
     }
-    
-    public IssueCreateCommand(){}
-    
+
     public void execute()
     {
-        // Will do later
+        
     }
-    
+
     public void undo()
     {
-        if(issuePrototype != null)
-        {
-            issue.LoadFromLog(issuePrototype);
-        }
+        
     }
-    
-    
+
 }
