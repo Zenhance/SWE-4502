@@ -1,0 +1,8 @@
+Content: Hello World
+Cursor Position: 0
+Selections: Hello
+-------------------
+Content: Goodbye World
+Cursor Position: 5
+Selections: Goodbye
+-------------------
