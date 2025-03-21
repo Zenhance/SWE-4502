@@ -23,7 +23,7 @@ public class Comment {
     public Comment clone() {
         return new Comment(this);
     }
-    
+
     public String getId() {
         return id;
     }
