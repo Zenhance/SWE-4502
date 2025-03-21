@@ -28,6 +28,7 @@ public class Issue
     public DateTime LastModifiedDate { get; set; }
     public string? AssigendTo { get; set; }
     public HashSet<string> Tags { get; set; } = new();
+    public HashSet<Comment> Comments { get; set; } = new(); 
 
 
 }

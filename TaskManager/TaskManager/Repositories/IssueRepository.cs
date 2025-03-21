@@ -1,6 +1,6 @@
 ﻿using TaskManager.Domain;
 
-namespace TaskManager;
+namespace TaskManager.Repositories;
 
 public class IssueRepository
 {
