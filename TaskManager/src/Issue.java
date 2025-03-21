@@ -45,21 +45,19 @@ public class Issue implements Cloneable {
     public Issue clone() {
         try {
             Issue cloned = (Issue) super.clone();
-
-
             cloned.tags = new ArrayList<>(this.tags);
-
             cloned.comments = new ArrayList<>();
-            for (Comment comment : this.comments) {
+            for (Comment comment : this.comments)
+            {
                 cloned.comments.add(comment.clone());
             }
-
-
             cloned.creationDate = new Date(this.creationDate.getTime());
             cloned.lastModifiedDate = new Date(this.lastModifiedDate.getTime());
 
             return cloned;
-        } catch (CloneNotSupportedException e) {
+        }
+        catch (CloneNotSupportedException e)
+        {
             throw new AssertionError();
         }
     }
@@ -92,6 +90,14 @@ public class Issue implements Cloneable {
         return this.creationDate;
     }
 
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
     public void setTitle(String title)
     {
         this.title=title;
@@ -116,4 +122,5 @@ public class Issue implements Cloneable {
     {
         this.assignedTo=assignedTo;
     }
+
 }

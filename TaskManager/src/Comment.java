@@ -16,7 +16,7 @@ public class Comment implements Cloneable {
     public Comment clone() {
         try {
             Comment cloned = (Comment) super.clone();
-            cloned.createdAt = new Date(this.createdAt.getTime()); // Deep copy date field
+            cloned.createdAt = new Date(this.createdAt.getTime());
             return cloned;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
@@ -49,6 +49,10 @@ public class Comment implements Cloneable {
 
     public void setAuthor()
     {
-
+        this.author=author;
+    }
+    public void setId(String id)
+    {
+        this.id=id;
     }
 }
