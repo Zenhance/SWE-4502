@@ -94,3 +94,18 @@ public class TestStatistics
     }
 }
 
+public class TestLogger
+{
+    [Fact]
+    public void Logger_ShouldStoreCommandHistoryLogs()
+    {
+        var logger = new Logger();
+
+        logger.Log("Issue Created");
+        logger.Log("Status Changed");
+
+        var logs = logger.GetLogs();
+        Assert.Contains(logs, log => log.Contains("Issue Created"));
+        Assert.Contains(logs, log => log.Contains("Status Changed"));
+    }
+}
