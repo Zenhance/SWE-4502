@@ -14,5 +14,5 @@ public class Issue
     public User AssignedTo;
     
     public List<Comment> comments;
-    
+    public List<Tag> tags;
 }
