@@ -141,5 +141,23 @@ namespace MyTaskManagerTest
             var commandLogs = commandInvoker.GetCommandLogs();
             Assert.Equal(2, commandLogs.Count());
         }
+
+        [Fact]
+        public void CommandHistory_ShouldTrackAllExecutedCommands()
+        {
+            var issueRepository = new IssueRepository();
+            var createCommand = new CreateIssueCommand(issueRepository, "Test Issue", "This is a test issue", Priority.Medium);
+            var commandInvoker = new CommandInvoker();
+            commandInvoker.ExecuteCommand(createCommand);
+
+            var createCommand2 = new CreateIssueCommand(issueRepository, "Test Issue 2", "This is a test issue 2", Priority.Low);
+            commandInvoker.ExecuteCommand(createCommand2);
+
+            var createCommand3 = new CreateIssueCommand(issueRepository, "Test Issue 3", "This is a test issue 3", Priority.High);
+            commandInvoker.ExecuteCommand(createCommand2);
+
+            var commandLogs = commandInvoker.GetCommandLogs();
+            Assert.Equal(3, commandLogs.Count());
+        }
     }
 }
