@@ -23,7 +23,7 @@ namespace TaskManager_Tests
             Comments comment = new Comments(1, "Test comment", "Author");
             issue.comments.Add(comment);
 
-            Assert.AreEqual(null, comment.content);
+            Assert.AreEqual(null, comment.content);//
         }
 
     }
