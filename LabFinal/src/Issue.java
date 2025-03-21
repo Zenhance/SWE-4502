@@ -83,11 +83,14 @@ public class Issue {
     }
 
     public void addComment(Comment comment) {
+        comments.add(comment);
     }
 
-    public Map<Object, Object> getComments() {
-        return null;
+
+    public List<Comment> getComments() {
+        return comments;
     }
+
 
     public String getTitle() {
         return title;

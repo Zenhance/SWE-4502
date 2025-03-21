@@ -39,6 +39,7 @@ public class AddCommentToIssueTest {
         assertNotNull(issue.getComments());
         assertEquals(1, issue.getComments().size());
         assertEquals("Sani", issue.getComments().get(0).getAuthor());
+
     }
 
 }
