@@ -27,6 +27,9 @@ public class Issue
         this.createdDate = DateTime.Now;
         this.lastModifiedDate = DateTime.Now;
         this.AssignedTo = AssignedTo;
+        
+        comments = new List<Comment>();
+        tags = new List<Tag>();
     }
 
     public IssuePrototype Log()
