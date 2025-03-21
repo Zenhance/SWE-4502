@@ -13,4 +13,19 @@ public class CreateIssue_ShouldAddIssueToRepository {
         Assert.assertEquals("101", newIssue.getId());
     }
 
+    @Test
+    public void objectCreationTest2(){
+        Issue newIssue = repository.createIssue();
+        Assert.assertEquals("Issue 1", newIssue.getTitle());
+    }
+    @Test
+    public void objectCreationTest3(){
+        Issue newIssue = repository.createIssue();
+        Assert.assertEquals(PRIORITY.High, newIssue.getPriority());
+    }
+    @Test
+    public void objectCreationTest4(){
+        Issue newIssue = repository.createIssue();
+        Assert.assertEquals(STATUS.Open, newIssue.getStatus());
+    }
 }

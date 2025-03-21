@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Issue implements Prototype{
@@ -10,7 +11,7 @@ public class Issue implements Prototype{
     private LocalDateTime lastModifiedDate;
     private User assignedTo;
     private List<String> tags;
-    private List<String> comments;
+    private List<Comment> comments;
 
     public Issue(String id, String title, Enum<PRIORITY> priority, Enum<STATUS> status, User assignedTo) {
         this.id = id;
@@ -18,11 +19,23 @@ public class Issue implements Prototype{
         this.priority = priority;
         this.status = status;
         this.assignedTo = assignedTo;
+        this.comments= new ArrayList<>();
     }
 
     @Override
     public Issue clone() {
         return new Issue(this.id,this.title,this.priority,this.status,this.assignedTo);
+    }
+
+    public Issue updateIssue(String title, Enum<PRIORITY> priority){
+        this.title = title;
+        this.priority = priority;
+
+        return this;
+    }
+    public Comment addComment(Comment comment){
+        comments.add(comment);
+        return comments.getLast();
     }
 
     public String getId() {
@@ -89,11 +102,11 @@ public class Issue implements Prototype{
         this.tags = tags;
     }
 
-    public List<String> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(List<String> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 }
