@@ -22,4 +22,18 @@ public class CreateIssueTest
         Assert.Equal(Priority.Medium, retrievedIssue.Priority);
         Assert.Equal(Status.Open, retrievedIssue.Status);
     }
+    [Fact]
+    public void AddComment_ShouldAddCommentToIssue()
+    {
+        var repository = new IssueRepository();
+        var issue = new Issue { Title = "Test Issue", Description = "Test Description", Priority = Priority.Medium };
+        repository.AddIssue(issue);
+        var command= new Comment{ Content="Test Comment", Author="Test Author" };
+        
+        issue.Comments.Add(command);
+        var retrievedIssue = repository.GetIssue(issue.Id);
+        Assert.Single(retrievedIssue.Comments);
+        Assert.Equal(command.Content, retrievedIssue.Comments[0].Content);
+        Assert.Equal(command.Author, retrievedIssue.Comments[0].Author);
+    }
 }
