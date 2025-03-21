@@ -65,6 +65,12 @@ class TaskManagerTest {
         assertEquals(Status.IN_PROGRESS, updatedIssue.getStatus());
     }
 
+    @Test
+    void testObserver_ShouldBeNotifiedOfCommands() {
+        taskManager.createIssue("Test Issue", "Description", Priority.MEDIUM);
+        assertEquals(1, emailNotifier.getNotifications().size());
+    }
+
 
 
 
