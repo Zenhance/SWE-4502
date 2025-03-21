@@ -29,6 +29,15 @@ public class CommandManager implements  ISubject {
             redoStack.push(command);
         }
     }
+    public void redo() {
+        if (!redoStack.isEmpty()) {
+            ICommand command = redoStack.pop();
+            command.execute();
+            undoStack.push(command);
+            notifyObservers(command);
+        }
+    }
+
 
     @Override
     public void registerObserver(IObserver observer) { observers.add(observer); }

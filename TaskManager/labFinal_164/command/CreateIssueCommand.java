@@ -4,13 +4,14 @@ import labFinal_164.model.Issue;
 import labFinal_164.repository.IssueRepository;
 
 public class CreateIssueCommand implements ICommand {
-    private IssueRepository repository;
-    private Issue issue;
-    private String description = "Create issue: " + issue.getId();
+    private final IssueRepository repository;
+    private final Issue issue;
+    private final String description;
 
     public CreateIssueCommand(IssueRepository repository, Issue issue) {
         this.repository = repository;
         this.issue = issue;
+        this.description = "Create issue: " + issue.getId(); // Initialize AFTER issue is set
     }
 
 
