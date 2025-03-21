@@ -1,7 +1,7 @@
 using TaskManager;
 namespace TaskManager_Tests_XUnit
 {
-    public class AddComment_ShouldAddCommentToIssue
+    public class CreateIssue_ShouldAddIssueToRepository
     {
         [Fact]
         public void CreateIssue_Test_Method()

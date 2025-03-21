@@ -1,30 +1,29 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using TaskManager;
 
-namespace TaskManager_Tests
+namespace TaskManager_Tests_XUnit
 {
-    [TestClass]
     public class AddComment_ShouldAddCommentToIssue
     {
-        [TestMethod]
+        [Fact]
         public void AddComment_Test_Method()
         {
             IssueRepository repo = new IssueRepository();
             Issue issue = new Issue(1, "Test Issue", "Test Description", Priority.Medium);
             CreateIssueCommand createCommand = new CreateIssueCommand(repo, issue);
-            CommandManager commandManager = new CommandManager();
-            commandManager.ExecuteCommand(createCommand);
+            CommandManager undoRedoManager = new CommandManager();
+            undoRedoManager.ExecuteCommand(createCommand);
 
             Comments comment = new Comments(1, "Test comment", "Author");
             issue.comments.Add(comment);
 
-            Assert.AreEqual(null, comment.content);
+            Assert.Contains(comment, issue.comments);
+            Assert.Equal("Test comment", comment.content);
         }
-
     }
 }

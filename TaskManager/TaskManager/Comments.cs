@@ -9,14 +9,14 @@ namespace TaskManager
     public class Comments
     {
         public int id;
-        public string comment;
+        public string content;
         public string author;
         public DateTime CreatedAt;
 
-        public Comments(int id, string comment, string author)
+        public Comments(int id, string content, string author)
         {
             this.id = id;
-            this.comment = comment;
+            this.content = content;
             this.author = author;
             //this.CreatedAt = DateTime.Now;
         }
