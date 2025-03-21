@@ -13,5 +13,7 @@ public class Issue {
     private String Tags[];
     private Comment Comments[];
 
-
+    public String getID(){
+        return Id;
+    }
 }
