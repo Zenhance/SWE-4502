@@ -11,5 +11,9 @@ public class IssueRepository {
     public void addIssue(Issue issue) {
         issues.put(issue.getId(), issue);
     }
+    public Issue getIssue(String id) { return issues.get(id); }
+    public void deleteIssue(String id) { issues.remove(id); }
+    public void updateIssue(Issue updatedIssue) { issues.put(updatedIssue.getId(), updatedIssue); }
+
 
 }

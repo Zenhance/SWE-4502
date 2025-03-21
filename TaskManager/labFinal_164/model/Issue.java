@@ -30,4 +30,15 @@ public class Issue {
     public String getId() {
         return id;
     }
+
+    public void setStatus(Status status) { this.status = status; }
+    public void addComment(Comment comment) { comments.add(comment); }
+
+    public Issue deepClone() {
+        Issue cloned = new Issue(this.id, this.title, this.description, this.priority);
+        cloned.status = this.status;
+        cloned.comments = new ArrayList<>(this.comments); // Shallow copy of immutable comments
+        return cloned;
+    }
+
 }
