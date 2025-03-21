@@ -60,5 +60,11 @@ namespace TestProject1
             // Assert: Ensure that LastModifiedDate is updated
             Assert.True(issue.LastModifiedDate >= issue.CreationDate);
         }
+
+        [Fact]
+        public void UndoCommand_ShouldRevertLastAction()
+        {
+
+        }
     }
 }
