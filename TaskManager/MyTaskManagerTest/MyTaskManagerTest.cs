@@ -60,5 +60,21 @@ namespace MyTaskManagerTest
             Assert.NotEqual(originalIssue.Title, clonedIssue.Title);
             Assert.NotEqual(originalIssue.Comments[0].Content, clonedIssue.Comments[0].Content);
         }
+
+        [Fact]
+        public void ChangeStatus_ShouldUpdateIssueStatus()
+        {
+            var issueRepository = new IssueRepository();
+            var createCommand = new CreateIssueCommand(issueRepository, "Test Issue", "This is a test issue", Priority.Medium);
+            createCommand.Execute();
+            var retrievedIssue = issueRepository.GetIssue(createCommand.issue.Id);
+
+            var changeIssueStatusCommand = new ChangeIssueStatusCommand(issueRepository, retrievedIssue.Id, Status.InProgress);
+            changeIssueStatusCommand.Execute();
+           
+            Assert.Equal(Status.InProgress, retrievedIssue.Status);
+        }
+
+
     }
 }
