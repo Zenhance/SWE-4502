@@ -8,7 +8,7 @@ namespace TaskManager_112
 {
     public class CommandLogger
     {
-        private List<string> logs = new List<string>();
+        private List<string> logs = new List<string>(); //private list of logs
 
         public void AddLogs(string message)
         {
@@ -16,7 +16,7 @@ namespace TaskManager_112
             Console.WriteLine("Logged message: " + message);
         }
 
-        public void DisplayLogs()
+        public void DisplayLogs() // log access ?
         {
             foreach (var log in logs)
             {
