@@ -1,5 +1,4 @@
 interface IssueObserver {
-    void notify(String ID);
-
+    void update(String message);
 
 }
