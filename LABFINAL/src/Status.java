@@ -1,3 +1,3 @@
 public enum Status {
-    Open, InProgress, UnderReview, Resolved, Closed
+    OPEN,Open, InProgress, IN_PROGRESS, Resolved, Closed,RESOLVED,UNDER_REVIEW
 }
