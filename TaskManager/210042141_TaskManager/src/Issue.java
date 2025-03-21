@@ -42,19 +42,12 @@ public class Issue
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = "InProgress"; }
 
-    public Date getCreationDate() { return creationDate; }
-    public void setCreationDate(Date creationDate) { this.creationDate = creationDate; }
 
-    public Date getLastModifiedDate() { return lastModifiedDate; }
-    public void setLastModifiedDate(Date lastModifiedDate) { this.lastModifiedDate = lastModifiedDate; }
-
-    public String getAssignedTo() { return assignedTo; }
-    public void setAssignedTo(String assignedTo) { this.assignedTo = assignedTo; }
 
     public List<String> getTags() { return tags; }
     public void setTags(List<String> tags) { this.tags = tags; }
 
-    public List<Comment> getComments() { return comments; }
+    public List<Comment> getComments() { return null; }
     public void setComments(List<Comment> comments) { this.comments = comments; }
 
 }
