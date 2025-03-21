@@ -53,4 +53,9 @@ class IssueTest {
         assertEquals(s1, s2);
     }
 
+    void ChangeIssueStatusCommand_ShouldLogCorrectDescription(){
+        issue1.changeStatus(Status.Closed);
+
+    }
+
 }

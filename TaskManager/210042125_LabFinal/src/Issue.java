@@ -64,10 +64,10 @@ public class Issue implements Notify, Clonify{
 
     public void changeStatus(Status status){
         Status s= this.status;
-        notifying("Status changed from "+this.status+" to "+status);
+         notifying("Status changed from "+this.status+" to "+status);
         this.status= status;
         Status s2= this.status;
-
+        logStatusChange("Status changed from "+s+" to "+s2);
     }
 
     public void addComment(Comment comment){
@@ -93,6 +93,12 @@ public class Issue implements Notify, Clonify{
         for(User a: SubscriberList){
             a.receiveNotification(s);
         }
+    }
+
+    public String logStatusChange(String s){
+        Log l1= new Log(s);
+        LogHistory.add(l1);
+        return s;
     }
 
     @Override
