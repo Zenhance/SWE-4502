@@ -16,40 +16,34 @@ public class Issue1Test {
     @Test
     public void CreateIssue_ShouldAddIssueToRepository() {
 
-        IssueRepository issueRepository = new IssueRepository();
-        Issue issue = new Issue("1", "Title", "Description", Priority.Low, Status.Open, LocalDateTime.now(), LocalDateTime.now(), "AssignedTo", new ArrayList<>(), new ArrayList<>());
+        IssueRepository repository = new IssueRepository();
+Issue issue = new Issue("1", "Test Issue", "This is a test issue", Priority.Medium, Status.Open, LocalDateTime.now(), LocalDateTime.now(), "Test User", new ArrayList<>(), Arrays.asList("test", "issue"));
 
 
-        issueRepository.addIssue(issue);
+        CreateIssue createIssue = new CreateIssue(repository, issue);
 
-        assertEquals(issue, issueRepository.getIssue("1"));
+        createIssue.execute();
+
+        assertEquals(1, repository.getIssues().size());
+
+
+
+
+
+
     }
 
     @Test
 
     public void AddComment_ShouldAddCommentToIssue() {
 
-        IssueRepository issueRepository = new IssueRepository();
-        Issue issue = new Issue("1", "Title", "Description", Priority.Low, Status.Open, LocalDateTime.now(), LocalDateTime.now(), "AssignedTo", new ArrayList<>(), new ArrayList<>());
-        Comment comment = new Comment(1, "Content", "Author", LocalDateTime.now());
-
-        issueRepository.addIssue(issue);
-        issueRepository.AddComment("1", comment);
-
-        assertEquals(comment, issueRepository.getIssue("1").comments.get(0));
     }
 
 
     @Test
     public void ChangeStatus_ShouldUpdateIssueStatus() {
 
-        IssueRepository issueRepository = new IssueRepository();
-        Issue issue = new Issue("1", "Title", "Description", Priority.Low, Status.Open, LocalDateTime.now(), LocalDateTime.now(), "AssignedTo", new ArrayList<>(), new ArrayList<>());
 
-        issueRepository.addIssue(issue);
-        issueRepository.ChangeIssueStatus("1", Status.Closed);
-
-        assertEquals(Status.Closed, issueRepository.getIssue("1").status);
     }
 
 

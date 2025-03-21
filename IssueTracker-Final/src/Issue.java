@@ -56,32 +56,62 @@ public class Issue {
         return Id;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+
+    public String getDescription() {
+        return Description;
+    }
+
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+
+    public Priority getPriority() {
+        return Priority;
+    }
+
+
+    public void setPriority(Priority priority) {
+        Priority = priority;
+    }
+
+
+    public LocalDateTime getCreationdate() {
+        return Creationdate;
+    }
 
 
 
+    public void setCreationdate(LocalDateTime creationdate) {
+        Creationdate = creationdate;
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public LocalDateTime getLastModifiedDate() {
+        return LastModifiedDate;
+    }
 
 
 

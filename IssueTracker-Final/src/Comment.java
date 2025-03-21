@@ -22,6 +22,10 @@ public class Comment {
 
     }
 
+    public int getId() {
+        return Id;
+    }
+
 
 
 

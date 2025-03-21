@@ -25,10 +25,31 @@ public class IssueRepository {
         issues.put(id,issue);
     }
 
+    public void removeIssue(String id){
+        issues.remove(id);
+    }
+
+    public void removeComment(String id, int commentId){
+        Issue issue=issues.get(id);
+        issue.comments.remove(commentId);
+    }
+
     public void ChangeIssueStatus(String id, Status status){
         Issue issue=issues.get(id);
         issue.status=status;
     }
+
+
+
+    public Map<String, Issue> getIssues() {
+        return issues;
+    }
+
+
+
+
+
+
 
 
 
