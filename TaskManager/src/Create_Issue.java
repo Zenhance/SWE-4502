@@ -1,19 +1,19 @@
 public class Create_Issue implements Command {
     private IssueRepository repository;
-    private Issue issue;
+    private Issue isssue;
 
     public Create_Issue(IssueRepository repository, Issue issue) {
         this.repository = repository;
-        this.issue = issue;
+        this.isssue = issue;
     }
 
     @Override
     public void execute() {
-        repository.addIssue(issue);
+        repository.addIssue(isssue);
     }
 
     @Override
     public void undo() {
-        repository.deleteIssue(issue.getId());
+        repository.deleteIssue(isssue.getId());
     }
 }
