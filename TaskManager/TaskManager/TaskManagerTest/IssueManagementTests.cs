@@ -141,5 +141,26 @@ namespace TaskManager.Tests
             Assert.Equal("Original Comment", clonedIssue.Comments[0].Content);
             Assert.Equal("User2", clonedIssue.Comments[0].Author);
         }
+        //#F14
+        [Fact]
+        public void ChangeIssueStatusCommand_ShouldLogCorrectDescription()
+        {
+            var repository = new IssueRepository();
+            var commandManager = new CommandManager();
+            var issue = new Issue
+            {
+                Title = "Task Issue",
+                Status = Status.Open
+            };
+            repository.Add(issue);
+
+            issue.Status = Status.InProgress;
+            commandManager.ExecuteCommand(new UpdateIssueCommand(repository, issue));
+
+            var logs = commandManager.GetCommandLogs();
+            Assert.Single(logs);
+            Assert.Contains("Updated issue", logs[0].Description);
+            Assert.Equal(CommandType.Update, logs[0].Type);
+        }
     }
 }
