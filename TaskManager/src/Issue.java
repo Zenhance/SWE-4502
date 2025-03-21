@@ -43,7 +43,8 @@ public class Issue implements  Receiver {
     }
 
     @Override
-    public void Addcomments() {
+    public void Addcomments(Comment c) {
+        commentList.add(c);
 
     }
 
