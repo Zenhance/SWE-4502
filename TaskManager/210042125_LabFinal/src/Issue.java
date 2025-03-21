@@ -13,7 +13,7 @@ public class Issue {
     private String AssignedTo;
     private String Tags[];
     private ArrayList<Comment> CommentList;
-    private ArrayList<String> LogHistory;
+    private ArrayList<Log> LogHistory;
 
     public Issue(){
         CommentList= new ArrayList<>();
@@ -40,7 +40,9 @@ public class Issue {
         CommentList.add(comment);
     }
 
-    public void logOperation(){
-
+    public void AccessLogHistory(){
+        for(Log a: LogHistory){
+            System.out.println("Log Description: "+a.getDescription()+" Log Created At: "+a.getCreatedAt());
+        }
     }
 }
