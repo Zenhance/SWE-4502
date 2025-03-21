@@ -3,7 +3,7 @@ using TaskManager.Model;
 
 namespace TaskManager.Command;
 
-public class IssueUpdateTitleCommand
+public class IssueUpdateTitleCommand:ICommand
 {
     private IssueManager issueManager;
     private Issue issue;
