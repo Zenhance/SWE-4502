@@ -4,6 +4,7 @@ public class Issue {
     public int id;
     public String title;
     public String decsription;
+
     public enum status{
         Open,
         InProgress,
@@ -23,7 +24,10 @@ public class Issue {
     public String tags;
     public String comments;
 
-    public void createIssue(String createIssue) {
-
+    public void createIssue() {
+        System.out.println("Issue created");
+    }
+    public void updateIssue() {
+        System.out.println("Issue updated");
     }
 }
