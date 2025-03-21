@@ -44,3 +44,18 @@ public class TestAddComment
 }
 
 
+
+public class TestChangeStatus
+{
+    [Fact]
+    public void ChangeStatus_ShouldUpdateIssueStatus()
+    {
+        var repo = new IssueRepository();
+        var issue = new Issue(1, "Backend Error", "Fix API timeout", Priority.Critical);
+        repo.AddIssue(issue);
+
+        issue.IssueStatus = Status.Resolved;
+
+        Assert.Equal(Status.Resolved, issue.IssueStatus);
+    }
+}
