@@ -3,6 +3,8 @@ using System.Data;
 using System.Runtime.InteropServices.JavaScript;
 using TaskManager.Model;
 using TaskManager.ENUM;
+using TaskManager.Mediator;
+
 namespace TaskManager.Log;
 
 public class IssuePrototype

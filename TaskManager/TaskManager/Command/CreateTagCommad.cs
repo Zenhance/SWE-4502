@@ -1,30 +1,28 @@
 ﻿using TaskManager.Core;
-using TaskManager.Log;
 using TaskManager.Model;
 
 namespace TaskManager.Command;
 
-public class IssueCreateCommand : ICommand
+public class CreateTagCommand
 {
     private IssueManager _issueManager;
     private Issue _issue;
-    private IssuePrototype _issuePrototype;
+    private Tag _tag;
     
-    public IssueCreateCommand(IssueManager issueManager, Issue issue)
+    public CreateTagCommand(IssueManager issueManager, Issue issue, Tag tag)
     {
         _issueManager = issueManager;
         _issue = issue;
-        _issuePrototype = issue.Log();
+        _tag = tag;
     }
 
     public void execute()
     {
-        _issueManager.AddIssue(_issue);
+        _issueManager.AddIssueTag(_issue, _tag);
     }
 
     public void undo()
     {
-        _issueManager.RemoveIssue(_issue);
+        _issueManager.AddIssueTag(_issue, _tag);
     }
-
 }

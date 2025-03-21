@@ -1,6 +1,7 @@
 ﻿//Issue Model
 using TaskManager.ENUM;
 using TaskManager.Log;
+using TaskManager.Mediator;
 
 namespace TaskManager.Model;
 
@@ -18,16 +19,18 @@ public class Issue
     public List<Comment> comments;
     public List<Tag> tags;
     
-    public Issue(string title, string description, PRIORITY priority, STATUS status, DateTime createdDate,
-        DateTime lastModifiedDate, User AssignedTo)
+    public Issue(string title, string description, PRIORITY priority, STATUS status, User AssignedTo)
     {
         this.title = title;
         this.description = description;
         this.priority = priority;
         this.status = status;
-        this.createdDate = createdDate;
-        this.lastModifiedDate = lastModifiedDate;
+        this.createdDate = DateTime.Now;
+        this.lastModifiedDate = DateTime.Now;
         this.AssignedTo = AssignedTo;
+        
+        comments = new List<Comment>();
+        tags = new List<Tag>();
     }
 
     public IssuePrototype Log()
@@ -37,6 +40,27 @@ public class Issue
         );
 
         return issuePrototype;
+    }
+    
+    public void LoadFromLog(IssuePrototype issuePrototype)
+    {
+        title = issuePrototype.title;
+        description = issuePrototype.description;
+        priority = issuePrototype.priority;
+        status = issuePrototype.status;
+        createdDate = issuePrototype.createdDate;
+        lastModifiedDate = issuePrototype.lastModifiedDate;
+        AssignedTo = issuePrototype.AssignedTo;
+    }
+    
+    public void AddComment(Comment comment)
+    {
+        comments.Add(comment);
+    }
+    
+    public void AddTag(Tag tag)
+    {
+        tags.Add(tag);
     }
     
 }

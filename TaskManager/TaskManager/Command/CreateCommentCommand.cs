@@ -1,30 +1,29 @@
 ﻿using TaskManager.Core;
-using TaskManager.Log;
 using TaskManager.Model;
 
 namespace TaskManager.Command;
 
-public class IssueCreateCommand : ICommand
+public class CreateCommentCommand : ICommand
 {
     private IssueManager _issueManager;
     private Issue _issue;
-    private IssuePrototype _issuePrototype;
+    private Comment _comment;
     
-    public IssueCreateCommand(IssueManager issueManager, Issue issue)
+    public CreateCommentCommand(IssueManager issueManager, Issue issue, Comment comment)
     {
         _issueManager = issueManager;
         _issue = issue;
-        _issuePrototype = issue.Log();
+        _comment = comment;
     }
 
     public void execute()
     {
-        _issueManager.AddIssue(_issue);
+        _issueManager.AddIssueComment(_issue, _comment);
     }
 
     public void undo()
     {
-        _issueManager.RemoveIssue(_issue);
+        _issueManager.AddIssueComment(_issue, _comment);
     }
 
 }
