@@ -3,7 +3,7 @@ import java.util.Stack;
 public class CommandManager {
     private Command command;
 
-    public Stack<Command> executedCommands;
+    public Stack<Command> executedCommands = new Stack<>();
     public Command UndoedCommand;
 
     public void setCommand(Command command) {
