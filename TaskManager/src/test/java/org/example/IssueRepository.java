@@ -21,7 +21,7 @@ class IssueRepository {
 
     @Test
     void UndoCommand_ShouldRevertLastAction(){
-        Issue issue= new Issue();
+//        Issue issue= new Issue();
         UndoRedo ud= new UndoRedo();
         ud.executeCommand(this::UndoCommand_ShouldRevertLastAction);
         ud.undo();
@@ -29,7 +29,7 @@ class IssueRepository {
     }
     @Test
     public void RedoCommand_ShouldReapplyUndoneAction(){
-        Issue issue= new Issue();
+//        Issue issue= new Issue();
         UndoRedo ud= new UndoRedo();
         ud.executeCommand(this::RedoCommand_ShouldReapplyUndoneAction);
         ud.undo();
@@ -37,10 +37,18 @@ class IssueRepository {
     }
     @Test
     public void AddComment_ShouldAddCommentToIssue(){
-        Issue issue= new Issue();
+//        Issue issue= new Issue();
         Comment comment= new Comment(content, author);
         assertTrue(issue.toString().contains("Comment added"));
     }
+    @Test
+    public void Observer_ShouldBeNotifiedOfCommands(){
+        EmailNotifier email= new EmailNotifier();
+        email.pushNotif(message);
+        assertTrue(issue.toString().contains("Message sent: "+message));
+    }
+    @Test
+//    public void NotificationService_ShouldNotifyOnStatusChanges
 }
 
 //////////////////////////////////////////////////////////
