@@ -1,38 +1,36 @@
 public class StatisticsCollector {
-    public int createCommandCount;
-    public int updateCommandCount;
-    public int deleteCommandCount;
+    public int createCount;
+    public int updateCount;
+    public int deleteCount;
 
-    public StatisticsCollector(int createCommandCount, int updateCommandCount, int deleteCommandCount){
-        this.createCommandCount = createCommandCount;
-        this.updateCommandCount = updateCommandCount;
-        this.deleteCommandCount = deleteCommandCount;
+    public StatisticsCollector(int createCount, int updateCount, int deleteCount){
+        this.createCount = createCount;
+        this.updateCount = updateCount;
+        this.deleteCount = deleteCount;
     }
 
     public void increaseCreateCommand(){
-        createCommandCount++;
+        createCount++;
     }
 
     public void increaseUpdateCommand(){
-        updateCommandCount++;
+        updateCount++;
     }
 
     public void increaseDeleteCommand(){
-        deleteCommandCount++;
+        deleteCount++;
     }
 
     public int  getCreateCount(){
-        return createCommandCount;
+        return createCount;
     }
 
     public int getUpdateCount(){
-        return updateCommandCount;
+        return updateCount;
     }
 
     public int getDeleteCount(){
-            return deleteCommandCount;
+            return deleteCount;
     }
-
-
-
+    
 }
