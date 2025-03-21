@@ -1,7 +1,10 @@
+import java.util.List;
+
 public class AddCommentCommand implements Command {
     private IssueRepository repository;
     private Issue issue;
     private Comment comment;
+
     public AddCommentCommand(IssueRepository repository, Issue issue, Comment comment) {
         this.repository = repository;
         this.issue = issue;
@@ -13,6 +16,10 @@ public class AddCommentCommand implements Command {
     }
     @Override
     public void undo() {
-// Code to remove the last comment
+        List<Comment> comments = issue.getComments();
+        if(!comments.isEmpty())
+        {
+            comments.remove(comments.size()-1);
+        }
     }
 }

@@ -42,7 +42,8 @@ public class Issue implements Cloneable {
     }
 
     @Override
-    public Issue clone() {
+    public Issue clone()
+    {
         try {
             Issue cloned = (Issue) super.clone();
             cloned.tags = new ArrayList<>(this.tags);
@@ -65,6 +66,11 @@ public class Issue implements Cloneable {
     public List<Comment> getComments()
     {
         return this.comments;
+    }
+
+    public List<String> getTags()
+    {
+        return this.tags;
     }
 
     public String getId() {
@@ -97,6 +103,10 @@ public class Issue implements Cloneable {
 
     public Date getLastModifiedDate() {
         return lastModifiedDate;
+    }
+    public String getAssignedTo()
+    {
+        return this.assignedTo;
     }
 
     public void setLastModifiedDate(Date lastModifiedDate) {

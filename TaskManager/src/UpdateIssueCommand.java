@@ -5,13 +5,15 @@ public class UpdateIssueCommand implements Command {
     private String newDescription;
     private String oldTitle;
     private String oldDescription;
-    public UpdateIssueCommand(IssueRepository repository, Issue issue, String
-            newTitle, String newDescription) {
+
+    public UpdateIssueCommand(IssueRepository repository, Issue issue, String newTitle, String newDescription)
+    {
         this.repository = repository;
         this.issue = issue;
         this.newTitle = newTitle;
         this.newDescription = newDescription;
     }
+
     @Override
     public void execute() {
         oldTitle = issue.getTitle();
@@ -19,6 +21,7 @@ public class UpdateIssueCommand implements Command {
         issue.setTitle(newTitle);
         issue.setDescription(newDescription);
     }
+
     @Override
     public void undo() {
         issue.setTitle(oldTitle);
