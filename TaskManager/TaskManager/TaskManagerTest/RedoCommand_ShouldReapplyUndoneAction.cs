@@ -34,6 +34,6 @@ public class RedoCommand_ShouldReapplyUndoneAction
         
         commandManager.RedoCommand();
         
-        Assert.AreEqual(IssueStatusENUM.OPEN, issue1._status);
+        Assert.AreEqual(IssueStatusENUM.OPEN, issue1._status); 
     }
 }
