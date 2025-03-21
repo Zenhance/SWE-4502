@@ -192,4 +192,3 @@ Test: `NotificationService_ShouldNotifyOnStatusChanges`
 ## After you are finished with your implementation prepare a PDF report on the patterns you have used to solve the problem and the rationale behind it.
 
 ---
-
