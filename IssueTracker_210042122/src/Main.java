@@ -9,14 +9,14 @@ import java.util.List;
 public class Main {
 
 //
-//    List<Comment> comments = new ArrayList<>();
+//    List<Class.Comment> comments = new ArrayList<>();
 //    List<String> tags = new ArrayList<>();
 //
 //
-//    Issue issue = new Issue(1, "Bug fixed", "abcd", Priority.Low, Status.Open, "25/3/2025", "25/3/2025", "user1", tags, comments);
+//    Class.Issue issue = new Class.Issue(1, "Bug fixed", "abcd", Priority.Low, Status.Open, "25/3/2025", "25/3/2025", "user1", tags, comments);
 //
 //    // Create command with repository
-//   CreateIssueCommand createIssueCommand = new CreateIssueCommand( issue);
+//   Class.CreateIssueCommand createIssueCommand = new Class.CreateIssueCommand( issue);
 
 
 

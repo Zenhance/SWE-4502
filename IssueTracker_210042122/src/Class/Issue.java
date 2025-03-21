@@ -1,7 +1,8 @@
+package Class;
+
 import Predefinedvalues.Priority;
 import Predefinedvalues.Status;
 
-import java.sql.Date;
 import java.util.List;
 
 public class Issue {
@@ -21,7 +22,7 @@ public class Issue {
 
     private List<String> tags;
 
-    private  List<Comment> comments;
+    public List<Comment> comments;
 
 
     public Issue(int id, String title, String description, Priority priority, Status status, String creationDate, String lastModifiedDate, String assignedTo, List<String> tags, List<Comment> comments) {
@@ -36,6 +37,12 @@ public class Issue {
         this.tags = tags;
         this.comments = comments;
     }
+
+    public void addComment(Comment C){
+        comments.add(C);
+
+    }
+
 
 
     public String getTitle() {

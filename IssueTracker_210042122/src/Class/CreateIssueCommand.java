@@ -1,9 +1,11 @@
+package Class;
+
 public class CreateIssueCommand implements Command {
     private IssueRepository issueRepository;
     private Issue issue;
 
 
-    public CreateIssueCommand( IssueRepository issueRepository, Issue issue) {
+    public CreateIssueCommand(IssueRepository issueRepository, Issue issue) {
         this.issueRepository=issueRepository;
         this.issue = issue;
     }

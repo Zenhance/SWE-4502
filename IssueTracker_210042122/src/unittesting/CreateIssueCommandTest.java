@@ -1,10 +1,14 @@
+package unittesting;
+
 import Predefinedvalues.Priority;
 import Predefinedvalues.Status;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import Class.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,7 +32,7 @@ class CreateIssueCommandTest {
     @Test
     void testCreateIssue() {
         createIssueCommand.Execute();
-        assertTrue(issueRepository.issues.contains(issue), "Issue should be added to the repository");
-        assertEquals(1, issueRepository.issues.size(), "Repository should have one issue");
+        Assertions.assertTrue(issueRepository.issues.contains(issue), "Class.Issue should be added to the repository");
+        Assertions.assertEquals(1, issueRepository.issues.size(), "Repository should have one issue");
     }
 }

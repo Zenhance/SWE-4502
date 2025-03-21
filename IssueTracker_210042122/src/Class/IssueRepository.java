@@ -1,3 +1,5 @@
+package Class;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,10 @@ public IssueRepository (List<Issue>issues){
             issues.add(issue);
             System.out.println("Success");
 
+    }
+
+    public void updateComment(Issue issue, Comment c){
+       issue.addComment(c);
     }
 
     public List<Issue> GetAllIssues() {
