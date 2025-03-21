@@ -51,6 +51,8 @@ class IssueRepository {
     public void NotificationService_ShouldNotifyOnStatusChanges(){
         NotificationService notifservice= new NotificationService();
         notifservice.addObserver();
+        notifservice.removeObserver();
+        notifservice.notifyObservers();
     }
 }
 
