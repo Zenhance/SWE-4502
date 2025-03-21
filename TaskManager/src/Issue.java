@@ -5,8 +5,8 @@ public class Issue {
 
 
 IssueRepository i= new IssueRepository();
-    HashMap<Integer, Issue> issues = i.getList();
-    private int id;
+    HashMap<String, Issue> issues = i.getList();
+    private String id;
     private String title;
     private String description;
 
@@ -19,18 +19,18 @@ IssueRepository i= new IssueRepository();
 
 
     public Issue(String title, String description, Priority priority) {
-        this.id = UUID.randomUUID();
+        this.id=UUID.randomUUID().toString();
         this.title = title;
         this.description = description;
         this.priority = priority;
-        this.status = Status.OPEN;
+        this.status = Status.Open;
         this.creationDate = LocalDateTime.now();
         this.lastModifiedDate = LocalDateTime.now();
     }
 
    List<Comment> comments=new ArrayList<>();
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 

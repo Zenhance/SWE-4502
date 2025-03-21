@@ -1,7 +1,7 @@
 import java.util.HashMap;
 class IssueRepository {
     private static IssueRepository rep;
-    private final HashMap<Integer, Issue> issues = new HashMap<>();
+    private final HashMap<String, Issue> issues = new HashMap<String, Issue>();
 
     IssueRepository() {}
 
@@ -16,11 +16,11 @@ class IssueRepository {
         issues.put(issue.getId(), issue);
     }
 
-    public Issue getIssue(Integer id) {
+    public Issue getIssue(String id) {
         return issues.get(id);
     }
 
-    public void removeIssue(Integer id) {
+    public void removeIssue(String id) {
         issues.remove(id);
     }
 
@@ -28,7 +28,7 @@ class IssueRepository {
         issues.values().forEach(System.out::println);
     }
 
-    public HashMap<Integer, Issue> getList() {
+    public HashMap<String, Issue> getList() {
         return issues;
     }
 }
