@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaskManager;
 
 namespace TaskManager
 {
@@ -24,7 +25,10 @@ namespace TaskManager
 
         public void Undo()
         {
-            _repo.AddIssue(_Issue);
+            _repo.DeleteIssue(_Issue.Id);
         }
     }
 }
+
+
+

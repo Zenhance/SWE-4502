@@ -18,8 +18,8 @@ namespace TaskManager_Tests
 
 
             var retrievedIssue = repo.GetIssue(1);
-            // some lines
 
+            Assert.AreEqual(1, retrievedIssue.Id);
         }
 
 

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\ChangeStatusCommand.cs" />
     <Compile Include="Comments.cs" />
     <Compile Include="Command\CreateIssueCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
