@@ -6,10 +6,12 @@ public class IssueRepoTest {
 
     private Issue issue1;
     private IssueRepository issueRep1;
+    private Command createIssue;
     @BeforeEach
     public void setup(){
          issue1 = new Issue();
          issueRep1 = new IssueRepository();
+         createIssue = new CreateIssueCommand(issue1,issueRep1);
 
     }
     @Test
@@ -20,7 +22,6 @@ public class IssueRepoTest {
 
         issueRep1.registerIssue(issue1);
 
-        Command createIssue = new CreateIssueCommand(issue1,issueRep1);
         createIssue.execute();
 
 
@@ -29,6 +30,8 @@ public class IssueRepoTest {
 
         assertEquals("Issue 1", test.getTitle());
         assertEquals("Created Issue 1 Description", test.getDescription());
+        assertEquals(PriorityType.LOW,test.getPriority());
+        assertEquals(StatusType.OPEN, test.getStatus());
 
 
 

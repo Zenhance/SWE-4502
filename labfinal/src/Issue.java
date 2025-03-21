@@ -61,8 +61,8 @@ public class Issue{
   }
 
 
-  public void getPriority(){
-    System.out.println(priority);
+  public PriorityType getPriority(){
+    return priority;
   }
 
   public void setPriority(PriorityType priority){
@@ -94,8 +94,8 @@ public class Issue{
     return comments;
   }
   public void addComment(Comment comment) {
-
-    comments.add(comment);
+    this.comments.add(comment);
+    this.lastModifiedDate = LocalDateTime.now();
   }
 
 }

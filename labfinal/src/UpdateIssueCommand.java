@@ -10,12 +10,12 @@ public class UpdateIssueCommand extends Command{
     }
 
     public void execute(){
-        issueRepository.updateIssue(issue,updatedIssue);
+        issueRepository.updateIssue(updatedIssue);
 
     }
 
     public void undo(){
-        issueRepository.updateIssue(updatedIssue,issue);
+        issueRepository.updateIssue(issue);
     }
 
     public Issue getIssue(){

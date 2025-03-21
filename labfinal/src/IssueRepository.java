@@ -22,9 +22,9 @@ public class IssueRepository{
         repository.remove(id);
     }
 
-    public void updateIssue(Issue issue,Issue updatedIssue){
-        if(repository.containsKey(issue.getId())){
-            repository.put(issue.getId(),updatedIssue);
+    public void updateIssue(Issue issue) {
+        if (repository.containsKey(issue.getId())) {
+            repository.put(issue.getId(), issue);
         }
     }
 
