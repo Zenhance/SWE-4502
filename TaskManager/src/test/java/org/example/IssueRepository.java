@@ -48,7 +48,10 @@ class IssueRepository {
         assertTrue(issue.toString().contains("Message sent: "+message));
     }
     @Test
-//    public void NotificationService_ShouldNotifyOnStatusChanges
+    public void NotificationService_ShouldNotifyOnStatusChanges(){
+        NotificationService notifservice= new NotificationService();
+        notifservice.addObserver();
+    }
 }
 
 //////////////////////////////////////////////////////////
