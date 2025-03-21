@@ -89,5 +89,28 @@ namespace TaskManager.Tests
             Assert.Equal(1, statisticsCollector.CommandCounts[CommandType.Update]);
             Assert.Equal(0, statisticsCollector.CommandCounts[CommandType.Delete]);
         }
+        //#F09
+        [Fact]
+        public void MultipleObservers_ShouldAllBeNotified()
+        {
+            var repository = new IssueRepository();
+            var commandManager = new ObservableCommandManager();
+            var observer1 = new MockObserver();
+            var observer2 = new MockObserver();
+            var observer3 = new MockObserver();
+
+            commandManager.AddObserver(observer1.OnCommandExecuted);
+            commandManager.AddObserver(observer2.OnCommandExecuted);
+            commandManager.AddObserver(observer3.OnCommandExecuted);
+
+            var issue = new Issue { Title = "Test Issue" };
+            var createCommand = new CreateIssueCommand(repository, issue);
+
+            commandManager.ExecuteCommand(createCommand);
+
+            Assert.Single(observer1.NotifiedCommands);
+            Assert.Single(observer2.NotifiedCommands);
+            Assert.Single(observer3.NotifiedCommands);
+        }
     }
 }
