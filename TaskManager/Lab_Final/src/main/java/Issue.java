@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Issue {
-    private String id;
+    static int id = 54321;
     public String title;
     public String description;
     public Status status;
@@ -14,13 +14,65 @@ public class Issue {
     public List<String> tags = new ArrayList<>();
     public List<Comment> comments = new ArrayList<>();
 
-    public Issue (String title, String description, Status status, Priority priority, String assignTo) {
+    public Issue (String title, String description,String assignTo) {
+        Issue.id = id++;
         this.title = title;
         this.description = description;
-        this.status = status;
-        this.priority = priority;
+        this.status = Status.Open;
+        this.priority = Priority.Low;
         this.assignTo = assignTo;
         this.creationDate = new Date();
+        this.lastModifiedDate = new Date();
+    }
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+        updateLastModifiedDate();
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+        updateLastModifiedDate();
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+        updateLastModifiedDate();
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+        updateLastModifiedDate();
+    }
+
+    private void updateLastModifiedDate() {
         this.lastModifiedDate = new Date();
     }
 
