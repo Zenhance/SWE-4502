@@ -1,5 +1,7 @@
 package Lab_Final_210042150.Task_Management_System.Models.DomainModel;
 
+import Lab_Final_210042150.Task_Management_System.Enums.Priority;
+import Lab_Final_210042150.Task_Management_System.Enums.Status;
 import Lab_Final_210042150.Task_Management_System.Models.CommentModel.Comment;
 import java.time.LocalDateTime;
 import java.util.Set;
