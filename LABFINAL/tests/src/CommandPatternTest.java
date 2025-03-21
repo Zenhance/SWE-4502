@@ -37,7 +37,7 @@ class CommandPatternTest {
         issueManager.executeCommand(changeStatusCommand);
         issueManager.undo();
         issueManager.redo();
-
+        //done
         assertEquals(Status.UNDER_REVIEW, issue.getStatus(), "Redo should reapply status change to UNDER_REVIEW");
     }
 }
