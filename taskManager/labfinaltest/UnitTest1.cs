@@ -13,7 +13,7 @@ namespace labfinaltest
         {
             
             CommandInvoker invoker = new CommandInvoker();
-            Issue issue = new Issue(1, "FIRST", "FIRST Description", Priority.medium, "Alice");
+            Issue issue = new Issue(1, "FIRST", "FIRST Description", Priority.medium, "Sheona");
             IssueRepository repository=new IssueRepository(1, issue);
             CreateIssueCommand createCommand = new CreateIssueCommand(repository, issue);
             invoker.executeCommand(createCommand);
@@ -50,6 +50,16 @@ namespace labfinaltest
         [Fact]
         public void ChangeStatus_ShouldUpdateIssueStatus()
         {
+            CommandInvoker invoker = new CommandInvoker();
+
+            Issue issue = new Issue(3, "Commenting on issue", "Description for status", Priority.low, "Sheona");
+            IssueRepository repository = new IssueRepository(2, issue);
+            repository.addIssue(issue);
+            
+            ChangeIssueStatusCommand changeStatusCommand = new ChangeIssueStatusCommand(repository, issue, Status.inProgress);
+            invoker.executeCommand(changeStatusCommand);
+           Assert.Equal(Status.inProgress, issue.getStatus());
+
 
         }
         [Fact]
