@@ -7,7 +7,7 @@ public class Issue implements Notify{
     private String Title;
     private String Description;
     private Priority Priority;
-    private Status Status;
+    private Status status;
     private Date CreationDate;
     private Date LastModifiedDate;
     private String AssignedTo;
@@ -22,7 +22,12 @@ public class Issue implements Notify{
         this.Priority= priority;
         CommentList= new ArrayList<>();
         SubscriberList= new ArrayList<>();
+        this.status= Status.Open;
         notifying("New Status created with "+this.getID());
+    }
+
+    public String getStatus(){
+        return status.toString();
     }
 
     public String getID(){
@@ -58,8 +63,11 @@ public class Issue implements Notify{
     }
 
     public void changeStatus(Status status){
-        notifying("Status changed from "+this.Status+" to "+status);
-        this.Status= status;
+        Status s= this.status;
+        notifying("Status changed from "+this.status+" to "+status);
+        this.status= status;
+        Status s2= this.status;
+
     }
 
     public void addComment(Comment comment){
