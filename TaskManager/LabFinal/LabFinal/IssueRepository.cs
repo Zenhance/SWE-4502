@@ -1,5 +1,5 @@
-﻿namespace LabFinal
-{
+﻿namespace LabFinal;
+
     public class IssueRepository
     {
         private readonly Dictionary<int, Issue> _issues = new Dictionary<int, Issue>();
@@ -29,4 +29,3 @@
             return _issues.Values;
         }
     }
-}
