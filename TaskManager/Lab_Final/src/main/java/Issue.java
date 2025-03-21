@@ -14,12 +14,12 @@ public class Issue {
     public List<String> tags = new ArrayList<>();
     public List<Comment> comments = new ArrayList<>();
 
-    public Issue (String title, String description,String assignTo) {
-        this.id = id++;
+    public Issue (String title, String description,String assignTo,Priority priority) {
+        this.id ++;
         this.title = title;
         this.description = description;
         setStatus(Status.Open);
-        setPriority(Priority.Low);
+        this.priority = priority;
         this.assignTo = assignTo;
         this.creationDate = new Date();
         this.lastModifiedDate = new Date();
@@ -74,6 +74,12 @@ public class Issue {
 
     private void updateLastModifiedDate() {
         this.lastModifiedDate = new Date();
+    }
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
+    public Comment getCommentById( int id) {
+        return comments.get(id);
     }
 
     public enum Status {
