@@ -17,4 +17,7 @@ public class Comment {
     }
 
 
+    public String getAuthor() {
+        return Author;
+    }
 }

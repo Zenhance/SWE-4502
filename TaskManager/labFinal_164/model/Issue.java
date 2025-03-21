@@ -52,4 +52,5 @@ public class Issue {
     public List<Comment> getComment() {
         return comments;
     }
+
 }
