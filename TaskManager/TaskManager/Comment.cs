@@ -23,23 +23,26 @@ public enum Status
 
 namespace TaskManager
 {
+    using System;
+
     public class Comment
     {
-        public int Id;
-        public string Content;
-        public string Author;
-        public DateTime CreatedAt;
+        public int Id { get; set; }
+        public string Content { get; set; }
+        public string Author { get; set; }
+        public DateTime CreatedAt { get; set; }
 
-
-        public Comment(int Id, string Content, string Author, DateTime CreatedAt)
+        
+        public Comment(int id, string content, string author)
         {
-            this.Id = Id;
-            this.Content = Content;
-            this.Author = Author;
-            this.CreatedAt = CreatedAt;
+            Id = id;
+            Content = content;
+            Author = author;
+            CreatedAt = DateTime.Now;
         }
 
-
+        public Comment() { }
     }
+
 
 }
