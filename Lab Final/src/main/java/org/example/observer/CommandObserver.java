@@ -1,4 +1,8 @@
 package org.example.observer;
 
-public class CommandObserver {
+import org.example.command.Command;
+
+public interface CommandObserver {
+    void update(Command command);
 }
+

@@ -1,4 +1,7 @@
 package org.example.command;
 
-public class CommandType {
+public enum CommandType {
+    CREATE,
+    UPDATE,
+    DELETE
 }

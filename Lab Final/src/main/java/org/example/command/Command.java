@@ -1,4 +1,12 @@
 package org.example.command;
 
-public class Command {
+import java.time.LocalDateTime;
+
+public interface Command {
+    void execute();
+    void undo();
+    String getDescription();
+    LocalDateTime getTimestamp();
+    CommandType getType();
 }
+

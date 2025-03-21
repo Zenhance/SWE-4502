@@ -1,4 +1,9 @@
 package org.example.model;
 
-public class Priority {
+public enum Priority {
+    LOW,
+    MEDIUM,
+    HIGH,
+    CRITICAL
 }
+
