@@ -84,6 +84,45 @@ public class TaskManagementTests {
         assertEquals("Test notification", messages.get(0));
     }
 
-    
+    @Test
+    public void StatisticsCollector_ShouldTrackCommandCounts() {
+        DummyStatisticsCollector stats = new DummyStatisticsCollector();
+        Issue issue1 = new Issue("6", "Stats Issue 1", "Desc", Priority.LOW, "Frank");
+        Issue issue2 = new Issue("7", "Stats Issue 2", "Desc", Priority.HIGH, "Grace");
+        CreateIssueCommand create1 = new CreateIssueCommand(repository, issue1);
+        CreateIssueCommand create2 = new CreateIssueCommand(repository, issue2);
+        ChangeStatusCommand changeStatus = new ChangeStatusCommand(repository, issue1,
+                Status.RESOLVED);
+        invoker.executeCommand(create1);
+        stats.record("Create");
+        invoker.executeCommand(create2);
+        stats.record("Create");
+        invoker.executeCommand(changeStatus);
+        stats.record("ChangeStatus");
+        assertEquals(2, stats.getCount("Create"));
+        assertEquals(1, stats.getCount("ChangeStatus"));
+    }
 
+    @Test
+    public void Logger_ShouldStoreCommandHistoryLogs() {
+        CommandLogger logger = new CommandLogger();
+        notificationService.registerObserver(logger);
+        notificationService.notifyObservers("Logger test");
+        List<String> logs = logger.getLogHistory();
+        assertFalse(logs.isEmpty());
+        assertEquals("Logger test", logs.get(0));
+    }
+}
+
+class DummyStatisticsCollector {
+    private final java.util.Map<String, Integer> counts = new
+            java.util.HashMap<>();
+
+    public void record(String type) {
+        counts.put(type, counts.getOrDefault(type, 0) + 1);
+    }
+
+    public int getCount(String type) {
+        return counts.getOrDefault(type, 0);
+    }
 }
