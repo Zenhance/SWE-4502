@@ -8,14 +8,16 @@ public class IssueManager
     public List<Issue> _issues;
     public UserMediator _userMediator;
 
-    public IssueManager()
+    public IssueManager(UserMediator userMediator)
     {
         _issues = new List<Issue>();
+        _userMediator = userMediator;
     }
 
     public void AddIssue(Issue issue)
     {
         _issues.Add(issue);
+        _userMediator.AddUser(issue._assignedTo);
         _userMediator.NotifyUsers("Issue created: " + issue._title);
     }
     

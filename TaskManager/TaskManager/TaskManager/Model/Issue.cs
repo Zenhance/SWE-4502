@@ -16,18 +16,15 @@ public class Issue
     public List<Tag> _tags;
     public List<Comment> _comments;
     
-    public Issue(int id, string title, string description, IssuePriorityENUM priority, IssueStatusENUM status, DateTime currenDate, DateTime updateDate, User assignedTo, List<Tag> tags, List<Comment> comments)
+    public Issue(string title, string description, IssuePriorityENUM priority, IssueStatusENUM status, User assignedTo)
     {
-        _id = id;
         _title = title;
         _description = description;
         _priority = priority;
         _status = status;
-        _createdDate = currenDate;
-        _updatedDate = updateDate;
+        _createdDate = DateTime.Now;
+        _updatedDate = DateTime.Now;
         _assignedTo = assignedTo;
-        _tags = tags;
-        _comments = comments;
     }
 
     public IssuePrototype Log()
