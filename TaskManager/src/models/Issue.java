@@ -2,6 +2,7 @@ package models;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Issue {
@@ -38,7 +39,20 @@ public class Issue {
         this.lastModifiedDate = LocalDateTime.now();
     }
 
-    public int getId() { return id; }
-    public String getTitle() { return title; }
-    public String getStatus() { return status;}
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Collection<Object> getComments() {
+        return List.of();
+    }
+
 }
