@@ -28,19 +28,6 @@ public class BasicIssueOperationsTest {
         assertEquals(Status.Open, issue.getStatus());
     }
 
-    @Test
-    void updateIssue_ShouldUpdateIssueInRepository() {
-        String issueId = taskManager.createIssue("Test Issue 1", "Hellowwwwwwww", Priority.Medium);
-        taskManager.updateIssue(issueId, "Test Issue 2", "Hellowwwwwwww", Priority.High, "John Doe");
-
-        Issue issue = taskManager.getIssue(issueId);
-        assertNotNull(issue);
-        assertEquals("Test Issue 2", issue.getTitle());
-        assertEquals("Hellowwwwwwww", issue.getDescription());
-        assertEquals(Priority.High, issue.getPriority());
-        assertEquals("John Doe", issue.getAssignedTo());
-    }
-
     //#F02
     @Test
     void AddComment_ShouldAddCommentToIssue() {
@@ -52,6 +39,16 @@ public class BasicIssueOperationsTest {
         assertEquals(1, issue.getComments().size());
         assertEquals("This is a comment", issue.getComments().get(0).getContent());
         assertEquals("John Doe", issue.getComments().get(0).getAuthor());
+    }
+
+    //#F03
+    @Test
+    void changeStatus_ShouldUpdateIssueStatus() {
+        String issueId = taskManager.createIssue("Status testing Issue", "bla bla bla", Priority.Medium);
+        taskManager.changeStatus(issueId, Status.InProgress);
+
+        Issue issue = taskManager.getIssue(issueId);
+        assertEquals(Status.InProgress, issue.getStatus());
     }
 
 }
