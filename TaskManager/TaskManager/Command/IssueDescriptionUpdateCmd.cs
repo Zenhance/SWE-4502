@@ -1,8 +1,9 @@
-﻿using TaskManagerOriginal.Model;
+﻿using System.Windows.Input;
+using TaskManagerOriginal.Model;
 
 namespace TaskManagerOriginal.Command;
 
-public class IssueDescriptionUpdateCmd
+public class IssueDescriptionUpdateCmd : Icommand
 {
     private IssueMan _issueManager;
     private Issue _issue;
@@ -26,4 +27,5 @@ public class IssueDescriptionUpdateCmd
     {
         this._issueManager.UpdateIssueDescription(this._issue, this._oldDescription);
     }
+    
 }

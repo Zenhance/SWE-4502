@@ -1,14 +1,8 @@
 ﻿namespace TaskManagerOriginal.Command;
 
-public class Icommand
+public interface Icommand
 {
-    public void Execute()
-    {
-        
-    }
-    
-    public void Undo()
-    {
-        
-    }
+    public void Execute();
+
+    public void Undo();
 }
