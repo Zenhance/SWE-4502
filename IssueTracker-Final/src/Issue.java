@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Issue {
 
-    public int Id;
+    public String Id;
 
     public String Title;
 
@@ -25,7 +25,7 @@ public class Issue {
     public List<Comment> comments=new ArrayList<>();
 
 
-    public Issue (int ID,String Title,String Description,Priority Priority, Status Status,LocalDateTime Creationdate,LocalDateTime LastModifiedDate, String assignedTo ,List<Comment> comments,List<String>tags ){
+    public Issue (String ID,String Title,String Description,Priority Priority, Status Status,LocalDateTime Creationdate,LocalDateTime LastModifiedDate, String assignedTo ,List<Comment> comments,List<String>tags ){
 
         this.Id=ID;
         this.Title=Title;
@@ -52,7 +52,7 @@ public class Issue {
     }
 
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 

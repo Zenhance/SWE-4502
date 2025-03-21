@@ -21,6 +21,18 @@ public class IssueRepository {
     }
 
 
+    public void updateIssue(String id, Issue issue){
+        issues.put(id,issue);
+    }
+
+    public void ChangeIssueStatus(String id, Status status){
+        Issue issue=issues.get(id);
+        issue.status=status;
+    }
+
+
+
+
 
 
 
