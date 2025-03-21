@@ -5,7 +5,7 @@ using System.Text;
 
 namespace labfinal_210042111
 {
-    public class ConsoleObserver:IObserver
+    public class EmailObserver:IObserver
     {
         public List<string> notifications = new List<string>();
 
