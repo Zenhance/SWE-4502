@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddComment_ShouldAddCommentToIssue.cs" />
     <Compile Include="CreateIssue_ShouldAddIssueToRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
