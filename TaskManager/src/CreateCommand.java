@@ -7,7 +7,7 @@ public class CreateCommand implements Command{
         this.issue = issue;
     }
     @Override
-    public void execute() {
-        issueRepository.createIssue();
+    public Issue execute() {
+        return issueRepository.createIssue();
     }
 }

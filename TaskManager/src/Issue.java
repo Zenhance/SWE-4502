@@ -33,6 +33,18 @@ public class Issue implements Prototype{
 
         return this;
     }
+
+    public Issue updateIssue(Comment comment){
+        addComment(comment);
+
+        return this;
+    }
+
+    public Issue changeStatus(Enum<STATUS> status){
+        this.status = status;
+        return this;
+    }
+
     public Comment addComment(Comment comment){
         comments.add(comment);
         return comments.getLast();

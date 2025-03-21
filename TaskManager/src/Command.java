@@ -1,4 +1,4 @@
 public interface Command {
-    void execute();
+    Issue execute();
     //void undo();
 }
