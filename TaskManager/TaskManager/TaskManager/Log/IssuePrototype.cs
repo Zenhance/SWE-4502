@@ -16,16 +16,15 @@ public class IssuePrototype
     public List<Tag> _tags;
     public List<Comment> _comments;
 
-    public UserMediator _userMediator;
 
-    public IssuePrototype(string title, string description,IssuePriorityENUM priority, IssueStatusENUM status, User assignedTo, List<Tag> tags, List<Comment> comments)
+    public IssuePrototype(string title, string description,IssuePriorityENUM priority, IssueStatusENUM status , DateTime createdDate, DateTime updatedDate, User assignedTo, List<Tag> tags, List<Comment> comments)
     {
         _title = title;
         _description = description;
         _priority = priority;
         _status = status;
-        _createdDate = DateTime.Now;
-        _updatedDate = DateTime.Now;
+        _createdDate = createdDate;
+        _updatedDate = updatedDate;
         _assignedTo = assignedTo;
         _tags = tags;
         _comments = comments;
