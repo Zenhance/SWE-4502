@@ -15,7 +15,7 @@ public class IssueRepository
         return issue;
     }
 
-    public Issue? GetById(int id)
+    public Issue? FindById(int id)
     {
         return _issues.Where(i => i.Id == id).First();
     }
