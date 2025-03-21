@@ -62,6 +62,11 @@ public class Issue implements Cloneable {
         }
     }
 
+    public List<Comment> getComments()
+    {
+        return this.comments;
+    }
+
     public String getId() {
         return this.id;
     }
