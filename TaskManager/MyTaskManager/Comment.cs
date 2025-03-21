@@ -25,7 +25,7 @@ namespace MyTaskManager
         {
             return new Comment(Id, Content, Author)
             {
-                CreatedAt = DateTime.Now
+                CreatedAt = this.CreatedAt
             };
         }
     }
