@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class Issue {
         this.status = status;
         this.creationDate = new Date();
         this.lastModifiedDate = new Date();
+        this.comments = new ArrayList<>();
     }
 
     public Issue(Issue issue) {
@@ -41,6 +43,10 @@ public class Issue {
 
     public void removeComment(Comment comment) {
         comments.remove(comment);
+    }
+
+    public List<Comment> getComments() {
+        return comments;  // Returns the list of comments
     }
 
     private List<Observer> observers = new ArrayList<>();
@@ -79,4 +85,5 @@ public class Issue {
     public String getTitle() {
         return title;
     }
+
 }
