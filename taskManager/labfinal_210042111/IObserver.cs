@@ -5,7 +5,10 @@ using System.Text;
 
 namespace labfinal_210042111
 {
-    internal interface IObserver
+    public interface IObserver
     {
+        void Update(string message);
+
+
     }
 }
