@@ -23,5 +23,11 @@ namespace labfinal_210042111
 
 
         public Issue() { }
+
+
+        public int GetId()
+        {
+            return Id;
+        }
     }
 }

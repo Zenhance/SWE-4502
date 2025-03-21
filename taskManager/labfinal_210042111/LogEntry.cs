@@ -6,13 +6,14 @@ using System.Text;
 
 namespace labfinal_210042111
 {
+    public enum CommandType { create, update, delete }
     public class LogEntry
     {
         public string Description { get; set; }
         public DateTime timeStamp { get; set; }
-        public string Type { get; set; }
+        public CommandType Type { get; set; }
 
-        public LogEntry(string description, DateTime timeStamp, string type)
+        public LogEntry(string description, DateTime timeStamp, CommandType type)
         {
             Description = description;
             this.timeStamp = timeStamp;

@@ -9,7 +9,7 @@ namespace labfinal_210042111
     {
         private List<LogEntry> logEntries=new List<LogEntry>();
 
-        public void Log(string Description, DateTime timeStamp, string type)
+        public void Log(string Description, DateTime timeStamp, CommandType type)
         {
            logEntries.Add(new LogEntry(Description, timeStamp, type ));
 
