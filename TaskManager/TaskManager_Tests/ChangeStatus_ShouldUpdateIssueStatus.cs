@@ -8,11 +8,12 @@ using TaskManager;
 
 namespace TaskManager_Tests
 {
+
     [TestClass]
-    public class AddComment_ShouldAddCommentToIssue
+    public class ChangeStatus_ShouldUpdateIssueStatus
     {
         [TestMethod]
-        public void AddComment_Test_Method()
+        public void ChangeStatus_Test_Method()
         {
             IssueRepository repo = new IssueRepository();
             Issue issue = new Issue(1, "Test Issue", "Test Description", Priority.Medium);
@@ -20,12 +21,10 @@ namespace TaskManager_Tests
             CommandManager commandManager = new CommandManager();
             commandManager.ExecuteCommand(createCommand);
 
-            Comments comment = new Comments(1, "Test comment", "Author");
-            issue.comments.Add(comment);
+            ChangeStatusCommand changeStatusCommand = new ChangeStatusCommand(repo, issue, Status.InProgress);
+            commandManager.ExecuteCommand(changeStatusCommand);
 
-            Assert.AreEqual(null, comment.content);
+            Assert.AreEqual(Status.InProgress, issue.status);
         }
-
     }
 }
-
