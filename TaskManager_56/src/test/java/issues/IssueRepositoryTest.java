@@ -14,11 +14,6 @@ class IssueRepositoryTest {
         assertEquals(user.issueRepository.isEmpty(),false);
         assertEquals(issue.status, Issue.Status.InProgress);
 
-
-
-
-
-
     }
 
 

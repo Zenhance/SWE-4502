@@ -1,10 +1,12 @@
 package issues;
 
+import comment.Comment;
 import history.Memento;
 import user.User;
 
 import javax.xml.crypto.Data;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Issue {
@@ -28,6 +30,7 @@ public IssueRepository issueRepository;
     public Date LastModified;
     public String tag;
 
+    public HashMap<Integer, Comment> commentHashMap = new HashMap<>();
     Random rand = new Random();
 
 

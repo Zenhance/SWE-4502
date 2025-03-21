@@ -5,12 +5,13 @@ import user.User;
 import java.util.Date;
 
 public class Comment {
-    public String id;
+
+    public Integer id;
     public String content;
-    public User author;
+    public Integer author;
     public Date createdAt;
 
-    public Comment(String id,String content,User author){
+    public Comment(Integer id,String content,Integer author){
         this.id=id;
         this.content=content;
         this.author=author;

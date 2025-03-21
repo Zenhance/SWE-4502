@@ -1,5 +1,6 @@
 package user;
 
+import comment.Comment;
 import issues.Issue;
 import issues.IssueRepository;
 
@@ -26,6 +27,16 @@ public class User {
 
 
     }
+    public Comment createComment(Integer id,String description,Integer issueId,Integer authorId){
+        Issue issue= issueRepository.get(issueId);
+        Comment comment= new Comment(id,description,authorId);
+        issue.commentHashMap.put(id,comment);
+
+
+        return comment;
+
+    }
+
 
 
 
