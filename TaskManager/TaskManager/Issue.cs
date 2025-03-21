@@ -34,5 +34,13 @@ namespace TaskManager
             this.AssignedTo = AssignedTo;
         }
 
+        public Issue(int Id, string Title, string Description, Priority priority)
+        {
+            this.Id = Id;
+            this.Title = Title;
+            this.Description = Description;
+            this.priority = priority;
+        }
+
     }
 }

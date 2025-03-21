@@ -11,6 +11,12 @@ namespace TaskManager
         private IssueRepository _repo;
         private Issue _Issue;
 
+        public CreateIssueCommand(IssueRepository repo, Issue issue)
+        {
+            _repo = repo;
+            _Issue = issue;
+        }
+
         public void Execute()
         {
             _repo.AddIssue(_Issue);
