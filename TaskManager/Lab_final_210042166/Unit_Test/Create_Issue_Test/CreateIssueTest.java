@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CreateIssueTest {
 
     @Test
-    public void AddIssueToRepository(){
+    public void CreateIssue_ShouldAddIssueToRepository(){
         IssueRepository repository = IssueRepository.getInstance();
         Issue issue = new Issue("1", "Test Issue", "Description", Priority.MEDIUM, "User1");
         Command createCommand = new CreateIssueCommand(issue, repository);
