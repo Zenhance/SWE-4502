@@ -34,4 +34,16 @@ public class CommandManager {
     public List<Command> getCommandHistory() {
         return new ArrayList<>(commandHistory);
     }
+
+    public boolean canUndo() {
+        return !undoStack.isEmpty();
+    }
+
+    public boolean canRedo() {
+        return !redoStack.isEmpty();
+    }
+
+
+
+
 }
