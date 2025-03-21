@@ -1,4 +1,4 @@
-package main.java.com.taskmanager.service;
+package com.taskmanager.service;
 
 public class NotificationService {
     public void notify(String message) {

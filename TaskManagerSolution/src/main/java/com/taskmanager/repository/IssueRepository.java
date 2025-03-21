@@ -1,6 +1,6 @@
-package main.java.com.taskmanager.repository;
+package com.taskmanager.repository;
 
-import main.java.com.taskmanager.model.Issue;
+import com.taskmanager.model.Issue;
 import java.util.HashMap;
 import java.util.Map;
 
