@@ -49,18 +49,18 @@ public class Issue {
         return comments;  // Returns the list of comments
     }
 
-    private List<Observer> observers = new ArrayList<>();
+    private List<IObserver> observers = new ArrayList<>();
 
-    public void addObserver(Observer observer) {
+    public void addObserver(IObserver observer) {
         observers.add(observer);
     }
 
-    public void removeObserver(Observer observer) {
+    public void removeObserver(IObserver observer) {
         observers.remove(observer);
     }
 
     public void notifyObservers(String message) {
-        for (Observer observer : observers) {
+        for (IObserver observer : observers) {
             observer.update(message);
         }
     }

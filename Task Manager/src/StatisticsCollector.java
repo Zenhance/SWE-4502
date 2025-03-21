@@ -14,6 +14,17 @@ public class StatisticsCollector {
     public void incrementDelete() {
         deleteCount++;
     }
+    public int getCreateCount() {
+        return createCount;
+    }
+
+    public int getUpdateCount() {
+        return updateCount;
+    }
+
+    public int getDeleteCount() {
+        return deleteCount;
+    }
 
     public void printStats() {
         System.out.println("Creates: " + createCount);

@@ -23,8 +23,8 @@ public class TaskManager {
 
     public void redoCommand() {
         if (!commandHistory.isEmpty()) {
-            Command command = commandHistory.peek();
-            command.execute();
+            Command command = commandHistory.pop();
+            command.undo();
         }
     }
 }
