@@ -85,6 +85,17 @@ class TaskManagerTest {
         assertEquals(2, taskManager.getLogger().getLogCount());
     }
 
+    @Test
+    void testMultipleObservers_ShouldAllBeNotified() {
+        // Created a EmailNotifier in @BeforeEach
+        EmailNotifier secondNotifier = new EmailNotifier();
+        taskManager.registerObserver(secondNotifier);
+        taskManager.createIssue("Test Issue", "Description", Priority.MEDIUM);
+        assertEquals(1, emailNotifier.getNotifications().size());
+        assertEquals(1, secondNotifier.getNotifications().size());
+    }
+    
+
 
 
 
