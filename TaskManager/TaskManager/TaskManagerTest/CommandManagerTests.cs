@@ -93,5 +93,40 @@ namespace TaskManager.Tests
             Assert.Equal("Created issue: Issue 2", logs[1].Description);
             Assert.Equal("Created issue: Issue 3", logs[2].Description);
         }
+        //#F12
+        [Fact]
+        public void UndoRedo_ShouldMaintainProperStacks()
+        {
+            var repository = new IssueRepository();
+            var commandManager = new CommandManager();
+            var issue = new Issue { Title = "Test Issue" };
+
+            commandManager.ExecuteCommand(new CreateIssueCommand(repository, issue));
+
+            issue.Status = Status.InProgress;
+            commandManager.ExecuteCommand(new UpdateIssueCommand(repository, issue));
+
+            issue.Status = Status.UnderReview;
+            commandManager.ExecuteCommand(new UpdateIssueCommand(repository, issue));
+
+            commandManager.Undo();
+            commandManager.Undo();
+
+            var currentIssue = repository.GetById(issue.Id);
+            Assert.Equal(Status.Open, currentIssue.Status);
+
+            commandManager.Redo();
+
+            currentIssue = repository.GetById(issue.Id);
+            Assert.Equal(Status.InProgress, currentIssue.Status);
+
+            issue.Status = Status.Closed;
+            commandManager.ExecuteCommand(new UpdateIssueCommand(repository, issue));
+
+            commandManager.Redo();
+
+            currentIssue = repository.GetById(issue.Id);
+            Assert.Equal(Status.Closed, currentIssue.Status);
+        }
     }
 }
