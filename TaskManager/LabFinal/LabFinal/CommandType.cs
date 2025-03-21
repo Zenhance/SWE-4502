@@ -1,6 +1,9 @@
-﻿public enum CommandType
-{
-    Create,
-    Update,
-    Delete,
-}
+﻿namespace LabFinal;
+    public enum CommandType
+    {
+        Create,
+        Update,
+        Delete,
+    }
+
+

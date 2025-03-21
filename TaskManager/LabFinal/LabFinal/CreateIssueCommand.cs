@@ -1,5 +1,4 @@
-﻿namespace LabFinal
-{
+﻿namespace LabFinal;
     public class CreateIssueCommand : ICommand
     {
         private readonly IssueRepository _repository;
@@ -25,4 +24,3 @@
 
         public CommandLog GetLog() => _log;
     }
-}

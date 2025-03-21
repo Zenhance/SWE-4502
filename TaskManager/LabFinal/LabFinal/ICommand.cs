@@ -1,12 +1,8 @@
 ﻿namespace LabFinal;
 
-interface ICommand;
-
-public interface Command
+public interface ICommand
 {
     void Execute();
     void Undo();
-    
     CommandLog GetLog();
-    
 }
