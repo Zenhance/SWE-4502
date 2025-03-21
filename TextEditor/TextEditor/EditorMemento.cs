@@ -1,6 +1,9 @@
-﻿namespace TextEditor;
+﻿using System.Runtime.Serialization;
 
-public class EditorMemento
+namespace TextEditor;
+
+[Serializable]
+public class EditorMemento: ISerializable
 {
     private string _content;
     private int _cursorPosition;
@@ -20,6 +23,13 @@ public class EditorMemento
     public int GetCursorPosition()
     {
         return _cursorPosition;
+    }
+
+    public void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+        info.AddValue("Content", _content);
+        info.AddValue("CursorPosition", _cursorPosition);
+        info.AddValue("Selection", _selection);
     }
 
     public string GetSelection()

@@ -20,3 +20,14 @@ textEditor.DisplayState();
 history.Undo();
 
 textEditor.DisplayState();
+
+var filePath = "file.tdump";
+history.SaveToFile(filePath);
+
+textEditor.SetContent("Hello, Jupyter!");
+textEditor.SetCursorPosition(4);
+textEditor.AddSelection("Hello");
+textEditor.DisplayState();
+
+history.LoadFromFile(filePath);
+textEditor.DisplayState();
