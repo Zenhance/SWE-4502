@@ -1,28 +1,32 @@
 public class CreateIssueCommand implements ICommand {
 
-
     private final IssueRepo repository;
     private final Issue issue;
-    private final Notification notificationService;
 
-    public CreateIssueCommand(IssueRepo repository, Issue issue, Notification
-            notificationService) {
+    public CreateIssueCommand(IssueRepo repository, String title, String desc, String
+            priority) {
         this.repository = repository;
-        this.issue = issue;
-        this.notificationService = notificationService;
+        this.issue = new Issue(repository.getIssueCount() + 1, title, desc, priority);
     }
 
     @Override
     public void execute() {
         repository.addIssue(issue);
-        notificationService.notifyObservers("Issue Created: " + issue.getTitle());
+        System.out.println("Created: " + issue);
     }
-
 
     @Override
     public void undo() {
-        repository.remove(issue.getId());
-        notificationService.notifyObservers("Issue Removed: " + issue.getTitle());
+        repository.removeIssue(issue.getId());
+        System.out.println("Undo Create: Removed issue " + issue.getId());
     }
 
+    @Override
+    public String getDescription() {
+        return "Create Issue: " + issue.getId();
+    }
 }
+
+
+
+
