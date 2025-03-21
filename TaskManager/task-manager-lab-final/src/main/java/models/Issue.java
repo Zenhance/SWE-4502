@@ -54,5 +54,11 @@ public class Issue {
     public Status getStatus(){
         return  status;
     }
+    public Priority getPriority(){
+        return priority;
+    }
+    public String getDescription(){
+        return description;
+    }
     public List<Comment> getComments(){ return comments; }
 }
