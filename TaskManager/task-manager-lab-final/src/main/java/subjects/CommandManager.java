@@ -17,7 +17,7 @@ public class CommandManager implements Subject{
     public void executeCommand(Command command) {
         command.execute();
         executedCommands.push(command);
-        undoneCommands.clear(); // Clear redo stack on new command
+        undoneCommands.clear();
         logCommand(command);
         notifyObservers(command);
     }
@@ -27,8 +27,8 @@ public class CommandManager implements Subject{
             Command command = executedCommands.pop();
             command.undo();
             undoneCommands.push(command);
-//            logUndo(command);
-//            notifyObserversUndo(command);
+            logUndo(command);
+            notifyObserversUndo(command);
         }
     }
 
@@ -47,24 +47,13 @@ public class CommandManager implements Subject{
         commandLogs.add(log);
     }
 
-    // Similar for logUndo and logRedo
-
-    // Observer pattern methods
-    public void addObserver(Observer observer) {
-        observers.add(observer);
+    private void logUndo(Command command){
+        // implementation
     }
 
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
+    private void logRedo(Command command){
+        // implementation
     }
-
-    private void notifyObservers(Command command) {
-        for (Observer observer : observers) {
-            observer.update(command);
-        }
-    }
-
-    // Similar for notifyObserversUndo
 
     // Methods to access logs
     public List<CommandLog> getLogs() {
@@ -72,17 +61,26 @@ public class CommandManager implements Subject{
     }
 
     @Override
-    public void addObserver() {
-        
+    public void addObserver(Observer observer) {
+        observers.add(observer);
     }
 
     @Override
-    public void removeObserver() {
-
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
     }
 
     @Override
-    public void notifyObserver() {
+    public void notifyObservers(Command command) {
+        for (Observer observer : observers) {
+            observer.update(command);
+        }
+    }
 
+    @Override
+    public void notifyObserversUndo(Command command) {
+        for (Observer observer : observers) {
+            observer.update(command);
+        }
     }
 }
