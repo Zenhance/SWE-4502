@@ -1,3 +1,6 @@
+package model;
+import jdk.jshell.Snippet;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,8 +12,8 @@ public class Issue implements Cloneable {
     private String id;
     private String title;
     private String description;
-    private Priority priority;
     private Status status;
+    private Priority priority;
     private LocalDateTime creationDate;
     private LocalDateTime lastModifiedDate;
     private String assignedTo;
@@ -114,15 +117,5 @@ public class Issue implements Cloneable {
     public void removeComment(String commentId) {
         this.comments.removeIf(comment -> comment.getId().equals(commentId));
         this.lastModifiedDate = LocalDateTime.now();
-    }
-    @Override
-    public String toString() {
-        return "Issue{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", priority=" + priority +
-                ", status=" + status +
-                ", assignedTo='" + assignedTo + '\'' +
-                '}';
     }
 }

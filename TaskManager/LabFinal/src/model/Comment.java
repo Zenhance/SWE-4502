@@ -2,7 +2,7 @@ package model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Comment{
+public class Comment implements Cloneable {
     private String id;
     private String content;
     private String author;
@@ -14,7 +14,17 @@ public class Comment{
         this.author = author;
         this.createdAt = LocalDateTime.now();
     }
+    private Comment(Comment other) {
+        this.id = other.id;
+        this.content = other.content;
+        this.author = other.author;
+        this.createdAt = other.createdAt;
+    }
 
+    @Override
+    public Comment clone() {
+        return new Comment(this);
+    }
     public String getId() {
         return id;
     }
@@ -24,6 +34,7 @@ public class Comment{
     public String getAuthor() {
         return author;
     }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
