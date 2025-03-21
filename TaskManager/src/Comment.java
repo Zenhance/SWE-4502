@@ -1,13 +1,17 @@
 import java.util.Date;
 
 class Comment {
-    private final String id, content, author;
-    private final Date createdAt;
+    private static int counter = 1;
+    private int id;
+    private String content;
+    private String author;
+    private Date createdAt;
 
-    public Comment(String id, String content, String author) {
-        this.id = id;
+    public Comment(String content, String author) {
+        this.id = counter++;
         this.content = content;
         this.author = author;
         this.createdAt = new Date();
+
     }
-} 
+}
