@@ -36,4 +36,16 @@ public class CreateIssueTest
         Assert.Equal(command.Content, retrievedIssue.Comments[0].Content);
         Assert.Equal(command.Author, retrievedIssue.Comments[0].Author);
     }
+
+    [Fact]
+    public void ChangeStatus_ShouldUpdateIssueStatus()
+    {
+        var repository = new IssueRepository();
+        var issue = new Issue { Title = "Test Issue", Description = "Test Description", Priority = Priority.Medium };
+        repository.AddIssue(issue);
+        var command =new ChangeStatusCommand(repository, issue.Id, Status.InProgress);
+        command.Execute();
+        var retrievedIssue = repository.GetIssue(issue.Id);
+        Assert.Equal(issue.Status, retrievedIssue.Status);
+    }
 }
