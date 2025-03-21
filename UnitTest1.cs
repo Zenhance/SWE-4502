@@ -45,9 +45,12 @@ namespace finaltest
             var taskissue = new TaskManager(20, "new issue", "hard dp", Priority.High, "me");
             taskissue.Tags.Add("ui");
             taskissue.AddComment(new Comment(1, "a", "b", DateTime.Now));
+            taskissue.Status = Status.Closed;
             var clonedTask = (TaskManager)taskissue.Clone();
+       
+            Assert.AreEqual(taskissue.Status, clonedTask.Status);
 
-           
+          
         }
     }
 }

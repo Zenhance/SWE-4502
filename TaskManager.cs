@@ -69,7 +69,14 @@ namespace dpfinal_200042152
         }
 
 
-        public void ChangeStatus(Status status) { }
+        public void ChangeStatus(Status newStatus)
+        
+        { 
+            Status = newStatus;
+            LastModifiedDate = DateTime.UtcNow;
+
+
+        }
 
 
 
