@@ -28,6 +28,20 @@ class IssueRepositoryTest {
 
     }
 
+    @Test
+        void updateIssueStatus() {
+        User user= new User(23,"navid");
+        Issue issue=user.createIssue("hello","world");
+        user.updateIssueState(Issue.Status.Closed,issue);
+        assertEquals(issue.status, Issue.Status.Closed);
+
+    }
+
+
+
+
+
+
 
 
 
