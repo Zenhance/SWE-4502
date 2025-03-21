@@ -4,7 +4,6 @@ import db.IssueReposity;
 import models.CommandType;
 import models.Issue;
 import models.Priority;
-import repositories.IssueRepository;
 import java.time.LocalDateTime;
 
 public class UpdateIssueCommand extends Command {
