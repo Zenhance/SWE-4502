@@ -112,5 +112,30 @@ namespace TaskManager.Tests
             Assert.Single(observer2.NotifiedCommands);
             Assert.Single(observer3.NotifiedCommands);
         }
+        //#F10
+        [Fact]
+        public void RemoveObserver_ShouldStopNotifications()
+        {
+            var repository = new IssueRepository();
+            var commandManager = new ObservableCommandManager();
+            var observer = new MockObserver();
+
+            commandManager.AddObserver(observer.OnCommandExecuted);
+
+            var issue1 = new Issue { Title = "Issue 1" };
+            var createCommand = new CreateIssueCommand(repository, issue1);
+
+            commandManager.ExecuteCommand(createCommand);
+            commandManager.RemoveObserver(observer.OnCommandExecuted);
+
+            var issue2 = new Issue { Title = "Issue 2" };
+            var secondCommand = new CreateIssueCommand(repository, issue2);
+
+            commandManager.ExecuteCommand(secondCommand);
+
+            Assert.Single(observer.NotifiedCommands);
+            Assert.Equal(createCommand, observer.NotifiedCommands[0]);
+            Assert.DoesNotContain(secondCommand, observer.NotifiedCommands);
+        }
     }
 }
