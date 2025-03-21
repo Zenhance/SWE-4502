@@ -15,6 +15,8 @@ namespace labfinal_210042111
         {
             repository[issue.Id] = issue;
         }
+
+           
         public void removeIssue(int id)
         {
             repository.Remove(id);

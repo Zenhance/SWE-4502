@@ -24,9 +24,12 @@ namespace labfinal_210042111
         public Stack<string> titles;
 
         public Stack<string> descriptions;
-        public Issue() { }
+      
 
-
+        public Status getStatus()
+        {
+            return status;
+        }
         public int GetId()
         {
             return Id;

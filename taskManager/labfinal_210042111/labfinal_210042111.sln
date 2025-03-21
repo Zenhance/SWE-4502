@@ -4,11 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "labfinal_210042111", "labfinal_210042111.csproj", "{E574F118-82A4-447F-9836-6C1601D512E7}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9207FA86-0388-49A4-A92E-8A0E0DFC460C} = {9207FA86-0388-49A4-A92E-8A0E0DFC460C}
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "labfinaltest", "..\labfinaltest\labfinaltest.csproj", "{9207FA86-0388-49A4-A92E-8A0E0DFC460C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "labfinaltest", "..\labfinaltest\labfinaltest.csproj", "{9207FA86-0388-49A4-A92E-8A0E0DFC460C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E574F118-82A4-447F-9836-6C1601D512E7} = {E574F118-82A4-447F-9836-6C1601D512E7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

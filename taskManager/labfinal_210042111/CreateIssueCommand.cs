@@ -5,7 +5,7 @@ using System.Text;
 
 namespace labfinal_210042111
 {
-    public class CreateIssueCommand:ICommand
+    public class CreateIssueCommand : ICommand
     {
         private IssueRepository repository;
         private Issue issue;
