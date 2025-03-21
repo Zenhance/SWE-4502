@@ -1,0 +1,3 @@
+public enum StatusType {
+    OPEN,IN_PROGRESS,UNDER_REVIEW,RESOLVED,CLOSED
+}
