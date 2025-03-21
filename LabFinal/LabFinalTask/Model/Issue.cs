@@ -18,15 +18,14 @@ public class Issue
     public List<Comment> comments;
     public List<Tag> tags;
     
-    public Issue(string title, string description, PRIORITY priority, STATUS status, DateTime createdDate,
-        DateTime lastModifiedDate, User AssignedTo)
+    public Issue(string title, string description, PRIORITY priority, STATUS status, User AssignedTo)
     {
         this.title = title;
         this.description = description;
         this.priority = priority;
         this.status = status;
-        this.createdDate = createdDate;
-        this.lastModifiedDate = lastModifiedDate;
+        this.createdDate = DateTime.Now;
+        this.lastModifiedDate = DateTime.Now;
         this.AssignedTo = AssignedTo;
     }
 

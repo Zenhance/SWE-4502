@@ -18,6 +18,7 @@ public class IssueManager
     public void AddIssue(Issue issue)
     {
         issues.Add(issue);
+        UserMediator.AddUser(issue.AssignedTo);
         UserMediator.NotifyUsers("New issue created: " + issue.title);
     } 
     
