@@ -25,4 +25,9 @@ public class IssueService
         issue.Comments.Add(comment);
         return comment;
     }
+
+    public Comment? GetCommentById(int id)
+    {
+        return _commentRepo.FindById(id);
+    }
 }
