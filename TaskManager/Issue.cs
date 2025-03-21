@@ -8,8 +8,8 @@ public class Issue
 		public string title;
 		public string description;
         public enum priority { Low, Medium, High, Critical}
-		public string status;
-		public Date CreationDate;
+		public enum status { Open, InProgress,UnderReview, Resolved, Closed }
+        public Date CreationDate;
 		public Date LastModifiedDate;
 		public string AssignedTo;
 		public string Tags[];
@@ -25,6 +25,13 @@ public class Issue
             this.LastModifiedDate = LastModifiedDate;
             this.AssignedTo = AssignedTo;
             this.Tags = Tags;
+        }
+
+        public void AddComment(Comment comment)
+        {
+             Comments.add(comment);
+             LastModifiedDate = DateTime.Now;
+
         }
 
 	}
