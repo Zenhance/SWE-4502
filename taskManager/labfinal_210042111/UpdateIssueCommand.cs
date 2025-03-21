@@ -26,13 +26,14 @@ namespace labfinal_210042111
             issue.setDescription(newDescription);
 
         }
-        public void undo()
+        public string undo()
         {
             string title= issue.getTitle();
             string des = issue.getDescription();
             issue.undoTitle(title);
             issue.undoDescription(des);
             //traceback to previous version
+            return "success";
         }
 
     }

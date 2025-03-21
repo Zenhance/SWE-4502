@@ -22,8 +22,9 @@ namespace labfinal_210042111
             issue.AddComments(comment);
         }
      
-    public void undo()
+    public string undo()
         {
+            return "sucess";
             // Code to remove the last comment
         }
     }

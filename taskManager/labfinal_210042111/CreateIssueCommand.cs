@@ -20,9 +20,10 @@ namespace labfinal_210042111
         {
             repository.addIssue(issue);
         }
-        public void undo()
+        public string undo()
         {
             repository.removeIssue(issue.GetId());
+            return "success";
         }
 
     }

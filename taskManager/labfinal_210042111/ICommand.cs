@@ -8,7 +8,7 @@ namespace labfinal_210042111
     public interface ICommand
     {
         void Execute();
-        void undo();
+        string undo();
     }
 }
         

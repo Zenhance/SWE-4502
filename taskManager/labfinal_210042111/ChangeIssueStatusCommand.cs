@@ -24,9 +24,9 @@ namespace labfinal_210042111
             issue.changeStatus(newStatus);
         }
 
-        public void undo()
+        public string undo()
         {
-            issue.changeStatus(oldStatus);
+            return "success";
         }
     }
 }

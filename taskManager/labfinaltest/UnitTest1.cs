@@ -53,7 +53,7 @@ namespace labfinaltest
             CommandInvoker invoker = new CommandInvoker();
 
             Issue issue = new Issue(3, "Commenting on issue", "Description for status", Priority.low, "Sheona");
-            IssueRepository repository = new IssueRepository(2, issue);
+            IssueRepository repository = new IssueRepository(3, issue);
             repository.addIssue(issue);
             
             ChangeIssueStatusCommand changeStatusCommand = new ChangeIssueStatusCommand(repository, issue, Status.inProgress);
@@ -65,11 +65,23 @@ namespace labfinaltest
         [Fact]
         public void UndoCommand_ShouldRevertLastAction()
         {
+            
+            CommandInvoker invoker2 = new CommandInvoker();
+            Issue issue2 = new Issue(4, "undo issue", "Desc", Priority.high, "Sheona");
+            IssueRepository repository2 = new IssueRepository(4, issue2);
+            CreateIssueCommand createCommand = new CreateIssueCommand(repository2, issue2);
+            invoker2.executeCommand(createCommand);
+            Assert.NotNull(repository2.getIssue(4));
+           string a= invoker2.undo();
+           Assert.Equal("success", a);
+
 
         }
         [Fact]
         public void RedoCommand_ShouldReapplyUndoneAction()
         {
+           
+
 
         }
 

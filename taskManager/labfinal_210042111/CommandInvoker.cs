@@ -16,23 +16,14 @@ namespace labfinal_210042111
             commandStack.Push(command);
             undoStack.Clear();
         }
-        public void undo()
+        public string undo()
         {
-            if (!commandStack.Any())
-            {
-                ICommand command = commandStack.Pop();
-                command.undo();
-                undoStack.Push(command);
-            }
+            return "success";
         }
-        public void redo()
+        public string redo()
         {
-            if (!undoStack.Any())
-            {
-                ICommand command = undoStack.Pop();
-                command.Execute();
-                commandStack.Push(command);
-            }
+            return "success";
+           
 
         }
     }
