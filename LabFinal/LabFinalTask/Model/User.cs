@@ -3,15 +3,17 @@
 public class User
 {
     public string name;
+    public string lastEmail;
     
     public User(string name)
     {
         this.name = name;
+        this.lastEmail = "";
     }
     
     public void ReceiveEmail(string message)
     {
-        Console.WriteLine($"{name} received email: {message}");
+        this.lastEmail = message;
     }
     
     
