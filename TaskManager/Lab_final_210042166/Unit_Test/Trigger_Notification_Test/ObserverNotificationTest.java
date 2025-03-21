@@ -15,6 +15,6 @@ public class ObserverNotificationTest {
         issue.addObserver(observer);
         issue.setStatus(Status.IN_PROGRESS);
 
-        assert (true);
+        assertTrue(true);
     }
 }
