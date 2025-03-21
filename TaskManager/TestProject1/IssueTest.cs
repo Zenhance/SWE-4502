@@ -44,5 +44,21 @@ namespace TestProject1
             Assert.Equal(initialCount + 1, issue.Comments.Count);
 
         }
+
+        [Fact]
+        public void ChangeStatus_ShouldUpdateIssueStatus()
+        {
+            // Arrange: Create an issue with default status (Open)
+            var issue = new Issue(1, "Bug in Login", "Fix login issue", Priority.High, "John Doe");
+
+            // Act: Change the status to 'Resolved'
+            issue.UpdateStatus(Status.Resolved);
+
+            // Assert: Verify that the status is updated correctly
+            Assert.Equal(Status.Resolved, issue.Status);
+
+            // Assert: Ensure that LastModifiedDate is updated
+            Assert.True(issue.LastModifiedDate >= issue.CreationDate);
+        }
     }
 }
