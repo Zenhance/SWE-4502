@@ -2,101 +2,53 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
-public class Issue {
-    public int id;
-    public String title;
-    public String description;
-    public String priority;
-    public String status;
-    public Date creationDate;
-    public Date lastModifiedDate;
-    public String assignedTo;
-    public comment comment;
-    public ArrayList<String> tags;
+class Issue implements Cloneable {
+    private final UUID id;
+    private String title;
+    private String description;
+    private Priority priority;
+    private Status status;
+    private Date creationDate;
+    private Date lastModifiedDate;
+    private String assignedTo;
+    private List<String> tags;
+    private List<Comment> comments;
 
-    public Issue(int id, String title, String description, String priority, String status, Date creationDate, Date lastModifiedDate, String assignedTo, org.example.comment comment, ArrayList<String> tags) {
-        this.id = id;
+    public Issue(String title, String description, Priority priority) {
+        this.id = UUID.randomUUID();
         this.title = title;
         this.description = description;
         this.priority = priority;
-        this.status = status;
-        this.creationDate = creationDate;
-        this.lastModifiedDate = lastModifiedDate;
-        this.assignedTo = assignedTo;
-        this.comment = comment;
-        this.tags = tags;
+        this.status = Status.OPEN;
+        this.creationDate = new Date();
+        this.lastModifiedDate = new Date();
+        this.tags = new ArrayList<>();
+        this.comments = new ArrayList<>();
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
+    public void update(String title, String description, Priority priority) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getPriority() {
-        return priority;
-    }
-
-    public void setPriority(String priority) {
         this.priority = priority;
+        this.lastModifiedDate = new Date();
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
+    public void changeStatus(Status status) {
         this.status = status;
+        this.lastModifiedDate = new Date();
     }
 
-    public Date getCreationDate() {
-        return creationDate;
+    public void addComment(String content, String author) {
+        this.comments.add(new Comment(content, author));
+        this.lastModifiedDate = new Date();
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
-
-    public String getAssignedTo() {
-        return assignedTo;
-    }
-
-    public void setAssignedTo(String assignedTo) {
-        this.assignedTo = assignedTo;
-    }
-
-    public org.example.comment getComment() {
-        return comment;
-    }
-
-    public void setComment(org.example.comment comment) {
-        this.comment = comment;
+    public UUID getId() { return id; }
+    public Status getStatus() { return status; }
+    public Issue clone() throws CloneNotSupportedException {
+        return (Issue) super.clone();
     }
 }
