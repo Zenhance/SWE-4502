@@ -43,5 +43,10 @@ namespace TrelloApp
         {
             comments.Add(comment);
         }
+
+        public void changeIssueStatus(status statustype)
+        {
+            this.statusType = statusType;
+        }
     }
 }
