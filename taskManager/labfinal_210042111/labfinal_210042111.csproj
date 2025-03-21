@@ -50,6 +50,7 @@
     <Compile Include="AddCommentCommand.cs" />
     <Compile Include="ChangeIssueStatusCommand.cs" />
     <Compile Include="CommandInvoker.cs" />
+    <Compile Include="CommandLogger.cs" />
     <Compile Include="EmailObserver.cs" />
     <Compile Include="CreateIssueCommand.cs" />
     <Compile Include="ICommand.cs" />
