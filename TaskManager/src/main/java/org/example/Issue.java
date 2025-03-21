@@ -30,4 +30,8 @@ public class Issue {
     public void updateIssue() {
         System.out.println("Issue updated");
     }
+    public void changeIssueStatus(){
+        status cng = status.Resolved;
+        System.out.println("Issue status changed");
+    }
 }
