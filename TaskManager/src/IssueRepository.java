@@ -16,4 +16,20 @@ public class IssueRepository {
         issueHashMap.put(issue.getId(), issue);
         return issue;
     }
+
+    public Prototype getPrototype() {
+        return prototype;
+    }
+
+    public void setPrototype(Prototype prototype) {
+        this.prototype = prototype;
+    }
+
+    public HashMap<String, Issue> getIssueHashMap() {
+        return issueHashMap;
+    }
+
+    public void setIssueHashMap(HashMap<String, Issue> issueHashMap) {
+        this.issueHashMap = issueHashMap;
+    }
 }

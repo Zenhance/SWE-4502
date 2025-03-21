@@ -10,4 +10,10 @@ public class CreateCommand implements Command{
     public Issue execute() {
         return issueRepository.createIssue();
     }
+
+    @Override
+    public Issue undo() {
+        issueRepository.getIssueHashMap().remove(issue.getId());
+        return issue;
+    }
 }

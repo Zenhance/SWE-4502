@@ -1,5 +1,6 @@
 public class UpdateCommand implements Command{
     Issue issue;
+    Issue prev_Issue;
     String title;
 
     Comment comment;
@@ -17,11 +18,19 @@ public class UpdateCommand implements Command{
 
     @Override
     public Issue execute() {
+        prev_Issue = issue;
+
         if(title!= null && priority!= null)
             issue = issue.updateIssue(title,priority);
         if(comment!= null)
             issue = issue.updateIssue(comment);
 
+        return issue;
+    }
+
+    @Override
+    public Issue undo() {
+        issue = prev_Issue;
         return issue;
     }
 }
