@@ -1,7 +1,11 @@
+package org.example;
+
 import org.example.Issue;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.example.CreateIssue;
 public class IssueRepository {
     private Map<String, Issue> issues = new HashMap<>();
 

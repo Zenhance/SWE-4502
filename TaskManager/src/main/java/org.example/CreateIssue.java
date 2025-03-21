@@ -1,5 +1,4 @@
 package org.example;
-
 public class CreateIssue implements Command {
     private IssueRepository repository;
     private Issue issue;
