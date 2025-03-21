@@ -5,7 +5,7 @@ using System.Text;
 
 namespace labfinal_210042111
 {
-    internal class AddComment
+    public class AddCommentCommand
     {
     }
 }

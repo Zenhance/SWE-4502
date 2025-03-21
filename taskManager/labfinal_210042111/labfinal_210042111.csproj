@@ -47,7 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCommentCommand.cs" />
+    <Compile Include="ChangeIssueStatusCommand.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="CreateIssueCommand.cs" />
     <Compile Include="Issue.cs" />
     <Compile Include="IssueRepository.cs" />
     <Compile Include="LogEntry.cs" />
@@ -55,6 +59,7 @@
     <Compile Include="NotificationService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateIssueCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

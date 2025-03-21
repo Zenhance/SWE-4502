@@ -21,13 +21,66 @@ namespace labfinal_210042111
         public List<string> Tags { get; set; }=new List<string>();
         public List<string> Comments { get; set; } = new List<string>();
 
+        public Stack<string> titles;
 
+        public Stack<string> descriptions;
         public Issue() { }
 
 
         public int GetId()
         {
             return Id;
+        }
+
+        public string getTitle()
+        {
+            return Title;
+        }
+        public string getDescription()
+        {
+            return Description;
+        }
+
+        public void setTitle(string title)
+        {
+            Title = title;
+            titles.Push(Title);
+        }
+
+        public void undoTitle(string title)
+        {
+            foreach (var item in titles)
+                if(item==title)
+            Title = titles.Peek();
+            titles.Pop();
+        }
+        public void undoDescription(string des)
+        {
+            foreach (var item in descriptions)
+                if(item==des) 
+                    descriptions.Peek();
+                    descriptions.Pop();
+
+              
+        }
+        public void setDescription(string description)
+        {
+            Description = description;
+            descriptions.Push(description);
+        }
+        public void AddTag(string tag)
+        {
+            Tags.Add(tag);
+        }
+        public void AddComments(string comments)
+        {
+            Comments.Add(comments);
+        }
+
+        public void changeStatus(Status status)
+        {
+            this.status = status;
+            LastModificationDate= DateTime.Now;
         }
     }
 }

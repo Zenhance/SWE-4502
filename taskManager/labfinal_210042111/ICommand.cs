@@ -5,7 +5,7 @@ using System.Text;
 
 namespace labfinal_210042111
 {
-    public interface Command
+    public interface ICommand
     {
         void Execute();
         void undo();
