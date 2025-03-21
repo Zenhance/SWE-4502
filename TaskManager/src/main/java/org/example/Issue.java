@@ -41,6 +41,6 @@ public class Issue {
         System.out.println("Comment added");
     }
     public void undoRedo(){
-
+        System.out.println("handling undo-redo of comments");
     }
 }

@@ -18,6 +18,23 @@ class IssueRepository {
         issue.changeIssueStatus();
         assertTrue(issue.toString().contains("Issue status changed"));
     }
+
+    @Test
+    void UndoCommand_ShouldRevertLastAction(){
+        Issue issue= new Issue();
+        UndoRedo ud= new UndoRedo();
+        ud.executeCommand(this::UndoCommand_ShouldRevertLastAction);
+        ud.undo();
+        assertTrue(issue.toString().contains("handling undo-redo of comments"));
+    }
+    @Test
+    public void RedoCommand_ShouldReapplyUndoneAction(){
+        Issue issue= new Issue();
+        UndoRedo ud= new UndoRedo();
+        ud.executeCommand(this::RedoCommand_ShouldReapplyUndoneAction);
+        ud.undo();
+        assertTrue(issue.toString().contains("handling undo-redo of comments"));
+    }
 }
 
 //////////////////////////////////////////////////////////

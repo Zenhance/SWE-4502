@@ -1,6 +1,6 @@
 package org.example;
 
-public class ChangeIssueStatusComand implements Command{
+public class ChangeIssueStatusCommand implements Command{
     private Issue issue;
 
     public void ChangeIssueStatusCommand(Issue issue){
