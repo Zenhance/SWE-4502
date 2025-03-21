@@ -1,8 +1,9 @@
-﻿using TaskManagerOriginal.Model;
+﻿using System.Data;
+using TaskManagerOriginal.Model;
 
 namespace TaskManagerOriginal.Command;
 
-public class CreateTagCommand
+public class CreateTagCommand : Icommand
 {
     private IssueMan _issueManager;
     private Issue _issue;
@@ -15,12 +16,12 @@ public class CreateTagCommand
         _tag = tag;
     }
 
-    public void execute()
+    public void Execute()
     {
         _issueManager.AddTagToIssue(_issue, _tag);
     }
 
-    public void undo()
+    public void Undo()
     {
         _issueManager.AddTagToIssue(_issue, _tag);
     }

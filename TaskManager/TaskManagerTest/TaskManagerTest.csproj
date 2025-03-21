@@ -21,4 +21,8 @@
         <Using Include="Xunit"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\TaskManager\TaskManager.csproj" />
+    </ItemGroup>
+
 </Project>
