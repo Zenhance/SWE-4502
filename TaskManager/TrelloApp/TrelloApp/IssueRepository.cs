@@ -20,5 +20,18 @@ namespace TrelloApp
         {
             issues.Add(issue.id, issue);
         }
+
+        public Issue getIssue (int issueid)
+        {
+            return issues[issueid];
+        }
+
+        public void updateIssue(Issue issue)
+        {
+            if (issues.ContainsKey(issue.id))
+            {
+                issues[issue.id] = issue;
+            }
+        }
     }
 }
