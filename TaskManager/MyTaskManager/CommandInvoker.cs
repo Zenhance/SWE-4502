@@ -66,5 +66,10 @@ namespace MyTaskManager
 
             }
         }
+
+        public int GetCommandStats(CommandType commandType)
+        {
+            return commandCounts[commandType];
+        }
     }
 }

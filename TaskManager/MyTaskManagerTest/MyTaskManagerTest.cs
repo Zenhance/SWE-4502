@@ -111,5 +111,20 @@ namespace MyTaskManagerTest
 
             Assert.Equal(Status.InProgress, retrievedIssue.Status);
         }
+
+        [Fact]
+        public void StatisticsCollector_ShouldTrackCommandCounts()
+        {
+            var issueRepository = new IssueRepository();
+            var createCommand = new CreateIssueCommand(issueRepository, "Test Issue", "This is a test issue", Priority.Medium);
+            var commandInvoker = new CommandInvoker();
+            commandInvoker.ExecuteCommand(createCommand);
+
+            var createCommand2 = new CreateIssueCommand(issueRepository, "Test Issue 2", "This is a test issue 2", Priority.Low);
+            commandInvoker.ExecuteCommand(createCommand2);
+
+            
+            Assert.Equal(2, commandInvoker.GetCommandStats(CommandType.Create));
+        }
     }
 }
