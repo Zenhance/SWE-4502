@@ -11,15 +11,15 @@ public class RedoCommandTest {
     @Test
     public void RedoCommand_ShouldReapplyUndoneAction() {
         IssueRepository repository = IssueRepository.getInstance();
-        Issue issue = new Issue("1", "Test Issue", "Description", Priority.MEDIUM, "User1");
-        Command createCommand = new CreateIssueCommand(issue, repository);
+        Issue issue = new Issue("2", "Test Issue", "Testing Redo Command", Priority.HIGH, "User1");
+        Command createCommand = new CreateIssueCommand(issue,repository);
         CommandManager manager = new CommandManager();
 
         manager.executeCommand(createCommand);
         manager.undo();
         manager.redo();
 
-        assertNotNull(repository.getIssue("1"));
+        assertNotNull(repository.getIssue("2"));
     }
 
 }
