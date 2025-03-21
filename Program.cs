@@ -7,62 +7,14 @@ using System.Threading.Tasks;
 
 namespace taskManager
 {
-    public enum priority
+
+    public enum type
     {
-        Low,
-        Medium, 
-        High,
-        Crtitical
+        Create,
+        Update,
+        Delete
     }
-
-    public enum Status
-    {
-        Open,
-        Inprogress,
-        UnderReview, 
-        Resolved, 
-        Closed
-    }
-
-    public class createIssue 
-    {
-
-    }
-     
-    public class updateIssue
-    {
-
-    }
-    public class changeIssueStatus
-
-
-    {
-
-    }
-    public class addComments
-    {
-
-    }
-
-    }
-    public class triggerNotification
-    {
-
-    }
-'
-    public class triggerNotification
-{
-
-}
-Statistics Collector
-
-
-
-
-
-
-
-
+   
     public class Program
     {
         static void Main(string[] args)
@@ -72,3 +24,5 @@ Statistics Collector
         }
     }
 }
+
+
