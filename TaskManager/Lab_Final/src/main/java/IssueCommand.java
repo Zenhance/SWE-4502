@@ -1,19 +1,31 @@
-public class IssueCommand extends Command {
-    private  IssueRepository issueRepository;
+public class IssueCommand extends Command{
+    private  IssueRepository repository;
+
     private  Issue issue;
 
-    public IssueCommand(IssueRepository issueRepository, Issue issue) {
-        this.issueRepository = issueRepository;
+    private boolean isExecuted= false;
+
+    public IssueCommand(IssueRepository repository, Issue issue) {
+        super("Created issue: " + issue.getTitle(), CommandType.Create);
+        this.repository = repository;
         this.issue = issue;
     }
 
     @Override
     public void execute() {
-        issueRepository.addIssue(issue);
+        repository.addIssue(issue);
+        isExecuted = true;
     }
 
     @Override
     public void undo() {
-        issueRepository.removeIssue(issue.getId());
+        if (isExecuted) {
+            repository.removeIssue(issue.getId());
+            isExecuted = false;
+        }
+    }
+
+    public Issue getIssue() {
+        return issue;
     }
 }
