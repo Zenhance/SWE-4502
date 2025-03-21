@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Issue {
+public class Issue implements Notify{
 
     private String Id;
     private String Title;
@@ -14,9 +14,12 @@ public class Issue {
     private String Tags[];
     private ArrayList<Comment> CommentList;
     private ArrayList<Log> LogHistory;
+    private ArrayList<User> SubscriberList;
 
     public Issue(){
         CommentList= new ArrayList<>();
+        SubscriberList= new ArrayList<>();
+        notifying("New Status created with "+this.getID());
     }
 
     public String getID(){
@@ -33,6 +36,7 @@ public class Issue {
     }
 
     public void changeStatus(Status status){
+        notifying("Status changed from "+this.Status+" to "+status);
         this.Status= status;
     }
 
@@ -43,6 +47,21 @@ public class Issue {
     public void AccessLogHistory(){
         for(Log a: LogHistory){
             System.out.println("Log Description: "+a.getDescription()+" Log Created At: "+a.getCreatedAt());
+        }
+    }
+
+    public void AddSubscriber(User a){
+        SubscriberList.add(a);
+    }
+
+    public void removeSubscriber(User a){
+        SubscriberList.remove(a);
+    }
+
+    @Override
+    public void notifying(String s) {
+        for(User a: SubscriberList){
+            a.receiveNotification(s);
         }
     }
 }
