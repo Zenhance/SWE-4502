@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TextEditor
 {
-    internal class History
+    public class History
     {
+        public History() { }
     }
 }
