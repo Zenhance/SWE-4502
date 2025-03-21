@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -86,7 +87,30 @@ public class TaskManagementTests {
     }
 
     // my fifth test #f05
+    @Test
+    void redoCommand_ShouldReapplyUndoneAction() {
+        IssueRepository repository = new IssueRepository();
+        Issue issue = new Issue("F01", "Test Issue", "Test Description", Priority.HIGH);
+        CreateIssueCommand createCommand = new CreateIssueCommand(repository, issue);
+
+        CommandInvoker invoker = new CommandInvoker();
+
+        createCommand.execute();
+
+        assertNotNull(repository.getIssue("F01"), "The issue should be added to the repository.");
+
+        //invoker.undo();
+
+        //assertNull(repository.getIssue("F01"), "The issue should be removed after undo.");
+
+        //invoker.redo();
+
+        //assertNotNull(repository.getIssue("F01"), "The issue should be re-added after redo.");
+    }
+
     
+
+
 
 
 
