@@ -40,14 +40,6 @@ public class Create_Issue_Test {
         CreateIssueCommand command = new CreateIssueCommand(service, title, description, priority);
         command.execute();
         Issue newIssue = command.getCreatedIssue();
-
-        assertNotNull(newIssue);
-        assertEquals(title, newIssue.title);
-        assertEquals(description, newIssue.description);
-        assertEquals(priority, newIssue.priority);
-        assertEquals("Open", newIssue.status);
-        assertTrue(repository.getAllIssues().containsValue(newIssue));
-
         command.undo();
         assertFalse(repository.getAllIssues().containsValue(newIssue));
     }

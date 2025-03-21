@@ -3,7 +3,7 @@ public class AddCommentCommand implements Command{
     private int issueId;
     private String content;
     private String author;
-    private Comment addedComment;
+    private Issue addedComment;
 
     public AddCommentCommand(IssueService issueService, int issueId, String content, String author) {
         this.issueService = issueService;
@@ -14,8 +14,7 @@ public class AddCommentCommand implements Command{
 
     @Override
     public void execute() {
-        
-
+        addedComment = issueService.addComment(issueId, content, author);
     }
 
     @Override
@@ -23,7 +22,7 @@ public class AddCommentCommand implements Command{
 
     }
 
-    public Comment getAddedComment() {
+    public Issue getAddedComment() {
         return addedComment;
     }
 }
