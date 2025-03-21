@@ -57,6 +57,17 @@ public class TaskManagementTests {
         assertEquals("Author", issue.getComments().get(0).getAuthor(), "The comment author should match.");
     }
 
+    // my third test #f03
+    @Test
+    void changeStatus_ShouldUpdateIssueStatus() {
+        Issue issue = new Issue("F01", "Test Issue", "Test Description", Priority.HIGH, Status.OPEN, new Date(), new Date(), "tuli-31", null, null);
+
+        issue.changeStatus(Status.RESOLVED);
+
+        assertEquals(Status.RESOLVED, issue.getStatus(), "The issue status should be updated to RESOLVED.");
+    }
+
+
 
 
 
