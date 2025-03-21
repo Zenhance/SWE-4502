@@ -7,13 +7,12 @@ public class ChangeIssueCommand implements Command{
     public ChangeIssueCommand(Issue issue, IssueRepository issueRepository, String previousStatus, String newStatus) {
         this.issue = issue;
         this.issueRepository = issueRepository;
-        this.previousStatus = previousStatus;
+        this.previousStatus = issue.getStatus();
         this.newStatus = newStatus;
     }
 
     @Override
     public void execute(){
-        previousStatus = issue.getStatus();
         issue.setStatus(newStatus);
         issueRepository.updateIssue(issue);
 
