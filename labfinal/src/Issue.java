@@ -1,5 +1,8 @@
 import java.lang.reflect.Array;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class Issue{
 
@@ -11,10 +14,20 @@ public class Issue{
   private LocalDateTime creationDate;
   private LocalDateTime lastModifiedDate;
   private Array[] tags;
-  private Comment comments;
+  private List<Comment> comments;
 
+  public Issue()
+  {
+    this.id = UUID.randomUUID().toString();
+    this.status = StatusType.OPEN;
+    this.creationDate = LocalDateTime.now();
+    this.lastModifiedDate = LocalDateTime.now();
+    this.tags = new Array[]{};
+    this.comments = new ArrayList<>();
 
-  public void addIssue(String id, String title, String description, PriorityType priority, StatusType status, LocalDateTime creationDate, LocalDateTime lastModifiedDate , Array[] tags, Comment comment, Command command){
+  }
+
+  public Issue(String id, String title, String description, PriorityType priority, StatusType status, LocalDateTime creationDate, LocalDateTime lastModifiedDate , Array[] tags, List<Comment> comment, Command command){
     this.id = id;
     this.title = title;
     this.description = description;
@@ -35,12 +48,25 @@ public class Issue{
     return title;
   }
 
+  public void setTitle(String title){
+    this.title = title;
+  }
+
   public String getDescription(){
     return description;
   }
 
-  public PriorityType getPriority(){
-    return priority;
+  public void setDescription(String description){
+    this.description = description;
+  }
+
+
+  public void getPriority(){
+    System.out.println(priority);
+  }
+
+  public void setPriority(PriorityType priority){
+    this.priority =  priority;
   }
 
   public LocalDateTime getCreationDate(){
@@ -64,11 +90,12 @@ public class Issue{
     return tags;
   }
 
-  public Comment getComments(){
+  public List<Comment> getComments(){
     return comments;
   }
   public void addComment(Comment comment) {
 
+    comments.add(comment);
   }
 
 }
