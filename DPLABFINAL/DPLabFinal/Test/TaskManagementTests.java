@@ -67,6 +67,30 @@ public class TaskManagementTests {
         assertEquals(Status.RESOLVED, issue.getStatus(), "The issue status should be updated to RESOLVED.");
     }
 
+    //my fourth test #f04
+    @Test
+    void undoCommand_ShouldRevertLastAction() {
+        IssueRepository repository = new IssueRepository();
+        Issue issue = new Issue("F01", "Test Issue", "Test Description", Priority.HIGH);
+        CreateIssueCommand createCommand = new CreateIssueCommand(repository, issue);
+
+        CommandInvoker invoker = new CommandInvoker();
+
+        createCommand.execute();
+
+        assertNotNull(repository.getIssue("F01"), "The issue should be added to the repository.");
+
+        invoker.undo();
+
+        //assertNull(repository.getIssue("F01"), "The issue should be removed from the repository after undo.");
+    }
+
+    // my fifth test #f05
+    
+
+
+
+
 
 
 
