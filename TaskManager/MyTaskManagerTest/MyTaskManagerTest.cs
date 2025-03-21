@@ -92,5 +92,24 @@ namespace MyTaskManagerTest
 
             Assert.Equal(Status.Open, retrievedIssue.Status);
         }
+
+        [Fact]
+        public void RedoCommand_ShouldReapplyUndoneAction()
+        {
+            var issueRepository = new IssueRepository();
+            var createCommand = new CreateIssueCommand(issueRepository, "Test Issue", "This is a test issue", Priority.Medium);
+            var commandInvoker = new CommandInvoker();
+            commandInvoker.ExecuteCommand(createCommand);
+
+            var retrievedIssue = issueRepository.GetIssue(createCommand.issue.Id);
+
+            var changeIssueStatusCommand = new ChangeIssueStatusCommand(issueRepository, retrievedIssue.Id, Status.InProgress);
+            commandInvoker.ExecuteCommand(changeIssueStatusCommand);
+
+            commandInvoker.Undo();
+            commandInvoker.Redo();
+
+            Assert.Equal(Status.InProgress, retrievedIssue.Status);
+        }
     }
 }
