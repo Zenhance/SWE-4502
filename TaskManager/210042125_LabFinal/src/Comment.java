@@ -1,8 +1,16 @@
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Comment {
     private String Id;
     String Content;
-    String Author;
-    Date CreatedAt;
+    Author author;
+    LocalDateTime CreatedAt;
+
+    public Comment(String Content, Author author){
+        this.Content= Content;
+        this.author= author;
+        this.CreatedAt= LocalDateTime.now();
+    }
+
+
 }
