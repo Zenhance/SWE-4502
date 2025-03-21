@@ -3,37 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TaskManager.Models;
-using TaskManager.Repository;// adding later these
+using TaskManager.Repository;
 using System.Threading.Tasks;
 
 namespace TaskManager.Commands
 {
     namespace TaskManager.Commands
     {
-        public class CreateIssueCommand : ICommand
+        public class UpdateIssueCommand : ICommand
         {
             private readonly IssueRepository _repository;
-            private readonly Issue _issue;
+            private readonly Issue _newIssue;
+            private readonly Issue _oldIssue;
 
-            public CreateIssueCommand(IssueRepository repository, Issue issue)
+            public UpdateIssueCommand(IssueRepository repository, Issue newIssue)
             {
                 _repository = repository;
-                _issue = issue;
+                _newIssue = newIssue;
+                _oldIssue = repository.GetById(newIssue.Id);
                 Timestamp = DateTime.UtcNow;
             }
 
-            public string Description => $"Created issue: {_issue.Title}";
+            public string Description => $"Updated issue: {_newIssue.Title}";
             public DateTime Timestamp { get; }
-            public CommandType Type => CommandType.Create;
+            public CommandType Type => CommandType.Update;
 
             public void Execute()
             {
-                _repository.Add(_issue);
+                _repository.Update(_newIssue);
             }
 
             public void Undo()
             {
-                _repository.Remove(_issue.Id);
+                _repository.Update(_oldIssue);
             }
         }
     }
