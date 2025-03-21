@@ -46,6 +46,76 @@ namespace labfinaltest
             Assert.Equal("this is a comment for test", issue.GetComment()[0].Content);
 
         }
+
+        [Fact]
+        public void ChangeStatus_ShouldUpdateIssueStatus()
+        {
+
+        }
+        [Fact]
+        public void UndoCommand_ShouldRevertLastAction()
+        {
+
+        }
+        [Fact]
+        public void RedoCommand_ShouldReapplyUndoneAction()
+        {
+
+        }
+
+        [Fact]
+        public void Observer_ShouldBeNotifiedOfCommands()
+        {
+
+        }
+        [Fact]
+        public void StatisticsCollector_ShouldTrackCommandCounts()
+        {
+
+        }
+
+        [Fact]
+        public void Logger_ShouldStoreCommandHistoryLogs()
+        {
+
+        }
+        [Fact]
+        public void MultipleObservers_ShouldAllBeNotified()
+        {
+
+        }
+        [Fact]
+        public void RemoveObserver_ShouldStopNotifications()
+        {
+
+        }
+        [Fact]
+        public void CommandHistory_ShouldTrackAllExecutedCommands()
+        {
+
+        }
+        [Fact]
+        public void UndoRedo_ShouldMaintainProperStacks()
+        {
+
+        }
+        [Fact]
+        public void Issue_Clone_ShouldCreateCompleteDeepCopy()
+        {
+
+        }
+        [Fact]
+        public void ChangeIssueStatusCommand_ShouldLogCorrectDescription()
+        {
+
+        }
+        [Fact]
+        public void NotificationService_ShouldNotifyOnStatusChanges()
+        {
+
+        }
+
+
     }
 
 
