@@ -35,6 +35,12 @@ class IssueRepository {
         ud.undo();
         assertTrue(issue.toString().contains("handling undo-redo of comments"));
     }
+    @Test
+    public void AddComment_ShouldAddCommentToIssue(){
+        Issue issue= new Issue();
+        Comment comment= new Comment(content, author);
+        assertTrue(issue.toString().contains("Comment added"));
+    }
 }
 
 //////////////////////////////////////////////////////////
