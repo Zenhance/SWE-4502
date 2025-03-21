@@ -38,7 +38,13 @@ class TaskManagerTest {
         assertEquals("Test Author", updatedIssue.getComments().get(0).getAuthor());
     }
 
-    
+    @Test
+    void testChangeStatus_ShouldUpdateIssueStatus() {
+        Issue issue = taskManager.createIssue("Test Issue", "Description", Priority.MEDIUM);
+        taskManager.changeIssueStatus(issue.getId(), Status.IN_PROGRESS);
+        Issue updatedIssue = taskManager.getIssue(issue.getId());
+        assertEquals(Status.IN_PROGRESS, updatedIssue.getStatus());
+    }
 
 
 
