@@ -39,6 +39,15 @@ public class Issue implements Notify{
         return Priority;
     }
 
+    public boolean getComment(Comment comment){
+        if(CommentList.contains(comment)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public void updateIssue(String Title){
         this.Title= Title;
     }
