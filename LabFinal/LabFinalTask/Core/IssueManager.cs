@@ -55,7 +55,7 @@ public class IssueManager
         UserMediator.NotifyUsers("Issue status updated: " + oldStatus + " -> " + status);
     }
     
-    public void UpdateIssueAssignedTo(Issue issue, User user)
+    public void UpdateIssueAssignee(Issue issue, User user)
     {
         User oldUser = issue.AssignedTo;
         issue.AssignedTo = user;
