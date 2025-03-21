@@ -6,6 +6,9 @@ public class CommandManager {
     public Stack <Command> undoneCommands = new Stack<>();
 
 
+    
+
+
     public void executeCommand(Command command){
         command.execute();
         executedCommands.push(command);
@@ -29,5 +32,7 @@ public class CommandManager {
             command.execute();
             executedCommands.push(command);
         }
+
+        
     }
 }
