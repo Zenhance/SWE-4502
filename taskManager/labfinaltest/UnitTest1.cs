@@ -1,6 +1,8 @@
 using Xunit.Sdk;
 using labfinal_210042111;
 using System.Xml.Linq;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
+using System;
 
 
 namespace labfinaltest
@@ -40,7 +42,7 @@ namespace labfinaltest
             Comment comment = new Comment(1, "this is a comment for test", "Sheona");
             AddCommentCommand addCommentCommand = new AddCommentCommand(repository, issue, comment);
             invoker.executeCommand(addCommentCommand);
-
+               
 
          
             Assert.Equal("this is a comment for test", issue.GetComment()[0].Content);
@@ -98,11 +100,13 @@ namespace labfinaltest
         [Fact]
         public void Observer_ShouldBeNotifiedOfCommands()
         {
-
         }
+
         [Fact]
         public void StatisticsCollector_ShouldTrackCommandCounts()
         {
+            
+
 
         }
 
