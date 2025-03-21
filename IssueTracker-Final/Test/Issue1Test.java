@@ -75,6 +75,60 @@ Issue issue = new Issue("1", "Test Issue", "This is a test issue", Priority.Medi
 
     }
 
+@Test
+
+    public void UndoCommand_ShouldRevertLastAction(){
+
+        IssueRepository repository = new IssueRepository();
+
+        Issue issue = new Issue("1", "Test Issue", "This is a test issue", Priority.Medium, Status.Open, LocalDateTime.now(), LocalDateTime.now(), "Test User", new ArrayList<>(), Arrays.asList("test", "issue"));
+
+        CommandManager commandManager = new CommandManager();
+
+        CreateIssue createIssue = new CreateIssue(repository, issue);
+
+        commandManager.executeCommand(createIssue);
+
+        assertEquals(1, repository.getIssues().size());
+
+        commandManager.undoCommand();
+
+        assertEquals(0, repository.getIssues().size());
+
+
+
+
+}
+
+
+@Test
+    public void RedoCommand_ShouldReapplyUndoneAction(){
+
+            IssueRepository repository = new IssueRepository();
+
+            Issue issue = new Issue("1", "Test Issue", "This is a test issue", Priority.Medium, Status.Open, LocalDateTime.now(), LocalDateTime.now(), "Test User", new ArrayList<>(), Arrays.asList("test", "issue"));
+
+            CommandManager commandManager = new CommandManager();
+
+            CreateIssue createIssue = new CreateIssue(repository, issue);
+
+            commandManager.executeCommand(createIssue);
+
+          assertEquals("This is a test issue", repository.getIssues().get(0).Description);
+
+            commandManager.undoCommand();
+
+            assertEquals(0, repository.getIssues().size());
+
+
+
+            commandManager.redoCommand();
+
+            assertEquals("This is a test issue", repository.getIssues().get(0).Description);
+}
+
+
+
 
 
 
