@@ -7,6 +7,6 @@ public class ObserverNotificationTest{
         Observer user=new User();
         Subject informer=new Informer();
         informer.notifyUsers("Bad","user@gmail.com");
-        assertEquals(True,informer.getDone());
+        assertEquals("True",informer.getDone());
     }
 }

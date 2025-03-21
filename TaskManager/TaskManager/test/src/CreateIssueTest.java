@@ -5,14 +5,14 @@ public class CreateIssueTest{
     @Test
     void testIssueCreation(){
         IssueRepository issueRepository=new IssueRepository();
-        Issue issue=new Issue("CreateTest","Testing the creation of issues",High);
-        Command command=new CreateCommand(issueRepository);
+        Issue issue=new Issue("CreateTest","Testing the creation of issues",Priority.High);
+        Command command=new CreateCommand(issueRepository,issue);
         TaskManager taskManager=new TaskManager();
         taskManager.setCommand(command);
         taskManager.execution();
         int Id=1;
 
 
-        assertEquals(True,taskManager.getDone());
+        assertEquals("True",taskManager.getDone());
     }
 }

@@ -1,11 +1,13 @@
 public class CreateCommand implements Command{
+    private IssueRepository issueRepository;
     private Issue issue;
+    public int id;
 
-    public CreateCommand(IssueRepository issueRepository){
-        this.issue=issue;
+    public CreateCommand(IssueRepository issueRepository,Issue issue){
+        this.issueRepository=issueRepository;
     }
 
     public void execute(){
-        issueRepository.create();
+        issueRepository.create(id,issue);
     }
 }

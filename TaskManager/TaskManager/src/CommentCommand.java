@@ -1,7 +1,7 @@
 public class CommentCommand implements Command{
     private Issue issue;
     private Comment comment;
-    public CommentCommand{
+    public CommentCommand(Issue issue,Comment comment){
         this.issue=issue;
         this.comment=comment;
     }

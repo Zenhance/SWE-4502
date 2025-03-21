@@ -13,12 +13,13 @@ public class Issue{
     public Date LastModifiedDate;
     public String AssignedTo;
     List<String>Tags=new ArrayList<>();
-    List<Comment>Comments=new ArrayList<>();
+    List<Comment>comments=new ArrayList<>();
+    public String property;
 
-    public Issue(int Id,String Title,String Description,Status status,Priority pririty,Date CreationDate,Date LastModifiedDate,String AssignedTo,List<String>Tags,List<Comment>Comments){
+    public Issue(String Title,String Description,Priority priority){
         this.Title=Title;
         this.Description=Description;
-        this.priority=pririty;
+        this.priority=priority;
     }
     public int getId(){
         return Id;
@@ -29,26 +30,26 @@ public class Issue{
     public void changeStatus(Status status){
         switch(status){
             case Open:
-                status=Open;
+                status= Status.Open;
                 break;
             case InProgress:
-                status=InProgress;
+                status= Status.InProgress;
                 break;
             case UnderReview:
-                status=UnderReview;
+                status= Status.UnderReview;
                 break;
             case Resolved:
-                status=Resolved;
+                status= Status.Resolved;
                 break;
             case Closed:
-                status=Closed;
+                status= Status.Closed;
                 break;
             default:
-                status=Open;
+                status= Status.Open;
                 break;
         }
     }
-    public void addComment(Comment comment)
+    public void addComment(Comment comment){
         comments.add(comment);
     }
 }
