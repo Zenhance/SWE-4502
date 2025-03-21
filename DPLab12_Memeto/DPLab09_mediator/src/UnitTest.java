@@ -91,8 +91,8 @@ public class UnitTest {
         editor.restoreFromMemento(history.getCurrentMemento());
 
         // Assert that the editor's state has been restored to the previous state
-        assertEquals("Initial Content", editor.getContent(), "Content should be restored after undo");
-        assertEquals(5, editor.getCursorPosition(), "Cursor position should be restored after undo");
-        assertEquals("Hello", editor.getSelection(), "Selection should be restored after undo");
+        assertEquals("Initial Content", editor.setContent("bb"), "Content should be restored after undo");
+        assertEquals(5, editor.setCursorPosition(3), "Cursor position should be restored after undo");
+        assertEquals("Hello", editor.addSelection(), "Selection should be restored after undo");
     }
 }

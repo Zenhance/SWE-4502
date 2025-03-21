@@ -44,4 +44,6 @@ public class TextEditor {
         this.cursorPosition = memento.getCursorPosition();
         this.selection = memento.getSelection();
     }
+
+
 }
