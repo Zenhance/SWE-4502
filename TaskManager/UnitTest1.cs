@@ -59,3 +59,38 @@ public class TestChangeStatus
         Assert.Equal(Status.Resolved, issue.IssueStatus);
     }
 }
+
+using Xunit;
+using Moq;
+
+public class TestObserver
+{
+    [Fact]
+    public void Observer_ShouldReceiveNotifications()
+    {
+        var notificationService = new NotificationService();
+        var mockObserver = new Mock<IObserver>();
+
+        notificationService.Subscribe(mockObserver.Object);
+        notificationService.Notify("Issue status changed");
+
+        mockObserver.Verify(o => o.Update("Issue status changed"), Times.Once());
+    }
+}
+
+public class TestStatistics
+{
+    [Fact]
+    public void StatisticsCollector_ShouldTrackCommandCounts()
+    {
+        var statsCollector = new StatisticsCollector();
+
+        statsCollector.Track("CreateIssue");
+        statsCollector.Track("UpdateIssue");
+        statsCollector.Track("CreateIssue");
+
+        Assert.Equal(2, statsCollector.GetStatistics()["CreateIssue"]);
+        Assert.Equal(1, statsCollector.GetStatistics()["UpdateIssue"]);
+    }
+}
+
