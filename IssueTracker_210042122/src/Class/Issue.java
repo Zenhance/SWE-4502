@@ -38,6 +38,13 @@ public class Issue {
         this.comments = comments;
     }
 
+    public Issue(String title, String description,Priority priority){
+        this.title=title;
+        this.description=description;
+        this.priority=priority;
+        this.status=Status.Open;
+    }
+
     public void addComment(Comment C){
         comments.add(C);
 

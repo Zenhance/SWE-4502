@@ -1,4 +1,7 @@
-package Class;
+package Class.Commands;
+
+
+import Class.*;
 
 public class CreateIssueCommand implements Command {
     private IssueRepository issueRepository;

@@ -16,7 +16,7 @@ public class Main {
 //    Class.Issue issue = new Class.Issue(1, "Bug fixed", "abcd", Priority.Low, Status.Open, "25/3/2025", "25/3/2025", "user1", tags, comments);
 //
 //    // Create command with repository
-//   Class.CreateIssueCommand createIssueCommand = new Class.CreateIssueCommand( issue);
+//   Class.Commands.CreateIssueCommand createIssueCommand = new Class.Commands.CreateIssueCommand( issue);
 
 
 

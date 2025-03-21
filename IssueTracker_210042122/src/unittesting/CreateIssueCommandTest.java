@@ -1,5 +1,6 @@
 package unittesting;
 
+import Class.Commands.CreateIssueCommand;
 import Predefinedvalues.Priority;
 import Predefinedvalues.Status;
 import org.junit.jupiter.api.Assertions;
@@ -21,11 +22,9 @@ class CreateIssueCommandTest {
 
     @BeforeEach
     void setUp() {
-        List<Comment> comments = new ArrayList<>();
-        List<String> tags = new ArrayList<>();
         List<Issue>issues= new ArrayList<>();
         issueRepository = new IssueRepository(issues);
-        issue = new Issue(1, "Bug fixed", "abcd", Priority.Low, Status.Open, "25/3/2025", "25/3/2025", "tasnim", tags, comments);
+        issue = new Issue( "Bug fixed", "abcd", Priority.Low);
         createIssueCommand = new CreateIssueCommand(issueRepository, issue);
     }
 
