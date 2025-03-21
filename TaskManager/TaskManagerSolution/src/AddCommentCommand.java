@@ -26,4 +26,5 @@ public class AddCommentCommand extends Command{
             comments.remove(comment);
         }
     }
+
 }
