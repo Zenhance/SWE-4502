@@ -99,7 +99,7 @@ public class Issue implements Notify, Clonify{
     @Override
     public void notifying(String s) {
         for(User a: SubscriberList){
-            a.update(s);
+            a.update(a.getName()+ s);
         }
     }
 
