@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    public interface ICommand
+    interface IClonable
     {
-        void Execute();
-        void Undo();
-        string Description();
+       public IClonable Clone();
     }
 }

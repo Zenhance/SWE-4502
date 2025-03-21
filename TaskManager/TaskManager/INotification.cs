@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    public interface ICommand
+    interface INotification
     {
-        void Execute();
-        void Undo();
-        string Description();
+        void NotifyUser();
     }
 }

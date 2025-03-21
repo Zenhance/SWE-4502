@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    public interface ICommand
+    class Email :INotification
     {
-        void Execute();
-        void Undo();
-        string Description();
+        public void NotifyUser()
+        {
+            Console.WriteLine("Email notification sent");
+        }
     }
 }
