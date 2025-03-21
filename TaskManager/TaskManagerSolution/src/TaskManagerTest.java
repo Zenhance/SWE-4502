@@ -103,6 +103,39 @@ class TaskManagerTest {
         assertEquals(1, emailNotifier.getNotifications().size());
     }
 
+    @Test
+    void testCommandHistory_ShouldTrackAllExecutedCommands() {
+        taskManager.createIssue("Test Issue 1", "Description", Priority.MEDIUM);
+        taskManager.createIssue("Test Issue 2", "Description", Priority.HIGH);
+        assertEquals(2, taskManager.getCommandManager().getCommandHistory().size());
+    }
+
+    @Test
+    void testUndoRedo_ShouldMaintainProperStacks() {
+
+        Issue issue = taskManager.createIssue("Test Issue", "Description", Priority.MEDIUM);
+        taskManager.changeIssueStatus(issue.getId(), Status.IN_PROGRESS);
+        taskManager.changeIssueStatus(issue.getId(), Status.UNDER_REVIEW);
+
+        taskManager.undo();
+        assertEquals(Status.IN_PROGRESS, taskManager.getIssue(issue.getId()).getStatus());
+
+        taskManager.undo();
+        assertEquals(Status.OPEN, taskManager.getIssue(issue.getId()).getStatus());
+
+        taskManager.redo();
+        assertEquals(Status.IN_PROGRESS, taskManager.getIssue(issue.getId()).getStatus());
+
+        taskManager.changeIssueStatus(issue.getId(), Status.RESOLVED);
+        assertEquals(Status.RESOLVED, taskManager.getIssue(issue.getId()).getStatus());
+
+       
+        taskManager.redo();
+        assertEquals(Status.RESOLVED, taskManager.getIssue(issue.getId()).getStatus());
+    }
+
+
+
 
 
 
