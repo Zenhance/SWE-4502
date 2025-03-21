@@ -8,7 +8,7 @@ public class Comment {
     private String Author;
     private LocalDateTime createdAt;
 
-    public Comment() {
+    public Comment(String id, String content, String Author) {
         this.id = id;
         this.content = content;
         this.Author = Author;

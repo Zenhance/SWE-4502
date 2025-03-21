@@ -48,4 +48,8 @@ public class Issue {
     public Status getStatus() {
         return status;
     }
+
+    public List<Comment> getComment() {
+        return comments;
+    }
 }
