@@ -1,14 +1,18 @@
-﻿namespace LabFinalTask.Command;
+﻿using LabFinalTask.ENUM;
+
+namespace LabFinalTask.Command;
 
 public class CommandManager
 {
     public List<ICommand> commands;
     public List<ICommand> undoneCommands;
+    public List<CommandLog> commandLogs;
 
     public CommandManager()
     {
         commands = new List<ICommand>();
         undoneCommands = new List<ICommand>();
+        commandLogs = new List<CommandLog>();
     }
     
     public void ExecuteCommand(ICommand command)
@@ -16,6 +20,7 @@ public class CommandManager
         commands.Add(command);
         command.execute();
         undoneCommands.Clear();
+        commandLogs.Add(new CommandLog(command, COMMANDTYPE.EXECUTE));
     }
 
     public void UndoCommand()
@@ -26,6 +31,7 @@ public class CommandManager
             command.undo();
             commands.Remove(command);
             undoneCommands.Add(command);
+            commandLogs.Add(new CommandLog(command, COMMANDTYPE.UNDO));
         }
     }
 
@@ -38,6 +44,7 @@ public class CommandManager
             command.execute();
             undoneCommands.Remove(command);
             commands.Add(command);
+            commandLogs.Add(new CommandLog(command, COMMANDTYPE.REDO));
         }
     }
 
@@ -46,4 +53,6 @@ public class CommandManager
     {
         return commands.Count;
     }
+
+    
 }
