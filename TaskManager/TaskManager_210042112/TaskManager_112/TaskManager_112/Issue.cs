@@ -34,7 +34,16 @@ namespace TaskManager_112
 
         }
 
-
+        public void AddComment(Comment comment)
+        {
+            Comments.Add(comment);
+            LastModifiedDate = DateTime.Now;
+        }
+        public void ChangeStatus(Status status)
+        {
+            Status = status;
+            LastModifiedDate = DateTime.Now;
+        }
 
 
     }
