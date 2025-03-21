@@ -71,5 +71,10 @@ namespace MyTaskManager
         {
             return commandCounts[commandType];
         }
+
+        public List<string> GetCommandLogs()
+        {
+            return commandLogs;
+        }
     }
 }
