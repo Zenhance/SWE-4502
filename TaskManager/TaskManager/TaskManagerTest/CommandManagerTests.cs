@@ -73,5 +73,25 @@ namespace TaskManager.Tests
             Assert.Contains(logs, l => l.Type == CommandType.Create);
             Assert.Contains(logs, l => l.Type == CommandType.Update);
         }
+        //#F11
+        [Fact]
+        public void CommandHistory_ShouldTrackAllExecutedCommands()
+        {
+            var repository = new IssueRepository();
+            var commandManager = new CommandManager();
+            var issue1 = new Issue { Title = "Issue 1" };
+            var issue2 = new Issue { Title = "Issue 2" };
+            var issue3 = new Issue { Title = "Issue 3" };
+
+            commandManager.ExecuteCommand(new CreateIssueCommand(repository, issue1));
+            commandManager.ExecuteCommand(new CreateIssueCommand(repository, issue2));
+            commandManager.ExecuteCommand(new CreateIssueCommand(repository, issue3));
+
+            var logs = commandManager.GetCommandLogs();
+            Assert.Equal(3, logs.Count);
+            Assert.Equal("Created issue: Issue 1", logs[0].Description);
+            Assert.Equal("Created issue: Issue 2", logs[1].Description);
+            Assert.Equal("Created issue: Issue 3", logs[2].Description);
+        }
     }
 }
