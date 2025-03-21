@@ -94,7 +94,14 @@ class TaskManagerTest {
         assertEquals(1, emailNotifier.getNotifications().size());
         assertEquals(1, secondNotifier.getNotifications().size());
     }
-    
+
+    @Test
+    void testRemoveObserver_ShouldStopNotifications() {
+        taskManager.createIssue("Test Issue 1", "Description", Priority.MEDIUM);
+        taskManager.removeObserver(emailNotifier);
+        taskManager.createIssue("Test Issue 2", "Description", Priority.HIGH);
+        assertEquals(1, emailNotifier.getNotifications().size());
+    }
 
 
 
