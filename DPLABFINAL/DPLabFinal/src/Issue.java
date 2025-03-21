@@ -29,6 +29,16 @@ public class Issue {
         this.comments = new ArrayList<>();
     }
 
+
+
+    public Issue(String id, String title, String description, Priority priority) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+
+    }
+
     public void addTag(String tag)
     {
         tags.add(tag);

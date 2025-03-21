@@ -9,8 +9,9 @@ public class IssueRepository {
     }
 
     public void addIssue(Issue issue){
-        issues.put(issue.getId(),issue);
+        issues.put(issue.getId(), issue);
     }
+
 
     public Issue getIssue(String id){
         return issues.get(id);
