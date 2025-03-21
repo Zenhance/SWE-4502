@@ -17,7 +17,7 @@ namespace labfinal_210042111
             this.comment = comment;
         }
        
-    public void Execute()
+        public void Execute()
         {
             issue.AddComments(comment);
         }

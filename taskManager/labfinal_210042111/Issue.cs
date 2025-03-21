@@ -25,6 +25,7 @@ namespace labfinal_210042111
 
         public Stack<string> descriptions;
 
+
         public Issue(int id, string title, string description, Priority priority, string assignedTo)
         {
             Id = id;
@@ -34,7 +35,12 @@ namespace labfinal_210042111
             AssignTo = assignedTo;
 
         }
-    
+
+        public List<Comment> GetComment()
+        {
+            return Comments;
+
+        }
         public Status getStatus()
         {
             return status;
@@ -86,7 +92,7 @@ namespace labfinal_210042111
         }
         public void AddComments(Comment comments)
         {
-            Comments.Add(comments.id, comments.Content, comments.Author);
+            Comments.Add(comments);
         }
 
         public void changeStatus(Status status)

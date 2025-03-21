@@ -19,5 +19,7 @@ namespace labfinal_210042111
             this.Author = author;
             this.CreatedAt = DateTime.Now;
         }
+
+      
     }
 }

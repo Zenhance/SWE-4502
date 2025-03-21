@@ -1,5 +1,6 @@
 using Xunit.Sdk;
 using labfinal_210042111;
+using System.Xml.Linq;
 
 
 namespace labfinaltest
@@ -12,8 +13,6 @@ namespace labfinaltest
         {
             
             CommandInvoker invoker = new CommandInvoker();
-          
-
             Issue issue = new Issue(1, "FIRST", "FIRST Description", Priority.medium, "Alice");
             IssueRepository repository=new IssueRepository(1, issue);
             CreateIssueCommand createCommand = new CreateIssueCommand(repository, issue);
@@ -27,9 +26,28 @@ namespace labfinaltest
 
 
         }
+
+        [Fact]
+
+        public void AddComment_ShouldAddCommentToIssue() {
+            CommandInvoker invoker = new CommandInvoker();
+                 
+            Issue issue = new Issue(2, "Commenting on issue", "Description for comment", Priority.high, "Sheona");
+            IssueRepository repository = new IssueRepository(2, issue);
+            repository.addIssue(issue);
+            Comment comment = new Comment(1, "this is a comment for test", "Sheona");
+            AddCommentCommand addCommentCommand = new AddCommentCommand(repository, issue, comment);
+            invoker.executeCommand(addCommentCommand);
+
+
+         
+            Assert.Equal("this is a comment for test", issue.GetComment()[0].Content);
+
+        }
     }
 
-  
+
+ 
 
 
 
