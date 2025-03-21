@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskManager.Commands
 {
-    public enum CommandType
+    internal class CreateIssueCommand
     {
-        Create,
-        Update,
-        Delete
     }
 }
