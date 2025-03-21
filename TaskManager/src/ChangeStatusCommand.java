@@ -14,7 +14,8 @@ public class ChangeStatusCommand implements Command {
         issue.changeStatus(newStatus);
     }
     @Override
-    public void undo() {
+    public void undo()
+    {
         issue.changeStatus(oldStatus);
     }
 }

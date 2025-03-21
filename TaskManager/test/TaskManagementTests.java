@@ -37,5 +37,28 @@ public class TaskManagementTests {
         assertEquals("This is a comment", issue.getComments().get(0).getContent());
     }
 
+    @Test
+    public void ChangeStatus_ShouldUpdateIssueStatus()
+    {
+        Issue issue = new Issue("3", "Issue Status", "Description", Priority.LOW, "Carol");
+        repository.addIssue(issue);
+        ChangeStatusCommand changeStatusCommand = new ChangeStatusCommand(repository, issue, Status.IN_PROGRESS);
+        invoker.executeCommand(changeStatusCommand);
+        assertEquals(Status.IN_PROGRESS, issue.getStatus());
+    }
+
+    @Test
+    public void UndoCommand_ShouldRevertLastAction()
+    {
+        Issue issue = new Issue("4", "Undo Issue", "Description", Priority.HIGH, "Misaki");
+        CreateIssueCommand createCommand = new CreateIssueCommand(repository, issue);
+        invoker.executeCommand(createCommand);
+        assertNotNull(repository.getIssue("4"));
+        invoker.undo();
+        assertNull(repository.getIssue("4"));
+
+    }
+
+    
 
 }
