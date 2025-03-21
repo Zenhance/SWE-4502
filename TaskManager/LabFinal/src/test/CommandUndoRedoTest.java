@@ -31,4 +31,19 @@ public class CommandUndoRedoTest {
         assertEquals(Status.Open, afterUndo.getStatus());
     }
 
+    //#F05
+    @Test
+    void redoCommand_ShouldReapplyUndoneAction()
+    {
+        String issueId = taskManager.createIssue("Redo Command Testing", "Dump!!!!", Priority.Medium);
+
+        taskManager.changeStatus(issueId, Status.InProgress);
+        taskManager.undo();
+        boolean redoResult = taskManager.redo();
+
+        assertTrue(redoResult);
+        Issue afterRedo = taskManager.getIssue(issueId);
+        assertEquals(Status.InProgress, afterRedo.getStatus());
+    }
+
 }
