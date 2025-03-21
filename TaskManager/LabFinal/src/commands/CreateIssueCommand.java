@@ -1,13 +1,14 @@
 package commands;
 
-import interfaces.ICommand;
+import interfaces.Command;
 import models.Issue;
 import models.IssueRepository;
 
-public class CreateIssueCommand implements ICommand {
+public class CreateIssueCommand extends Command {
     private IssueRepository issueRepo;
     private Issue issue;
-    public CreateIssueCommand(IssueRepository issueRepo, Issue issue){
+    public CreateIssueCommand(IssueRepository issueRepo, Issue issue,String desc, String type){
+        super(desc, type);
         this.issueRepo = issueRepo;
         this.issue = issue;
     }

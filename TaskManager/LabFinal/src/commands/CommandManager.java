@@ -1,26 +1,26 @@
 package commands;
 
-import interfaces.ICommand;
+import interfaces.Command;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class CommandManager {
-    private final List<ICommand> commandHistory = new ArrayList<>();
+    private final List<Command> commandHistory = new ArrayList<>();
 
-    public void executeCommand(ICommand command) {
+    public void executeCommand(Command command) {
         commandHistory.add(command);
     }
 
     public void undo() {
         if (!commandHistory.isEmpty()) {
-            ICommand cmd = commandHistory.get(commandHistory.size()-1);
+            Command cmd = commandHistory.get(commandHistory.size()-1);
             cmd.undo();
         }
     }
 
-    public List<ICommand> getCommandHistory() {
+    public List<Command> getCommandHistory() {
+
         return commandHistory;
     }
 }

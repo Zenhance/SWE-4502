@@ -7,9 +7,5 @@ import models.IssueRepository;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        IssueRepository repo = new IssueRepository();
-        Issue newIssue = new Issue("Syntax error", "Details", Priority.HIGH);
-        CreateIssueCommand createIssueCommand = new CreateIssueCommand(repo, newIssue);
-        createIssueCommand.execute();
     }
 }

@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Comment {
     String Id;
@@ -8,8 +9,9 @@ public class Comment {
     String content;
     Date CreatedAt;
 
-    public Comment(String id, String Author, String content){
-        this.Id = id;
+    public Comment(String Author, String content){
+
+        Id = String.valueOf(UUID.randomUUID());
         this.Author = Author;
         this.content = content;
         CreatedAt = new Date();

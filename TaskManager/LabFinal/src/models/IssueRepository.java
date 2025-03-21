@@ -17,4 +17,7 @@ public class IssueRepository {
 
         return issues.get(id);
     }
+    public HashMap<String, Issue> getAllIssue(){
+        return  issues;
+    }
 }

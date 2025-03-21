@@ -1,15 +1,17 @@
 package commands;
-
-import interfaces.ICommand;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import interfaces.Command;
 import models.Comment;
 import models.Issue;
 import models.IssueRepository;
 
-public class AddCommentToIssueCommand implements ICommand {
+public class AddCommentToIssueCommand extends Command {
     private IssueRepository issueRepo;
     private Issue issue;
     private Comment comment;
-    public AddCommentToIssueCommand(IssueRepository issueRepo, String issueId, Comment comment){
+    public AddCommentToIssueCommand(IssueRepository issueRepo, String issueId, Comment comment,String desc, String type){
+        super(desc, type);
         this.issueRepo = issueRepo;
         this.issue = issueRepo.getIssue(issueId);
         this.comment = comment;
@@ -23,4 +25,5 @@ public class AddCommentToIssueCommand implements ICommand {
     public void undo() {
         issue.removeComment(comment);
     }
+
 }

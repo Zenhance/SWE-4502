@@ -1,17 +1,18 @@
 package commands;
 
 import enums.Status;
-import interfaces.ICommand;
+import interfaces.Command;
 import models.Issue;
 import models.IssueRepository;
 
-public class ChangeIssueStatusCommand implements ICommand {
+public class ChangeIssueStatusCommand extends Command {
     private final IssueRepository issueRepo;
     private final Issue issue;
     private final Status newStatus;
     private Status oldStatus;
 
-    public ChangeIssueStatusCommand(IssueRepository repository, String issueId, Status newStatus) {
+    public ChangeIssueStatusCommand(IssueRepository repository, String issueId, Status newStatus, String desc, String type) {
+        super(desc, type);
 
         this.issueRepo = repository;
         this.issue = issueRepo.getIssue(issueId);

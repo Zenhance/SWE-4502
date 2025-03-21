@@ -5,6 +5,7 @@ import enums.Status;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class Issue {
     private String id;
@@ -22,6 +23,7 @@ public class Issue {
         this.title = title;
         this.description = description;
         this.priority = priority;
+        id = String.valueOf(UUID.randomUUID());
     }
     public String getId() {
         return id;
