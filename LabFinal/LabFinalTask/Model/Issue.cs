@@ -38,6 +38,17 @@ public class Issue
         return issuePrototype;
     }
     
+    public void LoadFromLog(IssuePrototype issuePrototype)
+    {
+        title = issuePrototype.title;
+        description = issuePrototype.description;
+        priority = issuePrototype.priority;
+        status = issuePrototype.status;
+        createdDate = issuePrototype.createdDate;
+        lastModifiedDate = issuePrototype.lastModifiedDate;
+        AssignedTo = issuePrototype.AssignedTo;
+    }
+    
     public void AddComment(Comment comment)
     {
         comments.Add(comment);
