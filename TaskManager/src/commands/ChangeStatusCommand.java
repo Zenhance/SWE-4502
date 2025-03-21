@@ -1,6 +1,7 @@
 package commands;
 
 import models.Issue;
+import patterns.IssueMediator;
 
 public class ChangeStatusCommand extends Command {
     private Issue issue;
@@ -22,5 +23,8 @@ public class ChangeStatusCommand extends Command {
     @Override
     public void undo() {
         issue.setStatus(previousStatus);
+    }
+
+    public void setMediator(IssueMediator mediator) {
     }
 }

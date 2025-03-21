@@ -29,4 +29,8 @@ public class CommandManager {
             commandStack.push(command);
         }
     }
+
+    public Stack<Command> getCommandHistory() {
+        return commandStack;  // Expose the command history stack
+}
 }

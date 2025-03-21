@@ -11,4 +11,9 @@ public class User implements Observer {
     public void update(String message) {
         System.out.println("Notification to " + name + ": " + message);
 }
+
+    @Override
+    public int getNotificationCount() {
+        return 0;
+    }
 }

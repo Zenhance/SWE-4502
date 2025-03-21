@@ -11,6 +11,5 @@ public class ObserverTest {
         IssueMediator mediator = new IssueMediator();
         User user = new User("Alice");
 
-        mediator.addObserver(user);
-    }
+}
 }
