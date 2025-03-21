@@ -1,0 +1,2 @@
+C:\Users\Mahin\source\Swe-4502\labFinal200042155\taskManager\taskManager\obj\Debug\taskManager.csproj.AssemblyReference.cache
+C:\Users\Mahin\source\Swe-4502\labFinal200042155\taskManager\taskManager\obj\Debug\taskManager.csproj.CoreCompileInputs.cache
