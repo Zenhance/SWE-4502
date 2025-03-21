@@ -15,6 +15,16 @@ public class IssueCreateCmd : Icommand
         this._issuePrototype = issuePrototype;
             
     }
+    
+    public void Execute()
+    {
+        this._issueManager.AddIssue(this._issue);
+    }
+    
+    public void Undo()
+    {
+        this._issueManager.RemoveIssue(this._issue);
+    }
 
     
 
