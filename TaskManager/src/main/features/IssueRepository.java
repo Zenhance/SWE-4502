@@ -16,7 +16,7 @@ public class IssueRepository {
     }
 
     public Issue GetIssueFromRepository(String issueId) {
-        issueHashMap.get(issueId);
+        return issueHashMap.get(issueId);
     }
 
     public void RemoveIssueFromRepository(String issueId) {
@@ -25,11 +25,5 @@ public class IssueRepository {
 
     public void EmptyIssuesFromRepository() {
         issueHashMap.clear();
-    }
-
-    public void ListAllIssuesInRepository() {
-        for (String issueId : issueHashMap.values()) {
-            System.out.println("Issue ->" + issueId);
-        }
     }
 }

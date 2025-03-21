@@ -2,7 +2,6 @@ package main.commands;
 
 import java.time.LocalDate;
 
-import main.core.Issue;
 import main.interfaces.IOperation;
 
 enum Type {
@@ -16,8 +15,10 @@ public abstract class Command implements IOperation{
     private LocalDate timeStamp;
     private Type type;
 
+    public Command() {}
+
     public Command(String _description, Type _type) {
-        this.description = _description,
+        this.description = _description;
         this.timeStamp = LocalDate.now();
         this.type = _type;
     }

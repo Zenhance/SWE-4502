@@ -50,6 +50,7 @@ public class Issue {
 
     public Issue(Issue target) {
         if (target != null) {
+            this.id = target.id;
             this.title = target.title;
             this.description = target.description;
             this.assignedTo = target.assignedTo;
