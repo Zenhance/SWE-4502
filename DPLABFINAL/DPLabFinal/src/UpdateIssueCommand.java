@@ -3,6 +3,8 @@ public class UpdateIssueCommand implements Command{
     private Issue issue;
     private String newTitle;
     private String newDescription;
+    private String oldTitle;
+    private String oldDescription;
 
     public UpdateIssueCommand(IssueRepository repository, Issue issue, String newTitle, String newDescription) {
         this.repository = repository;
@@ -14,6 +16,8 @@ public class UpdateIssueCommand implements Command{
     @Override
     public void execute()
     {
+        oldTitle=issue.getTitle();
+        oldDescription= issue.getDescription();
         issue.setTitle(newTitle);
         issue.setDescription((newDescription));
     }
@@ -21,7 +25,8 @@ public class UpdateIssueCommand implements Command{
     @Override
     public void undo()
     {
-        System.out.println("tuli undo the update here!!");
+        issue.setTitle(oldTitle);
+        issue.setDescription(oldDescription);
     }
 
 }
