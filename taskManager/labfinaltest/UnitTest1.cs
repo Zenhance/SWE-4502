@@ -80,7 +80,17 @@ namespace labfinaltest
         [Fact]
         public void RedoCommand_ShouldReapplyUndoneAction()
         {
-           
+            CommandInvoker invoker = new CommandInvoker();
+
+            Issue issue = new Issue(3, "Commenting on issue", "Description for status", Priority.low, "Sheona");
+            IssueRepository repository = new IssueRepository(3, issue);
+
+            CreateIssueCommand createCommand = new CreateIssueCommand(repository, issue);
+            invoker.executeCommand(createCommand);
+            invoker.undo();
+            Assert.Null(repository.getIssue(5));
+            string a = invoker.redo();
+            Assert.Equal("success", a);
 
 
         }
