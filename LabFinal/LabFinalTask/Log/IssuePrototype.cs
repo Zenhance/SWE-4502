@@ -2,6 +2,8 @@
 using System.Runtime.InteropServices.JavaScript;
 using LabFinalTask.Model;
 using LabFinalTask.ENUM;
+using LabFinalTask.Mediator;
+
 namespace LabFinalTask.Log;
 
 public class IssuePrototype
@@ -14,12 +16,14 @@ public class IssuePrototype
     public DateTime createdDate;
     public DateTime lastModifiedDate;
     public User AssignedTo;
+
+    public UserMediator UserMediator;
     
     public List<Comment> comments;
     public List<Tag> tags;
 
     public IssuePrototype(string title, string description, PRIORITY priority, STATUS status, DateTime createdDate,
-        DateTime lastModifiedDate, User AssignedTo)
+        DateTime lastModifiedDate, User AssignedTo, UserMediator userMediator)
     {
         this.title = title;
         this.description = description;
@@ -28,5 +32,6 @@ public class IssuePrototype
         this.createdDate = createdDate;
         this.lastModifiedDate = lastModifiedDate;
         this.AssignedTo = AssignedTo;
+        this.UserMediator = userMediator;
     }
 }
