@@ -4,6 +4,7 @@ import Lab_Final_210042150.Task_Management_System.Command.CommandManager;
 import Lab_Final_210042150.Task_Management_System.Command.CreateIssueCommand;
 import Lab_Final_210042150.Task_Management_System.Enums.Priority;
 import Lab_Final_210042150.Task_Management_System.Interfaces.Command;
+import Lab_Final_210042150.Task_Management_System.Models.CommentModel.Comment;
 import Lab_Final_210042150.Task_Management_System.Models.DomainModel.Issue;
 import Lab_Final_210042150.Task_Management_System.Observer_Pattern.NotificationService;
 import Lab_Final_210042150.Task_Management_System.Repositories.IssueRepository;

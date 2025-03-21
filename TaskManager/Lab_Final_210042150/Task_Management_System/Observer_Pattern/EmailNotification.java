@@ -28,43 +28,6 @@ public class EmailNotification implements NotificationService {
     }
 
     @Override
-    public void notifyIssueDeleted(Issue issue) {
-        System.out.println("Sending email notification: Issue deleted - " + issue.getTitle());
-        notificationCount++;
-        for (NotificationObserver observer : new ArrayList<>(observers)) {
-            observer.onIssueDeleted(issue);
-        }
-    }
-
-    @Override
-    public void notifyStatusChanged(Issue issue, Status oldStatus, Status newStatus) {
-        System.out.println("Sending email notification: Issue status changed from " +
-                oldStatus + " to " + newStatus + " - " + issue.getTitle());
-        notificationCount++;
-        for (NotificationObserver observer : new ArrayList<>(observers)) {
-            observer.onStatusChanged(issue, oldStatus, newStatus);
-        }
-    }
-
-    @Override
-    public void notifyCommentAdded(Issue issue, Comment comment) {
-        System.out.println("Sending email notification: Comment added to issue - " + issue.getTitle());
-        notificationCount++;
-        for (NotificationObserver observer : new ArrayList<>(observers)) {
-            observer.onCommentAdded(issue, comment);
-        }
-    }
-
-    @Override
-    public void notifyCommentRemoved(Issue issue, Comment comment) {
-        System.out.println("Sending email notification: Comment removed from issue - " + issue.getTitle());
-        notificationCount++;
-        for (NotificationObserver observer : new ArrayList<>(observers)) {
-            observer.onCommentRemoved(issue, comment);
-        }
-    }
-
-    @Override
     public void registerObserver(NotificationObserver observer) {
         observers.add(observer);
     }

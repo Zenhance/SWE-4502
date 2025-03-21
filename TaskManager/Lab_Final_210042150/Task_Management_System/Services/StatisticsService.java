@@ -10,7 +10,7 @@ public class StatisticsService {
     private static Map<commandType,Integer> cmdcounts = new HashMap<>();
     private int issueCreated = 0;
 
-    private StatisticsService()
+    public StatisticsService()
     {
         for(commandType type : commandType.values())
         {

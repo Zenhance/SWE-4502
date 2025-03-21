@@ -10,7 +10,7 @@ public class LoggingServices {
     private static LoggingServices instance;
     private final List<String> logs = new ArrayList<>();
 
-    private LoggingServices(){}
+    public LoggingServices(){}
 
     public static synchronized LoggingServices getInstance()
     {
