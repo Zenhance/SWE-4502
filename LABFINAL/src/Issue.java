@@ -5,13 +5,13 @@ public class Issue implements Prototype {
     private int id;
     private String title;
     private String description;
-    private String priority;
-    private String status;
+    private Priority priority;
+    private Status status;
     private String assignedTo;
     private List<String> tags;
     private List<Comment> comments;
 
-    public Issue(int id, String title, String description, String priority, String status, String assignedTo) {
+    public Issue(int id, String title, String description, Priority priority, Status status, String assignedTo) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -38,12 +38,15 @@ public class Issue implements Prototype {
         return description;
     }
 
-    public String getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
+    }
+    public void changeStatus(Status s) {
+        status=s;
     }
 
     public int getId() {
@@ -53,6 +56,9 @@ public class Issue implements Prototype {
         comments.add(comment);
 
      }
+    public List<Comment> getComments() {
+        return comments;
+    }
 
 
 }
