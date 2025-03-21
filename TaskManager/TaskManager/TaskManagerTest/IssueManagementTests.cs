@@ -59,6 +59,27 @@ namespace TaskManager.Tests
             Assert.Equal("This is a comment", retrievedIssue.Comments[0].Content);
             Assert.Equal("User1", retrievedIssue.Comments[0].Author);
         }
-        
+        //#F03
+        [Fact]
+        public void ChangeStatus_ShouldUpdateIssueStatus()
+        {
+            var repository = new IssueRepository();
+            var commandManager = new CommandManager();
+            var issue = new Issue
+            {
+                Title = "Bug Report",
+                Description = "Critical bug needs fixing",
+                Priority = Priority.High,
+                Status = Status.Open
+            };
+            repository.Add(issue);
+
+            issue.Status = Status.InProgress;
+            var updateCommand = new UpdateIssueCommand(repository, issue);
+            commandManager.ExecuteCommand(updateCommand);
+
+            var retrievedIssue = repository.GetById(issue.Id);
+            Assert.Equal(Status.InProgress, retrievedIssue.Status);
+        }
     }
 }
