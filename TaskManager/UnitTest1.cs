@@ -25,3 +25,22 @@ public class AddComment_ShouldAddCommentToIssue
 
     }
 }
+public class TestAddComment
+{
+    [Fact]
+    public void AddComment_ShouldAddCommentToIssue()
+    {
+        var repo = new IssueRepository();
+        var issue = new Issue(1, "Bug in UI", "Fix button", Priority.Medium);
+        repo.AddIssue(issue);
+
+        var comment = new Comment(1, "This bug affects login page", "Iqra");
+        issue.AddComment(comment);
+
+        Assert.Single(issue.Comments);
+        Assert.Equal("This bug affects login page", issue.Comments[0].Content);
+        Assert.Equal("Iqra", issue.Comments[0].Author);
+    }
+}
+
+
