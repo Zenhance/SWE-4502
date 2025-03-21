@@ -1,55 +1,49 @@
-import jdk.jshell.Snippet;
-
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Issue  {
-    public int Id;
-    public List<Comment> commentList =new ArrayList<>();
-    public String title;
-    public String description;
-    public Priority priority;
-    public Status status;
-    public Date CreationDate;
-    public Date LastModifiedDate;
-    public String Assignedto;
-    public String Tags[];
+class Issue {
+    private final int id;
+    private String title;
+    private String description;
+    private String priority;
+    private String status;
+    private final Date creationDate;
+    private Date lastModifiedDate;
+    private final List<String> comments = new ArrayList<>();
 
-
-
-    public Issue(int id, String title, String description, Priority priority) {
-        this.Id = id;
+    public Issue(int id, String title, String description, String priority) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.priority = priority;
-        this.status = Status.Open;
-        this.CreationDate = new Date();
-        this.LastModifiedDate = CreationDate;
+        this.status = "Open"; // Default status 
+        this.creationDate = new Date();
+        this.lastModifiedDate = creationDate;
     }
 
-
-    public void UpdateIssue(String title, String description, Priority p) {
+    public void update(String title, String description, String priority) {
         this.title = title;
         this.description = description;
-        this.priority = p;
-        this.LastModifiedDate = new Date();
+        this.priority = priority;
+        this.lastModifiedDate = new Date();
     }
-    public void changeStatus(Status status) {
+
+    public void changeStatus(String status) {
         this.status = status;
-        this.LastModifiedDate = new Date();
-    }
-    public void addComment(Comment comment) {
-        commentList.add(comment);
-        this.LastModifiedDate = new Date();
+        this.lastModifiedDate = new Date();
     }
 
-    public Status getStatus()
-    { return status; }
-
-
-    public Integer getId() {
-        return Id;
+    public void addComment(String comment) {
+        comments.add(comment);
+        this.lastModifiedDate = new Date();
     }
-}
+
+    public int getId() { return id; }
+    public String getStatus() { return status; }
+
+    @Override
+    public String toString() {
+        return "Issue{id=" + id + ", title='" + title + "', status='" + status + "'}";
+    }
+} 
