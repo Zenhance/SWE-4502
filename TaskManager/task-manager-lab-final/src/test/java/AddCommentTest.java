@@ -18,8 +18,6 @@ public class AddCommentTest {
     public void setUp() {
         repository = new IssueReposity();
         commandManager = new CommandManager();
-
-        // Create a test issue
         testIssue = new Issue();
         testIssue.setId("1");
         testIssue.setTitle("Test Issue");
