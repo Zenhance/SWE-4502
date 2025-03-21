@@ -22,7 +22,7 @@ public class UserMediator {
 
     public void notifyUsers(String message) {
         for (User user : users) {
-            user.receiveEmail(message);
+
         }
 
     } }
