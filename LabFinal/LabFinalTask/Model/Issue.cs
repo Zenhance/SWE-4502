@@ -38,5 +38,15 @@ public class Issue
         return issuePrototype;
     }
     
+    public void AddComment(Comment comment)
+    {
+        comments.Add(comment);
+    }
+    
+    public void AddTag(Tag tag)
+    {
+        tags.Add(tag);
+    }
+    
 }
 
