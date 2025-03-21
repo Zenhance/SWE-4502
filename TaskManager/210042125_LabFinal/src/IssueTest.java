@@ -59,4 +59,12 @@ class IssueTest {
         assertEquals("Status changed from Open to Closed", s1 );
     }
 
+    @Test
+    void Observer_ShouldBeNotifiedOfCommands(){
+        User user1= new User(issue1);
+        user1.subscribe();
+        issue1.notifying("Hi I am receiving commands");
+
+    }
+
 }

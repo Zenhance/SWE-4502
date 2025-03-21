@@ -26,6 +26,9 @@ public class Issue implements Notify, Clonify{
         this.status= Status.Open;
         notifying("New Status created with "+this.getID());
     }
+    public Issue(){
+
+    }
 
     public String getStatus(){
         return status.toString();
@@ -85,6 +88,10 @@ public class Issue implements Notify, Clonify{
         SubscriberList.add(a);
     }
 
+    public void RemoveSubscriber(User a){
+        SubscriberList.add(a);
+    }
+
     public void removeSubscriber(User a){
         SubscriberList.remove(a);
     }
@@ -92,7 +99,7 @@ public class Issue implements Notify, Clonify{
     @Override
     public void notifying(String s) {
         for(User a: SubscriberList){
-            a.receiveNotification(s);
+            a.update(s);
         }
     }
 
