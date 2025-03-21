@@ -4,18 +4,17 @@ using TaskManager.Model;
 
 namespace TaskManager.Command;
 
-public class IssueUpdateStatusCommand
+public class IssueUpdateStatusCommand:ICommand
 {
     private IssueManager _issueManager;
     private Issue _issue;
     private IssueStatusENUM _oldStatus;
     private IssueStatusENUM _newStatus;
     
-    public IssueUpdateStatusCommand(IssueManager issueManager, Issue issue, IssueStatusENUM oldStatus, IssueStatusENUM newStatus)
+    public IssueUpdateStatusCommand(IssueManager issueManager, Issue issue, IssueStatusENUM newStatus)
     {
         _issueManager = issueManager;
         _issue = issue;
-        _oldStatus = oldStatus;
         _newStatus = newStatus;
     }
     
