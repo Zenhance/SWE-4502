@@ -1,5 +1,6 @@
 package issues;
 
+import comment.Comment;
 import org.junit.jupiter.api.Test;
 import user.User;
 
@@ -15,6 +16,19 @@ class IssueRepositoryTest {
         assertEquals(issue.status, Issue.Status.InProgress);
 
     }
+
+    @Test
+    void createComment() {
+        User user= new User(23,"navid");
+        Issue issue=user.createIssue("hello","world");
+        Comment comment= user.createComment(123,"hello",issue.id, user.id);
+        assertEquals(issue.commentHashMap.get(comment.id),comment);
+
+
+
+    }
+
+
 
 
 }
