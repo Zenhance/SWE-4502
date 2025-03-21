@@ -78,6 +78,13 @@ class TaskManagerTest {
         assertEquals(2, taskManager.getStatisticsCollector().getCommandCount(CommandType.CREATE));
     }
 
+    @Test
+    void testLogger_ShouldStoreCommandHistoryLogs() {
+        taskManager.createIssue("Test Issue 1", "Description", Priority.MEDIUM);
+        taskManager.createIssue("Test Issue 2", "Description", Priority.HIGH);
+        assertEquals(2, taskManager.getLogger().getLogCount());
+    }
+
 
 
 
