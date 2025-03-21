@@ -24,4 +24,15 @@ public class CommandManager
             _commands.Remove(command);
         }
     }
+
+    public void RedoCommand()
+    {
+        if (_commands.Count > 0)
+        {
+            ICommand command = _commands[_commands.Count - 1];
+            command.execute();
+            _commands.Remove(command);
+            _commands.Add(command);
+        }
+    }
 }
