@@ -11,6 +11,7 @@ public class Change_Issue_Status implements Command {
         this.newStatus = newStatus;
         this.OldStatus = repository.getIssue(issueId).getStatus();
     }
+
     @Override
     public void undo() {
         Issue issue = repository.getIssue(issueId);
