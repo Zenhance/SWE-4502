@@ -59,6 +59,18 @@ public class TaskManagementTests {
 
     }
 
+    @Test
+    public void RedoCommand_ShouldReapplyUndoneAction()
+    {
+        Issue issue = new Issue("5", "Redo Issue", "Description", Priority.MEDIUM, "Eva");
+        CreateIssueCommand createCommand = new CreateIssueCommand(repository, issue);
+        invoker.executeCommand(createCommand);
+        invoker.undo();
+        assertNull(repository.getIssue("5"));
+        invoker.redo();
+        assertNotNull(repository.getIssue("5"));
+    }
+
     
 
 }
