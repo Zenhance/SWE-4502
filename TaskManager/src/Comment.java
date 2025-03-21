@@ -1,21 +1,13 @@
-public class Comment {
+import java.util.Date;
 
-    public int Id;
-    public String Content;
-    public String Author ;
-    public String CreatedAt ;
+class Comment {
+    private final String id, content, author;
+    private final Date createdAt;
 
-    public Comment(int Id , String Content , String Author , String CreatedAt ) {
-
-        this.Id = Id;
-        this.Content = Content;
-        this.Author = Author;
-        this.CreatedAt = CreatedAt;
-
-
-
-
-
-
+    public Comment(String id, String content, String author) {
+        this.id = id;
+        this.content = content;
+        this.author = author;
+        this.createdAt = new Date();
     }
-}
+} 
