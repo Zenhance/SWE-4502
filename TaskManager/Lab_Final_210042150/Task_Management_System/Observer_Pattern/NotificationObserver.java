@@ -1,7 +1,5 @@
 package Lab_Final_210042150.Task_Management_System.Observer_Pattern;
 
-import Lab_Final_210042150.Task_Management_System.Enums.Status;
-import Lab_Final_210042150.Task_Management_System.Models.CommentModel.Comment;
 import Lab_Final_210042150.Task_Management_System.Models.DomainModel.Issue;
 
 public interface NotificationObserver {
