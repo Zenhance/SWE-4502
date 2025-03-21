@@ -129,9 +129,16 @@ class TaskManagerTest {
         taskManager.changeIssueStatus(issue.getId(), Status.RESOLVED);
         assertEquals(Status.RESOLVED, taskManager.getIssue(issue.getId()).getStatus());
 
-       
+
         taskManager.redo();
         assertEquals(Status.RESOLVED, taskManager.getIssue(issue.getId()).getStatus());
+    }
+
+    @Test
+    void testNotificationService_ShouldNotifyOnStatusChanges() {
+        Issue issue = taskManager.createIssue("Test Issue", "Description", Priority.MEDIUM);
+        taskManager.changeIssueStatus(issue.getId(), Status.IN_PROGRESS);
+        assertEquals(2, taskManager.getNotificationService().getNotificationCount());
     }
 
 
