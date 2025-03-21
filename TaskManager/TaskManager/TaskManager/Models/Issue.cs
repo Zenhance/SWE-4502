@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using global::TaskManager.Enums;
-using System;
-using System.Collections.Generic;
-using TaskManager.Models;
+using TaskManager.Enums;
+using TaskManager.Models.TaskManager.Models;
 
 namespace TaskManager.Models
 {
