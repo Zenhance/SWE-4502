@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskManager.Command
+namespace TaskManager
 {
     public class ChangeStatusCommand : ICommand
     {

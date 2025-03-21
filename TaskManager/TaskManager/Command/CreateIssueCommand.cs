@@ -7,7 +7,7 @@ using TaskManager;
 
 namespace TaskManager
 {
-    public class CreateIssueCommand
+    public class CreateIssueCommand : ICommand
     {
         private IssueRepository _repo;
         private Issue _Issue;

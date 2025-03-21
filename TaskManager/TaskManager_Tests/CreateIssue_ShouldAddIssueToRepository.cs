@@ -13,13 +13,18 @@ namespace TaskManager_Tests
         public void CreateIssue_Test_Method()
         {
             IssueRepository repo = new IssueRepository();
-            var issue = new Issue(1, "Test Issue", "Test Description", Priority.Medium);
-            var createCommand = new CreateIssueCommand(repo, issue);
+            Issue issue = new Issue(1, "Test Issue", "Test Description", Priority.Medium);
+            CreateIssueCommand createIssueCommand = new CreateIssueCommand(repo, issue);
+            CommandManager commandManager = new CommandManager();
+
+            commandManager.ExecuteCommand(createIssueCommand);
 
 
             var retrievedIssue = repo.GetIssue(1);
 
             Assert.AreEqual(1, retrievedIssue.Id);
+            Assert.AreEqual("Test Issue", retrievedIssue.Title);
+
         }
 
 
