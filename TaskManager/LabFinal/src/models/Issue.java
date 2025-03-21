@@ -62,4 +62,15 @@ public class Issue {
     public List<Comment> getComments() {
         return comments;
     }
+
+    public void setStatus(Status newStatus) {
+        status = newStatus;
+    }
+    public void addComment(Comment c){
+        comments.add(c);
+    }
+
+    public void removeComment(Comment comment) {
+        comments.remove(comment);
+    }
 }

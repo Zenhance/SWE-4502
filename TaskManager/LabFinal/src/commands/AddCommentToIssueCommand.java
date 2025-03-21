@@ -8,17 +8,19 @@ import models.IssueRepository;
 public class AddCommentToIssueCommand implements ICommand {
     private IssueRepository issueRepo;
     private Issue issue;
-    public AddCommentToIssueCommand(IssueRepository issueRepo, Issue issue, Comment comment){
+    private Comment comment;
+    public AddCommentToIssueCommand(IssueRepository issueRepo, String issueId, Comment comment){
         this.issueRepo = issueRepo;
-        this.issue = issue;
+        this.issue = issueRepo.getIssue(issueId);
+        this.comment = comment;
     }
     @Override
     public void execute() {
-
+        issue.addComment(comment);
     }
 
     @Override
     public void undo() {
-
+        issue.removeComment(comment);
     }
 }
