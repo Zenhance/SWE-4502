@@ -46,6 +46,17 @@ class TaskManagerTest {
         assertEquals(Status.IN_PROGRESS, updatedIssue.getStatus());
     }
 
+    @Test
+    void testUndoCommand_ShouldRevertLastAction() {
+        Issue issue = taskManager.createIssue("Test Issue", "Description", Priority.MEDIUM);
+        taskManager.changeIssueStatus(issue.getId(), Status.IN_PROGRESS);
+        taskManager.undo();
+        Issue updatedIssue = taskManager.getIssue(issue.getId());
+        assertEquals(Status.OPEN, updatedIssue.getStatus());
+    }
+
+    
+
 
 
 
