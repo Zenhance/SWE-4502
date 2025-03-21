@@ -71,6 +71,13 @@ class TaskManagerTest {
         assertEquals(1, emailNotifier.getNotifications().size());
     }
 
+    @Test
+    void testStatisticsCollector_ShouldTrackCommandCounts() {
+        taskManager.createIssue("Test Issue 1", "Description", Priority.MEDIUM);
+        taskManager.createIssue("Test Issue 2", "Description", Priority.HIGH);
+        assertEquals(2, taskManager.getStatisticsCollector().getCommandCount(CommandType.CREATE));
+    }
+
 
 
 
