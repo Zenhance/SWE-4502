@@ -53,9 +53,10 @@ class IssueTest {
         assertEquals(s1, s2);
     }
 
+    @Test
     void ChangeIssueStatusCommand_ShouldLogCorrectDescription(){
-        issue1.changeStatus(Status.Closed);
-
+        String s1= issue1.changeStatus(Status.Closed);
+        assertEquals("Status changed from Open to Closed", s1 );
     }
 
 }

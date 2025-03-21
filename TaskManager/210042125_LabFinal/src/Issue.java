@@ -21,6 +21,7 @@ public class Issue implements Notify, Clonify{
         this.Description= Description;
         this.Priority= priority;
         CommentList= new ArrayList<>();
+        LogHistory= new ArrayList<>();
         SubscriberList= new ArrayList<>();
         this.status= Status.Open;
         notifying("New Status created with "+this.getID());
@@ -62,12 +63,12 @@ public class Issue implements Notify, Clonify{
         this.Description= Description;
     }
 
-    public void changeStatus(Status status){
+    public String changeStatus(Status status){
         Status s= this.status;
          notifying("Status changed from "+this.status+" to "+status);
         this.status= status;
         Status s2= this.status;
-        logStatusChange("Status changed from "+s+" to "+s2);
+        return logStatusChange("Status changed from "+s+" to "+s2);
     }
 
     public void addComment(Comment comment){
