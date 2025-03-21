@@ -48,4 +48,30 @@ public class CreateIssueTest
         var retrievedIssue = repository.GetIssue(issue.Id);
         Assert.Equal(issue.Status, retrievedIssue.Status);
     }
+    [Fact]
+    public void UndoCommand_ShouldRevertLastAction()
+    {
+        var repository = new IssueRepository();
+        var issue = new Issue { Title = "Test Issue", Description = "Test Description", Priority = Priority.Medium };
+        var commandManager = new CommandManager();
+        var createCommand = new CreateIssueCommand(repository, issue);
+        commandManager.ExecuteCommand(createCommand);
+        commandManager.Undo();
+        var retrievedIssue = repository.GetIssue(issue.Id);
+        Assert.Null(retrievedIssue); 
+    }
+
+    [Fact]
+    public void RedoCommand_ShouldReapplyUndoneAction()
+    {
+        var repository = new IssueRepository();
+        var issue = new Issue { Title = "Test Issue", Description = "Test Description", Priority = Priority.Medium };
+        var commandManager = new CommandManager();
+        var createCommand = new CreateIssueCommand(repository, issue);
+        commandManager.ExecuteCommand(createCommand);
+        commandManager.Undo();
+        commandManager.Redo();
+        var retrievedIssue = repository.GetIssue(issue.Id);
+        Assert.NotNull(retrievedIssue); 
+    }
 }
