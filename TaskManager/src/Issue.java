@@ -1,66 +1,50 @@
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 class Issue {
-   public String ID;
-   public String Title;
-   public String Description;
-   public String Status;
-   public String Priority;
-   public String CreationDate;
-   public String LastModifiedDate;
+    public enum Priority { LOW, MEDIUM, HIGH, CRITICAL }
+    public enum Status { OPEN, IN_PROGRESS, UNDER_REVIEW, RESOLVED, CLOSED }
 
-   public String AssignedTo ;
+    private final String id;
+    private String title, description, assignedTo;
+    private Priority priority;
+    private Status status;
+    //private final Date creationDate;
+    private Date lastModifiedDate;
+    private List<Comment> comments;
 
-   private List<IssueObserver> observers = new ArrayList<>();
-
-   public Issue(String ID, String Title, String Description, String Status, String Priority, String CreationDate, String LastModifiedDate, String AssignedTo) {
-       this.ID = ID;
-       this.Title = Title;
-       this.Description = Description;
-
-       this.Status = "Created";
-       this.Priority = Priority;
-       this.CreationDate = CreationDate;
-       this.LastModifiedDate = LastModifiedDate;
-       this.AssignedTo = AssignedTo;
-
-   }
-    public void create(IssueObserver observer) {
-        observers.add(observer);
+    public Issue(String id, String title, String description, Priority priority) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.status = Status.OPEN;
+       // this.creationDate = new Date();
+      //  this.lastModifiedDate = new Date();
+        this.comments = new ArrayList<>();
     }
 
-
-    public void notifyObservers() {
-
-       for (IssueObserver observer : observers) {
-
-       }
+    public void update(String title, String description, Priority priority, String assignedTo) {
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.assignedTo = assignedTo;
+       // this.lastModifiedDate = new Date();
     }
 
-
-    public void setStatus(String status) {
-       this.Status = status;
-       notifyObservers();
+    public void changeStatus(Status newStatus) {
+        this.status = newStatus;
+       //this.lastModifiedDate = new Date();
     }
 
-
-    public void setPriority(String priority) {
-       this.Priority = priority;
-       notifyObservers();
+    public void addComment(Comment comment) {
+        comments.add(comment);
+       // this.lastModifiedDate = new Date();
     }
 
-    public void setAssignedTo(String assignedTo) {
-       this.AssignedTo = assignedTo;
-       notifyObservers();
-    }
-
-    public String getStatus(){
-       return this.Status;
-    }
-  public String getAssignedTo(){
-       return this.AssignedTo;
-  }
-
+    public String getId() { return id; }
+    public String getTitle() { return title; }
+    public Status getStatus() { return status; }
 }
 
