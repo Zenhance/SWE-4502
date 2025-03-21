@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AddCommentTest {
     @Test
     public void AddComment_ShouldAddCommentToIssue() {
-        Issue issue = new Issue("1", "Test Issue", "Description", Priority.MEDIUM, "User1");
-        Comment comment = new Comment("C1", "Test Comment", "User2");
+        Issue issue = new Issue("1", "Test Issue", "Adding Comment", Priority.MEDIUM, "User1");
+        Comment comment = new Comment("Hello", "Test Comment", "User2");
         Command addCommentCommand = new AddCommentCommand(issue, comment);
 
         addCommentCommand.execute();
