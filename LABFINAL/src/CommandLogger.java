@@ -8,4 +8,4 @@ public class CommandLogger {
     public List<String> getLogs() {
         return logs;
     }
-} //logger
+} //logger //versioned
