@@ -13,19 +13,17 @@ namespace TaskManager
     {
         static void Main(string[] args)
         {
-            // Initialize services
             var repository = new IssueRepository();
             var commandManager = new CommandManager();
             var notificationService = new NotificationService();
             var statisticsService = new StatisticsService();
 
-            // Create a new issue
             var issue = new Issue
             {
                 Title = "Implement Login Feature",
                 Description = "Add user authentication and authorization",
                 Priority = Priority.High,
-                AssignedTo = "John Doe",
+                AssignedTo = "Tamim Al Hasan",
                 Tags = { "authentication", "security" }
             };
 
@@ -34,18 +32,16 @@ namespace TaskManager
             statisticsService.TrackCommand(createCommand.Type);
             notificationService.NotifyIssueCreated(issue);
 
-            // Update issue status
             issue.Status = Status.InProgress;
             var updateCommand = new UpdateIssueCommand(repository, issue);
             commandManager.ExecuteCommand(updateCommand);
             statisticsService.TrackCommand(updateCommand.Type);
             notificationService.NotifyStatusChanged(issue, Status.Open.ToString());
 
-            // Add a comment
             var comment = new Comment
             {
                 Content = "Started working on the authentication module",
-                Author = "John Doe"
+                Author = "MS Virat"
             };
             issue.Comments.Add(comment);
             var updateWithCommentCommand = new UpdateIssueCommand(repository, issue);
@@ -53,14 +49,11 @@ namespace TaskManager
             statisticsService.TrackCommand(updateWithCommentCommand.Type);
             notificationService.NotifyCommentAdded(issue, comment);
 
-            // Undo last command
             Console.WriteLine("\nUndoing last command...");
             commandManager.Undo();
 
-            // Print statistics
             statisticsService.PrintStatistics();
 
-            // Print command logs
             Console.WriteLine("\nCommand Logs:");
             foreach (var log in commandManager.GetCommandLogs())
             {
