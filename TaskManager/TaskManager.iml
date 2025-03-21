@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/Downloads/junit-platform-engine-1.9.1.jar!/" />
+          <root url="jar://D:/Downloads/junit-platform-commons-1.9.1.jar!/" />
+          <root url="jar://D:/Downloads/junit-jupiter-engine-5.9.1.jar!/" />
+          <root url="jar://D:/Downloads/junit-jupiter-api-5.9.1.jar!/" />
+          <root url="jar://D:/Downloads/junit-jupiter-api-5.8.1.jar!/" />
+          <root url="jar://D:/Downloads/json-20140107.jar!/" />
+          <root url="jar://D:/Downloads/jackson-databind-2.15.2.jar!/" />
+          <root url="jar://D:/Downloads/jackson-core-2.15.2.jar!/" />
+          <root url="jar://D:/Downloads/jackson-annotations-2.15.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
