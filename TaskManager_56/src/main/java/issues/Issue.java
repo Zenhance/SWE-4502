@@ -46,14 +46,19 @@ public IssueRepository issueRepository;
 
 
     public void restore(Memento memento){
+        Issue issue =memento.getIssue();
+        this.status=issue.status;
+
 
 
     }
 
-//    public Memento save(){
-//        return new Memento(new Issue(id,));
-//
-//    }
+    public Memento save(){
+
+        return new Memento(new Issue());
+
+
+    }
 
 
 
