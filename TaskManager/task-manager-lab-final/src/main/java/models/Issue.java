@@ -54,4 +54,5 @@ public class Issue {
     public Status getStatus(){
         return  status;
     }
+    public List<Comment> getComments(){ return comments; }
 }
