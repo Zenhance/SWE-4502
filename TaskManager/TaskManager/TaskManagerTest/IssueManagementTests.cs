@@ -81,5 +81,65 @@ namespace TaskManager.Tests
             var retrievedIssue = repository.GetById(issue.Id);
             Assert.Equal(Status.InProgress, retrievedIssue.Status);
         }
+        //#F13
+        [Fact]
+        public void Issue_Clone_ShouldCreateCompleteDeepCopy()
+        {
+            var originalIssue = new Issue
+            {
+                Title = "Original Issue",
+                Description = "Original Description",
+                Priority = Priority.Medium,
+                Status = Status.Open,
+                AssignedTo = "User1"
+            };
+            originalIssue.Tags.Add("Bug");
+            originalIssue.Tags.Add("UI");
+            originalIssue.Comments.Add(new Comment
+            {
+                Content = "Original Comment",
+                Author = "User2"
+            });
+
+            var clonedIssue = new Issue
+            {
+                Title = originalIssue.Title,
+                Description = originalIssue.Description,
+                Priority = originalIssue.Priority,
+                Status = originalIssue.Status,
+                AssignedTo = originalIssue.AssignedTo
+            };
+
+            foreach (var tag in originalIssue.Tags)
+            {
+                clonedIssue.Tags.Add(tag);
+            }
+
+            foreach (var comment in originalIssue.Comments)
+            {
+                clonedIssue.Comments.Add(new Comment
+                {
+                    Content = comment.Content,
+                    Author = comment.Author,
+                    CreatedAt = comment.CreatedAt
+                });
+            }
+
+            originalIssue.Title = "Modified Title";
+            originalIssue.Tags[0] = "Feature";
+            originalIssue.Comments[0].Content = "Modified Comment";
+
+            Assert.Equal("Original Issue", clonedIssue.Title);
+            Assert.Equal("Original Description", clonedIssue.Description);
+            Assert.Equal(Priority.Medium, clonedIssue.Priority);
+            Assert.Equal(Status.Open, clonedIssue.Status);
+            Assert.Equal("User1", clonedIssue.AssignedTo);
+            Assert.Equal(2, clonedIssue.Tags.Count);
+            Assert.Equal("Bug", clonedIssue.Tags[0]);
+            Assert.Equal("UI", clonedIssue.Tags[1]);
+            Assert.Single(clonedIssue.Comments);
+            Assert.Equal("Original Comment", clonedIssue.Comments[0].Content);
+            Assert.Equal("User2", clonedIssue.Comments[0].Author);
+        }
     }
 }
