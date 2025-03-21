@@ -1,57 +1,68 @@
-import java.util.Date;
-import java.util.HashMap;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class Issue {
 
 
 IssueRepository i= new IssueRepository();
-    HashMap<Integer, Object>issues = i.getList();
+    HashMap<Integer, Issue> issues = i.getList();
     private int id;
     private String title;
     private String description;
 
-    private Date CreationDate;
-    private Date LastModifiedDate;
-    private String AssignedTo;
-    private String Tags;
-
-    public Issue( String title, String description) {
-
-        this.title=title;
-        this.description=description;
+    private LocalDateTime creationDate;
+    private LocalDateTime lastModifiedDate;
+    private String assignedTo;
+    private String tags;
+    private Priority priority;
+    private Status status;
 
 
+    public Issue(String title, String description, Priority priority) {
+        this.id = UUID.randomUUID();
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.status = Status.OPEN;
+        this.creationDate = LocalDateTime.now();
+        this.lastModifiedDate = LocalDateTime.now();
     }
 
-    enum Comments {
-        Id,
-        Content,
-        Author,
-        CreatedAt
-    }
-    enum  Priority{
-        Low,Medium,High,Critical
-    }
-    enum Status{
-        Open, InProgress, UnderReview, Resolved, Closed
-    }
+   List<Comment> comments=new ArrayList<>();
 
-    public short createIssue(int _id, String _title, String _description){
-      if((!issues.containsKey(_id))||(issues.isEmpty())){
-          Issue issue=new Issue(_title,_description);
-          issues.put(_id,issue);
-          System.out.println("The issue has been created successfully");
-      }
-      else{
-          System.out.println("The issue with similar id has been found");
-      }
-
-        return 0;
-    }
-    public void updateIssue(){
-
+    public Integer getId() {
+        return id;
     }
 
 
+
+//    public void createIssue(int _id, String _title, String _description){
+//      if((!issues.containsKey(_id))||(issues.isEmpty())){
+//          Issue issue=new Issue(_title,_description);
+//          issues.put(_id,issue);
+//          System.out.println("The issue has been created successfully");
+//      }
+//      else{
+//          System.out.println("The issue with similar id has been found");
+//      }
+//
+//
+//    }
+
+
+
+
+    public void changeStatus(Status status) {
+        this.status = status;
+        updateModifiedDate();
+    }
+
+
+
+    private void updateModifiedDate() {
+        this.lastModifiedDate = LocalDateTime.now();
+    }
+
+    public Status getStatus() { return status; }
 
 }
