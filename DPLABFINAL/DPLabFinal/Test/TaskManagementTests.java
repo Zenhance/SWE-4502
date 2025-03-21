@@ -108,7 +108,17 @@ public class TaskManagementTests {
         //assertNotNull(repository.getIssue("F01"), "The issue should be re-added after redo.");
     }
 
-    
+    @Test
+    void observer_ShouldBeNotifiedOfCommands() {
+        CreateIssueCommand createCommand = new CreateIssueCommand(repository, issue);
+        EmailObserver observer = new EmailObserver("test@example.com");
+        notificationService.registerObserver(observer);
+        createCommand.execute();
+        assertTrue(logger.getLogHistory().contains("Created new issue: Test Issue"));
+    }
+
+
+
 
 
 
