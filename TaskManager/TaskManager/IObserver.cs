@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    interface IObserver
+    public interface IObserver
     {
         void Notify(string message);
     }
+
+
 }

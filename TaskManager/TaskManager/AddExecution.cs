@@ -19,12 +19,14 @@ namespace TaskManager
 
         public void Execute()
         {
-           Issue.ExecuteCommand.Add();
+            Console.WriteLine("executed");
         }
 
         public void Undo()
         {
-            Issue.Executions.Remove(Name);
+            Console.WriteLine("undo");
         }
+
+        public string Description => $"Change Status ";
     }
 }

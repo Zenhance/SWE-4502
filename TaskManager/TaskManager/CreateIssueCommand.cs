@@ -25,9 +25,10 @@ namespace TaskManager
             observer.Notify($"Issue {issue.Id} created: {issue.Title}");
         }
 
+
         public void Undo()
         {
-            repository.UpdateIssue(null);
+            repository.UpdateIssue(null);  
             observer.Notify($"Issue {issue.Id} creation undone.");
         }
 
