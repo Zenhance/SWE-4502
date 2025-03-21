@@ -23,7 +23,6 @@
     <ItemGroup>
       <Folder Include="Commands\" />
       <Folder Include="Observers\" />
-      <Folder Include="Repositories\" />
       <Folder Include="Services\" />
       <Folder Include="Tests\" />
     </ItemGroup>
