@@ -18,15 +18,15 @@ public class IssuePrototype
     public List<Comment> comments;
     public List<Tag> tags;
 
-    public IssuePrototype(string title, string desc, PRIORITY priority, STATUS status, DateTime createdDate,
-        DateTime lastModifiedDate, User assignedTo)
+    public IssuePrototype(string title, string description, PRIORITY priority, STATUS status, DateTime createdDate,
+        DateTime lastModifiedDate, User AssignedTo)
     {
         this.title = title;
-        this.description = desc;
+        this.description = description;
         this.priority = priority;
         this.status = status;
         this.createdDate = createdDate;
         this.lastModifiedDate = lastModifiedDate;
-        this.AssignedTo = assignedTo;
+        this.AssignedTo = AssignedTo;
     }
 }
