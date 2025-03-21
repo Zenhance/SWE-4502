@@ -9,5 +9,12 @@ public class IssueRepository {
     public void addIssue(Issue issue){
         issues.put(issue.getId(), issue);
     }
+    public void removeIssue(String id){
+        issues.remove(id);
+    }
 
+    public Issue getIssue(String id){
+
+        return issues.get(id);
+    }
 }
