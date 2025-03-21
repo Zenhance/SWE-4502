@@ -14,12 +14,15 @@ public class Create_Issue_Test {
     }
 
     @Test
-    public void CreateIssue_ShouldAddIssueToRepository() {
-
+    public void CreateIssue() {
         String title = "Issue1";
         String description = "Issue1 description.";
         String priority = "High";
-        Issue newIssue = service.createIssue(title, description, priority);
+
+        CreateIssueCommand command = new CreateIssueCommand(service, title, description, priority);
+        command.execute();
+        Issue newIssue = command.getCreatedIssue();
+
         assertNotNull(newIssue);
         assertEquals(title, newIssue.title);
         assertEquals(description, newIssue.description);

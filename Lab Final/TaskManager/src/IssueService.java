@@ -15,6 +15,15 @@ public class IssueService {
         return newIssue;
     }
 
+    public Issue deleteIssue(int id) {
+        Issue issue = repository.getIssue(id);
+        if (issue == null) {
+            return null;
+        }
+        repository.removeIssue(id);
+        return issue;
+    }
+
     public Issue updateIssue(int id, String title, String description, String priority) {
         Issue issue = repository.getIssue(id);
         if (issue == null) {
@@ -23,6 +32,17 @@ public class IssueService {
         issue.title = title;
         issue.description = description;
         issue.priority = priority;
+        issue.LastModified = new Date();
+        return issue;
+    }
+
+    public Issue addComment(int id, String content, String author) {
+        Issue issue = repository.getIssue(id);
+        if (issue == null) {
+            return null;
+        }
+        Comment newComment = new Comment(nextId++, content, author, new Date());
+        issue.addComment(newComment);
         issue.LastModified = new Date();
         return issue;
     }

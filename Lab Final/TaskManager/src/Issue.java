@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 public class Issue {
@@ -9,10 +10,10 @@ public class Issue {
     public String assignee;
     public Date LastModified;
     public Date CreatedAt;
-    public List<String> comments;
+    public List<Comment> comments;
     public List<String> tags;
 
-    public Issue(int ID, String title, String description, String status, String priority, String assignee, Date LastModified, Date CreatedAt, List<String> comments, List<String> tags) {
+    public Issue(int ID, String title, String description, String status, String priority, String assignee, Date LastModified, Date CreatedAt, List<Comment> comments, List<String> tags) {
         this.ID = ID;
         this.title = title;
         this.description = description;
@@ -21,12 +22,16 @@ public class Issue {
         this.assignee = assignee;
         this.LastModified = LastModified;
         this.CreatedAt = CreatedAt;
-        this.comments = comments;
+        this.comments = comments != null ? comments : new ArrayList<>();
         this.tags = tags;
     }
 
-    public void addComment(String comment) {
+    public void addComment(Comment comment) {
         comments.add(comment);
+    }
+
+    public void addAssignee(String assignee) {
+        this.assignee = assignee;
     }
 
 }
