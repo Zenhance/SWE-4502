@@ -47,10 +47,11 @@ public class Issue {
 
     public void addComment(Comment C){
         comments.add(C);
-
     }
 
-
+    public void setStatus(Status status){
+        this.status=status;
+    }
 
     public String getTitle() {
         return title;
@@ -66,5 +67,13 @@ public class Issue {
 
     public int getId() {
         return id;
+    }
+
+    public  Status getStatus(){
+        return status;
+    }
+
+    public String getAuthor() {
+        return assignedTo;
     }
 }
