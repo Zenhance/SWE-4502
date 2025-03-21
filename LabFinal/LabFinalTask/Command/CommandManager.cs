@@ -40,4 +40,10 @@ public class CommandManager
             commands.Add(command);
         }
     }
+
+
+    public int GetCommandCount()
+    {
+        return commands.Count;
+    }
 }
