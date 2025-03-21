@@ -79,6 +79,7 @@ namespace labfinaltest
 
 
         }
+
         [Fact]
         public void RedoCommand_ShouldReapplyUndoneAction()
         {
