@@ -1,5 +1,5 @@
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Issue {
@@ -20,9 +20,9 @@ public class Issue {
 
     public String AssignedTo;
 
-    public List<String> Tags;
+    public List<String> Tags=new ArrayList<>();
 
-    public List<Comment> comments;
+    public List<Comment> comments=new ArrayList<>();
 
 
     public Issue (int ID,String Title,String Description,Priority Priority, Status Status,LocalDateTime Creationdate,LocalDateTime LastModifiedDate, String assignedTo ,List<Comment> comments,List<String>tags ){
@@ -52,11 +52,23 @@ public class Issue {
     }
 
 
-
-    public void addComment(Comment comment) {
-        this.comments.add(comment);
-
+    public int getId() {
+        return Id;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
