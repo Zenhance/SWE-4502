@@ -12,13 +12,13 @@ public class UndoCommandTest {
     @Test
     public void UndoCommand_ShouldRevertLastAction() {
         IssueRepository repository = IssueRepository.getInstance();
-        Issue issue = new Issue("1", "Test Issue", "Description", Priority.MEDIUM, "User1");
+        Issue issue = new Issue("2", "Test Issue", "Testing Undo Command", Priority.HIGH, "User1");
         Command createCommand = new CreateIssueCommand(issue, repository);
 
         createCommand.execute();
         createCommand.undo();
 
-        assertNull(repository.getIssue("1"));
+        assertNull(repository.getIssue("2"));
     }
 
 }
