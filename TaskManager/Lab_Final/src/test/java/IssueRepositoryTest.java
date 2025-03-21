@@ -5,6 +5,8 @@ public class IssueRepositoryTest {
     @Test
     public void TaskManagerTest()
     {
+        //Test 1
+
         IssueRepository repository = new IssueRepository();
         Issue issue = new Issue("LabFinal", "Final_Lab_for_Java", "Hamim", Issue.Priority.Low);
         repository.addIssue(issue);
@@ -16,11 +18,13 @@ public class IssueRepositoryTest {
         assertTrue(searchedIssue.getStatus().toString().equals("Open"));
         assertTrue(searchedIssue.getPriority().toString().equals("Low"));
 
+//        Test 2
         Comment comment = new Comment( "This is a comment");
         searchedIssue.addComment(comment);
         assertTrue(searchedIssue.getCommentById(comment.getId()).content.equals("This is a comment"));
-
-
+//        Test 3
+        searchedIssue.setStatus(Issue.Status.Closed);
+        assertTrue(searchedIssue.getStatus().toString().equals("Closed"));
 
     }
 }
