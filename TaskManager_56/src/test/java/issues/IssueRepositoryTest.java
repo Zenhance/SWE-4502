@@ -10,8 +10,9 @@ class IssueRepositoryTest {
     @Test
     void createIssue() {
         User user= new User(23,"navid");
-        user.createIssue("hello","world");
+        Issue issue=user.createIssue("hello","world");
         assertEquals(user.issueRepository.isEmpty(),false);
+        assertEquals(issue.status, Issue.Status.InProgress);
 
 
 

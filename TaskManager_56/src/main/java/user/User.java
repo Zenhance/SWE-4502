@@ -15,12 +15,14 @@ public class User {
         this.name=name;
     }
 
-    public  void createIssue(String title,String description){
+    public  Issue createIssue(String title,String description){
         Issue issue = new Issue();
         issue.title=title;
         issue.description=description;
         issue.status= Issue.Status.InProgress;
         this.issueRepository.put(issue.id,issue);
+
+        return issue;
 
 
     }
