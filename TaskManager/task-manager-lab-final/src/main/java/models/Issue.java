@@ -40,6 +40,10 @@ public class Issue {
         this.lastModifiedDate = lastModifiedDate;
     }
 
+    public void setAssignedTo(String assignedTo){
+        this.assignedTo = assignedTo;
+    }
+
     public String getId(){
         return id;
     }
