@@ -28,7 +28,19 @@ class TaskManagerTest {
         assertNotNull(taskManager.getIssue(issue.getId()));
     }
 
+    @Test
+    void testAddComment_ShouldAddCommentToIssue() {
+        Issue issue = taskManager.createIssue("Test Issue", "Description", Priority.MEDIUM);
+        taskManager.addComment(issue.getId(), "Test Comment", "Test Author");
+        Issue updatedIssue = taskManager.getIssue(issue.getId());
+        assertEquals(1, updatedIssue.getComments().size());
+        assertEquals("Test Comment", updatedIssue.getComments().get(0).getContent());
+        assertEquals("Test Author", updatedIssue.getComments().get(0).getAuthor());
+    }
+
     
+
+
 
 
 }
