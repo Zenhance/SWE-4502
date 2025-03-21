@@ -46,4 +46,15 @@ public class Issue
     {
         _tags.Add(tag);
     }
+
+    public void LoadFromLog(IssuePrototype _issuePrototype)
+    {
+        _title = _issuePrototype._title;
+        _description = _issuePrototype._description;
+        _priority = _issuePrototype._priority;
+        _status = _issuePrototype._status;
+        _createdDate = _issuePrototype._createdDate;
+        _updatedDate = DateTime.Now;
+        _assignedTo = _issuePrototype._assignedTo;
+    }
 }

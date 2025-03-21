@@ -5,16 +5,18 @@ namespace TaskManager.Prototype;
 
 public class IssuePrototype
 {
-    private int _id;
-    private string _title;
-    private string _description;
-    private IssuePriorityENUM _priority;
-    private IssueStatusENUM _status;
-    private DateTime _createdDate;
-    private DateTime _updatedDate;
-    private User _assignedTo;
-    private List<Tag> _tags;
-    private List<Comment> _comments;
+    public int _id;
+    public string _title;
+    public string _description;
+    public IssuePriorityENUM _priority;
+    public IssueStatusENUM _status;
+    public DateTime _createdDate;
+    public DateTime _updatedDate;
+    public User _assignedTo;
+    public List<Tag> _tags;
+    public List<Comment> _comments;
+
+    public UserMediator _userMediator;
 
     public IssuePrototype(string title, string description,IssuePriorityENUM priority, IssueStatusENUM status, User assignedTo, List<Tag> tags, List<Comment> comments)
     {
