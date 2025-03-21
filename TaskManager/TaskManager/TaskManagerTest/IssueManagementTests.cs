@@ -34,5 +34,31 @@ namespace TaskManager.Tests
             Assert.Equal(Priority.High, retrievedIssue.Priority);
             Assert.Equal(Status.Open, retrievedIssue.Status);
         }
+        //#F02
+        [Fact]
+        public void AddComment_ShouldAddCommentToIssue()
+        {
+            var repository = new IssueRepository();
+            var issue = new Issue
+            {
+                Title = "Test Issue",
+                Description = "Test Description"
+            };
+            repository.Add(issue);
+            var comment = new Comment
+            {
+                Content = "This is a comment",
+                Author = "User1"
+            };
+
+            issue.Comments.Add(comment);
+            repository.Update(issue);
+
+            var retrievedIssue = repository.GetById(issue.Id);
+            Assert.Single(retrievedIssue.Comments);
+            Assert.Equal("This is a comment", retrievedIssue.Comments[0].Content);
+            Assert.Equal("User1", retrievedIssue.Comments[0].Author);
+        }
+        
     }
 }
