@@ -15,7 +15,7 @@ public class Issue1Test {
 
     @Test
     public void CreateIssue_ShouldAddIssueToRepository() {
-       
+
         IssueRepository issueRepository = new IssueRepository();
         Issue issue = new Issue(1, "Title", "Description", Priority.Low, Status.Open, LocalDateTime.now(), LocalDateTime.now(), "AssignedTo", new ArrayList<>(), new ArrayList<>());
 
