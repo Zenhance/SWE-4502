@@ -1,11 +1,7 @@
 import org.junit.Assert;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class AddComment_ShouldAddCommentToIssue {
+class ____AddComment_ShouldAddCommentToIssue {
     public User user = new User("Adid");
     public Issue issue = new Issue("101","Issue 1" , PRIORITY.High, STATUS.Open, user);
     public Comment comment = new Comment("C1", "Comment1",user);

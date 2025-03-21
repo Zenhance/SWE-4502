@@ -74,14 +74,14 @@ As well as the `Status` of an `Issue` should be any one of this :`Open`, `InProg
 
 ###### Issue #F01: Create Issue Test
 
-Test: `CreateIssue_ShouldAddIssueToRepository`
+Test: `____CreateIssue_ShouldAddIssueToRepository`
 
 * Act: Create a new issue with title, description, and priority
 * Assert: Verify that the issue exists in repository with correct properties and default status
 
 ###### Issue #F02: Add Comment Test
 
-Test: `AddComment_ShouldAddCommentToIssue`
+Test: `____AddComment_ShouldAddCommentToIssue`
 
 * Act: Add a comment to an existing issue
 * Assert: Verify comment is added with correct content and author
