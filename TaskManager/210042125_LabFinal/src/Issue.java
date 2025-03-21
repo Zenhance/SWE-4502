@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Issue implements Notify{
+public class Issue implements Notify, Clonify{
 
     private String Id;
     private String Title;
@@ -93,5 +93,15 @@ public class Issue implements Notify{
         for(User a: SubscriberList){
             a.receiveNotification(s);
         }
+    }
+
+    @Override
+    public Issue clone() {
+        return new Issue(this.Title, this.Description, this.Priority);
+    }
+
+    public String getDetails(){
+        String s1= Description+ Priority+ Title;
+        return s1;
     }
 }
