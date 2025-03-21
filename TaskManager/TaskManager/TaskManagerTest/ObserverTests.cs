@@ -137,5 +137,33 @@ namespace TaskManager.Tests
             Assert.Equal(createCommand, observer.NotifiedCommands[0]);
             Assert.DoesNotContain(secondCommand, observer.NotifiedCommands);
         }
+        //#F15
+        [Fact]
+        public void NotificationService_ShouldNotifyOnStatusChanges()
+        {
+            var repository = new IssueRepository();
+            var commandManager = new ObservableCommandManager();
+            var notificationService = new MockNotificationService();
+
+            commandManager.AddStatusChangeObserver((issue, oldStatus, newStatus) => {
+                notificationService.SendNotification($"Issue {issue.Id} status changed from {oldStatus} to {newStatus}");
+            });
+
+            var issue = new Issue { Title = "Test Issue" };
+
+            commandManager.ExecuteCommand(new CreateIssueCommand(repository, issue));
+
+            issue.Status = Status.InProgress;
+            var updateCommand1 = new TestableUpdateIssueCommand(repository, issue);
+            commandManager.ExecuteCommand(updateCommand1);
+
+            issue.Status = Status.Resolved;
+            var updateCommand2 = new TestableUpdateIssueCommand(repository, issue);
+            commandManager.ExecuteCommand(updateCommand2);
+
+            Assert.Equal(2, notificationService.Notifications.Count);
+            Assert.Contains(notificationService.Notifications, n => n.Contains(Status.Open.ToString()) && n.Contains(Status.InProgress.ToString()));
+            Assert.Contains(notificationService.Notifications, n => n.Contains(Status.InProgress.ToString()) && n.Contains(Status.Resolved.ToString()));
+        }
     }
 }
