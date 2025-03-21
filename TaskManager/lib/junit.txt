@@ -1,0 +1,1 @@
+junit console standalone
