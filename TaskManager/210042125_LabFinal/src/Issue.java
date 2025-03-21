@@ -12,4 +12,6 @@ public class Issue {
     private String AssignedTo;
     private String Tags[];
     private Comment Comments[];
+
+
 }
