@@ -15,6 +15,7 @@ public class BasicIssueOperationsTest {
         taskManager = new TaskManager();
     }
 
+    //#F01
     @Test
     void createIssue_ShouldAddIssueToRepository() {
         String issueId = taskManager.createIssue("Test Issue 1", "Hellowwwwwwww", Priority.Medium);
@@ -25,6 +26,32 @@ public class BasicIssueOperationsTest {
         assertEquals("Hellowwwwwwww", issue.getDescription());
         assertEquals(Priority.Medium, issue.getPriority());
         assertEquals(Status.Open, issue.getStatus());
+    }
+
+    @Test
+    void updateIssue_ShouldUpdateIssueInRepository() {
+        String issueId = taskManager.createIssue("Test Issue 1", "Hellowwwwwwww", Priority.Medium);
+        taskManager.updateIssue(issueId, "Test Issue 2", "Hellowwwwwwww", Priority.High, "John Doe");
+
+        Issue issue = taskManager.getIssue(issueId);
+        assertNotNull(issue);
+        assertEquals("Test Issue 2", issue.getTitle());
+        assertEquals("Hellowwwwwwww", issue.getDescription());
+        assertEquals(Priority.High, issue.getPriority());
+        assertEquals("John Doe", issue.getAssignedTo());
+    }
+
+    //#F02
+    @Test
+    void AddComment_ShouldAddCommentToIssue() {
+        String issueId = taskManager.createIssue("Test Issue 1", "Hellowwwwwwww", Priority.Medium);
+        taskManager.addComment(issueId, "This is a comment", "John Doe");
+
+        Issue issue = taskManager.getIssue(issueId);
+        assertNotNull(issue);
+        assertEquals(1, issue.getComments().size());
+        assertEquals("This is a comment", issue.getComments().get(0).getContent());
+        assertEquals("John Doe", issue.getComments().get(0).getAuthor());
     }
 
 }
