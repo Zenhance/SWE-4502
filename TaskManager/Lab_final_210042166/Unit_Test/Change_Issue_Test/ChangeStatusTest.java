@@ -12,7 +12,7 @@ public class ChangeStatusTest {
     @Test
     public void ChangeStatus_ShouldUpdateIssueStatus() {
         IssueRepository repository = IssueRepository.getInstance();
-        Issue issue = new Issue("1", "Test Issue", "Description", Priority.MEDIUM, "User1");
+        Issue issue = new Issue("1", "Test Issue", "Changing Status", Priority.MEDIUM, "User1");
         repository.addIssue(issue);
 
         Command changeStatusCommand = new ChangeStatusCommand(issue, Status.IN_PROGRESS, repository);
