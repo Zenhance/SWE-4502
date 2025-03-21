@@ -36,4 +36,14 @@ public class Issue
         
         return isp;
     }
+
+    public void AddComment(Comment comment)
+    {
+        _comments.Add(comment);
+    }
+    
+    public void AddTag(Tag tag)
+    {
+        _tags.Add(tag);
+    }
 }
