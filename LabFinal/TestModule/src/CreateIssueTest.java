@@ -1,28 +1,41 @@
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CreateIssueTest {
 
-    private IssueRepository repository;
+    private IssueRepository repo;
+    private Logger logger;
+    private NotificationService notifier;
+    private StatisticsCollector stats;
+    private CommandManager manager;
+    private List<String> notifications;
 
+    @BeforeEach
+    public void setup() {
+        repo = new IssueRepository();
+        logger = new Logger();
+        notifier = new NotificationService();
+        stats = new StatisticsCollector();
+        manager = new CommandManager();
 
-    public comment comment;
-
-
-
-
-    @Test
-    public void createIssueTest(){
-        Issue issue = new Issue(1, "titl1", "description1", "HIGH", "CLOSED","2007-12-03T10:15:30", "2007-12-03T10:15:30", "Sani", "tag2", comment);
-        repository.addIssue(issue);
-
-        Issue retrievedIssue = repository.getIssue(1);
-
-
-
-
+        notifications = new ArrayList<>();
+        notifier.register(message -> notifications.add(message));
     }
 
+    @Test
+    public void createIssueTest() {
+        Issue issue = new Issue(1, "Bug", "App crashes", Priority.HIGH);
+        Command cmd = new CreateIssueCommand(repo, issue, logger, notifier, stats);
+        manager.executeCommand(cmd);
 
-
+        assertNotNull(repo.getIssue(issue.getId()));
+        assertEquals(Status.OPEN, repo.getIssue(issue.getId()).getStatus());
+    }
 }
