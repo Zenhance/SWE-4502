@@ -18,7 +18,26 @@ namespace TaskManager
             redoStack.Clear(); 
         }
 
+        public void Undo()
+        {
+            if (undoStack.Count > 0)
+            {
+                var command = undoStack.Pop();
+                command.Undo();
+                redoStack.Push(command);
+            }
+        }
 
-
+        public void Redo()
+        {
+            if (redoStack.Count > 0)
+            {
+                var command = redoStack.Pop();
+                command.Execute();
+                undoStack.Push(command);
+            }
+        }
     }
+
 }
+
