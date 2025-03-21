@@ -7,9 +7,13 @@ public class Issue {
     public int id;
     public String title;
     public  String description;
-    public  String Priority;
+    public  enum Priority{
+        Low,Medium,High,Critical
+    };
 
-    public Boolean status;
+    public enum status{
+        Open, InProgress, UnderReview, Resolved, Closed
+    };
     public Date creationDate;
     public Date LastModified;
     public String tag;
@@ -18,6 +22,11 @@ public class Issue {
     public Issue(int id){
         this.id=id;
 
+    }
+
+
+    public void create(){
+        
     }
 
 }
