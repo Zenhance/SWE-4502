@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command\ChangeStatusCommand.cs" />
+    <Compile Include="Command\CommandManager.cs" />
     <Compile Include="Comments.cs" />
     <Compile Include="Command\CreateIssueCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
