@@ -43,24 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeIssueStatusCommand.cs" />
-    <Compile Include="CommandInvoker.cs" />
-    <Compile Include="CommandLogger.cs" />
-    <Compile Include="Comment.cs" />
-    <Compile Include="CreateIssueCommand.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="IObserver.cs" />
-    <Compile Include="Issue.cs" />
-    <Compile Include="IssueFactory.cs" />
-    <Compile Include="IssueManager.cs" />
-    <Compile Include="IssueObserver.cs" />
-    <Compile Include="IssueRepository.cs" />
-    <Compile Include="NotificationService.cs" />
+    <Compile Include="ICommand Interface\ChangeIssueStatusCommand.cs" />
+    <Compile Include="ICommand Interface\CommandInvoker.cs" />
+    <Compile Include="Logger\CommandLogger.cs" />
+    <Compile Include="Issues\Comment.cs" />
+    <Compile Include="ICommand Interface\CreateIssueCommand.cs" />
+    <Compile Include="ICommand Interface\ICommand.cs" />
+    <Compile Include="IObserver Interface\IObserver.cs" />
+    <Compile Include="Issues\Issue.cs" />
+    <Compile Include="Issues\IssueFactory.cs" />
+    <Compile Include="IObserver Interface\IssueManager.cs" />
+    <Compile Include="IObserver Interface\IssueObserver.cs" />
+    <Compile Include="Issues\IssueRepository.cs" />
+    <Compile Include="Notification\NotificationService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

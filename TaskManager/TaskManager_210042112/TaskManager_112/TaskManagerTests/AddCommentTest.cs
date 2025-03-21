@@ -7,7 +7,7 @@ using TaskManager_112;
 
 namespace TaskManagerTests
 {
-    public class AddCommentShouldAddCommentToIssue
+    public class AddCommentTest
     {
         [Fact]
         public void AddComment_ShouldAddCommentToIssue()

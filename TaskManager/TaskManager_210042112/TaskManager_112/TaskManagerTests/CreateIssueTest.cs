@@ -2,7 +2,7 @@ using TaskManager_112;
 
 namespace TaskManagerTests
 {
-    public class CreateIssueShouldAddIssueToRepository
+    public class CreateIssueTest
     {
         [Fact]
         public void CreateIssue_ShouldAddIssueToRepository()
