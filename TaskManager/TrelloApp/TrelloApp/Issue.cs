@@ -21,7 +21,7 @@ namespace TrelloApp
 
         public string assignedTo;
         public List<string> tags = new List<string>();
-        public Comment comment;
+        public List<Comment> comments = new List<Comment>();
 
         public Issue(int id, string title, string description, priority priority, 
             status status,int creationDate) 
@@ -32,6 +32,16 @@ namespace TrelloApp
             priorityType = priority;
             statusType = status;
             this.creationDate = creationDate;
+        }
+
+        public Issue()
+        {
+            
+        }
+
+        public void addComment(Comment comment)
+        {
+            comments.Add(comment);
         }
     }
 }

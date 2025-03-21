@@ -2,7 +2,7 @@ using static TrelloApp.Issue;
 
 namespace TrelloApp.Test
 {
-    public class UnitTest1
+    public class CreateIssueTest
     {
         [Fact]
         public void CreateIssue_ShouldAddIssueToRepository()
@@ -24,5 +24,7 @@ namespace TrelloApp.Test
             Assert.Equal(Issue.status.Open, addedIssue.statusType); 
             Assert.Equal(issue.creationDate, addedIssue.creationDate);
         }
+
+
     }
 }
