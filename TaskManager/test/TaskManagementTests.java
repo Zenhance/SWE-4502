@@ -127,6 +127,19 @@ public class TaskManagementTests {
         assertEquals("Multi observer test", messages1.get(0));
         assertEquals("Multi observer test", messages2.get(0));
     }
+
+    @Test
+    public void RemoveObserver_ShouldStopNotifications() {
+        List<String> messages = new ArrayList<>();
+        Observer observer = message -> messages.add(message);
+        notificationService.registerObserver(observer);
+        notificationService.notifyObservers("Before removal");
+        notificationService.removeObserver(observer);
+        notificationService.notifyObservers("After removal");
+        assertEquals(1, messages.size());
+        assertEquals("Before removal", messages.get(0));
+    }
+
 }
 
 class DummyStatisticsCollector {
