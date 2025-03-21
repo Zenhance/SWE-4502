@@ -1,44 +1,55 @@
+import jdk.jshell.Snippet;
+
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-class Issue {
-    public enum Priority { LOW, MEDIUM, HIGH, CRITICAL }
-    public enum Status { OPEN, IN_PROGRESS, UNDER_REVIEW, RESOLVED, CLOSED }
+public class Issue  {
+    public int Id;
+    public List<Comment> commentList =new ArrayList<>();
+    public String title;
+    public String description;
+    public Priority priority;
+    public Status status;
+    public Date CreationDate;
+    public Date LastModifiedDate;
+    public String Assignedto;
+    public String Tags[];
 
-        private static int counter = 1;
-        private int ID;
-        private String title;
-        private String description;
-        private Priority priority;
-        private Status Statuss;
-        private Date creationDate;
-        private Date lastModifiedDate;
-        private String assignedTo;
-        private List<String> tags = new ArrayList<>();
-        private List<Comment> comments = new ArrayList<>();
 
-        public Issue(String title, String description, Priority priority) {
-            this.ID = counter++;
-            this.title = title;
-            this.description = description;
-            this.priority = priority;
-            this.Statuss = Status.OPEN;
-            this.creationDate = new Date();
-            this.lastModifiedDate = new Date();
-        }
 
-        public void updateStatus(Status newStatus) {
-            this.Statuss = newStatus;
-            this.lastModifiedDate = new Date();
-        }
-
-        public void addComment(Comment comment) {
-            this.comments.add(comment);
-            this.lastModifiedDate = new Date();
-        }
-
-        public int getId() { return ID; }
-        public Status getStatus() { return Statuss; }
-        public List<Comment> getComments() { return comments; }
+    public Issue(int id, String title, String description, Priority priority) {
+        this.Id = id;
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.status = Status.Open;
+        this.CreationDate = new Date();
+        this.LastModifiedDate = CreationDate;
     }
+
+
+    public void UpdateIssue(String title, String description, Priority p) {
+        this.title = title;
+        this.description = description;
+        this.priority = p;
+        this.LastModifiedDate = new Date();
+    }
+    public void changeStatus(Status status) {
+        this.status = status;
+        this.LastModifiedDate = new Date();
+    }
+    public void addComment(Comment comment) {
+        commentList.add(comment);
+        this.LastModifiedDate = new Date();
+    }
+
+    public Status getStatus()
+    { return status; }
+
+
+    public Integer getId() {
+        return Id;
+    }
+}
