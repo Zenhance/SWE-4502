@@ -6,30 +6,36 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    public class CommandManager : ICommand
+    public class CommandManager
     {
-        public List<ICommand> Commands = new List<ICommand>();
+        private Stack<ICommand> executedCommands = new Stack<ICommand>();
+        private Stack<ICommand> undoneCommands = new Stack<ICommand>();
 
-        public void Execute()
+        public void ExecuteCommand(ICommand command)
         {
-            foreach (var command in Commands)
-            {
-                command.Execute();
-            }
+            command.Execute();
+            executedCommands.Push(command);
+            undoneCommands.Clear();  // Prevent redo after a new command
         }
 
         public void Undo()
         {
-            for (int i = Commands.Count - 1; i >= 0; i--)
+            if (executedCommands.Count > 0)
             {
-                Commands[i].Undo();
+                ICommand lastCommand = executedCommands.Pop();
+                lastCommand.Undo();
+                undoneCommands.Push(lastCommand);
             }
         }
 
-        public String Description() 
+        public void Redo()
         {
-            return "Command Manager";
+            if (undoneCommands.Count > 0)
+            {
+                ICommand redoCommand = undoneCommands.Pop();
+                redoCommand.Execute();
+                executedCommands.Push(redoCommand);
+            }
         }
-
     }
 }

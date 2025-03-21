@@ -6,41 +6,24 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    public class Issue : IClonable
+
+    public class Issue : ICloneable
     {
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public Priority Priority { get; set; }
-        public Status Status { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime LastModifiedDate { get; set; }
+        public Status Status { get; set; } = Status.Open;
+        public DateTime CreationDate { get; set; } = DateTime.Now;
+        public DateTime LastModifiedDate { get; set; } = DateTime.Now;
         public string AssignedTo { get; set; }
-        public String Tags { get; set; }
-        public List<Comment> Comments = new List<Comment>();
-        ICommand command;
+        public List<string> Tags { get; set; } = new List<string>();
+        public List<Comment> Comments { get; set; } = new List<Comment>();
 
-
-        public Issue(int Id, string Title, string Description, Priority Priority, Status Status, DateTime CreationDate, DateTime LastModifiedDate, string AssignedTo, string Tags, List<Comment> Comments)
-        {
-            this.Id = Id;
-            this.Title = Title;
-            this.Description = Description;
-            this.Priority = Priority;
-            this.Status = Status;
-            this.CreationDate = CreationDate;
-            this.LastModifiedDate = LastModifiedDate;
-            this.AssignedTo = AssignedTo;
-            this.Tags = Tags;
-            this.Comments = Comments;
-        }
-
-
-        
-        public IClonable Clone()
+        public object Clone()
         {
             return new Issue
-            (
+            {
                 Id = this.Id,
                 Title = this.Title,
                 Description = this.Description,
@@ -49,14 +32,10 @@ namespace TaskManager
                 CreationDate = this.CreationDate,
                 LastModifiedDate = this.LastModifiedDate,
                 AssignedTo = this.AssignedTo,
-                Tags = this.Tags,
-                Comments = this.Comments
-            );
-        }
-
-        public void ExecuteCommand(ICommand command)
-        {
-            command.Execute();
+                Tags = new List<string>(this.Tags),
+                Comments = new List<Comment>(this.Comments)
+            };
         }
     }
 }
+

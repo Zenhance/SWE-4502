@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    class Email :INotification
+    class NotificationService :IObserver
     {
-        public void NotifyUser()
+        public void Notify()
         {
             Console.WriteLine("Email notification sent");
         }

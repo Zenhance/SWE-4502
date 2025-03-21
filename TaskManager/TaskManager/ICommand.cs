@@ -10,6 +10,7 @@ namespace TaskManager
     {
         void Execute();
         void Undo();
-        string Description();
+        string Description { get; }
     }
+
 }

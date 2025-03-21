@@ -10,7 +10,7 @@ namespace TaskManager
     {
         public List<Issue> Issues = new List<Issue>();
         public List<Dictionary<string, string>> IssueHistory = new List<Dictionary<string, string>>();
-        public void CreateIssue(Issue issue)
+        public void AddIssue(Issue issue)
         {
             Issues.Add(issue);
             Console.WriteLine("Issue created");
@@ -25,6 +25,8 @@ namespace TaskManager
         {
             Console.WriteLine("Issue status changed");
         }
+
+        
 
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TaskManager
 {
-    interface INotification
+    interface IObserver
     {
-        void NotifyUser();
+        public void Notify();
     }
 }
