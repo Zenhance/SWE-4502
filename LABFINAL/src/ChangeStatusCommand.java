@@ -20,5 +20,8 @@ class ChangeStatusCommand implements Command {
     public void undo() {
         issue.changeStatus(previousStatus);
     }
+    public String getDescription() {
+        return "";
+    }
 }
 

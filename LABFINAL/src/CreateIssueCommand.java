@@ -9,4 +9,7 @@ public class CreateIssueCommand implements Command{
 
     public void execute() { repo.addIssue(issue); }
     public void undo() { repo.removeIssue(issue); }
+    public String getDescription() {
+        return "description";
+    }
 }
