@@ -26,4 +26,8 @@ public class Issue
         this.commentList = commentList;
         this.status = status;
     }
+
+    public String getId() {
+        return IssueID;
+    }
 }

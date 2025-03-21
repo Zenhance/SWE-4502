@@ -1,3 +1,5 @@
+import org.example.Issue;
+
 import java.util.HashMap;
 import java.util.Map;
 public class IssueRepository {
