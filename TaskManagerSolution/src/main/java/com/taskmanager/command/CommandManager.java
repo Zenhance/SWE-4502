@@ -27,4 +27,10 @@ public class CommandManager {
             commandStack.push(command);
         }
     }
+
+    public void undoCommand() {
+    }
+
+    public void redoCommand() {
+    }
 }

@@ -15,6 +15,10 @@ public class Comment {
         this.createdAt=createdAt;
     }
 
+    public Comment() {
+
+    }
+
     public String getId() {
         return id;
     }

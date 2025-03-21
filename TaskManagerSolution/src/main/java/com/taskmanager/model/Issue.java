@@ -29,6 +29,10 @@ public class Issue {
         this.tags=tags;
         this.comments=comments;}
 
+    public Issue() {
+
+    }
+
     public String getId() {
         return id;
     }public void setId(String id) {
