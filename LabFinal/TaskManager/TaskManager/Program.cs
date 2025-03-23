@@ -5,23 +5,6 @@ using TaskManager.Subjects;
 
 namespace TaskManager
 {
-    // Domain Models
-
-    // Observer Pattern
-
-    // Command Pattern
-
-    // Repository
-
-    // Extension method for cloning
-
-    // Concrete Observers
-
-    // Application Service
-
-    // UI Layer
-
-    // Program entry point
     public class Program
     {
         public static void Main(string[] args)
@@ -40,7 +23,6 @@ namespace TaskManager
             commandManager.RegisterObserver(notificationService);
             commandManager.RegisterObserver(statisticsCollector);
             
-            // Start the UI
             var ui = new ConsoleUI(issueService);
             ui.Run();
         }
